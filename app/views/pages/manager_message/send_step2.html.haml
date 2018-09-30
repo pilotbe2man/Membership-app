@@ -1,0 +1,35 @@
+= content_for :title, t('messages.message')
+- content_for :page_title, t('dashboard.menu_item.communication')
+- step_size = 5
+- page_step = 2
+.message-dash-container
+  .container
+    .row
+      .col-md-12.breadcrumb-header            
+        %h3= choose_recipient_header
+    .row
+      = render partial: '/shared/progress_bar', locals: {step_size: step_size, page_step: page_step}
+    .row.content-main
+      = form_tag '#', method: :get do
+        .col-md-12      
+          %h4.option-title= t('messages.labels.choose_recipient')      
+        .col-md-12
+          .inline-radio-group{data:{step: "3", intro: t("guideline.manager.message_send_menu.step3.content")}}
+            - Message.allowed_recipients_for_role(current_user.role).each do |target_role|
+              .radio-box
+                %input{:type=>"radio", :name => "target_role", :id => "chk_role_#{target_role}", :style => "display: none;", value: target_role, required: true}
+                %label{:for => "chk_role_#{target_role}"}
+                  = t('pages.nav_bar.'+target_role).humanize.pluralize
+        .col-md-12.form-buttons.text-right.no-h-padding
+          .col-md-3.col-md-offset-6.col-sm-3.col-sm-offset-6.col-xs-6
+            %a{href: '#', class: 'btn btn-gray btn-wizard'} 
+              =t('form_labels.back')
+          .col-md-3.col-sm-3.col-xs-6{data:{step: "4", intro: t("guideline.manager.message_send_menu.step4.content")}}
+            = submit_tag t('form_labels.next'), class: 'btn btn-yellow-red btn-wizard'
+:javascript
+  jQuery(document).ready(function() {
+    healthChildcare.guideline.managerMessageSendStep(2, "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.managerMessageSendStep(2, "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });    
+  });

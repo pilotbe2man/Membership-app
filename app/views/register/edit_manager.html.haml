@@ -1,0 +1,42 @@
+.reg-manager-container.page-boxed
+  .page-header
+  .container
+    .form-content           
+      #rootwizard
+        %ul{:style=> "visibility: hidden; height: 0; position:absolute;"}
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab1"} First
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab2"} Second
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab3"} Second
+        = form_for @daycare, url: update_daycare_path(role: current_user.role), html: { method: :PATCH} do |daycare|        
+          .tab-content
+            #tab1.tab-pane
+              = render 'pane_edit_manager_info', daycare: daycare
+            #tab2.tab-pane
+              = render 'pane_manager_depart', daycare: daycare
+            #tab3.tab-pane
+              = render 'pane_manager_person', daycare: daycare
+            .col-sm-12
+              %ul.pager.wizard.text-left
+                %li.previous
+                  %button.btn.btn-round.item-manager{:type => "button"} 
+                    =t('register.labels.previous')
+                %li.next{:style => "float:right;"}
+                  %button.btn.btn-round.item-manager{:type => "button"} 
+                    =t('register.labels.next')
+                %li.previous.first{:style => "display:none;"}
+                  %a{:href => "#"} First
+                %li.next.last{:style => "display:none;"}
+                  %a{:href => "#"} Last
+:javascript
+  jQuery(document).ready(function() {    
+    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'}); 
+    $('.next button').click(function(){
+      var tab_id = $('.tab-pane.active').attr('id');
+      if(tab_id == "tab3") {
+        $('form').submit();
+      }
+    });
+  });

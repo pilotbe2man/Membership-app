@@ -1,0 +1,18 @@
+<div class="field">
+    <div class="form-group">
+        <%= f.label :title, 'Key Task' %>
+        <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+        <%= f.label :description, 'Description of Key Task' %>
+        <%= f.text_area :description, :class => 'form-control' %>
+    </div>
+
+    <%= f.fields_for :sub_tasks do |sub_task| %>
+      <%= render partial: 'sub_task_fields', locals: {f: sub_task} %>
+    <% end %>
+
+    <%= custom_link_to_add_fields "Add Sub-task", f, :sub_tasks, {class:"subtask-link add"} %>
+
+    <%= custom_link_to_remove_fields "Remove Task", f %>
+</div>

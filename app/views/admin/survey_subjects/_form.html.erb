@@ -1,0 +1,45 @@
+<%= form_for [:admin, @subject], url: url do |f| %>
+    <div class="threecol"></div>
+    <div class="ninecol last">
+        <%= render partial: 'shared/admin/errors', locals: { object: @subject } %>
+    </div>
+
+    <div class="threecol">
+        <h3><%= t('admin.survey_subjects._form.heading')%></h3>
+        <p><%= t('admin.survey_subjects._form.para')%></p>
+    </div>
+
+    <div class="ninecol last">
+        <fieldset class="widget widget-content">
+            <div class="form-group">
+                <%= f.label :title %>
+                <%= f.text_field :title, :class => 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :description %>
+                <%= f.text_area :description, :class => 'form-control' %>
+            </div>
+            <div class="form-group form-last">
+                <%= f.label :language %>
+                <%= f.select :language, options_for_select(pre_countries, :selected => f.object.language), {},{:class => 'form-control'} %>
+            </div>
+        </fieldset>
+    </div>
+    <div class="threecol">
+        <h3><%= t('admin.survey_subjects._form.heading1')%></h3>
+        <p><%= t('admin.survey_subjects._form.para2')%></p>
+    </div>
+    <div class="ninecol last">
+        <fieldset class="widget widget-content widget-last">
+            <%= image_tag @subject.icon.file unless @subject.icon.nil? %>
+            <div class="form-group form-last">
+                <%= f.fields_for :icon do |ff| %>
+                <%= ff.file_field :file %>
+                <% end %>
+            </div>
+        </fieldset>
+        <div class="form-action">
+            <%= f.submit 'Submit', :class => 'btn btn-blue btn-large' %>
+        </div>
+    </div>
+<% end %>

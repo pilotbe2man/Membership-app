@@ -1,0 +1,15 @@
+#edit-medical-professional-modal.modal.fade{tabindex: '-1', role: 'dialog', 'aria-labelledby': 'edit-medical-professional-modal'}
+  .modal-dialog{role: 'document'}
+    .modal-content
+      .modal-header
+        %button.close{'data-dismiss': 'modal', 'aria-label': 'Close'}
+          %span{'aria-hidden': true} &times;
+
+        %h4.modal-title= t('discussions.labels.edit_medical_professional_info')
+
+      .modal-body
+        allow edit here
+
+      .modal-footer
+        %button.btn.btn-default{'data-dismiss': 'modal'}= t('form_labels.cancel')
+        %button.btn.btn-primary#submit-edit-medical-professional-form= t('form_labels.save')

@@ -1,0 +1,214 @@
+= form_for [:manager, @todo], :html => { :multipart => true, :autocomplete => 'off' } do |f|
+  .container.todo-dash-container.manager-todos-container
+    .row
+      - if @errors.present? && @errors.any?
+        #error_explanation
+          %h2
+            = pluralize(@errors.count, "error")
+            prohibited this todo from being saved:
+          %ul
+            - @errors.each do |message|
+              %li= message
+      .col-md-12.form-group
+        = f.label :title, t('manager.todos.new.title')
+        = f.text_field :title, :class => 'form-control'
+      .col-md-12.form-group
+        = f.label :department_ids, t('manager.todos.new.departments')
+        = f.select :department_ids, options_from_collection_for_select(@departments, 'id', 'name'), {},  class: 'form-control department-select', multiple: "multiple"
+      .col-md-12.form-group
+        = f.label :iteration_type, t('manager.todos.new.iteration_type')
+        = f.select :iteration_type, Todo.iteration_types.keys.map {|type| [t("iteration_types.#{type.downcase}"),type]}, {}, :class => 'form-control iteration-selector'
+      .col-md-12.form-group.frequency-fields
+        = f.label :frequency, t('manager.todos.new.frequency')
+        = f.select :frequency, Todo.frequencies.keys.map {|type| [type.titleize,type]}, {}, :class => 'form-control frequency-selector'
+      .col-md-12.form-group.frequency-daily-fields
+        = f.label :start_date, t('manager.todos.new.start_date')
+        = f.text_field :start_date, :class => 'form-control datetimepicker-date'
+      .col-md-12.form-group.frequency-weekly-fields
+        %ul.weekday-list
+          - [0, 1, 2, 3, 4, 5, 6].each do |day_index|
+            %li.check-box
+              %input{:type=>"checkbox", :name => "start_days[]", :id => "start_day_#{day_index}", :style => "display: none;", checked: false, value: "#{day_index}"}
+              %label{:for => "start_day_#{day_index}"}
+                =Date::DAYNAMES[day_index].first(3).capitalize
+      .col-md-12.form-group
+        = f.label t('manager.todos.new.completion_date')
+
+        .form-coupling.date-select-wrapper.quantity
+          = f.text_field :completion_date_value, :class => 'form-control', type: 'number', min: 1
+          = f.select :completion_date_type, Todo.completion_date_types.keys.map {|type| [type.split('_').last.titleize,type]}, {}, :class => 'form-control date-select'
+      .col-md-12.form-group
+        = f.hidden_field :language, :value => I18n.locale.downcase
+        = f.hidden_field :daycare_id, :value => current_user.daycare.id
+      .col-md-12.form-group.text-center
+        = custom_link_to_add_fields t('manager.todos.new.add_key_task'), f, :tasks, class: 'add-task'
+  .tasks-container
+    .container.todo-dash-container
+      .row
+        #tasks.fields.col-md-12
+          = f.fields_for :tasks do |ff, index |
+            = render partial: 'task_fields', locals: { f: ff }
+        .col-md-12.form-group.text-center.submit-task-btn-wrapper
+          = f.submit t('manager.todos.new.save_task'), :class => 'btn btn-blue save-task'
+          .clearfix
+/ .threecol
+/     %h3 Departments
+/     %p Assign the relevant departments for your todo.
+/   .ninecol.last
+/     %fieldset.widget.widget-content.widget-last
+/       .form-group.form-last
+/         = f.collection_select :department_ids, @departments, :id, :name, {}, {:class => 'chosen', multiple: true, data: {placeholder: "Select departments..."}}
+/     .form-action
+/       = f.submit 'Submit', :class => 'btn btn-blue btn-large'
+
+:javascript
+  jQuery(document).ready(function() {
+    $('.department-select').SumoSelect({ okCancelInMulti: false, selectAll: false });
+    $('.iteration-selector').SumoSelect();
+    $('.frequency-selector').SumoSelect();
+    $('.date-select').SumoSelect();
+
+    $(document).on('click', '.remove-key-task-description', function(){
+      $(this).parent().remove();
+    });
+
+    $('#new_todo').on('submit', function(){
+      if($('#todo_title').val() == ''){
+        alert("#{t('manager.todos.validation.require_title')}");
+        return false;
+      }
+
+      if($('#todo_department_ids').val() == ''){
+        alert("#{t('manager.todos.validation.require_department')}");
+        return false;
+      }
+
+      if($('#todo_iteration_type').val() == 'single' && $('#todo_start_date').val() == ''){
+        alert("#{t('manager.todos.validation.require_start_date')}");
+        return false;
+      }
+
+      if($('#todo_iteration_type').val() == 'recurring'){
+        if(($('#todo_frequency').val() == 'day' || $('#todo_frequency').val() == 'month') && $('#todo_start_date').val() == ''){
+          alert("#{t('manager.todos.validation.require_start_date')}");
+          return false;
+        }
+      }
+
+      if($('#todo_iteration_type').val() == 'recurring'){
+        if($('#todo_frequency').val() == 'week' && $('input[name="start_days[]"]:checked').length == 0){
+          alert("#{t('manager.todos.validation.require_week_day')}");
+          return false;
+        }
+      }
+
+      if($('#todo_completion_date_value').val() == ''){
+        alert("#{t('manager.todos.validation.require_complete_date')}");
+        return false;
+      }
+
+
+      var isValidate = true;
+      $('.key-task-title').each(function(index, value){
+        if($(this).val() == '') isValidate = false;
+      });
+
+      if(!isValidate){
+          alert("#{t('manager.todos.validation.require_key_task')}");
+          return false;
+      }
+
+      isValidate = true;
+      $('.key-task-description').each(function(index, value){
+        if($(this).val() == '') isValidate = false;
+      });
+
+      if(!isValidate){
+          alert("#{t('manager.todos.validation.require_description')}");
+          return false;
+      }
+      isValidate = true;
+      $('.sub-task-title').each(function(index, value){
+        if($(this).val() == '') isValidate = false;
+      });
+
+      if(!isValidate){
+          alert("#{t('manager.todos.validation.require_sub_task')}");
+          return false;
+      }
+
+      return true;
+    });
+
+    $('#todo_frequency').on('change', function(){
+      validate_completion_type();
+    });
+
+    $('#todo_iteration_type').on('change', function(){
+      validate_completion_type();
+    });
+
+    function validate_completion_type(){
+      switch(jQuery('#todo_iteration_type').val()){
+        case 'single':
+          jQuery('#todo_completion_date_type option').show();
+          break;
+        case 'recurring':
+          jQuery('#todo_completion_date_type option').hide();
+          switch(jQuery('#todo_frequency').val()){
+            case 'day':
+              jQuery(jQuery('#todo_completion_date_type option')[4]).show();
+              jQuery('#todo_completion_date_type').val('completion_hour');
+              break;
+            case 'week':
+              jQuery(jQuery('#todo_completion_date_type option')[4]).show();
+              jQuery(jQuery('#todo_completion_date_type option')[0]).show();
+              jQuery('#todo_completion_date_type').val('completion_day');
+              break;
+            case 'month':
+              jQuery(jQuery('#todo_completion_date_type option')[4]).show();
+              jQuery(jQuery('#todo_completion_date_type option')[0]).show();
+              jQuery(jQuery('#todo_completion_date_type option')[1]).show();
+              jQuery('#todo_completion_date_type').val('completion_day');
+              break;
+          }
+          break;
+      }
+    }
+
+    validate_completion_type();
+
+
+    jQuery('<div class="quantity-nav"><div class="quantity-button quantity-up"><i></i></div><div class="quantity-button quantity-down"><i></i></div></div>').insertAfter('.quantity input');
+    jQuery('.quantity').each(function() {
+      var spinner = jQuery(this),
+        input = spinner.find('input[type="number"]'),
+        btnUp = spinner.find('.quantity-up'),
+        btnDown = spinner.find('.quantity-down'),
+        min = input.attr('min'),
+        max = input.attr('max');
+
+      btnUp.click(function() {
+        var oldValue = parseFloat(input.val());
+        if (oldValue >= max) {
+          var newVal = oldValue;
+        } else {
+          var newVal = oldValue + 1;
+        }
+        spinner.find("input").val(newVal);
+        spinner.find("input").trigger("change");
+      });
+
+      btnDown.click(function() {
+        var oldValue = parseFloat(input.val());
+        if (oldValue <= min) {
+          var newVal = oldValue;
+        } else {
+          var newVal = oldValue - 1;
+        }
+        spinner.find("input").val(newVal);
+        spinner.find("input").trigger("change");
+      });
+
+    });
+  });

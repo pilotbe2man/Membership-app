@@ -1,0 +1,22 @@
+<%= form_for [:admin, @subject] do |f| %>
+	<div class="threecol"></div>
+	<div class="ninecol last">
+		<%= render partial: 'shared/admin/errors', locals: { object: @subject } %>
+	</div>
+
+	<div class="threecol">
+		<h3><%= t('admin.subjects._form.heading')%></h3>
+		<p><%= t('admin.subjects._form.para')%></p>
+	</div>
+	<div class="ninecol last">
+		<fieldset class="widget widget-content widget-last">
+			<div class="form-group form-last">
+				<%= f.label :title %>
+				<%= f.text_field :title, :class => 'form-control' %>
+			</div>
+		</fieldset>
+		<div class="form-action">
+			<%= f.submit 'Submit', :class => 'btn btn-blue btn-large' %>
+		</div>
+	</div>
+<% end %>

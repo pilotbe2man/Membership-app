@@ -1,0 +1,51 @@
+.reg-worker-container.page-boxed
+  .page-header
+  .container
+    .form-content        
+      #rootwizard
+        %ul{:style=> "visibility: hidden; height: 0; position:absolute;"}
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab1"} First
+        .tab-content
+          #tab1.tab-pane
+            .row.text-center.step-banner
+              = image_tag 'worker-md.png'
+              %h4=t('account.daycare.worker')
+            .row.pane-container.text-center
+              = form_tag worker_select_daycare_path, method: :get
+              .row
+                .col-sm-6.col-xs-12.text-left
+                  %h4 Daycare
+                  .row
+                    %input{type: "radio", value:"2", name:"option"} 
+                      =t('register.caretype.ind')
+                  .row
+                    %input{type: "radio", value:"3", name:"option"} 
+                      =t('register.caretype.fra')
+                  .row
+                    %input{type: "radio", value:"4", name:"option"} 
+                      =t('register.caretype.gov')
+
+          .col-sm-12
+            %ul.pager.wizard.text-left
+              %li.previous
+                %button.btn.btn-round.item-worker{:type => "button"} 
+                  =t('register.labels.previous')
+              %li.next{:style => "float:right;"}
+                %button.btn.btn-round.item-worker{:type => "button"} 
+                  =t('register.labels.next')
+              %li.previous.first{:style => "display:none;"}
+                %a{:href => "#"} First
+              %li.next.last{:style => "display:none;"}
+                %a{:href => "#"} Last
+
+:javascript
+  jQuery(document).ready(function() {   
+    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'}); 
+    $('.next button').click(function(){
+      var tab_id = $('.tab-pane.active').attr('id');
+      if(tab_id == "tab1"){        
+        $('form').submit();
+      }
+    });
+  });

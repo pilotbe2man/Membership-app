@@ -1,0 +1,40 @@
+= content_for :title, 'Permission'
+= content_for :breadcrumb, 'Permission'
+
+.twelvecol
+  .page-header
+    %h2.widget.widget-header
+      = "Permissions / #{@type_label} / #{@daycare.name unless @daycare.nil?} / #{@group_label}"
+
+  .widget.widget-content.row
+    %form{action: '/admin/permissions/change', method: :post}
+      %input{type: :hidden, name: 'type', value: params[:type]}
+      %input{type: :hidden, name: 'option', value: params[:option]}
+      %input{type: :hidden, name: 'group', value: params[:group]}
+      %input{type: :hidden, name: 'daycare', value: params[:daycare]}
+      .table-responsive
+        %table.table.table-striped.table-bordered.table-hover
+          %thead
+            %tr
+              %th Name
+              %th User Plan Mode Limit
+              %th Deposit Mode Limit
+          %tbody
+            - @permissions.each do |item|
+              %tr
+                %td
+                  %input{type: 'hidden', value: item.id, name: "id[]"}
+                  - if item.active
+                    %input{type: 'checkbox', value: item.feature, name: "feature_#{item.id}", checked: ''}
+                      =item.feature_label
+                  - else
+                    %input{type: 'checkbox', value: item.feature, name: "feature_#{item.id}"}
+                      =item.feature_label                  
+                %td
+                  - unless params[:option].to_i == 0 || params[:option].to_i == 1
+                    = select_tag "plan[]", options_for_select(assign_plan_list, selected_key = item.plan), {class: 'form-control'}
+                %td
+                  - unless params[:option].to_i == 0 || params[:option].to_i == 1
+                    = select_tag "plan_deposit[]", options_for_select([['Free Phase', 0], ['Paid Phase', 1]], selected_key = item.plan_deposit), {class: 'form-control'}
+
+      %button.btn.btn-blue.btn-large Submit

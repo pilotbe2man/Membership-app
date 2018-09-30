@@ -1,0 +1,25 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, manager_reports_todos_root_path
+.todo-dash-container
+  .container
+    .row.report-date-box
+      .col-md-12
+        %h4
+          =t('manager.todos.report.range_title', title: @todo.title.titleize).html_safe
+      .row
+        = form_tag manager_reports_todo_select_todo_result_path(@todo), method: :get, autocomplete: 'off' do
+          .col-md-4.col-sm-4.col-xs-12.form-group
+            = hidden_field_tag :department, params[:department]
+            = label_tag t('form_labels.start_date')
+            .form-prefix
+              = text_field_tag :start_date, params[:start_date], :class => 'datetimepicker form-control', :required => "true"
+              %span
+                %i.icon-calendar
+          .col-md-4.col-sm-4.col-xs-12.form-group
+            = label_tag t('form_labels.end_date')
+            .form-prefix
+              = text_field_tag :end_date, params[:end_date], :class => 'datetimepicker form-control', :required => "true"
+              %span
+                %i.icon-calendar
+          .col-md-4.col-sm-4.col-xs-12.form-group.submit-wrapper
+            = submit_tag t('manager.todos.labels.generate_report'), :class => 'btn btn-lightred btn-block'

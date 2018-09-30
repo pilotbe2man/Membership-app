@@ -1,0 +1,44 @@
+.message-dash-container
+  .container
+    = form_tag select_daycare_partner_todos_path, method: :get do
+      .row
+        .col-md-4
+          .form-group
+            = label_tag :start_date, t('form_labels.start_date')
+            = text_field_tag :start_date, params['start_date'], class: 'datepicker form-control datetime-input', autocomplete: 'off'
+
+        .col-md-4
+          .form-group
+            = label_tag :end_date, t('form_labels.end_date')
+            = text_field_tag :end_date, params['end_date'], class: 'datepicker form-control datetime-input', autocomplete: 'off'
+        .col-md-4.form-buttons.filter-buttons.centralize
+          %input{type: 'submit', value: t('survey.labels.results'), class: 'btn btn-lightred', id: 'apply-survey-filters'}
+          / = link_to t('survey.labels.results'), '#', class: 'btn btn-lightred', id: 'apply-survey-filters'
+      .row.content-main
+        .col-md-3
+          %h4.option-title= t('survey.labels.choose_daycare')      
+          .table-responsive
+            %table.table.table-striped.table-bordered.table-hover
+              %thead
+                %tr
+                  %th= t('survey.labels.municipal_name')
+              %tbody
+                - municipal_list.each do |item|
+                  %tr
+                    %td
+                      %input.todo-municipal-radio{type: "radio", value:item[1], name:"target_municipal"}
+                        =item[0]
+        .col-md-9.survey-result-dash-container
+          / = form_tag results_partner_todos_path, method: :post, id: 'todo_result_form' do
+          .row.survey-subjects
+            - Todo.global.each_with_index do |todo, idx|
+              .survey-subject
+                - if current_user.affiliate.strategic?
+                  .radio-box
+                    - if params[:todo_id].to_i == todo.id.to_i
+                      %input.municipal-todo-radio{:type=>"radio", :name => "todo_id", :id => "radio#{todo.id}", :style => "display: none;", value: todo.id, 'data-current_role': @current_user.role, checked: ''}
+                    - else
+                      %input.municipal-todo-radio{:type=>"radio", :name => "todo_id", :id => "radio#{todo.id}", :style => "display: none;", value: todo.id, 'data-current_role': @current_user.role}            
+                    %label{:for => "radio#{todo.id}"}
+                      %span{style: "line-height: 20px;"}= todo.title
+          .row.survey-charts

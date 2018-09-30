@@ -1,0 +1,104 @@
+- content_for :page_title, t('permissions.section_b')
+- content_for :breadcrumb, t('permissions.section_b')
+.manager-dash-container
+  .container
+    .row.content-main
+      #main-menu.apply-customer
+        .menu-items.col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1.col-xs-12.col-xs-offset-0
+          .col-md-12.col-sm-8.col-md-offset-0.col-sm-offset-2.col-xs-offset-0.col-xs-12
+            .bg-style-b-g.bg-title
+              = t("permissions-b.title1")
+          - permissions_num = 0
+          - title2_set = false
+          - @permissions.each do |permission|
+            - if permission.active
+              - if (permission.feature=='illness_guide' || (permission.feature == 'message' && !title2_set)) && permissions_num > 1
+                .col-md-12.col-sm-8.col-md-offset-0.col-sm-offset-2.col-xs-offset-0.col-xs-12
+                  .bg-style-b-g.bg-title
+                    = t("permissions-b.title2")
+                - title2_set = true
+              - if permission.feature == 'todo-b'
+                .col-md-12.col-sm-8.col-md-offset-0.col-sm-offset-2.col-xs-offset-0.col-xs-12
+                  .bg-style-b-g.bg-title
+                    = t("permissions-b.title3")
+              .col-md-6.col-sm-8.col-xs-12.col-md-offset-0.col-sm-offset-2.col-xs-offset-0.sub-item
+                - if current_user.daycare.pay_mode == 1
+                  -if current_user.manager_is_non_paid?
+                    - if permission.plan_deposit == 0
+                      = link_to permission.path, id: permission.element, class: 'border-style-1' do
+                        = image_tag image_url("new_style_icons/#{permission.feature}.png")
+                        .function-name=t(permission.label_key)
+                        .bottom-buttons
+                          %btn.btn.bg-style-b
+                            %i.key-icon
+                            = t('permissions.button-access')
+                          - if ManagerVideo.exists?(video_type: permission.feature, category: 'free')
+                            %btn.btn.bg-white{'data-toggle'=>"modal", 'data-target'=>"#videoModal", 'data-type' => permission.feature}
+                              %i.video-icon
+                              = t('permissions.button-video')
+                    - else
+                      = link_to '#', id: permission.element, class: 'border-style-1' do
+                        = image_tag image_url("new_style_icons/#{permission.feature}.png")
+                        .function-name=t(permission.label_key)
+                        .bottom-buttons
+                          %btn.btn.bg-style-b
+                            %i.key-icon
+                            = t('permissions.button-access')
+                          - if ManagerVideo.exists?(video_type: permission.feature, category: 'paid')
+                            %btn.btn.bg-white{'data-toggle'=>"modal", 'data-target'=>"#videoModal", 'data-type' => permission.feature}
+                              %i.video-icon
+                              = t('permissions.button-video')
+                  - else
+                    = link_to permission.path, id: permission.element, class: 'border-style-1' do
+                      = image_tag image_url("new_style_icons/#{permission.feature}.png")
+                      .function-name=t(permission.label_key)
+                      .bottom-buttons
+                        %btn.btn.bg-style-b
+                          %i.key-icon
+                          = t('permissions.button-access')
+                        - if ManagerVideo.exists?(video_type: permission.feature, category: 'paid')
+                          %btn.btn.bg-white{'data-toggle'=>"modal", 'data-target'=>"#videoModal", 'data-type' => permission.feature}
+                            %i.video-icon
+                            = t('permissions.button-video')
+                - else
+                  - if current_user.manager_plan_type >= permission.plan
+                    = link_to permission.path, id: permission.element, class: 'border-style-1' do
+                      = image_tag image_url("new_style_icons/#{permission.feature}.png")
+                      .function-name=t(permission.label_key)
+                      .bottom-buttons
+                        %btn.btn.bg-style-b
+                          %i.key-icon
+                          = t('permissions.button-access')
+                        - if ManagerVideo.exists?(video_type: permission.feature, category: 'paid')
+                          %btn.btn.bg-white{'data-toggle'=>"modal", 'data-target'=>"#videoModal", 'data-type' => permission.feature}
+                            %i.video-icon
+                            = t('permissions.button-video')
+                  - else
+                    = link_to '#', id: permission.element, class: 'border-style-1' do
+                      = image_tag image_url("new_style_icons/#{permission.feature}.png")
+                      .function-name=t(permission.label_key)
+                      .bottom-buttons
+                        %btn.btn.bg-style-b
+                          %i.key-icon
+                          = t('permissions.button-access')
+                        - if ManagerVideo.exists?(video_type: permission.feature, category: 'paid')
+                          %btn.btn.bg-white{'data-toggle'=>"modal", 'data-target'=>"#videoModal", 'data-type' => permission.feature}
+                            %i.video-icon
+                            = t('permissions.button-video')
+
+
+/ Modal
+#videoModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-dialog-1.modal-lg{:role => "document"}
+    .modal-content
+      .modal-body.no-padding-top
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"}
+            %img{:alt => "", :src => "/assets/close-color.png"}/
+        .row.row-flex
+          .col-xs-12.col-sm-6.col-flex
+            #all-videos
+              - @videos.each do |video|
+                %div.video-content{id: "video-#{video.video_type}"}
+                  %div{:style => "width: 100%; height: 0px; position: relative; padding-bottom: 86.612%;"}
+                    %iframe{:allowfullscreen => "", :frameborder => "0", :height => "100%", :src => video.url, :style => "width: 100%; height: 100%; position: absolute;", :width => "100%"}

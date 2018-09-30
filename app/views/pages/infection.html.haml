@@ -1,0 +1,19 @@
+#legacy-back-one
+  .container.back-page-content
+    .row.back-page
+      .col-md-12
+        .infect-heading
+          = image_tag 'back_page.png'
+          %h2= t('pages.infection.main_heading')
+          %p= t('pages.infection.para1')
+      .col-md-6.left-side
+        - @subjects.each do |subject|
+          .single
+            = image_tag subject.icon.file unless subject.icon.nil?
+            %h2= subject.title
+            %p= subject.description
+            %h4.click-here
+              - if current_user.manager?
+                = link_to 'Click here to access infection risk assessment for this module', manager_subject_results_path(subject)
+              - else
+                = link_to 'Click here to access infection risk assessment for this module', subject.user_has_previous_attempts?(current_user) ?  results_subject_path(subject) : new_subject_attempt_path(subject)

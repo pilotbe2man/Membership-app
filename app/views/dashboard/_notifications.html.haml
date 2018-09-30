@@ -1,0 +1,37 @@
+.notification-box.border-style-1
+  .row
+    %span.panel-title=t('dashboard.notifications.title')
+  .row.panel-content
+    - if current_user.role == "worker"
+      %span.item-title 
+        = image_tag 'todo-md.png'
+        =t('dashboard.notifications.todo_list')
+        .row.item-content
+          - User.self_available_todos.where(id: current_user.id).each_with_index do |todo, idx|
+            - if Todo.find(todo.id).recurring_available
+              .col-md-2.col-sm-3.col-xs-3.text-center
+                %span.item-number
+                  = idx + 1
+              .col-md-10.col-sm-9.col-xs-9.no-h-padding
+                = link_to todo_todo_completes_path(todo), method: :post do
+                  %span.item-description 
+                    = truncate(todo.title, length: 20)
+    %span.item-title{id: 'item_nofity_message'} 
+      = image_tag 'message-md.png'
+      =t('dashboard.notifications.messages')
+    .row.item-content
+      / - @notifications_by_sender.each do |sender|
+      - index = 0
+      - cou = []
+      - notif_per_source_type(@notifications, 'Message').each do |notif|    
+        - if !notif.source_owner.nil? and !cou.include? notif.source.owner.name
+          - cou << notif.source.owner.name
+          .col-md-2.col-sm-3.col-xs-3.text-center
+            %span.item-number 
+              / = sender.count_message
+              - index = index + 1
+              = index
+          .col-md-10.col-sm-9.col-xs-9.no-h-padding
+            = link_to list_messages_path(role: current_user.role, list_type: 'received', notification_id: notif.id)  do
+              %span.item-description 
+                = notif_sender_name(notif)

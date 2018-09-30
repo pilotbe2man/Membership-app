@@ -1,0 +1,26 @@
+.panel.panel-default
+  - if current_user.parentee?
+    .panel-heading
+      = t('discussions.labels.collaborators')
+  .panel-body
+    %ul.list-group.collaborators
+      - @active_child.collaborators.each do |child_collaborator|
+        %li.list-group-item.collaborator{'data-collaborator_id': child_collaborator.collaborator_id, 'data-collaborator_type': child_collaborator.collaborator_type}
+          - if child_collaborator.collaborator.kind_of?(Department)
+            = image_tag daycare_logo(child_collaborator.collaborator.daycare), class: 'img'
+          - elsif child_collaborator.collaborator.kind_of?(User) && child_collaborator.collaborator.medical_professional?
+            = image_tag child_collaborator.collaborator.user_profile.profile_image.file.url
+          - else
+            = image_tag 'parent.png', class: 'img'
+          %p= child_collaborator.collaborator.name
+
+      - if current_user.parentee?
+        - @active_child.pending_collaborations.each do |pending_collaborator|
+          = render partial: 'pending_invite', locals: {email: pending_collaborator.invitee_email}
+
+        %li.list-group-item
+          %button.btn.btn-success.btn-raised{'data-toggle': 'modal', 'data-target': '#invite-collaborator-modal'}
+            %i.glyphicon.glyphicon-plus
+            Invite
+
+        = render 'collaboration_invite_form'

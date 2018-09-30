@@ -1,0 +1,226 @@
+*
+{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+*, *:before, *:after
+{
+    @include box-sizing(border-box);
+}
+body
+{
+    font-family: 'OpenSans', sans-serif;
+    /*font-size:1em;*/
+    color:$dark-grey;
+    /*line-height:1.3em;*/
+    margin:0;
+}
+h1,h2,h3
+{
+    font-weight:100;
+}
+hr
+{
+    border-color: $grey;
+    color: $grey;
+    background-color: $grey;
+    height:1px;
+}
+.page-header
+{
+        h2
+        {
+            margin-top:0px;
+            padding:0 0 20px;
+            border-bottom: 1px solid $grey;
+            font-weight:100;
+        }
+        .btn
+        {
+            float:right;
+            border-left:10px solid #f0f0f0;
+        }
+}
+a
+{
+    text-decoration: none;
+    color:$blue;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout:none;
+    cursor: pointer;
+        &:hover
+        {
+            color:$green;
+        }
+}
+p
+{
+    margin:0 0 10px;
+}
+.green
+{
+    color: $green;
+}
+.red
+{
+    color: $red;
+}
+.yellow{
+    color: $yellow;   
+}
+
+body
+{
+/*
+    &.worker
+    {
+        header
+        {
+            .dropdown
+            {
+                ul
+                {
+                    li
+                    {
+                        &:hover
+                        {
+                            background-color: $orange !important;
+                        }
+                        a
+                        {
+                            color: $orange;
+                        }
+                    }
+                }
+            }
+        }
+        form
+        {
+            input[type=submit]
+            {
+                background-color: $orange;
+            }
+        }
+    }
+    &.parentee
+    {
+        header
+        {
+            background-color: $purple;
+
+            .dropdown
+            {
+                ul
+                {
+                    li
+                    {
+                        &:hover
+                        {
+                            background-color: $purple !important;
+                        }
+                        a
+                        {
+                            color: $purple;
+                        }
+                    }
+                }
+            }
+        }
+        form
+        {
+            input[type=submit]
+            {
+                background-color: $purple;
+            }
+        }
+    }
+    &.medical-professional
+    {
+        header
+        {
+            background-color: $twitter-blue;
+
+            .dropdown
+            {
+                ul
+                {
+                    li
+                    {
+                        &:hover
+                        {
+                            background-color: $twitter-blue !important;
+                        }
+                        a
+                        {
+                            color: $twitter-blue;
+                        }
+                    }
+                }
+            }
+        }
+        form
+        {
+            input[type=submit]
+            {
+                background-color: $twitter-blue;
+            }
+        }
+    }
+*/
+}
+
+.alert.alert-warning {
+  img {
+    height: 50px;
+    margin-right: 12px;
+  }
+}
+
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;    
+    top: 0;
+    right: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0px 6px 6px;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #383a3b;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}

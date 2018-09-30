@@ -1,0 +1,81 @@
+= content_for :title, t('illnesses.illness')
+- content_for :page_title, t('illnesses.illness')
+.illness-dash-container
+  .container
+    .row
+      .col-md-12
+        %h4.option-title= t('illnesses.illness')
+    .row.content-main.illnesses
+      .col-md-12.wizard.clearfix.vertical
+        .steps.clearfix
+          %ul{:role => "tablist"}
+            %li.first.done
+              %a#new-child-record-t-0
+                %span.current-info.audible current step:
+                %span.number 1.
+                = t('illnesses.labels.department_details')
+            %li.done
+              %a#new-child-record-t-1
+                %span.number 2.
+                = t('illnesses.labels.illness_details')
+            %li.done
+              %a#new-child-record-t-2
+                %span.number 3.
+                = t('illnesses.labels.additional_actions')
+            %li.current
+              %a#new-child-record-t-3
+                %span.number 4.
+                = t('illnesses.labels.worker_confirmation')
+        .content.clearfix
+          %section.worker-department.body.current
+            .row
+              %h5= t('illnesses.labels.worker_details_fill_up')
+            .row{data:{step: 10, intro: t("guideline.worker.illness_add_depart.step10.content")}}
+              .col-md-6
+                %h3= t('illnesses.labels.select_department')
+                %div
+              .col-md-6
+                .radio-box-group
+                  .radio-box
+                    %input#chk_work_depart_5{:required => "true", :style => "display: none;", :type => "radio", :value => "5", checked: true, name: "record"}
+                    %label{:for => "chk_work_depart_5"}
+                      1 to 2 years old
+                  .radio-box
+                    %input#chk_work_depart_6{:required => "true", :style => "display: none;", :type => "radio", :value => "6", name: "record"}
+                    %label{:for => "chk_work_depart_6"}
+                      3 to 4 years old
+            .row.worker-names{data:{step: 11, intro: t("guideline.worker.illness_add_depart.step11.content")}}
+              .col-md-12
+                %h3= t('illnesses.labels.worker_name')
+                .form-dc-select.form-group
+                  %select.form-control{:name => "worker[id]"}
+                    %option{:value => ""} Select Worker
+                    %option{:value => "7", selected: true} WorkerUser
+            .row.worker-profile
+              .col-md-12
+                %h5= t('illnesses.labels.worker_details')
+                %dl.dl-horizontal
+                  %dt= t('illnesses.labels.name')
+                  %dd WorkerUser
+                  %dt= t('illnesses.labels.email')
+                  %dd worker@local.com
+                  %dt= t('illnesses.labels.department')
+                  %dd 1 to 2 years old
+              .col-md-12{data:{step: 12, intro: t("guideline.worker.illness_add_depart.step12.content")}}
+                %h5= t('illnesses.labels.confirmation_pw')
+                %input#worker_password.form-control{:name => "worker[password]", :required => "required", :type => "password"}/
+        .actions.clearfix
+          %ul{"aria-label" => "Pagination", :role => "menu"}
+            %li.disabled{"aria-disabled" => "true"}
+              %a{:href => "#previous", :role => "menuitem"}=t('form_labels.previous')
+            %li{"aria-disabled" => "false", "aria-hidden" => "false", :style => "display: none;"}
+              %a{:href => "#next", :role => "menuitem"}=t('form_labels.next')
+            %li{"aria-hidden" => "true"}
+              %a{:href => "#finish", :role => "menuitem",  data:{step: 13, intro: t("guideline.worker.illness_add_depart.step13.content")}}=t('form_labels.submit')
+:javascript
+  jQuery(document).ready(function() {
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.introGoToStep('dash', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });       
+    healthChildcare.guideline.introGoToStep('dash', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+  });

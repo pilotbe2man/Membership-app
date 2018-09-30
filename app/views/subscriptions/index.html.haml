@@ -1,0 +1,254 @@
+.legacy-upgrade
+  .container
+    .row
+      - if current_user.plan_type == 0
+        .col-md-6.col-sm-6.col-xs-12.upgrade-plan
+          .row
+            %h2=t('pages.upgrade.title')
+            = hidden_field_tag :notif_plan_id, 1
+          .row.round-box.price-plan-desc
+            %h2 
+              =t('pages.upgrade.description', num_child: current_user.daycare.departments.count, currency_symbol: @currency.symbol)
+            / %p=t('pages.upgrade.para1', num_child: current_user.daycare.departments.count, amount: @plan.price, currency_symbol: @currency.symbol)
+          .row.round-box        
+            = form_for @transaction, method: :post do |f|
+              %h4.text-center= t('pages.upgrade.box_title')
+              .row
+                / - if @subscription.errors.any?
+                /   .error_messages
+                /     %h2
+                /       = pluralize(@subscription.errors.count, "error")
+                /       prohibited this subscription from being saved:
+                /     %ul
+                /       - @subscription.errors.full_messages.each do |msg|
+                /         %li= msg
+                = hidden_field_tag :user_id, current_user.id
+                = hidden_field_tag :subscription_id, @subscription.id
+                = hidden_field_tag :stripe_card_token          
+              .row{:style => "margin: 10px 0;"}
+                .col-md-8.col-sm-12.col-xs-12
+                  = text_field_tag :card_number, nil, name: :card_number, :class => 'form-control input-round border-green', :placeholder => t('pages.upgrade.label.card_number'), maxlength:16
+                .col-md-4.col-sm-12.col-xs-12
+                  = text_field_tag :card_code, nil, name: nil, :class => 'form-control input-round border-green', :placeholder => t('pages.upgrade.label.cvcode'), maxlength:3
+              .row{:style => "margin: 0;"}
+                .col-md-12.col-sm-12.col-xs-12
+                  %span=t('pages.upgrade.label.card_expiration')
+                .col-md-6.col-sm-12.col-xs-12
+                  = select_month nil, {use_month_numbers: true}, {name: nil, id: "card_month", :class => 'form-control input-round border-green'}
+                .col-md-6.col-sm-12.col-xs-12
+                  = select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", :class => 'form-control input-round border-green'}
+              .row 
+                .col-md-12.col-sm-12.col-xs-12.text-center 
+                  %p.plan-price  
+                    = hidden_field_tag :upgrade_type, 1
+                    = "#{@main_plan_currency.symbol unless @main_plan_currency.nil?} #{@main_plan.price unless @main_plan.nil?}"
+                  %p
+                    %span{style: 'color: green'}
+                      %i.fa.fa-icon.fa-lock
+                      SSL
+                    %span=t('pages.upgrade.ssl_title').html_safe
+                  %p=t('pages.upgrade.ssl_description').html_safe
+                  / %p=t('pages.upgrade.para2').html_safe
+              .row.text-center
+                %button.btn.btn-round.item-green-manager{type: "submit"}
+                  = t('pages.upgrade.reserve')
+      - elsif current_user.plan_type == 1
+        .col-md-6.col-sm-6.col-xs-12.upgrade-plan
+          .row
+            %h2=t('pages.upgrade.title')
+            = hidden_field_tag :notif_plan_id, 1
+          .row.round-box.price-plan-desc
+            %h2 
+              =t('pages.upgrade.description', num_child: current_user.affiliate.num_member, currency_symbol: @currency.symbol)
+            / %p=t('pages.upgrade.para1', num_child: current_user.affiliate.num_children, amount: @plan.price, currency_symbol: @currency.symbol)
+          .row.round-box        
+            = form_for @transaction, method: :post do |f|
+              %h4.text-center= t('pages.upgrade.box_title')
+              .row
+                / - if @subscription.errors.any?
+                /   .error_messages
+                /     %h2
+                /       = pluralize(@subscription.errors.count, "error")
+                /       prohibited this subscription from being saved:
+                /     %ul
+                /       - @subscription.errors.full_messages.each do |msg|
+                /         %li= msg
+                = hidden_field_tag :user_id, current_user.id
+                = hidden_field_tag :subscription_id, @subscription.id
+                = hidden_field_tag :stripe_card_token          
+              .row{:style => "margin: 10px 0;"}
+                .col-md-8.col-sm-12.col-xs-12
+                  = text_field_tag :card_number, nil, name: :card_number, :class => 'form-control input-round border-green', :placeholder => t('pages.upgrade.label.card_number'), maxlength:16
+                .col-md-4.col-sm-12.col-xs-12
+                  = text_field_tag :card_code, nil, name: nil, :class => 'form-control input-round border-green', :placeholder => t('pages.upgrade.label.cvcode'), maxlength:3
+              .row{:style => "margin: 0;"}
+                .col-md-12.col-sm-12.col-xs-12
+                  %span=t('pages.upgrade.label.card_expiration')
+                .col-md-6.col-sm-12.col-xs-12
+                  = select_month nil, {use_month_numbers: true}, {name: nil, id: "card_month", :class => 'form-control input-round border-green'}
+                .col-md-6.col-sm-12.col-xs-12
+                  = select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", :class => 'form-control input-round border-green'}
+              .row 
+                .col-md-12.col-sm-12.col-xs-12.text-center 
+                  %p.plan-price  
+                    = hidden_field_tag :upgrade_type, 1
+                    = "#{@main_plan_currency.symbol unless @main_plan_currency.nil?} #{@main_plan.price * current_user.affiliate.num_member  unless @main_plan.nil?}"
+                  %p
+                    %span{style: 'color: green'}
+                      %i.fa.fa-icon.fa-lock
+                      SSL
+                    %span=t('pages.upgrade.ssl_title').html_safe
+                  %p=t('pages.upgrade.ssl_description').html_safe
+                  / %p=t('pages.upgrade.para2').html_safe
+              .row.text-center
+                %button.btn.btn-round.item-green-manager{type: "submit"}
+                  = t('pages.upgrade.reserve')      
+      - else
+        .col-md-6.col-sm-6.col-xs-12.upgrade-plan
+          .row
+            %h2=t('pages.upgrade.title')
+            = hidden_field_tag :notif_plan_id, 1
+          .row.round-box.price-plan-desc
+            %h2 
+              =t("deposit.plan.description_#{current_user.plan_type}")
+          .row.round-box
+            = form_for @transaction, method: :post do |f|
+              .row
+                / - if @subscription.errors.any?
+                /   .error_messages
+                /     %h2
+                /       = pluralize(@subscription.errors.count, "error")
+                /       prohibited this subscription from being saved:
+                /     %ul
+                /       - @subscription.errors.full_messages.each do |msg|
+                /         %li= msg
+                = hidden_field_tag :user_id, current_user.id
+                = hidden_field_tag :subscription_id, @subscription.id
+                = hidden_field_tag :stripe_card_token          
+              .row{:style => "margin: 0;"}
+                .col-md-8.col-sm-12.col-xs-12
+                  = text_field_tag :card_number, nil, name: :card_number, :class => 'form-control input-round border-green', :placeholder => t('pages.upgrade.label.card_number'), maxlength:16
+                .col-md-4.col-sm-12.col-xs-12
+                  = text_field_tag :card_code, nil, name: nil, :class => 'form-control input-round border-green', :placeholder => t('pages.upgrade.label.cvcode'), maxlength: 3
+              .row{:style => "margin: 0;"}
+                .col-md-12.col-sm-12.col-xs-12
+                  %span=t('pages.upgrade.label.card_expiration')
+                .col-md-6.col-sm-12.col-xs-12
+                  = select_month nil, {use_month_numbers: true}, {name: nil, id: "card_month", :class => 'form-control input-round border-green'}
+                .col-md-6.col-sm-12.col-xs-12
+                  = select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", :class => 'form-control input-round border-green'}
+              / - if current_user.plan_type != 1
+              /   .row{:style => "margin: 10px 0;"}
+              /     .col-md-6.col-sm-12.col-xs-12
+              /       = text_field_tag :discount_code, nil, name: :discount_code, :class => 'form-control input-round border-green', :placeholder => t('pages.upgrade.label.discount_code')
+              .row 
+                .col-md-12.col-sm-12.col-xs-12.text-center 
+                  %p.plan-price  
+                    = hidden_field_tag :upgrade_type, 1
+                    - unless @discount.nil?
+                      %small
+                        = "#{@main_plan_currency.symbol unless @main_plan_currency.nil?} #{@main_plan.price unless @main_plan.nil?}"                    
+                      = "#{@main_plan_currency.symbol unless @main_plan_currency.nil?} #{@main_plan.price * (100 - @discount.value) / 100 unless @main_plan.nil?}"
+                    - else
+                      = "#{@main_plan_currency.symbol unless @main_plan_currency.nil?} #{@main_plan.price unless @main_plan.nil?}"                    
+                  %p
+                    %span{style: 'color: green'}
+                      %i.fa.fa-icon.fa-lock
+                      SSL
+                    %span=t('pages.upgrade.ssl_title').html_safe
+                  %p=t('pages.upgrade.ssl_description').html_safe
+              .row.text-center
+                %button.btn.btn-round.item-green-manager{type: "submit"}
+                  = t('deposit.button.invest')
+
+      .col-md-6.col-sm-6.col-xs-12.instruction
+        .ongoing
+          .register-benefit
+            .ongoing-heading
+              %h2#ongoing_heading=t('pages.upgrade.benefitting').html_safe
+            .single-ongoing.pink
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 1
+              = image_tag 'payment/1.png'
+              %p
+                %span.periodic-pin=t('pages.upgrade.ben_para1').html_safe
+            .single-ongoing.pink
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 2
+              = image_tag 'payment/2.png'
+              %p
+                %span.periodic-pin=t('pages.upgrade.ben_para2').html_safe
+          .another-benefit
+            .single-ongoing.blue
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 3
+              = image_tag 'payment/3.png'
+              %p
+                %span.practices-blu=t('pages.upgrade.ben_para3').html_safe
+            .single-ongoing.all
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 4
+              = image_tag 'payment/4.png'
+              %p
+                %span.potential-gree=t('pages.upgrade.ben_para4').html_safe
+            .single-ongoing.all
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 5
+              = image_tag 'payment/5.png'
+              %p
+                %span.potential-gree=t('pages.upgrade.ben_para5').html_safe
+            .single-ongoing.all
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 6
+              = image_tag 'payment/6.png'
+              %p
+                %span.potential-gree=t('pages.upgrade.ben_para6').html_safe
+            .single-ongoing.all
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 7
+              = image_tag 'payment/7.png'
+              %p
+                %span.potential-gree=t('pages.upgrade.ben_para7').html_safe
+            .single-ongoing.all
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 8
+              = image_tag 'payment/8.png'
+              %p
+                %span.potential-gree=t('pages.upgrade.ben_para8').html_safe
+            .single-ongoing.all
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 9
+              = image_tag 'payment/9.png'
+              %p
+                %span.potential-gree=t('pages.upgrade.ben_para9').html_safe
+            .single-ongoing.all
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 10
+              = image_tag 'payment/10.png'
+              %p
+                %span.potential-gree=t('pages.upgrade.ben_para10').html_safe
+            .single-ongoing.all
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 11
+              = image_tag 'payment/11.png'
+              %p
+                %span.potential-gree=t('pages.upgrade.ben_para11').html_safe
+    .row.money-back
+:javascript
+
+  jQuery(document).ready(function() {
+    $('body').css("background", "#242c3f");
+    $('footer.normal .container').css("top", "0");
+    $('footer.normal .container .central-footer').css("display", "none");
+  });

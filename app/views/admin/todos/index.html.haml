@@ -1,0 +1,70 @@
+- content_for :title, 'Todos'
+- content_for :breadcrumb, 'Todos'
+.twelvecol
+  .page-header
+    = link_to new_admin_todo_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Add Todo" do
+      %i.icon-plus
+    %h2.widget.widget-header Todos
+    .table-responsive
+      %table.table.table-striped.table-bordered.table-hover
+        %thead
+          %tr
+            %th Title
+            %th Iteration Type
+            %th Frequency
+            %th Completion Date
+            %th Daycare
+            %th Type
+            %th User
+            %th Language
+            %th
+          %form{:action => "/admin/todos", :method => "get"}
+            %tr
+              %th
+                %input.form-control{:name => "title", :type => "text", :value => "#{(params[:title].nil?) ? '' : params[:title]}"}
+              %th
+                = select_tag :iteration_type, options_for_select(Todo.iteration_types, :selected=>params[:iteration_type]), {:include_blank => 'Select Iteration', class: 'form-control'}
+              %th
+                = select_tag :frequency, options_for_select(Todo.frequencies, :selected=>params[:frequency]), {:include_blank => 'Select Frequency', class: 'form-control'}
+              %th
+              %th
+                %input.form-control{:name => "daycare_name", :type => "text", :value => "#{(params[:daycare_name].nil?) ? '' : params[:daycare_name]}"}
+              %th
+                = select_tag :global, options_for_select([['Global', 0], ['Local', 1]], :selected=>params[:global]), {:include_blank => 'Select Type', class: 'form-control'}
+              %th
+                %input.form-control{:name => "user_name", :type => "text", :value => "#{(params[:user_name].nil?) ? '' : params[:user_name]}"}
+              %th
+                = select_tag :language, options_for_select(pre_countries, :selected=> (params[:language].nil?) ? '' : params[:language].upcase), {:include_blank => 'Select Language', class: 'form-control'}
+              %th
+                %button.btn.btn-blue.btn-large
+                  Search
+        %tbody        
+          - @todos.each do |todo|
+            %tr
+              %td
+                = todo.title
+              %td
+                = todo.iteration_type.titleize
+              %td
+                = todo.frequency.try(:titleize)
+              %td
+                = "#{todo.completion_date_value} #{todo.completion_date}"
+              %td
+                = todo.daycare.try(:name) unless todo.daycare.nil?
+              %td
+                = todo.global? ? 'Global' : 'Local'
+              %td
+                = todo.user.try(:name)
+              %td
+                = todo.language.downcase unless todo.language.nil?
+              %td
+                - if todo.global?
+                  / = link_to edit_admin_todo_path(todo) do
+                  /   %i.icon-pencil
+                  = link_to [:admin, todo], method: :delete, data: { confirm: 'Are you sure?' } do
+                    %i.icon-remove
+    - if @todos.empty?
+      .widget.widget-content
+        .helper-notification
+          %p You don't have any todos yet.
+          %i.fa.fa-th-large

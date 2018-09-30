@@ -1,0 +1,19 @@
+%ul.row
+  - if current_user.daycare.present?
+    - current_user.daycare.health_records.where(alert_status: 0).each do |record|
+      - unless record.illness_name == ''
+        %li.col-md-3.col-sm-4.col-xs-12
+          %div{href: 'javascript:;', style: "color: #2f363d;text-decoration: none;" }
+            .department-todo.border-style-b
+              %span.todo-top.bg-style-b-g
+                = record.department.name
+              .todo-command
+                .detail-box
+                  %h4=record.illness_name
+              .bottom-buttons.illness-buttons
+                %btn.btn.bg-style-b.illness-btn{'data-toggle'=>"modal", 'data-target'=>"#illnessModal", 'data-illness'=>record.illness_name.strip, 'data-target-role'=> current_user.role}
+                  %i.magnifier-icon
+                  = t('permissions.button-illness-popup')
+                %btn.btn.bg-style-b.record-item{"data-id": record.id}
+                  %i.bell-icon
+                  = t('permissions.button-illness-guide')

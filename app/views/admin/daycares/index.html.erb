@@ -1,0 +1,116 @@
+<% content_for :title, 'Daycares' %>
+<% content_for :breadcrumb, 'Daycares' %>
+
+<div class="twelvecol">
+  <div class="page-header">
+    <h2 class="widget widget-header"><%= t('admin.daycare.index.heading')%></h2>
+  </div>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th><%= t('admin.daycare.index.label1')%></th>
+            <th><%= t('admin.daycare.index.label2')%></th>
+            <th><%= t('admin.daycare.index.label3')%></th>
+            <th><%= t('admin.daycare.index.label10')%></th>
+            <th><%= t('admin.daycare.index.label4')%></th>
+            <th><%= t('admin.daycare.index.label8')%></th>
+            <th><%= t('admin.daycare.index.label5')%></th>
+            <th><%= t('admin.daycare.index.label8')%></th>
+            <th><%= t('admin.daycare.index.label6')%></th>
+            <th><%= t('admin.daycare.index.label7')%></th>
+            <th></th>
+          </tr>
+          <form action="/admin/daycares" method="get">
+          <tr>
+            <th>
+              <input type="text" name="name" class="form-control" value="<%= (params[:name].nil?) ? '' : params[:name]%>">
+            </th>
+            <th>
+              <input type="text" name="address" class="form-control" value="<%= (params[:address].nil?) ? '' : params[:address]%>">
+            </th>            
+            <th>
+              <%= select_tag :country, options_for_select(pre_countries, :selected=> (params[:country].nil?) ? '' : params[:country].upcase), {:include_blank => 'Select Language', class: 'form-control'}%>
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+              <button class="btn btn-blue btn-large">
+                Search
+              </button>
+            </th>
+          </tr>
+          </form>
+        </thead>
+        <tbody>
+          <% @daycares.each do |dc| %>
+            <tr>
+              <td>
+                <%= dc.name %>
+              </td>
+              <td>
+                <%= dc.address_line1 %>
+              </td>
+              <td>
+                <%= dc.country %>
+              </td>
+              <td>
+                <%= dc.pay_mode == 1 ? "Price per Head" : "Fixed Price" %>
+              </td>              
+              <td>
+                <%= dc.discount_code.value unless dc.discount_code.nil?%>
+              </td>
+              <td>
+                <% unless dc.managers.first.nil? %>
+                  <%= "Phase #{dc.managers.first.paid_plan_type - 1}" unless dc.managers.first.paid_plan_type == 0%>
+                  <%= "Free" if dc.managers.first.paid_plan_type == 0 && !dc.managers.first.deposit_required %>
+                  <%= "Depoist" if dc.managers.first.deposit_required && (dc.managers.first.plan_type == 0 || dc.managers.first.plan_type.nil?) %>
+                  <%= "Phase #{dc.managers.first.plan_type - 1}" if dc.managers.first.deposit_required && dc.managers.first.plan_type != 0 && !dc.managers.first.plan_type.nil? %>
+                <% end%>
+              </td>
+              <td class="align-left">
+                <%= "#{dc.payment_mode.period} #{dc.payment_mode.unit}" unless dc.payment_mode.nil?%>
+              </td>
+              <td class="align-left">
+                <%= "#{dc.payment_start.period} #{dc.payment_start.unit}" unless dc.payment_start.nil?%>
+              </td>
+              <td>
+                <a href="/admin/users?daycare_id=<%=dc.id%>">
+                  Show Users
+                </a>
+              </td>
+              <td>
+                <a href="/admin/departments?daycare_id=<%=dc.id%>">
+                  Show Department
+                </a>                
+              </td>
+              <td class="align-left">
+                <%= link_to edit_admin_daycare_path(dc) do %>
+                  <i class="icon-pencil"></i>
+                <% end %>
+                <%= link_to [:admin, dc], method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon-remove"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+  <% if @daycares.empty? %>
+    <div class="widget widget-content">
+      <div class="helper-notification">
+        <p><%= t('admin.daycare.index.line')%></p>
+        <i class="icon-home"></i>
+      </div>
+    </div>
+  <% else %>
+
+    </div>
+  <% end %>
+</div>

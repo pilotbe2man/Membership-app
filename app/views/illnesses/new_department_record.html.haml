@@ -1,0 +1,39 @@
+= content_for :title, t('illnesses.illness')
+- content_for :page_title, t('illnesses.illness')
+.illness-dash-container
+  .container
+    .row
+      .col-md-12
+        %h4.option-title= t('illnesses.illness')
+        %h5= t('illnesses.labels.department_record_help_text')
+    .row.content-main.illnesses
+      .col-md-12
+        = form_tag create_department_record_illnesses_path, id: 'new-department-record' do
+          %input{type: 'hidden', id: 'new-department-record_submit', value: t('form_labels.submit')}
+          %input{type: 'hidden', id: 'new-department-record_next', value: t('form_labels.next')}
+          %input{type: 'hidden', id: 'new-department-record_previous', value: t('form_labels.previous')}
+
+          %label= t('illnesses.labels.department_details')
+          %section.choose-department
+            = render 'department_options_selector'
+
+          %label= t('illnesses.labels.illness_details')
+          %section.illness-details
+            = render 'illnesses/department/illness_details'
+
+          %label= t('illnesses.labels.additional_actions')
+          %section.additional-actions
+            = render 'additional_actions'
+
+          %label= t('illnesses.labels.worker_confirmation')
+          %section.worker-department
+            = render 'worker_department'
+            .row.worker-names
+            .row.worker-profile
+            .row.worker-confirmation
+:javascript
+  jQuery(document).ready(function() {
+    $('#link_dashboard_guide').on('click', function(){
+      window.location.href = '/guide_page/worker_illness/add_depart_step1';
+    });    
+  });

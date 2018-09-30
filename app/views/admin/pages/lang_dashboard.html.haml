@@ -1,0 +1,90 @@
+- content_for :title, 'Localization Dashboard'
+- content_for :breadcrumb, 'Localization'
+.twelvecol
+  .page-header
+    %h2.widget.widget-header
+      = t('admin.lang_dashboard.index.heading')
+      = "(#{country_name_from_code(I18n.locale)})"
+      = "#{Time.zone.to_s}"
+  .table-responsive
+    %table.table.table-striped.table-bordered.table-hover
+      %thead
+        %tr
+          %th= t('admin.lang_dashboard.index.sub_head')
+          %th
+      %tbody
+        %tr
+          %td= t('admin.lang_dashboard.index.label1')
+          %td
+            = link_to admin_lang_main_path do
+              %i.icon-search
+        %tr
+          %td= t('admin.lang_dashboard.index.label11')
+          %td
+            = link_to admin_plans_path do
+              %i.icon-search
+        %tr
+          %td= t('admin.lang_dashboard.index.label2')
+          %td
+            = link_to admin_todos_path do
+              %i.icon-search
+        %tr
+          %td= t('admin.lang_dashboard.index.label3')
+          %td
+            = link_to admin_illness_guide_updates_path do
+              %i.icon-search
+        %tr
+          %td= t('admin.lang_dashboard.index.label5')
+          %td
+            = link_to admin_list_message_path do
+              %i.icon-search
+        %tr
+          %td= t('admin.lang_dashboard.index.label8')
+          %td
+            = link_to admin_list_invite_path do
+              %i.icon-search
+        %tr
+          %td= t('admin.lang_dashboard.index.label9')
+          %td
+            = link_to admin_list_verify_path do
+              %i.icon-search
+        %tr
+          %td= t('admin.lang_dashboard.index.label13')
+          %td
+            = link_to admin_list_confirm_path do
+              %i.icon-search
+        %tr
+          %td= t('admin.lang_dashboard.index.label6')
+          %td
+            = link_to admin_videos_path do
+              %i.icon-search
+        %tr
+          %td= t('admin.lang_dashboard.index.label14')
+          %td
+            = link_to admin_manager_videos_path do
+              %i.icon-search
+        %tr
+          %td= t('admin.lang_dashboard.index.label7')
+          %td
+            = link_to admin_locale_posters_path do
+              %i.icon-search
+        %tr
+          %td= t('admin.lang_dashboard.index.label10')
+          %td
+            = link_to admin_locale_logos_path do
+              %i.icon-search
+        %tr
+          %td= t('admin.lang_dashboard.index.label12')
+          %td
+            = link_to admin_email_campaigns_path do
+              %i.icon-search
+        %tr
+          %td Edit Password
+          %td
+            = link_to admin_password_path do
+              %i.icon-search
+        %tr
+          %td Edit Permissions
+          %td
+            = link_to admin_permissions_path do
+              %i.icon-pencil

@@ -1,0 +1,66 @@
+.row.text-center.step-banner
+  = image_tag 'manager-md.png'
+  %h4=t('account.daycare.manager')
+.row.pane-container.text-center
+  .row.step-banner
+    .col-sm-3.col-xs-3.step-item.first-step
+      .step-label
+        = image_tag 'step-check-mng.png'
+    .col-sm-3.col-xs-3.step-item.second-step
+      .step-label
+        = image_tag 'step-check-mng.png'
+    .col-sm-3.col-xs-3.step-item.third-step.active
+      .step-label
+        = image_tag 'manager-sm.png'
+        %span=t('register.labels.child_worker')
+    .col-sm-3.col-xs-3.step-item.fourth-step
+      .step-label
+        = image_tag 'step-pending.png'
+  .row.parent-info
+    .col-sm-12.text-left
+      .row
+        %h5=t('register.labels.number_of_child')
+        .row
+          .col-xs-3.text-center
+            = image_tag 'manager-child-icon.png'
+          .col-xs-9.inline-items
+            %a.btn-decrease{:href => "#", "data-for" =>"#daycare_num_children"} 
+              = image_tag 'manager-dec.png'      
+            = daycare.text_field :num_children, class: 'form-control input-round sm-width-input text-center', :placeholder => t('register.labels.daycare_name'), :required =>"true"
+            %a.btn-increase{:href => "#", "data-for" =>"#daycare_num_children"} 
+              = image_tag 'manager-inc.png'
+      .ln-solid
+      .row
+        %h5 NUMBER OF WORKERS
+        .row
+          .col-xs-3.text-center
+            = image_tag 'manager-worker-icon.png'
+          .col-xs-9.inline-items
+            %a.btn-decrease{:href => "#", "data-for" =>"#daycare_num_worker"} 
+              = image_tag 'manager-dec.png'
+            = daycare.text_field :num_worker, class: 'form-control input-round sm-width-input text-center', :placeholder => t('register.labels.daycare_name'), :required =>"true"
+            %a.btn-increase{:href => "#", "data-for" =>"#daycare_num_worker"} 
+              = image_tag 'manager-inc.png'
+:javascript
+  jQuery(document).ready(function(e) {
+    if($('#daycare_num_children').val() == '')
+      $('#daycare_num_children').val(1);
+
+    if($('#daycare_num_worker').val() == '')
+      $('#daycare_num_worker').val(1);    
+      
+    $('.btn-decrease').click(function(e){
+      var parent_id = $(this).attr("data-for");
+      var item_value = $(parent_id).val();
+      item_value = (parseInt(item_value) == 0) ? 0 : parseInt(item_value) - 1;
+      $(parent_id).val(item_value);
+      e.preventDefault();
+    });
+    $('.btn-increase').click(function(e){
+      var parent_id = $(this).attr("data-for");
+      var item_value = $(parent_id).val();
+      item_value = parseInt(item_value) + 1;      
+      $(parent_id).val(item_value);
+      e.preventDefault();
+    });
+  });

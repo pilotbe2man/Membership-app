@@ -1,0 +1,80 @@
+= content_for :title, 'Localization'
+= content_for :breadcrumb, 'Localization'
+
+.twelvecol
+  .page-header
+    %h2.widget.widget-header
+      Localization
+      = "(#{country_name_from_code(I18n.locale)})"
+  = form_tag admin_localization_path, method: :post, multipart: true do
+    .twelvecol
+      %fieldset.widget.widget-content
+        .form-group
+          = label_tag 'Select Language:'
+          = select_tag :language_short_name, options_for_select(pre_countries)
+        .form-group{style: 'text-align: right;'}
+          %button#link_client_manager.btn.btn-blue.btn-large
+            Client Manager
+        .form-group
+          = label_tag 'Website URL:'
+          = text_field_tag :web_url, '', class: "form-control"
+        .form-group
+          = label_tag 'Upload YML:'
+          = file_field_tag :yml_file, :class => 'form-control'
+          - if !session[:upload_yml_job_id].nil? && !session[:upload_yml_job_id].blank?
+            %label#yml_upload_status
+              Localization YML is uploading now.
+        .form-group
+          = label_tag 'Upload Todos:'
+          = file_field_tag :todo_template, :class => 'form-control'
+        .form-group
+          = label_tag 'Upload Illnesses:'
+          = link_to 'Enter Illnesses', new_admin_illness_guide_update_path, :class => 'form-control'
+        .form-group
+          = label_tag 'Upload Message Template:'
+          = link_to 'Enter Message Template', new_admin_message_templates_update_path, :class => 'form-control'
+        .form-group
+          = label_tag 'Upload Invitation Message Template:'
+          = file_field_tag :invite_template, :class => 'form-control'
+        .form-group
+          = label_tag 'Upload Email Verification Message Template:'
+          = file_field_tag :verify_template, :class => 'form-control'
+        .form-group
+          = label_tag 'Upload Package Upgrade Confirmation Message Template:'
+          = file_field_tag :confirm_template, :class => 'form-control'
+        .form-group
+          = label_tag 'Upload Municipal List:'
+          = file_field_tag :municipal_template, :class => 'form-control'
+        .form-group
+          = label_tag 'Upload Email Address List Template:'
+          = file_field_tag :email_list_file, :class => 'form-control'
+      .form-action
+        = submit_tag 'Upload', :class => 'btn btn-blue btn-large'
+- if !session[:upload_yml_job_id].nil? && !session[:upload_yml_job_id].blank?
+  :javascript
+    var timeline = setInterval(getUploadStatus, 10000);
+    function getUploadStatus(){
+      $.ajax({
+          url: '/admin/getUploadYmlStatus',
+          type:'GET',
+          success: function(response){
+              if(response.status=="completed"){
+                $('#yml_upload_status').html('Uploading YML is done successfully');
+                $('#yml_upload_status').addClass('done');
+                clearInterval(timeline);
+              } else if(response.status=="failed") {
+                $('#yml_upload_status').html('Uploading YML is failed. ' + response.description);
+                $('#yml_upload_status').addClass('error');
+                clearInterval(timeline);
+              }
+            }
+          });
+    }
+
+:javascript
+  jQuery(document).ready(function() {
+    $('#link_client_manager').click(function(e){
+      window.location.href = "/admin/clients?country=" + $('#language_short_name').val();
+      e.preventDefault();
+    });
+  });

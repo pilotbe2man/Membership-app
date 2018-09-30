@@ -1,0 +1,119 @@
+#discussions {
+  .twitter-typeahead {
+    display: block !important;
+  }
+
+  .tt-dropdown-menu {
+    max-height: 150px;
+    overflow-y: auto;
+  }
+
+  .tt-menu {
+    background: white;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
+    padding: 10px;
+    transition: transform 0.2s ease-out;
+    color: black;
+    min-widt: 200px;
+    position: relative !important;
+
+    .tt-suggestion {
+      &:hover {
+        background: $lighter-grey;
+      }
+    }
+  }
+
+
+  .top-menu {
+    color: black;
+
+    img {
+      height: 40px;
+    }
+  }
+
+  .discussion-box {
+    background: white;
+
+    .discussions {
+      max-height: 500px;
+      overflow: auto;
+    }
+
+    img {
+      height: 100px;
+    }
+
+    .discussion {
+      .discussion-owner, .discussion-time {
+        text-align: center;
+      }
+    }
+
+    textarea {
+      height: 100px;
+      width: 100%;
+    }
+
+  }
+
+  .side-menu {
+    li {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+
+      img {
+        height: 100px;
+      }
+    }
+
+  }
+
+  #search-child-invitation-link, #search-invite-code {
+    display: none;
+  }
+
+  #search-results {
+    .search-result {
+      position: relative;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 45%;
+
+      img {
+        height: 100px;
+      }
+
+      .overlay {
+        color: green;
+        opacity: 0.0;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+      }
+
+      &:hover {
+        .row {
+          color: #ccc;
+          opacity: 0.2;
+        }
+
+        .overlay {
+          opacity: 1.0;
+          display: visible;
+        }
+      }
+    }
+  }
+
+  .collaborators {
+    .collaborator:not(.pending) {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+%header.container-fluid{class: 'loggedin'}
+  - if current_user.manager?
+    .row.upgrade-header
+      .col-md-1.col-sm-6
+        &nbsp;
+
+      .col-md-7.col-sm-6
+        - unless current_user.subscribed?
+          = render partial: 'shared/countdown'
+
+      .col-md-2.col-sm-6
+        - unless current_user.subscribed? || !current_user.manager?
+          = link_to 'Upgrade', user_plan_path, class: 'btn btn-success btn-lg'
+
+      .col-md-2.col-sm-6
+        = render partial: 'shared/user_header_menu'
+
+  .row.primary-header
+    .col-md-2
+      = link_to welcome_path do
+        = image_tag LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? 'logo.png' : LocaleLogo.by_type_language(1, I18n.locale).first.logo.url, id: 'header-logo'
+
+    .vote-invitations{class: current_user.manager? ? 'col-md-6' : 'col-md-5'}
+      = vote_invitation.html_safe
+
+    .vote-results{class: current_user.manager? ? 'col-md-4' : 'col-md-3'}
+      = render partial: 'shared/voting_result'
+
+    - unless current_user.manager?
+      .col-md-2
+        = render partial: 'shared/user_header_menu'

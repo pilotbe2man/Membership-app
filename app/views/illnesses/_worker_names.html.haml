@@ -1,0 +1,4 @@
+.col-md-12
+  %h3= t('illnesses.labels.worker_name')
+  .form-dc-select
+    = select_tag 'worker[id]', options_from_collection_for_select(@workers, 'id', 'name'), class: 'form-control', prompt: t('illnesses.labels.select_worker')

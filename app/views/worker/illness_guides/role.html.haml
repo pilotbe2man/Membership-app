@@ -1,0 +1,32 @@
+= content_for :title, t('illness_guides.illness')
+- content_for :page_title, t('dashboard.menu_item.illness_guide')
+- step_size = 3
+- page_step = 1
+.message-dash-container
+  .container
+    .row
+      = render partial: '/shared/progress_bar', locals: {step_size: step_size, page_step: page_step}
+    .row.content-main
+      = form_tag illness_worker_illness_guides_path, method: :get do
+        .col-md-12      
+          %h4.option-title= t('illness_guides.labels.choose_recipient')      
+        .col-md-12
+          .inline-radio-group
+            - IllnessGuide.target_roles.each do |target_role|
+              - if target_role[0] == 'worker'
+                .radio-box
+                  %input{:type=>"radio", :name => "target_role", :id => "chk_role_#{target_role[0]}", :style => "display: none;", value: target_role[0], checked: params[:target_role] == target_role[0], required: true}
+                  %label{:for => "chk_role_#{target_role[0]}"}
+                    = t('pages.nav_bar.'+target_role[0]).humanize.pluralize
+        .col-md-12.form-buttons.text-right.no-h-padding
+          .col-md-3.col-md-offset-6.col-sm-3.col-sm-offset-6.col-xs-6
+            %a{href: '#', class: 'btn btn-gray btn-wizard'} 
+              =t('form_labels.back')
+          .col-md-3.col-sm-3.col-xs-6
+            = submit_tag t('form_labels.next'), class: 'btn btn-yellow-red btn-wizard'
+:javascript
+  jQuery(document).ready(function() {
+    $('#link_dashboard_guide').on('click', function(){
+      window.location.href = '/guide_page/illness_guide/guide1';
+    });    
+  });

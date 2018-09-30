@@ -1,0 +1,16 @@
+.barGraph
+  %ul.graph
+    - if results.empty?
+      %p=t('survey.labels.empty_result')
+
+    - else
+      - results.each_with_index do |result, index|
+        %span.graph-barBack
+          %li.graph-bar{class: (index % 2 == 0) ? 'graph-bar2' : '', 'data-value': result[1].to_i}
+          %p= result[0]
+
+:javascript
+  $('.graph-bar').each(function() {
+   var dataWidth = $(this).data('value');
+   $(this).css('width', dataWidth + '%');
+  });

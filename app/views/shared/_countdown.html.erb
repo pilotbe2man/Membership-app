@@ -1,0 +1,19 @@
+<div id="countdown">
+    <script>
+        $(document).ready(function()
+        {
+            $('#clock').countdown('<%= current_user.trial_end_date.strftime("%Y/%m/%d") %>', function(event) {
+                $(this).html('<div><div>' + event.strftime('%D') + '</div><span>Day</span></div><div>:&nbsp;&nbsp;<div>' + event.strftime('%H') + '</div><span>Hour</span></div><div>:&nbsp;&nbsp;<div>' + event.strftime('%M') + '</div><span>Minute</span></div><div>:&nbsp;&nbsp;<div>' + event.strftime('%S') + '</div><span>Second</span></div>');
+            });
+        });
+    </script>
+    
+    <div class='col-md-5'>
+      Your free trial will be ending in :
+    </div>
+    <div class='col-md-7'>
+      <span id="clock"></span>
+    </div>
+    
+
+</div>

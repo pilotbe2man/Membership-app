@@ -1,0 +1,10 @@
+<% content_for :title, 'New Logo' %>
+<% content_for :breadcrumb, 'New' %>
+<% breadcrumb_add 'Logos', admin_locale_logos_path %>
+
+<div class="twelvecol">
+    <div class="page-header">
+        <h2 class="widget widget-header">New Logo</h2>
+    </div>
+    <%= render partial: 'form', locals: { url: admin_locale_logos_path } %>
+</div>

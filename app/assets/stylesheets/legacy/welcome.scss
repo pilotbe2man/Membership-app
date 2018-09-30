@@ -1,0 +1,152 @@
+#legacy-welcome
+{
+    // Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+
+a:hover, a:focus
+{
+    outline: 0;
+    text-decoration: none;
+}
+
+
+.welcome
+{
+    background: image-url('icon-30.png' ) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    overflow: auto;
+}
+
+.welcome > .outer
+{
+    margin-top: 65px;
+}
+
+.welcome .main-heading
+{
+    text-align: center;
+    color: #000;
+    font-size: 55px;
+    font-family: 'HelveticaNeue-LightCond';
+    margin: 0px;
+    padding: 0px;
+    font-weight: normal;
+}
+
+.welcome .tag-line
+{
+    font-size: 30px;
+    color: #bfbfbf;
+    text-align: center;
+    font-family: 'HelveticaNeue-LightCond';
+    margin: 0px;
+    padding: 0px;
+    font-weight: normal;    
+}
+
+.welcome .wrapper
+{
+    height: auto;
+    margin-top: 50px;
+    background-color: rgba(255, 255, 255, .5);
+    border: 2px solid #a2a1a0;
+    overflow: auto;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 200px;
+}
+.welcome .wrapper > div
+{
+     margin: 20px 0;
+}
+
+.welcome .wrapper a > .block
+{
+    height: 100%;
+    width: 100%;
+    padding: 25%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.welcome .wrapper a > .block > .circle
+{
+    border: 3px solid;
+    border-radius: 100%;
+    height: 100%;
+    padding: 5px;
+    width: 100%;
+}
+.welcome .wrapper a > .block > .circle > img
+{
+    width: 100%;
+    padding-bottom: 0px;
+
+}
+
+.welcome .wrapper a > h5
+{
+    padding: 0px 10px;
+    color: #000;
+    font-size: 25px;
+    margin-top: 20px;
+    font-family: 'HelveticaNeue-LightCond';
+    text-decoration: none;
+    font-weight: normal;
+    text-align: center;
+}
+
+}
+
+#socialside {
+    position: fixed;
+    bottom: 50%;
+    right: 0;
+}
+.mainul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+.scli {
+    position: relative;
+    width: 182px;
+    list-style: none;
+    border-radius: 8px 0 0 8px;
+    margin-right: -139px;
+    right:0;
+    cursor: pointer;
+    
+}
+
+.scli img {
+    background-color: white;
+    border-radius: 5px 0 0 5px;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    left: 0;
+    top:0;
+    padding: 3px;
+    border: 1px solid silver;
+}
+
+.scli li {
+    height: 40px;
+    line-height: 40px;
+    margin: 5px 0;
+    padding-left: 50px;
+    font-family: "Archivo Black";
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+}

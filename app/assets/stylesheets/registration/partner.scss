@@ -1,0 +1,99 @@
+.reg-partner-container{
+  background: #fff;
+  font-family: 'Open Sans', sans-serif;
+
+  .page-header{
+    width: 100%;
+    box-shadow: none;
+    height: 72px;
+    min-height: 72px;
+    background: #dadada;
+    margin: 0;
+    padding: 0;    
+  }
+
+  .page-footer{
+    padding-bottom: 30px;
+    background: #242c3f;
+  }
+
+  .row{
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  .item-partner{
+    color: #fff;
+  }
+
+  .btn.active, 
+  .btn:active{
+    background-color:#00c4cb;
+  }
+
+  .form-content{
+    top: -45px;
+    position: relative;    
+  }
+
+  .fileUpload input.upload{
+    left: -80px !important;
+  }
+
+  .step-banner{
+    .step-item{
+      height: 40px;
+      color: #fff;
+      text-align: center;
+
+      .step-label{
+        margin-top: 8px;
+        img{
+          margin-bottom: 3px;
+          &.step-arrow.left{
+            position: absolute;
+            left: -14px;
+            top: 0;            
+          }
+          &.step-arrow.right{
+            position: absolute;
+            right: -15px;
+            top: 0;            
+          }
+        }
+        span{
+          font-size: 16px;
+          vertical-align: top;
+          display:none;
+        }              
+      }      
+
+      &.active{
+        .step-label span{      
+          display: inline-block;
+        }
+      }
+
+      &.first-step{
+        border-top-left-radius: 20px 20px;
+        border-bottom-left-radius: 20px 20px;        
+      }    
+      &.fourth-step{
+        border-top-right-radius: 20px 20px;
+        border-bottom-right-radius: 20px 20px;        
+        .step-label{
+          margin-left: 20px;
+        }
+      }    
+    }
+  }
+
+  .pager{
+    text-align: left;
+
+    .next>a, 
+    .next>span{
+      float: none;
+    }  
+  }  
+}

@@ -1,0 +1,27 @@
+= content_for :title, t('illness_guides.illness')
+- content_for :page_title, t('dashboard.menu_item.illness_guide')
+- step_size = 3
+- page_step = 2
+.message-dash-container
+  .container
+    .row
+      = render partial: '/shared/progress_bar', locals: {step_size: step_size, page_step: page_step}
+    .row.content-main
+      = form_tag '#', method: :get do
+        .col-md-12      
+          %h4.option-title= t('illness_guides.labels.choose_illness')
+        .col-md-12{data:{step: 3, intro: t("guideline.illness_guide.step3")}}
+          = select_tag :illness_id, options_from_collection_for_select(Illness.all, 'id', 'name', 0), class: 'form-control'
+        .col-md-12.form-buttons.text-right.no-h-padding
+          .col-md-3.col-md-offset-6.col-sm-3.col-sm-offset-6.col-xs-6
+            %a{href: role_manager_illness_guides_path(target_role: params[:target_role]), class: 'btn btn-gray btn-wizard'} 
+              =t('form_labels.back')
+          .col-md-3.col-sm-3.col-xs-6
+            = submit_tag t('form_labels.next'), class: 'btn btn-yellow-red btn-wizard', data:{step: 4, intro: t("guideline.illness_guide.step4")}
+:javascript
+  jQuery(document).ready(function() {
+    healthChildcare.guideline.introGoToStep('guide3', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.introGoToStep('guide3', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });    
+  });            

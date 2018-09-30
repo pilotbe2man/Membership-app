@@ -1,0 +1,40 @@
+.row.text-center.step-banner.fileupload-container
+  .fileUpload
+    %span.upload-wrapper
+      = image_tag 'parent-upload.png'
+      %span.caption 
+        =t('register.labels.upload_child_photo')        
+    /%input.upload{:type => "file"}          
+  %h4=t('account.daycare.parent')
+.row.pane-container.text-center
+  .row
+    = image_tag 'parent-bar-2.png'
+  .row
+    = devise_error_messages!
+  .parent-list-container
+    .parent-item
+      .row.parent-info.text-left
+        .col-sm-8
+          .row
+            %h3=t('register.labels.parent_info')
+          .row      
+            = f.text_field :name, autofocus: true, :class => 'form-control input-round', :placeholder => t('register.labels.name')
+          .row
+            = f.email_field :email, :class => 'form-control input-round', :placeholder => t('register.labels.email')
+          .row
+            = f.password_field :password, :class => 'form-control input-round', :placeholder => t('register.labels.password')
+          .row
+            = f.password_field :password_confirmation, :class => 'form-control input-round', :placeholder => t('register.labels.pwd_confirm')
+          - if @minimum_password_length
+            .row
+              %em
+                (#{@minimum_password_length} characters minimum)
+          = f.fields_for :user_daycare do |user_daycare|
+            = user_daycare.hidden_field :daycare_id, value: (params[:daycare_id].blank?) ? params[:user][:user_daycare_attributes][:daycare_id] : params[:daycare_id]
+      .row.parent-info.text-left
+        .col-sm-8
+          #children.multi-field
+            = f.fields_for :children do |child|
+              = render partial: 'child_fields', locals: { f: child }
+.parent-button-box
+  = custom_link_to_add_fields image_tag('parent-add.png') + " ADD CHILDREN", f, :children, :class => "add-child"

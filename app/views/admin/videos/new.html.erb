@@ -1,0 +1,10 @@
+<% content_for :title, 'New Video' %>
+<% content_for :breadcrumb, 'New' %>
+<% breadcrumb_add 'Videos', admin_videos_path %>
+
+<div class="twelvecol">
+    <div class="page-header">
+        <h2 class="widget widget-header">New Video</h2>
+    </div>
+    <%= render partial: 'form', locals: { url: admin_videos_path } %>
+</div>

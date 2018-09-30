@@ -1,0 +1,149 @@
+body {
+  background-color: white !important;
+  color: #ABABB2;
+
+  .main {
+    .centralize {
+      text-align: center;
+    }
+
+    .step-instruction {
+      color: $info-blue;
+    }
+
+    .form-buttons {
+      text-align: center;
+
+      a, input {
+        width: 95%;
+      }
+    }
+
+  }
+
+  #main-content {
+    margin-top: 20px;
+  }
+
+  #main-menu {
+    margin-top: 20px;
+    
+    .menu-items {
+      a {
+        width: 45%;
+        height: 250px;
+        background: white;
+        padding-top: 25px;
+        box-shadow:0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        @include border-radius(5px);
+
+        img {
+          height: 160px;
+          width: 160px;
+        }
+
+        span {
+          height: 40px;
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  form {
+    .dropdownjs {
+      ul {
+        color: black;
+        width: 100%;
+
+        li.disabled {
+          color: $grey;
+        }
+      }
+    }
+
+    .select2 {
+      width: 100% !important;
+
+      .select2-selection  {
+        border-color: $darker-grey !important;
+      }
+    }
+
+    .checkbox.partners {
+      background: $grey;
+      border: 1px solid $darker-grey;
+      color: black;
+
+      label {
+        color: black !important;
+        width: 25%;
+        padding: 5px;
+        background: $sky-blue;
+      }
+      .recipient-count {
+        margin-left: 20px;
+        display: none;
+      }
+    }
+    .partners-list {
+      margin-top: 30px;
+
+      .list {
+        max-height: 300px;
+        overflow: auto;
+      }
+    }
+    .partner-message-content {
+      padding-left: 0px;
+    }
+  }
+
+}
+
+.header {
+  padding: 15px;
+  background: $header-blue;
+  color: white;
+
+  .user-avatar {
+    float: left;
+
+    img {
+      height: 35px;
+    }
+  }
+
+  .user-home {
+    img {
+      height: 35px;
+    }
+  }
+
+  .user-info {
+    line-height: 15px;
+    float: left;
+    padding-left: 10px;
+  }
+}
+
+.wizard {
+  .content {
+    section {
+      overflow: auto;
+    }
+
+    input {
+      border: none !important;
+    }
+  }
+}
+
+.filters {
+  border: 2px solid $grey;
+  margin-bottom: 30px;
+  @include border-radius(2px);
+}

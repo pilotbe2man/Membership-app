@@ -1,0 +1,216 @@
+.main{  
+  .btn{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+  }
+
+  .btn-round {
+    border-radius: 20px;
+    border: none;
+    min-width: 120px;
+    min-height: 30px;
+    padding: 6px 20px;
+  }
+
+  .btn.active.focus, 
+  .btn.active:focus, 
+  .btn.focus, 
+  .btn:active.focus, 
+  .btn:active:focus, 
+  .btn:focus{
+    color: #fff;
+    outline: none;
+  }
+
+  .btn.active, 
+  .btn:active{
+    color: #fff;
+    background-image:none;
+  }
+
+  .btn.focus, 
+  .btn:focus, 
+  .btn:hover{
+    color: #fff;
+    text-decoration: none;  
+  }
+
+  .input-round{
+    border-radius: 30px;
+  }  
+
+  textarea.form-control,
+  input.form-control,
+  select.form-control{
+    border: 1px solid #242c3f;
+    min-height: 40px;
+    vertical-align: top;
+    padding: 6px 20px;
+    line-height: normal;
+    font-size: 14px;
+
+    &:focus{
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  textarea.input-round{
+    border-radius: 10px;
+  }
+
+  .has-feedback .form-control-feedback{
+    font-size: 20px;
+    padding: 7px;
+    vertical-align: bottom;
+    top: 2px;
+    right: 10px;
+    color: #aaa;
+  }
+
+  .item-home{
+    background: #ddd;
+    background: -webkit-linear-gradient(#ddd, #aaa);
+    background: -o-linear-gradient(#ddd, #aaa);
+    background: -moz-linear-gradient(#ddd, #aaa);
+    background: linear-gradient(#ddd, #aaa);
+  }
+
+  .item-manager{
+    background: #ff5443;
+    background: -webkit-linear-gradient(#ffa63e, #ff0a55);
+    background: -o-linear-gradient(#ffa63e, #ff0a55);
+    background: -moz-linear-gradient(#ffa63e, #ff0a55);
+    background: linear-gradient(#ffa63e, #ff0a55);
+  }
+  .item-worker{
+    background: #f1c942;
+    background: -webkit-linear-gradient(#f2ff32, #f09751);
+    background: -o-linear-gradient(#f2ff32, #f09751);
+    background: -moz-linear-gradient(#f2ff32, #f09751);
+    background: linear-gradient(#f2ff32, #f09751);
+  }
+  .item-partner{
+    background: #00c4cb;
+    background: -webkit-linear-gradient(#0085fe, #00ff9c);
+    background: -o-linear-gradient(#0085fe, #00ff9c);
+    background: -moz-linear-gradient(#0085fe, #00ff9c);
+    background: linear-gradient(#0085fe, #00ff9c);
+  }
+  .item-parentee{
+    background: #8ea4f4;
+    background: -webkit-linear-gradient(#b879ff, #63d1e8);
+    background: -o-linear-gradient(#b879ff, #63d1e8);
+    background: -moz-linear-gradient(#b879ff, #63d1e8);
+    background: linear-gradient(#b879ff, #63d1e8);
+  }  
+
+  .fileupload-container{
+    height: 100px;
+  }
+
+  .fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    height: 120px;
+    .caption{
+      vertical-align: bottom;
+    }
+  }
+
+  .fileUpload input.upload {
+    position: relative;
+    height: 110px;
+    width: 85px;
+    top: -110px;
+    left: 30px;
+    margin: auto;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }    
+
+  .upload-wrapper{
+    position: relative;
+    left: 85px;      
+  }
+
+  #rootwizard{
+    margin: auto !important;
+  }
+
+  #error_explanation{
+    color: darkred;
+    text-align: center;
+    ul{
+      text-align: left;
+    }
+  }
+
+  .error_explanation{
+    color: darkred;
+    ul{
+      text-align: left;
+    }
+  }
+
+  .header-guide {
+      -ms-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+
+      -ms-transform-origin: left top 0;
+      -moz-transform-origin: left top 0;
+      -webkit-transform-origin: left top 0;
+      transform-origin: left top 0;
+
+      background: #ffa030;
+      color: #fff;
+      margin-left: 35px;
+      text-transform: uppercase;
+      float: left;
+
+      position: fixed;
+      top: 20%;
+      border-radius: 10px 10px 0px 0px;
+      padding: 3px 10px 1px 10px;
+
+      a{
+          color: #fff;
+          background: #ffa030;
+          font-size: 16px;
+          vertical-align: middle;
+          display: block;
+          font-weight: 600;
+          line-height: 16px;  
+          text-decoration: none;              
+          outline: none;
+          text-align: center;
+          .fa{
+              vertical-align: top;
+              padding-top: 4px;
+              font-weight: 600;
+          }
+          label{
+              display: block;
+              cursor:pointer;
+              &.description{
+                  font-size: 14px;
+                  font-weight: 400;
+                  line-height: 5px;  
+                  text-transform: capitalize;
+              }
+          }
+      }
+  }
+
+}
+
+body{
+  background-color: #242c3f !important;  
+}
+

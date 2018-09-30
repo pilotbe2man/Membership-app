@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    <%= LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? " - Healthier Childcare Administration" : LocaleLogo.by_type_language(1, I18n.locale).first.app_title.html_safe %>
+  </title>
+  <%= stylesheet_link_tag  'legacy', media: 'all', 'data-turbolinks-track' => true %>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic" rel="stylesheet" type="text/css">
+  <%= stripe_javascript_tag %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'stripe', 'data-turbolinks-track' => true %>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <%= tag :meta, name: "stripe-key", content: Rails.application.secrets.stripe_public_key %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type='text/javascript'>
+    window._trans = <%= yield_js_translations.to_json.html_safe %>
+  </script>
+
+  <% if current_user.nil? %>
+    <script type="text/javascript">
+      $crisp=[];
+      CRISP_WEBSITE_ID="2a0e587f-839b-4b8c-9ef3-3881e449188e";
+      (function(){
+        d=document;
+        s=d.createElement("script");
+        s.src="https://client.crisp.im/l.js";
+        s.async=1;
+        d.getElementsByTagName("head")[0].appendChild(s);
+      })();
+    </script>
+  <% end %>
+
+</head>
+<body>
+    <%= render partial: 'shared/headers/legacy' %>
+    <div class="main">
+      <%= yield %>
+    </div>
+    <%= render partial: 'shared/footer' %>
+</body>
+</html>

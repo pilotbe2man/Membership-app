@@ -1,0 +1,76 @@
+= content_for :page_title, "Medical Professional Registration"
+= content_for :previous_path, program_path
+= content_for :color_code, 'medical-professional'
+
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'row'}) do |f|
+  = devise_error_messages!
+
+  .form-group
+    = f.label :name
+    = f.text_field :name, autofocus: true, class: 'form-control'
+
+  .form-group
+    = f.label :email
+    = f.text_field :email, type: :email, class: 'form-control'
+
+  .form-group
+    = f.label :password
+    = f.password_field :password, autocomplete: 'off', class: 'form-control'
+
+  .form-group
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
+
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length}) characters minimum
+
+  = f.fields_for :user_profile do |ff|
+    .form-group
+      = ff.label :phone_number
+      = ff.text_field :phone_number, type: :number, class: 'form-control'
+
+    .form-group
+      = ff.label :physical_address
+      = ff.text_field :physical_address, class: 'form-control'
+
+    .form-group
+      = ff.label :web_address
+      = ff.text_field :web_address, class: 'form-control'
+
+    .form-group
+      = ff.label :about_yourself
+      = text_area_tag 'user_profile[about_yourself]', '', class: 'form-control'
+
+    .form-group
+      = ff.label :education
+      = ff.text_field :education, class: 'form-control'
+
+    .form-group
+      = ff.label :certifications
+      = text_field_tag 'user[user_profile_attributes][certifications][]', '', class: 'form-control'
+      = link_to 'Add Another', '#', class: 'add-certification'
+
+
+    = ff.fields_for :doctor_specialization do |dr_specialization|
+      .form-group
+        = dr_specialization.label :medical_specialization
+        = dr_specialization.select :medical_specialization_id, options_from_collection_for_select(MedicalSpecialization.all, 'id', 'name'), {}, class: 'form-control'
+
+    .form-group
+      = ff.label :online_presence
+      - ['yes', 'no'].each do |status|
+        .radio
+          %label
+            %input{type: 'radio', name: 'user[user_profile_attributes][online_presence]', value: status, required: true}
+            = status.humanize
+
+    = ff.fields_for :profile_image do |profile_image|
+      .form-group
+        = profile_image.label :profile_image
+        = profile_image.file_field :file, class: 'form-control'
+
+  = f.submit 'Sign Up', class: 'btn btn-block btn-large btn-blue'
+
+%script{type: 'text/template', id: 'user-profile-certifications'}
+  = text_field_tag 'user[user_profile_attributes][certifications][]', '', class: 'form-control'

@@ -1,0 +1,16 @@
+- lang_name = 'pages.mission_step.ref_text_' + index.to_s
+:javascript
+  jQuery(document).ready(function() {
+    $("#reference_#{index}").popover({
+      container: '.container',
+      html: true,
+      placement: "auto",
+      trigger: "hover",
+      title: function () {
+          return "#{t('pages.mission_step.ref_title')}" + " #" + $(this).html();
+      },
+      content: function () {
+          return "#{t(lang_name)}";
+      }
+    });
+  });

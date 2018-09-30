@@ -1,0 +1,74 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, todos_path
+.todo-dash-container
+  .container
+    #todo.row.todo-info
+      .twelvecol
+        .row
+          .col-md-4
+            .profile-thumb
+          .col-md-8
+            %table{style: "width: 100%; font-size: 16px;"}
+              %tr
+                %td{style: "width: 20%;"}=t('manager.todos.show.label1') + ": "
+                %td{style: "font-size: 18px;"} Making Food
+              %tr
+                %td=t('manager.todos.show.label2') + ": "
+                %td Recurring
+              %tr
+                %td=t('manager.todos.show.label4') + ": "
+                %td Day
+        .row
+          .info
+            %h2=t('manager.todos.labels.keytasks')
+            %ul#complete-task
+              %li.todo-li-item
+                .row.key-task
+                  .col-md-8.col-sm-8.col-xs-8
+                    %p Buy Food
+                  .col-md-4.col-sm-4.col-xs-4.text-right
+                    .subtask
+                      %i.fa.fa-check-square-o.pass
+                .row
+                  .col-md-10.col-sm-10.col-xs-10.col-md-offset-2.col-sm-offset-2.col-xs-offset-2
+                    %h4=t('manager.todos.labels.subtasks')
+                .row
+                  .col-md-10.col-sm-10.col-xs-10.col-md-offset-2.col-sm-offset-2.col-xs-offset-2.subtask-group
+                    .col-md-8.col-sm-8.col-xs-8
+                      %p Buying Banana
+                    .col-md-4.col-sm-4.col-xs-4.text-right.no-h-padding
+                      .subtask
+                        %i.fa.fa-check-square-o.pass
+                .row
+                  .col-md-10.col-sm-10.col-xs-10.col-md-offset-2.col-sm-offset-2.col-xs-offset-2.subtask-group
+                    .col-md-8.col-sm-8.col-xs-8
+                      %p Buying Apple
+                    .col-md-4.col-sm-4.col-xs-4.text-right.no-h-padding
+                      .subtask
+                        %i.fa.fa-check-square-o.pass
+              %li.todo-li-item
+                .row.key-task
+                  .col-md-8.col-sm-8.col-xs-8
+                    %p Washing Food
+                  .col-md-4.col-sm-4.col-xs-4.text-right
+                    .subtask
+                      %a{href: '#'}
+                        %i.fa.fa-square-o
+                .row
+                  .col-md-10.col-sm-10.col-xs-10.col-md-offset-2.col-sm-offset-2.col-xs-offset-2
+                    %h4=t('manager.todos.labels.subtasks')
+                .row
+                  .col-md-10.col-sm-10.col-xs-10.col-md-offset-2.col-sm-offset-2.col-xs-offset-2.subtask-group
+                    .col-md-8.col-sm-8.col-xs-8
+                      %p Washing Plate
+                    .col-md-4.col-sm-4.col-xs-4.text-right.no-h-padding
+                      .subtask
+                        %a{href: '#', data:{step: 4, intro: t("guideline.worker.todo_report.step4.content")}}
+                          %i.fa.fa-square-o
+:javascript
+  jQuery(document).ready(function() {
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.introGoToStep('todo_step1', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });       
+    healthChildcare.guideline.introGoToStep('todo_step1', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+  });

@@ -1,0 +1,29 @@
+.panel
+  .panel-body
+    %h5
+      = t('survey.labels.groups')
+
+    - if current_user.affiliate.strategic?
+      .survey-group
+        .group-header.daycares
+          = image_tag 'manager-icon.png', class: 'img'
+          = t('survey.labels.daycares')
+          %input{type: 'hidden', id: 'selected_daycares', value: params[:target_daycare].map{|item| "#{item}"}.join(',')}
+          %input{type: 'hidden', id: 'start_date', value: params[:start_date]}
+          %input{type: 'hidden', id: 'end_date', value: params[:end_date]}
+
+        .group-members.daycares
+          / %a{href: '#', class: 'get-daycare-result', 'data-subject_group': 'daycare'}= t('survey.labels.all')
+          - @daycares.each do |daycare|
+            - unless @subject.nil?
+              %a{href: '#', class: '', 'data-subject_id': @subject.id, 'data-id': daycare.id}= daycare.name
+    - else
+      .survey-group
+        .group-header.workers
+          = image_tag 'worker-icon.png', class: 'img'
+          = t('survey.labels.workers')
+        .group-members.workers
+          / %a{href: '#', class: 'get-group-result', 'data-subject_group': 'worker'}= t('survey.labels.all')
+          - current_user.affiliate.users.each do |worker|
+            - unless @subject.nil?
+              %a{href: '#', class: '', 'data-subject_id': @subject.id, 'data-id': worker.id}= worker.name

@@ -1,0 +1,33 @@
+.login-container.page-boxed
+  .container
+    .col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-12.text-center
+      .notification-box.border-style-1
+        .row
+          %span.panel-title=t('pages.login.label')
+        .row.panel-content
+          = image_tag LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? 'logo.png' : LocaleLogo.by_type_language(1, I18n.locale).first.logo.url, :class => 'logo', style: 'width: 130px;'
+        .row
+          = content_tag(:div, flash[:error], :id => "flash_error", :style => 'font-size:14px; color: darkred; padding: 10px 0;') if flash[:error]
+          = content_tag(:div, flash[:alert], :id => "flash_alert", :style => 'font-size:14px; color: darkred; padding: 10px 0;') if flash[:alert]        
+        .row
+          = form_for(resource, as: resource_name, url: session_path(resource_name, :role => params[:role])) do |f|
+            - if params[:role] == 'parent'
+              -login_label = t('device.sessions.login_parent')
+            -elsif params[:role] == 'worker'  
+              -login_label = t('device.sessions.login_worker')
+            -else
+              -login_label = t('device.sessions.login')    
+            .col-md-12.form-group
+              = f.text_field :email, :class => 'form-control input-round', :placeholder => login_label , required: true
+            .col-md-12.form-group
+              = f.password_field :password, :class => 'form-control input-round', :placeholder => 'Password', required: true
+            .col-md-12.form-group.text-right
+              = link_to t('pages.login.forgot_password'), new_user_password_path(role: params[:role]), :class => 'forgot-password pull-right'
+            .col-md-12.form-group.text-center
+              = f.submit t('pages.login.label'), :class => "btn btn-round col-xs-12 item-manager"
+:javascript
+  jQuery(document).ready(function() {
+    $('body').css("src","background-color: #242c3f !important;");
+    $('footer.normal .container').css("top", "0");
+    $('footer.normal .container .central-footer').css("display", "none");
+  });

@@ -1,0 +1,152 @@
+.legacy-mission
+{
+    .promo{}
+.promo-img{}
+.promo-img img {
+    margin-left: -15px;
+}
+.promo-img img{}
+.img-text{
+    position: absolute;
+    top: 30%;
+    padding: 40px;
+    width: 75%;
+    font-size: 40px;
+    
+    font-family: 'Open Sans'; font-weight: 400; 
+        font-size: 35px;
+}
+.img-text h2{ 
+    font-size: 35px;
+    margin-bottom: 40px;
+}
+
+
+#page-menu li:hover a{
+    background: none;
+    border-bottom:none;
+     color:#426cd5;
+}
+#page-menu {}
+#page-menu  li{}
+#page-menu  li.active a{color:#426cd5;font-weight: normal}
+#page-menu li a {background: none;color:#dfdfdf;font-size:22px;}
+ #page-menu .fa-angle-down {
+   color: #fff;
+    background: #426cd5;
+    padding: 7px;
+    border-radius: 50%;
+    margin-right: 16px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 27px;
+
+}
+#page-menu .fa-angle-right{
+     color: #fff;
+    background: #426cd5;
+    padding: 7px;
+    border-radius: 50%;
+    margin-right: 16px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 27px;
+
+}
+.page-heading{    
+    background: image-url('heading_bg.jpg') repeat;
+    overflow: hidden;
+    min-height: 180px;
+    color: #fff;
+    padding: 25px;
+    margin-top: 20px;
+
+}
+.mission-page-heading h2{
+        font-size: 45px;
+    margin-left: 114px;
+        font-family: open-sans;
+}
+.page-discription{
+     padding: 80px 80px 100px 60px ;
+}
+.page-discription p{position: relative;   
+    
+    margin-left: 65px;
+    font-size: 20px;
+    padding-left:70px;
+        font-family: open-sans;
+}
+.page-discription p:after{
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 3px;
+    background: #ffba03;
+    top: 0px;
+    left: 0px;
+}
+.risks-care{padding: 40px}
+.daycare{}
+.daycare h2, .worder-daycare h2, .parent-daycare h2{color:#426cd5;font-family: open-sans;font-size: 26px}
+.daycare p, .worder-daycare p, .parent-daycare p{font-size: 20px;font-family: open-sans;}
+.daycare span ,.worder-daycare span{color:#426cd5;}
+.worder-daycare{margin-bottom: 120px}
+.daycare-parent-worder{padding-left: 55px;}
+
+
+.what-do-next{    background: image-url('bg.jpg');
+    padding: 200px 20px 50px 40px;}
+.what-do-next img{     
+    float: left;
+    margin-right: 50px;
+    padding-top: 47px;}
+.what-do-next-heading{
+        color: #fff;
+    font-size: 45px;
+    font-family: open-sans;
+    overflow: hidden;
+}
+.wdnp{
+    color: #fff;
+    font-size: 20px;
+    font-family: open-sans;
+    overflow: hidden;
+    width: 719px;
+    padding-left: 94px;
+}
+#mission-menu{margin: 0;padding: 0;list-style: none;padding-left: 94px}
+#mission-menu li{float: left;text-decoration: none}
+#mission-menu li a{color:#fff;text-decoration: none;margin-right: 40px}
+
+.out-ben{}
+#threestrep p{font-size: 20px}
+.outline-risk h2, .outline-risk h2,.benchmark h2 ,.community h2{color:#426cd5;font-size: 36px}
+.outline-risk span, .outline-risk span,.benchmark span,.community span {font-size:100px;}
+.outline-risk ,.benchmark,.community{padding: 50px}
+.benchmark{}
+.community{    margin-top: 200px;}
+.outline-risk{}
+
+#get-start-free{padding: 60px;background: #365ebf;color:#fff;}
+#get-start-free p{font-size:20px;font-family: open-sans}
+.start-free{margin: 0;padding: 0}
+.start-free span{     
+    border: 2px solid #ffd026;
+    margin: 0;
+    padding: 12px;
+    display: block;
+    float: left;
+    margin-right:40px;
+}
+.get-start{}
+.start-free i{     font-size: 98px;
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+    margin-top: -23px;
+    margin-left: 3px;}
+.start-free a{color:#fff;}
+}

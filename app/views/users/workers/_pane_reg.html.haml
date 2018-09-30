@@ -1,0 +1,34 @@
+.row.text-center.step-banner
+  = image_tag 'worker-md.png'
+  %h4=t('account.daycare.worker')
+.row.pane-container.text-center
+  .row.step-banner
+    .col-sm-3.col-xs-3.step-item.first-step.item-worker
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-check-mng.png'
+        %span=t('register.labels.register')
+    .col-sm-3.col-xs-3.step-item.second-step.item-worker
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-check-mng.png'
+    .col-sm-3.col-xs-3.step-item.third-step.item-worker.active
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'worker-sm.png'
+    .col-sm-3.col-xs-3.step-item.fourth-step.item-worker    
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+  .row.parent-info.text-left
+    .col-sm-8
+      .row
+        %h4=t('register.labels.user_info')
+      .row      
+        %input.form-control.input-round{:placeholder => t('register.labels.name')}      
+      .row
+        %input.form-control.input-round{:placeholder => t('register.labels.email')}      
+      .row
+        %input.form-control.input-round{:placeholder => t('register.labels.password')}      

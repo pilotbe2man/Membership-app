@@ -1,0 +1,114 @@
+.legacy-standard
+  .row.promo
+    .promo-img
+      = image_tag 'standard-banner.jpg'
+      .img-text
+  / End Promo Area
+  .container
+    .row
+      .col-lg-12.col-md-12.col-sm-12.col-xs-12
+        %ul#page-menu.nav.nav-pills
+          %li{:role => "presentation"}
+            %a{:href => "/mission"}
+              %i.fa.fa-angle-right>
+              = t('pages.standard.label1').html_safe
+          %li.active{:role => "presentation"}
+            %a{:href => "/standard"}
+              %i.fa.fa-angle-down>
+              = t('pages.standard.label2').html_safe
+          %li{:role => "presentation"}
+            %a{:href => "/path"}
+              %i.fa.fa-angle-right>
+              = t('pages.standard.label3').html_safe
+          %li{:role => "presentation"}
+            %a{:href => "/journey"}
+              %i.fa.fa-angle-right>
+              = t('pages.standard.label4').html_safe
+  / End page-menu Area
+  .container
+    .row
+      %h3.heading.heading-letter
+        = t('pages.standard.head1').html_safe
+      %h4.sub-heading= t('pages.standard.sub_head1').html_safe
+      %p
+        = t('pages.standard.para1').html_safe
+        = t('pages.standard.instro1').html_safe
+        %a.reference-link{href: '#', id: 'reference_23'}23
+        = t('pages.standard.instro2').html_safe
+  .container.page-description-list
+    .row
+      .col-lg-6.col-md-6.col-sm-12.col-xs-12
+        .listed-thumb
+          = image_tag 'standard-1.png'
+      .col-lg-6.col-md-6.col-sm-12.col-xs-12
+        .list-description
+          %h3= t('pages.standard.head2').html_safe
+          %h4.text-pink= t('pages.standard.subhead2_1').html_safe
+          %p= t('pages.standard.para2_1').html_safe
+          %h4.text-pink= t('pages.standard.subhead2_2').html_safe
+          %p= t('pages.standard.para2_2').html_safe
+      .col-lg-6.col-md-6.col-sm-12.col-xs-12
+        .listed-thumb
+          = image_tag 'standard-2.png'
+      .col-lg-6.col-md-6.col-sm-12.col-xs-12
+        .list-description
+          %h3= t('pages.standard.head3').html_safe
+          %h4.text-pink= t('pages.standard.subhead3_1').html_safe
+          %p= t('pages.standard.para3_1').html_safe
+          %h4.text-pink= t('pages.standard.subhead3_2').html_safe
+          %p= t('pages.standard.para3_2').html_safe
+      .col-lg-6.col-md-6.col-sm-12.col-xs-12
+        .listed-thumb
+          = image_tag 'standard-3.png'
+      .col-lg-6.col-md-6.col-sm-12.col-xs-12
+        .list-description
+          %h3= t('pages.standard.head4').html_safe
+          %h4.text-pink= t('pages.standard.subhead4_1').html_safe
+          %p= t('pages.standard.para4_1').html_safe
+          %h4.text-pink= t('pages.standard.subhead4_2').html_safe
+          %p= t('pages.standard.para4_2').html_safe
+      .col-lg-6.col-md-6.col-sm-12.col-xs-12
+        .listed-thumb
+          = image_tag 'standard-4.png'
+      .col-lg-6.col-md-6.col-sm-12.col-xs-12
+        .list-description
+          %h3= t('pages.standard.head5').html_safe
+          %h4.text-pink= t('pages.standard.subhead5_1').html_safe
+          %p= t('pages.standard.para5_1').html_safe
+          %h4.text-pink= t('pages.standard.subhead5_2').html_safe
+          %p= t('pages.standard.para5_2').html_safe
+      .col-lg-6.col-md-6.col-sm-12.col-xs-12
+        .listed-thumb
+          = image_tag 'standard-5.png'
+      .col-lg-6.col-md-6.col-sm-12.col-xs-12
+        .list-description
+          %h3= t('pages.standard.head6').html_safe
+          %h4.text-pink= t('pages.standard.subhead6_1').html_safe
+          %p= t('pages.standard.para6_1').html_safe
+          %h4.text-pink= t('pages.standard.subhead6_2').html_safe
+          %p= t('pages.standard.para6_2').html_safe
+
+  .container
+    .row
+      %h4.text-orange= t('pages.standard.head7').html_safe
+      %p= t('pages.standard.para7_1').html_safe      
+      %p= t('pages.standard.para7_2').html_safe      
+      %p= t('pages.standard.para7_3').html_safe      
+      %p
+        = t('pages.standard.para7_4').html_safe      
+        %a.reference-link{href: '#', id: 'reference_24'}24
+        = t('pages.standard.para7_5').html_safe
+        %a.reference-link{href: '#', id: 'reference_25'}25
+      %p
+        = t('pages.standard.para7_6').html_safe
+        %a.reference-link{href: '#', id: 'reference_21'}21
+      %p= t('pages.standard.para7_7').html_safe
+      %p= t('pages.standard.para7_8').html_safe
+.row.step-contents.next-step-content
+  .next-step
+    %p= t('pages.standard.para8_1').html_safe
+    %button.btn.hcc-btn
+      %a{'href': '#'}
+        = t('pages.nav_bar.get_started').html_safe
+- (21..25).each do |num|        
+  = render 'reference_popover', index: num

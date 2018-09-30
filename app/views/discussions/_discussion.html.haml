@@ -1,0 +1,18 @@
+- user_is_owner = current_user.id == discussion.owner_id
+.row.discussion{id: discussion.id, 'data-owner_id': discussion_owner(discussion).id, 'data-owner_type': discussion_owner(discussion).class.name}
+  .col-md-2.discussion-owner
+    - unless user_is_owner
+      = image_tag discussion_owner_avatar(discussion), class: 'img'
+      %p= discussion_owner_name(discussion)
+
+  .col-md-8.discussion-content
+    %p= discussion.content
+    %p.discussion-time
+      %small
+        %em
+          = time_ago_in_words(discussion.created_at) + ' ago'
+
+  .col-md-2.discussion-owner
+    - if user_is_owner
+      = image_tag discussion_owner_avatar(discussion), class: 'img'
+      %p= discussion_owner_name(discussion)

@@ -1,0 +1,66 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, dashboard_manager_todos_path
+.todo-dash-container
+  .container
+    #todos.row
+      .twelvecol
+        .form
+          .input-group.todo-search
+            %input.form-control{type: 'text'}
+            .input-group-btn
+              %button.btn.btn-default{:type => "submit"}
+                %i.glyphicon.glyphicon-search
+        .todo-list
+          %h3 CLEANING
+          %ul
+            %li{data:{step: 2, intro: t("guideline.manager.todo_report.step2.content")}}
+              .department-todo
+                %a{href: '#'}
+                  .todo-command
+                    .detail-box
+                      %span.view-report=t('manager.todos.labels.view_report')
+                  %span.todo-footer En-DEP1
+            %li
+              .department-todo
+                %a{href: '#'}
+                  .todo-command
+                    .detail-box
+                      %span.view-report=t('manager.todos.labels.view_report')
+                  %span.todo-footer En-DEP2
+            %li
+              .department-todo
+                %a{href: '#'}
+                  .todo-command
+                    .detail-box
+                      %span.view-report=t('manager.todos.labels.view_report')
+                  %span.todo-footer En-DEP3
+          %h3 MAKING FOOD
+          %ul
+            %li
+              .department-todo
+                %a{href: '#'}
+                  .todo-command
+                    .detail-box
+                      %span.view-report=t('manager.todos.labels.view_report')
+                  %span.todo-footer En-DEP1
+            %li
+              .department-todo
+                %a{href: '#'}
+                  .todo-command
+                    .detail-box
+                      %span.view-report=t('manager.todos.labels.view_report')
+                  %span.todo-footer En-DEP2
+            %li
+              .department-todo
+                %a{href: '#'}
+                  .todo-command
+                    .detail-box
+                      %span.view-report=t('manager.todos.labels.view_report')
+                  %span.todo-footer En-DEP3
+:javascript
+  jQuery(document).ready(function() {
+    healthChildcare.guideline.introGoToStep('report_step3', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.introGoToStep('report_step3', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });    
+  });

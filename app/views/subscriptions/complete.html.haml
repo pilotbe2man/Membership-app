@@ -1,0 +1,20 @@
+- content_for :popup_notifications do
+  = hidden_field_tag 'notif_plan_id', @subscription.plan_id
+
+#legacy-upgrade
+  .container
+    .row
+      .col-lg-12.col-md-12.col-sm-12.col-xs-12
+        %h2 Thank you for subscribing to our #{@subscription.plan.name} plan
+        %p
+          We have sent an email confirmation to #{@subscription.user.email}.
+        %p
+          = t('subscriptions.complete.line1')
+        %ul
+          %li= t('subscriptions.complete.line2')
+          %li= t('subscriptions.complete.line3')
+          %li= t('subscriptions.complete.line4')
+        %p
+          = t('subscriptions.complete.line5')
+          = link_to 'dashboard', welcome_path
+          !

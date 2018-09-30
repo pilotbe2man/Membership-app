@@ -1,0 +1,77 @@
+= content_for :title, t('messages.breadcrumb.create_message')
+- content_for :page_title, t('dashboard.menu_item.communication')
+.message-dash-container
+  .container
+    .row.content-main
+      = form_for [:partner, @message] do |f|
+        .col-md-12      
+          %h4.option-title=t('messages.labels.recipient_for_message')
+          - index = 0
+          - if current_user.affiliate.strategic?
+            - Message.allowed_recipients_for_role(current_user.role).each do |target_role|
+              - index += 1
+              .row.recipients-role
+                .col-md-4.col-sm-4.col-xs-6.role-elem.right-border
+                  .check-box.partners
+                    = check_box_tag 'message[target_roles][]', target_role, false, :id => "chk_depart_#{index}", :style => "display: none;"
+                    %label{:for => "chk_depart_#{index}"}
+                      = t('pages.nav_bar.'+target_role).humanize.pluralize
+                .col-md-8.col-sm-8.col-xs-6.role-elem
+                  %span.recipient-count
+                    %b #{User.send(target_role).size}
+                    =t('messages.labels.receive_messages', account: t('pages.nav_bar.'+target_role).humanize.pluralize)
+          - else
+            .row.recipients-role
+              .col-md-4.col-sm-4.col-xs-6.role-elem.right-border
+                .check-box.partners
+                  = check_box_tag 'message[target_roles][]', 'worker', false, :id => "chk_depart_1", :style => "display: none;"
+                  %label{:for => "chk_depart_1"}
+                    = t('pages.nav_bar.member').humanize.pluralize
+              .col-md-8.col-sm-8.col-xs-6.role-elem
+                %span.recipient-count
+                  %b #{current_user.affiliate.users.length - 1}
+                  =t('messages.labels.receive_messages', account: t('pages.nav_bar.member').humanize.pluralize)
+
+        .col-md-12
+          %h4.option-title Title :
+          = f.text_field :title, placeholder: t('messages.labels.write_title'), class: 'form-control', required: true
+        .col-md-8.col-sm-8.col-xs-12
+          %h4.option-title= t('messages.labels.write_message_content')
+          = f.cktext_area :content, id: 'message_content'
+        .col-md-4.col-sm-4.col-xs-12.partners-list
+          - if current_user.affiliate.strategic?
+            .panel
+              .panel-heading=t('messages.labels.childcare_member')
+              .panel-body
+                .list
+                  %table.table.table-striped
+                    - Affiliate.all.each do |partner|
+                      %tr
+                        %td= partner.name
+                .body-bottom
+                  %span
+                    =t('messages.labels.daycare_total', size: Affiliate.all.size)
+        .col-md-12.form-buttons.text-right.no-h-padding
+          .col-md-3.col-md-offset-6.col-sm-3.col-sm-offset-6.col-xs-6
+            %a{href: partner_messages_path, class: 'btn btn-gray btn-wizard'} Cancel
+          .col-md-3.col-sm-3.col-xs-6
+            = submit_tag t('messages.labels.send'), class: 'btn btn-yellow-red btn-wizard'
+:javascript
+  jQuery(document).ready(function() {    
+    //$('#message_content').froalaEditor({
+    //  heightMin: 250
+    //});
+
+    //$.material.init();
+
+    $('input[type="checkbox"]').on('click', function() {
+
+      if ($(this).is(':checked')) {
+        $(this).parents('.checkbox').children('.recipient-count').show();
+      }
+      else {
+        $(this).parents('.checkbox').children('.recipient-count').hide();
+      }
+
+    })
+  });

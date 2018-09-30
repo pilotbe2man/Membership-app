@@ -1,0 +1,43 @@
+<%= form_for [:admin, @video], url: url do |f| %>
+    <div class="threecol"></div>
+    <div class="ninecol last">
+        <%= render partial: 'shared/admin/errors', locals: { object: @video } %>
+    </div>
+
+    <div class="threecol">
+        <h3>Video details</h3>
+    </div>
+
+    <div class="ninecol last">
+        <fieldset class="widget widget-content">
+            <div class="form-group">
+                <%= f.label :url %>
+                <%= f.text_field :url, :class => 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :category %>
+                <%= f.radio_button :category, 'free', (!@ori_video.nil? && @ori_video.category == 'free') ? {:checked => true} : {:checked => false}  %> Preview Video
+                <%= f.radio_button :category, 'paid', (!@ori_video.nil? && @ori_video.category == 'paid') ? {:checked => true} : {:checked => false} %> Online Training
+            </div>
+            <div class="form-group">
+                <%= f.label :type %>
+                <%= f.radio_button :video_type, 'survey', (!@ori_video.nil? && @ori_video.video_type == 'survey') ? {:checked => true} : {:checked => false} %> Survey
+                <%= f.radio_button :video_type, 'online_training', (!@ori_video.nil? && @ori_video.video_type == 'online_training') ? {:checked => true} : {:checked => false} %> Online_training
+                <%= f.radio_button :video_type, 'todo', (!@ori_video.nil? && @ori_video.video_type == 'todo') ? {:checked => true} : {:checked => false} %> Todo-A
+                <%= f.radio_button :video_type, 'emergency', (!@ori_video.nil? && @ori_video.video_type == 'emergency') ? {:checked => true} : {:checked => false} %> Emergency
+                <%= f.radio_button :video_type, 'illness', (!@ori_video.nil? && @ori_video.video_type == 'illness') ? {:checked => true} : {:checked => false} %> Illness Record
+                <%= f.radio_button :video_type, 'illness_guide', (!@ori_video.nil? && @ori_video.video_type == 'illness_guide') ? {:checked => true} : {:checked => false} %> Illness Guide
+                <%= f.radio_button :video_type, 'message', (!@ori_video.nil? && @ori_video.video_type == 'message') ? {:checked => true} : {:checked => false} %> Message
+                <%= f.radio_button :video_type, 'todo-b', (!@ori_video.nil? && @ori_video.video_type == 'todo-b') ? {:checked => true} : {:checked => false} %> Todo-B
+                <%= f.radio_button :video_type, 'illness_analysics', (!@ori_video.nil? && @ori_video.video_type == 'illness_analysics') ? {:checked => true} : {:checked => false} %> Illness Analysics
+            </div>
+            <div class="form-group">
+                <%= f.label :language %>
+                <%= f.select :language, options_for_select(pre_countries, :selected => f.object.language), {},{:class => 'form-control'} %>
+            </div>
+        </fieldset>
+        <div class="form-action">
+            <%= f.submit 'Submit', :class => 'btn btn-blue btn-large' %>
+        </div>
+    </div>
+<% end %>

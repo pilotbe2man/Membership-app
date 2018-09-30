@@ -1,0 +1,62 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, manager_reports_todo_set_date_range_path(@todo)
+.todo-dash-container
+  .container
+    .row
+      .col-md-12.form-group
+        %label=t('manager.todos.report.selected_date')
+        %input.form-control{type: 'text', value: @todo_complete.first.created_at.strftime('%d/%m/%Y at %I:%M%p')}
+      .col-md-12.form-group
+        %label=t('manager.todos.report.todo_title')
+        %input.form-control{type: 'text', value: @todo.title}
+
+    #todo.row.todo-report-info
+      - if @todo_complete.empty?
+        .row
+          .alert.alert-warning
+            %i.icon-warning
+            =t('manager.todos.report.none_message') 
+        .ln_solid
+      .row.result-box
+        .col-md-12
+          - @report = TodoReporter.new(todo_completes: @todo_complete, task_id: 0).percentages
+          .complete-progress
+            %label{style: 'width: 100px;'}=t('manager.todos.labels.complete') 
+            .progress{style: 'margin-right: 20px;'}
+              .value{style: "width: #{@report[:complete].round}%;"}          
+            %label="#{@report[:complete].round}%"
+          .incomplete-progress
+            %label{style: 'width: 100px;'}=t('manager.todos.labels.incomplete') 
+            .progress{style: 'margin-right: 20px;'}
+              .value{style: "width: #{@report[:incomplete].round}%;"}          
+            %label="#{@report[:incomplete].round}%"
+      .row
+        .col-md-12
+          %h4=t('manager.todos.report.task') 
+          %ul.todo-task-list
+            - @todo_complete.first.task_completes.each do |tk|
+              %li.todo-li-item
+                .row.key-task
+                  .col-sm-10
+                    %label.task-label=t('manager.todos.labels.title') 
+                    %span
+                      %b= tk.todo_task.title
+                  .col-sm-2.text-right
+                    - if tk.pass?
+                      %label.pass-mark
+                        %i.fa.fa-check
+                    - else
+                      %label.no-pass-mark                        
+                - if tk.sub_task_completes.present?
+                  - tk.sub_task_completes.each do |sub_task_complete|
+                    .row.sub-task
+                      .col-sm-10
+                        %label.task-label=t('manager.todos.labels.subtasks') 
+                        %span
+                          %b= sub_task_complete.sub_task.title
+                      .col-sm-2.text-right
+                        - if sub_task_complete.pass?
+                          %label.pass-mark
+                            %i.fa.fa-check
+                        - else
+                          %label.no-pass-mark

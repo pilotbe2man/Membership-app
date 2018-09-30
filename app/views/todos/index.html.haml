@@ -1,0 +1,65 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, dashboard_path
+.todo-dash-container
+  .container
+    #todos.row
+      .twelvecol
+        / = form_tag search_manager_todos_path, method: :get do
+        /   .input-group.todo-search
+        /     = text_field_tag(:query, params[:query], autocomplete: 'off', tabindex: "1", :class => 'form-control')
+        /     .input-group-btn
+        /       %button.btn.btn-default{:type => "submit"}
+        /         %i.glyphicon.glyphicon-search
+        .todo-list
+          %h3=t('todos.index.heading1')
+          - all_user_todos = User.self_available_todos.where(id: current_user.id)
+          - if all_user_todos.length == 0
+            %p=t('manager.todos.labels.no_todos') 
+          - else
+            %ul
+              - all_user_todos.each do |todo|
+                - if Todo.find(todo.id).recurring_available
+                  - diff_time = get_remain_time(todo.id)
+                  %li
+                    .menu-item{'data-id': todo.id}
+                      .todo-command
+                        .detail-box
+                          %span.todo-name= todo.title
+                          = link_to todo_todo_completes_path(todo), method: :post, :class => '' do
+                            = image_tag "start-button.png", class: 'img-responsive center-block'
+                      %span.todo-footer
+
+        .todo-list 
+          %h3=t('todos.index.heading2') 
+          /- if current_user.incomplete_todo_completes.active.empty? 
+          /  %p=t('todos.index.line2') 
+          /- else 
+          %ul
+            - User.self_incomplete_todos.where(id: current_user.id).each do |todo| 
+              - diff_time = get_remain_time(todo.id)
+              %li
+                = link_to todo_todo_complete_path(todo.id, todo.tc_id), :class => '', style: 'color: #2f363d;text-decoration: none;' do
+                  .department-todo
+                    .todo-command
+                      .detail-box
+                        %ul#time-counter
+                          %li.days
+                            %label=diff_time[0]
+                            %span Days
+                          %li.hours
+                            %label=diff_time[1]
+                            %span Hours
+                          %li.minutes
+                            %label=diff_time[2]
+                            %span Mins
+                        - percent = get_current_status(todo.id, current_user.department_id)
+                        .progress
+                          .value{style: "width: #{percent}%;"}
+                    %span.todo-footer
+                      = todo.title
+:javascript
+  jQuery(document).ready(function() {
+    $('#link_dashboard_guide').on('click', function(){
+      window.location.href = '/guide_page/worker_todo/todo_step1';
+    });    
+  });

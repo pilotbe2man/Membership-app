@@ -1,0 +1,45 @@
+.row.text-center.step-banner
+  = image_tag 'manager-md.png'
+  %h4=t('account.daycare.manager')
+.row.pane-container.text-center
+  .row.step-banner
+    .col-sm-3.col-xs-3.step-item.first-step
+      .step-label
+        = image_tag 'step-check-mng.png'
+    .col-sm-3.col-xs-3.step-item.second-step.active
+      .step-label
+        = image_tag 'manager-sm.png'
+        %span=t('register.labels.add_department')
+    .col-sm-3.col-xs-3.step-item.third-step
+      .step-label
+        = image_tag 'step-pending.png'
+    .col-sm-3.col-xs-3.step-item.fourth-step    
+      .step-label
+        = image_tag 'step-pending.png'
+  .row.parent-info
+    .col-sm-12.text-left.department-list
+      = daycare.fields_for :departments do |department|
+        = render partial: 'department_fields', locals: { f: department }
+    .col-sm-12.text-left
+      = custom_link_to_add_fields t('register.labels.add_department'), daycare, :departments, {:class => "btn-round item-manager"}
+:javascript
+  function remove_fields(link) {
+    $(link).prev("input[type=hidden]").val("1");
+
+    if ($(link).hasClass('subtask-link')) {
+      $(link).parent('.subtask').remove();
+    } else {
+      $(link).parent().parent().remove();
+    }
+  }
+
+  function add_fields(link, association, content) {
+      var new_id = new Date().getTime();
+      var regexp = new RegExp("new_" + association, "g");
+
+      if ($(link).hasClass('subtask-link')) {
+        $(link).parent().find('.form-group').last().after(content.replace(regexp, new_id));
+      } else {
+        $(link).parent().parent().find('.department-list').append(content.replace(regexp, new_id));
+      }
+  }

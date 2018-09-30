@@ -1,0 +1,124 @@
+.legacy-upgrade.row
+  .container
+    .row
+      .col-md-6.col-sm-6.col-xs-12.upgrade-plan
+        .row
+          %h2=t('pages.journey.process.heading').html_safe
+          %p=t('pages.journey.process.sub_heading').html_safe
+        .row
+          .radio-box
+            %input{:type=>"radio", :name => "target_option", :id => "target_apply", :style => "display: none;", checked: true, value: "apply"}
+            %label{:for => "target_apply"}
+              .text-left
+                %p=t('pages.journey.process.apply_para1').html_safe
+                %p=t('pages.journey.process.apply_para2').html_safe
+              %button.btn.hcc-btn-green-vertical
+                %a{'href': '/ethic_1'}
+                  = t('pages.journey.label.apply')            
+          /.radio-box
+          /  %input{:type=>"radio", :name => "target_option", :id => "target_register", :style => "display: none;", checked: false, value: "register"}
+          /  %label{:for => "target_register"}
+          /    .text-left
+          /      %p=t('pages.journey.process.register_para1').html_safe
+          /    %button.btn.hcc-btn-vertical
+          /      %a{'href': '/manager/register'}
+          /        = t('pages.journey.label.register')            
+      .col-md-6.col-sm-6.col-xs-12.instruction
+        .ongoing
+          .register-benefit
+            .ongoing-heading
+              %h2#ongoing_heading=t('pages.journey.instruction.benefit_apply').html_safe
+            .single-ongoing.pink
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 1
+              = image_tag '101.png'
+              %p
+                %span.periodic-pin=t('pages.journey.instruction.para1').html_safe
+            .single-ongoing.pink
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 2
+              = image_tag '102.png'
+              %p
+                %span.periodic-pin=t('pages.journey.instruction.para2').html_safe
+          .another-benefit
+            .single-ongoing.blue
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 3
+              = image_tag '103.png'
+              %p
+                %span.practices-blu=t('pages.journey.instruction.para3').html_safe
+            .single-ongoing.all
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 4
+              = image_tag '104.png'
+              %p
+                %span.potential-gree=t('pages.journey.instruction.para4').html_safe
+            .single-ongoing.all
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 5
+              = image_tag '105.png'
+              %p
+                %span.potential-gree=t('pages.journey.instruction.para5').html_safe
+            .single-ongoing.all
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 6
+              = image_tag '113.png'
+              %p
+                %span.potential-gree=t('pages.journey.instruction.para6').html_safe
+            .single-ongoing.all
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 7
+              = image_tag '112.png'
+              %p
+                %span.potential-gree=t('pages.journey.instruction.para7').html_safe
+            .single-ongoing.all
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 8
+              = image_tag '111.png'
+              %p
+                %span.potential-gree=t('pages.journey.instruction.para8').html_safe
+            .single-ongoing.all
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 9
+              = image_tag '108.png'
+              %p
+                %span.potential-gree=t('pages.journey.instruction.para9').html_safe
+            .single-ongoing.all
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 10
+              = image_tag '109.png'
+              %p
+                %span.potential-gree=t('pages.journey.instruction.para10').html_safe
+            .single-ongoing.all
+              %span.fa-stack.fa-2x{style: 'width: 1em; height: 1em; line-height: 1.2em; float:left; color: #ff0a55; font-size: 1.5em'}
+                %i.fa.fa-circle-o.fa-stack-1x
+                %strong.fa-stack-1x{style: 'font-size: 0.5em;'} 11
+              = image_tag '106.png'
+              %p
+                %span.potential-gree=t('pages.journey.instruction.para11').html_safe
+:javascript
+  jQuery(document).ready(function() {
+    $('body').css("background", "#242c3f");
+    $('footer.normal .container').css("top", "0");
+    $('footer.normal .container .central-footer').css("display", "none");
+
+    $('input[name=target_option]').on('click', function(){
+      if($('input[name=target_option]:checked').val() == 'apply'){
+        $('.another-benefit').show();
+        $('#ongoing_heading').html("#{t('pages.journey.instruction.benefit_apply')}");
+      } else {
+        $('.another-benefit').hide();
+        $('#ongoing_heading').html("#{t('pages.journey.instruction.benefit_reg')}");
+      }
+    });
+  });

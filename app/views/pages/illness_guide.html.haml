@@ -1,0 +1,243 @@
+#legacy-back-three
+  .row.pink-banner
+    .container
+      .col-xs-8
+        %h2.text-dark-pink.text-bold.text-upper= t('pages.instruction.main_heading').html_safe
+        %p.text-blue= t('pages.instruction.description').html_safe
+      .col-xs-4.text-right
+        = image_tag 'guide.png'
+  .container.back-page-content
+    .row{style: 'margin-top: 30px;'}
+      .col-md-12
+        .infect-heading{'data-step'=>"7", 'data-intro'=>"In this section you are see videos", 'data-position' => 'top'}
+      - if current_user.nil? || (current_user.manager? && current_user.plan_type <= 2) || (current_user.worker? && current_user.manager_plan_type <= 2)
+        .col-sm-3.text-center
+          %a{:href => "#", "data-url": get_video_link("free", 1, I18n.locale), "data-popup-open": "video-popup"}
+            = image_tag 'intro_one.png'
+        .col-sm-9.single
+          %h3.text-blue.text-upper= t('pages.instruction.sub_heading1.title')
+          %p.text-left.text-bold= t('pages.instruction.sub_heading1.description')
+          %ul.blue-tickmark
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading1.para1').html_safe          
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading1.para2').html_safe
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading1.para3').html_safe
+
+          %p.text-left
+            = t('pages.instruction.sub_heading1.para4').html_safe
+
+        .col-sm-3.text-center
+          %a{:href => "#", "data-url": get_video_link("free", 2, I18n.locale), "data-popup-open": "video-popup"}
+            = image_tag 'intro_three.png'
+        .col-sm-9.single
+          %h3.text-blue.text-upper= t('pages.instruction.sub_heading3.title')
+          %p.text-left.text-bold= t('pages.instruction.sub_heading3.description')
+          %ul.blue-tickmark
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading3.para1').html_safe          
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading3.para2').html_safe
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading3.para3').html_safe
+          %p.text-left
+            = t('pages.instruction.sub_heading3.para4').html_safe
+
+        .col-sm-3.text-center
+          %a{:href => "#", "data-url": get_video_link("free", 3, I18n.locale), "data-popup-open": "video-popup"}
+            = image_tag 'intro_two.png'
+        .col-sm-9.single
+          %h3.text-blue.text-upper= t('pages.instruction.sub_heading2.title')
+          %p.text-left.text-bold= t('pages.instruction.sub_heading2.description')
+          %ul.blue-tickmark
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading2.para1').html_safe          
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading2.para2').html_safe
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading2.para3').html_safe
+          %p.text-left
+            = t('pages.instruction.sub_heading2.para4').html_safe
+
+        .col-sm-3.text-center
+          %a{:href => "#", "data-url": get_video_link("free", 4, I18n.locale), "data-popup-open": "video-popup"}
+            = image_tag 'intro_four.png'
+        .col-sm-9.single
+          %h3.text-blue.text-upper= t('pages.instruction.sub_heading4.title')
+          %p.text-left.text-bold= t('pages.instruction.sub_heading4.description')
+          %ul.blue-tickmark
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading4.para1').html_safe          
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading4.para2').html_safe
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading4.para3').html_safe
+          %p.text-left
+            = t('pages.instruction.sub_heading4.para4').html_safe
+
+        .col-sm-3.text-center
+          %a{:href => "#", "data-url": get_video_link("free", 5, I18n.locale), "data-popup-open": "video-popup"}
+            = image_tag 'intro_five.png'
+        .col-sm-9.single
+          %h3.text-blue.text-upper= t('pages.instruction.sub_heading5.title')
+          %p.text-left.text-bold= t('pages.instruction.sub_heading5.description')
+          %ul.blue-tickmark
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading5.para1').html_safe          
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading5.para2').html_safe
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading5.para3').html_safe
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading5.para4').html_safe
+          %p.text-left
+            = t('pages.instruction.sub_heading5.para5').html_safe
+
+      - else
+
+        .col-sm-3.text-center
+          %a{:href => "/trainings/1"}
+            = image_tag 'intro_one.png'
+        .col-sm-9.single
+          %h3.text-blue.text-upper= t('pages.instruction.sub_heading1.title')
+          %p.text-left.text-bold= t('pages.instruction.sub_heading1.description')
+          %ul.blue-tickmark
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading1.para1').html_safe          
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading1.para2').html_safe
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading1.para3').html_safe
+          %p.text-left
+            = t('pages.instruction.sub_heading1.para4').html_safe
+
+        .col-sm-3.text-center
+          %a{:href => "/trainings/2"}
+            = image_tag 'intro_three.png'
+        .col-sm-9.single
+          %h3.text-blue.text-upper= t('pages.instruction.sub_heading3.title')
+          %p.text-left.text-bold= t('pages.instruction.sub_heading3.description')
+          %ul.blue-tickmark
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading3.para1').html_safe          
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading3.para2').html_safe
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading3.para3').html_safe
+          %p.text-left
+            = t('pages.instruction.sub_heading3.para4').html_safe
+
+        .col-sm-3.text-center
+          %a{:href => "/trainings/3"}
+            = image_tag 'intro_two.png'
+        .col-sm-9.single
+          %h3.text-blue.text-upper= t('pages.instruction.sub_heading2.title')
+          %p.text-left.text-bold= t('pages.instruction.sub_heading2.description')
+          %ul.blue-tickmark
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading2.para1').html_safe          
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading2.para2').html_safe
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading2.para3').html_safe
+          %p.text-left
+            = t('pages.instruction.sub_heading2.para4').html_safe
+
+        .col-sm-3.text-center
+          %a{:href => "/trainings/4"}
+            = image_tag 'intro_four.png'
+        .col-sm-9.single
+          %h3.text-blue.text-upper= t('pages.instruction.sub_heading4.title')
+          %p.text-left.text-bold= t('pages.instruction.sub_heading4.description')
+          %ul.blue-tickmark
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading4.para1').html_safe          
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading4.para2').html_safe
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading4.para3').html_safe
+          %p.text-left
+            = t('pages.instruction.sub_heading4.para4').html_safe
+
+        .col-sm-3.text-center
+          %a{:href => "/trainings/5"}
+            = image_tag 'intro_five.png'
+        .col-sm-9.single
+          %h3.text-blue.text-upper= t('pages.instruction.sub_heading5.title')
+          %p.text-left.text-bold= t('pages.instruction.sub_heading5.description')
+          %ul.blue-tickmark
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading5.para1').html_safe          
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading5.para2').html_safe
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading5.para3').html_safe
+            %li
+              %p.text-left
+                = t('pages.instruction.sub_heading5.para4').html_safe
+          %p.text-left
+            = t('pages.instruction.sub_heading5.para5').html_safe
+
+  .col-md-12.step-contents
+    - if current_user.nil?
+      .cta-step-box.next-green-step
+        %p= t('pages.standard.para8_1').html_safe
+        %button.btn.hcc-green-btn
+          %a{'href': '/program'}
+            = t('pages.nav_bar.get_started').html_safe
+
+.popup{"data-popup" => "video-popup"}
+  .popup-inner
+    %iframe{:frameborder => "0", :onload => "resizeIframe(this)", :scrolling => "no", :src => "",  id: 'video-iframe'}
+    %a.popup-close{"data-popup-close" => "video-popup", :href => "#"} x
+
+:javascript
+  jQuery(document).ready(function() {
+    $('[data-popup-open]').on('click', function(e)  {
+
+        $('#video-iframe').attr('src', $(this).data('url'));
+        var targeted_popup_class = jQuery(this).attr('data-popup-open');
+        $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+        e.preventDefault();
+    });
+    //----- CLOSE
+    $('[data-popup-close]').on('click', function(e)  {
+        $('#video-iframe').attr('src', '');
+        var targeted_popup_class = jQuery(this).attr('data-popup-close');
+        $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+        e.preventDefault();
+    });
+
+  });

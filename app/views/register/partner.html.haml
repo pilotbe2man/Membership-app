@@ -1,0 +1,66 @@
+.reg-partner-container.page-boxed
+  .page-header
+  .container
+    = form_for @affiliate, url: affiliate_registration_path, html: {method: :post} do |affiliate|
+      .form-content
+        .row.text-center.fileupload-container
+          .fileUpload
+            / %span.upload-wrapper
+            /   = image_tag 'partner-upload.png'
+            /   %span.caption=t('register.labels.upload_partner_photo')
+            /   = affiliate.fields_for :profile_image do |profile_image|
+            /     = profile_image.file_field :file, class: 'upload'              
+        .row
+          .col-sm-6.col-sm-offset-3
+            .row.text-center
+              %h4=t('register.labels.partner_register')
+            - if @affiliate.errors.any?
+              #error_explanation
+                %h5= pluralize(@affiliate.errors.count, 'error') + " prohibited this affiliate from being saved."
+                %ul
+                  - @affiliate.errors.full_messages.each do |message|
+                    %li= message                                  
+            .row
+              = affiliate.text_field :name, class: 'form-control input-round', :placeholder => t('register.labels.organization')
+            .row
+              %label=t('register.labels.partner_type')
+              = affiliate.select :affiliate_type, options_for_select([[t('register.partner_type.str'), 0], [t('register.partner_type.cer'), 1]]), {}, class: 'form-control input-round', :placeholder => t('register.labels.partner_type')
+            .row
+              = affiliate.text_field :num_member, class: 'form-control input-round', :placeholder => t('register.labels.num_member'), style: 'display:none'
+            .row
+              = affiliate.text_field :address, class: 'form-control input-round', :placeholder => t('register.labels.address')
+            .row
+              = affiliate.text_field :postcode, class: 'form-control input-round', :placeholder => t('register.labels.postcode')
+            .row
+              = affiliate.select :municipal_id, options_for_select(municipal_list), {prompt: t('register.labels.municipal')}, class: 'form-control input-round', :required =>"true"
+            / .row
+            /   = affiliate.text_field :country, class: 'form-control input-round', :placeholder => t('register.labels.country')
+            .row
+              = affiliate.text_field :telephone, class: 'form-control input-round', :placeholder => t('register.labels.telephone')
+            = affiliate.fields_for :user_affiliates do |user_affiliate|
+              = user_affiliate.fields_for :user do |user|
+                .row
+                  = user.text_field :name, class: 'form-control input-round', :placeholder => t('register.labels.name')
+                  = user.hidden_field :plan_type, value: 1
+                .row
+                  = user.email_field :email, class: 'form-control input-round', :placeholder => t('register.labels.email')
+                .row
+                  = user.password_field :password, class: 'form-control input-round', :placeholder => t('register.labels.password')
+                .row
+                  = user.password_field :password_confirmation, autocomplete: 'off', class: 'form-control input-round', :placeholder => t('register.labels.pwd_confirm')
+                - if @minimum_password_length
+                  .row
+                    %em{:style => "padding-left: 20px;"}
+                      (#{@minimum_password_length}) characters minimum
+            .row.text-center{:style => "padding: 20px 0;"}
+              = affiliate.submit t('register.labels.register'), class: 'btn btn-round item-partner'
+:javascript
+  jQuery(document).ready(function() {    
+    $('#affiliate_affiliate_type').change(function(){
+      if($('#affiliate_affiliate_type').val() == '1'){
+        $('#affiliate_num_member').show();
+      } else {
+        $('#affiliate_num_member').hide();
+      }
+    });
+  });

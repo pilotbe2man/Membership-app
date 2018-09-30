@@ -1,0 +1,6 @@
+.form-group.subtask
+  = f.label t('manager.todos.new.sub_task')
+  = f.text_field :title, class: "form-control sub-task-title", placeholder: 'Sub-task title'
+  = f.hidden_field :sub_task_type, value: 'local'
+  = f.hidden_field :language, value: I18n.locale.downcase
+  = custom_link_to_remove_subtask_fields f

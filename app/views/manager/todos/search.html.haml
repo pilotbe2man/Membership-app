@@ -1,0 +1,22 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, manager_todos_path
+.todo-dash-container
+  .container
+    #todos.row
+      .twelvecol
+        .todo-list
+          %h2
+            =t('manager.todos.report.search_title', query: params[:query])
+          - if @todos.empty?
+            %p=t('manager.todos.report.search_desc')
+          - else
+            %ul
+              - @todos.each do |todo|
+                %li
+                  .menu-item
+                    %span.todo-id= todo.id
+                    %span.department-name= todo.department_name
+                    .profile-thumb
+                    = image_tag Todo.find(todo.id).icon.file, class: 'img-responsive center-block' unless Todo.find(todo.id).icon.nil?
+                    %span.todo-title= truncate(todo.title, length: 20)
+                  = link_to t('manager.todos.labels.show'), manager_todo_path(todo), :class => 'btn btn-yellow btn-normal btn-block'

@@ -1,0 +1,30 @@
+-if current_user.nil?
+  - unless (params[:controller] == 'pages' && (params[:action] == 'ethic_1' || params[:action] == 'ethic_2' || params[:action] == 'ethic_3' || params[:action] == 'ethic_4'))
+    %header.header.clearfix.legacy-header
+      .container
+        .logo-container
+          = link_to root_path do
+            = image_tag LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? 'logo-new.png' : LocaleLogo.by_type_language(1, I18n.locale).first.logo.url, id: 'header-logo'
+
+        %ul.main-nav
+          %li= link_to t('pages.nav_bar.signup'), '/program', class: "hcc-simple"
+          %li= link_to t('pages.nav_bar.contact_us'), '#home_footer', class: "hcc-simple"
+          %li= link_to t('pages.nav_bar.about_user'), '/description#mark_about', class: "hcc-simple #{get_active_link('about_us')}"
+        /   %li= link_to t('pages.nav_bar.home'), root_path, class: "hcc-simple #{get_active_link('home')}"
+        /   %li= link_to t('pages.nav_bar.start_here'), mission_path, class: "hcc-simple #{get_active_link('mission')}"
+        /   %li= link_to t('pages.nav_bar.standard'), standard_path, class: "hcc-simple #{get_active_link('standard')}"
+        /   %li= link_to t('pages.nav_bar.path'), path_path, class: "hcc-simple #{get_active_link('path')}"
+        /   - unless params[:controller] == 'pages' && params[:action] == 'journey'
+        /     %li
+        /       %button.btn.hcc-btn{}
+        /         %a{'href': journey_path}
+        /           = t('pages.nav_bar.get_started').html_safe
+        /           %i.fa.fa-angle-right
+- else
+  %header.header.clearfix.legacy-header
+    .container
+      .logo-container
+        = link_to dashboard_path do
+          = image_tag LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? 'logo-new.png' : LocaleLogo.by_type_language(1, I18n.locale).first.logo.url, id: 'header-logo'
+      %ul.main-nav
+        %li= link_to t('pages.nav_bar.contact_us'), '#home_footer', class: "hcc-simple"      

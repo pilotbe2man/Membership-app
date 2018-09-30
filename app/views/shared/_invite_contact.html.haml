@@ -1,0 +1,58 @@
+- if params[:invite_contact].present?
+  / Modal
+  #contact_invite_message{style: 'min-height: 700px;'}
+    .modal-dialog
+      / Modal content
+      .modal-content
+        .modal-header#download-pdf-header
+          %button.my-button.close.plainmodal-close{"data-dismiss" => "modal", :type => "button"} ×
+          %h4.modal-title=t('manager.invite.title')
+        .modal-body
+          = form_tag send_invite_member_partner_affiliates_path, method: :post, multipart: true do
+            .email-box-group
+              .email-box
+                .form-group.parent-info
+                  %h5=t('register.labels.upload_address')
+                  = file_field_tag :email_address
+                .form-group
+                  %label{:for => :title }=t('manager.invite.subject.label')
+                  = text_field_tag :title, '', placeholder: t('manager.invite.subject.placeholder'), class: 'form-control input-round', required: true
+                .form-group
+                  = cktext_area :content, '', name: 'content', value: (@message_template.nil?) ? '' : @message_template.content, cols: 40, id: 'message_content', placeholder: t('manager.invite.message.placeholder')
+            .download-modal-footer
+              = button_tag(type: 'submit', class: "download-pdf-submit btn", id: 'download-submit') do
+                =t('poster.button').html_safe
+:javascript
+  jQuery(document).ready(function() {
+    var effect = {
+        open: function(duration, complete) {
+          this.css({
+            display:          'block',
+            opacity:          0,
+            top:              -50 - this.outerHeight(),
+            marginTop:        0
+          })
+          .animate({opacity: 1, top: 100}, duration, complete);
+        },
+        close: function(duration, complete) {
+          this.animate({
+            opacity:          0,
+            top:              -50 - this.outerHeight()
+          }, duration, function() {
+            $(this).css({display: 'none'});
+            complete();
+          });
+        }
+      };
+
+    modalStep1 = $('#contact_invite_message').plainModal({effect: effect, duration: 500});
+    dash_wizard();
+
+    function dash_wizard(){
+      modalStep1 = $('#contact_invite_message').plainModal('open', {force: true});
+    }
+
+    $('#download-submit').click(function(e){
+      $(".my-button").click();
+    });
+  });

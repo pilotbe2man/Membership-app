@@ -1,0 +1,67 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, '#'
+.todo-dash-container
+  .container{data:{step: 5, intro: t("guideline.manager.todo_report.step5.content")}}
+    .row
+      .col-md-12.form-group
+        %label=t('manager.todos.report.selected_date')
+        %input.form-control{type: 'text', value: "09/12/2017 at 03:49 PM"}
+      .col-md-12.form-group
+        %label=t('manager.todos.report.todo_title')
+        %input.form-control{type: 'text', value: "Cleaning"}
+
+    #todo.row.todo-report-info
+      .row.result-box
+        .col-md-12
+          .complete-progress
+            %label{style: 'width: 100px;'}=t('manager.todos.labels.complete') 
+            .progress{style: 'margin-right: 20px;'}
+              .value{style: "width: 70%;"}
+            %label 70%
+          .incomplete-progress
+            %label{style: 'width: 100px;'}=t('manager.todos.labels.incomplete') 
+            .progress{style: 'margin-right: 20px;'}
+              .value{style: "width: 30%;"}          
+            %label 30%
+      .row
+        .col-md-12
+          %h4=t('manager.todos.report.task') 
+          %ul.todo-task-list
+            %li.todo-li-item
+              .row.key-task
+                .col-sm-10
+                  %label.task-label=t('manager.todos.labels.title') 
+                  %span
+                    %b Cleaning Office
+                .col-sm-2.text-right
+                  %label.no-pass-mark
+              .row.sub-task
+                .col-sm-10
+                  %label.task-label=t('manager.todos.labels.subtasks') 
+                  %span
+                    %b Clean Window
+                .col-sm-2.text-right
+                  %label.pass-mark
+                    %i.fa.fa-check
+              .row.sub-task
+                .col-sm-10
+                  %label.task-label=t('manager.todos.labels.subtasks') 
+                  %span
+                    %b Clean Table
+                .col-sm-2.text-right
+                  %label.pass-mark
+                    %i.fa.fa-check
+              .row.sub-task
+                .col-sm-10
+                  %label.task-label=t('manager.todos.labels.subtasks') 
+                  %span
+                    %b Clean PC
+                .col-sm-2.text-right
+                  %label.no-pass-mark
+:javascript
+  jQuery(document).ready(function() {
+    healthChildcare.guideline.dashboarStep("#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.dashboarStep("#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });    
+  });                  

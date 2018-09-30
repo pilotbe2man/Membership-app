@@ -1,0 +1,19 @@
+.col-md-12
+  %h4.option-title= t('messages.labels.subject')+':'
+  - subject = @template.sub_subject.parent_subject.title rescue nil
+  = text_field_tag :subject_title, subject, placeholder: t('messages.labels.create_subject'), class: 'form-control', required: true
+  %h4.option-title= t('messages.labels.create_subject')+':'
+  - sub_subject = @template.sub_subject.title rescue nil
+  = text_field_tag :sub_subject_title, sub_subject, placeholder: t('messages.labels.sub_subject'), class: 'form-control', required: true
+  %h4.option-title= t('messages.labels.choose_language')+':'
+  = select_tag 'message_template[language]', options_for_select({'EN': 'en', 'NK': 'nk'}, @template.language)
+  %h4.option-title Role:
+  = select_tag 'message_template[target_role]', options_for_select(options_for_roles_select, @template.target_role)
+.col-md-8.col-sm-8.col-xs-12
+  %h4.option-title= t('messages.labels.write_message_content')
+  = cktext_area 'message_template', :content, id: 'my-message_content', ckeditor: {toolbar: "mini"}, value: @template.content
+.col-md-12.form-buttons.text-right.no-h-padding.form-action
+  .col-md-3.col-md-offset-6.col-sm-3.col-sm-offset-6.col-xs-6
+    %a{href: admin_root_path, class: 'btn btn-blue btn-large'} Cancel
+  .col-md-3.col-sm-3.col-xs-6
+    = submit_tag t('messages.labels.create_message_template'), class: 'btn btn-green btn-large'

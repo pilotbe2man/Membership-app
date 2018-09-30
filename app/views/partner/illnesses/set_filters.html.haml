@@ -1,0 +1,66 @@
+= content_for :title, t('illnesses.illness')
+- content_for :page_title, t('illnesses.trends')
+.illness-dash-container
+  .container
+    .row
+      .col-md-12
+        %h4.option-title= t('illnesses.labels.trend_filters')
+    .row.content-main
+      = form_tag trends_partner_illnesses_path, method: :post do
+        .row{style: 'overflow: initial;'}
+          .col-md-4.col-sm-4.col-xs-12
+            .form-group
+              = label_tag :illness, t('illnesses.labels.select_multiple_illnesses')
+              %br
+              = select_tag 'illness_codes[]', options_from_collection_for_select(Illness.all.where(language: I18n.locale), 'code', 'name', params['illness_codes']), class: 'illness-select', required: true, multiple: "multiple"
+
+          .col-md-4.col-sm-4.col-xs-12
+            .form-group
+              = label_tag :graph_type, t('illnesses.labels.select_graph_type')
+              %br
+              = select_tag 'graph_type', options_for_select([['Daily', 'day'], ['Weekly', 'week'], ['Monthly', 'month'], ['Yearly', 'year']], selected: params[:graph_type]), class: 'form-control', required: true
+        .row
+          .col-md-4.col-sm-4.col-xs-12
+            .form-group
+              = label_tag :start_date, t('form_labels.start_date')
+              = text_field_tag :start_date, params['start_date'], class: 'datepicker form-control datetime-input', autocomplete: 'off'
+
+          .col-md-4.col-sm-4.col-xs-12
+            .form-group
+              = label_tag :end_date, t('form_labels.end_date')
+              = text_field_tag :end_date, params['end_date'], class: 'datepicker form-control datetime-input', autocomplete: 'off'
+          .col-md-4.col-sm-4.col-xs-12.form-buttons.filter-buttons.centralize
+            = submit_tag t('illnesses.labels.apply_filter'), class: 'btn btn-lightred'
+        .row.content-main
+          .col-md-12      
+            %h4.option-title= t('survey.labels.choose_daycare')      
+            .table-responsive
+              %table.table.table-striped.table-bordered.table-hover
+                %thead
+                  %tr
+                    %th= t('survey.labels.daycare_name')
+                    %th= t('survey.labels.daycare_type')
+                    %th= t('survey.labels.childrens')
+                    %th= t('survey.labels.workers')
+                %tbody
+                  - @daycares.each do |item|
+                    %tr
+                      %td
+                        %input{type: "checkbox", value:item.id, name:"daycare_ids[]"}
+                          =item.name
+                      %td
+                        =item.care_type_text
+                      %td
+                        =item.children.length
+                      %td
+                        =item.workers.length
+        
+:javascript
+  jQuery(document).ready(function() {
+    $('#link_dashboard_guide').on('click', function(){
+      window.location.href = '/guide_page/manager_illness/graph_step1';
+    });    
+
+    $('.illness-select').SumoSelect({ okCancelInMulti: true, selectAll: true });
+
+  });

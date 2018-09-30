@@ -1,0 +1,28 @@
+.login-container.page-boxed
+  .container
+    .col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-12.text-center
+      .notification-box.border-style-1
+        .row
+          %span.panel-title=t('pages.contact_us.label')
+        .row.panel-content
+          = image_tag LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? 'logo.png' : LocaleLogo.by_type_language(1, I18n.locale).first.logo.url, :class => 'logo', style: 'width: 130px;'
+        .row
+          %form{action: '/contact_us', method: :post}
+            = hidden_field_tag :authenticity_token, form_authenticity_token
+            .col-md-12.form-group
+              %input.form-control.input-round{type: 'email', placeholder: "#{t('pages.contact_us.email')}", required: true, name: 'email'}
+            .col-md-12.form-group
+              %input.form-control.input-round{type: 'text', placeholder: "#{t('pages.contact_us.subject')}", required: true, name: 'subject'}
+            .col-md-12.form-group
+              %textarea.form-control.input-round{placeholder: "#{t('pages.contact_us.content')}", required: true, rows: 10, name: 'content'}
+            .col-md-12.form-group.text-center
+              %input.btn.btn-round.col-xs-12.item-manager{type: 'submit', value: "#{t('pages.contact_us.submit')}"}
+            .col-md-12.form-group.text-center
+              %a.btn.btn-round.col-xs-12.item-home{href: '/'}
+                =t('pages.contact_us.gohome')
+:javascript
+  jQuery(document).ready(function() {
+    $('body').css("src","background-color: #242c3f !important;");
+    $('footer.normal .container').css("top", "0");
+    $('footer.normal .container .central-footer').css("display", "none");
+  });

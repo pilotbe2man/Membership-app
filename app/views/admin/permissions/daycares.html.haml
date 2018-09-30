@@ -1,0 +1,52 @@
+= content_for :title, 'Permission'
+= content_for :breadcrumb, 'Permission'
+
+.twelvecol
+  .page-header
+    %h2.widget.widget-header
+      = "Permissions / #{@type_label}"
+
+  .widget.widget-content.row
+    %form{action: '/admin/permissions/group', method: :get}
+      %input{type: :hidden, name: 'type', value: params[:type]}
+      %input{type: :hidden, name: 'option', value: params[:option]}
+      .table-responsive
+        - if params[:option].to_i > 1
+          %table.table.table-striped.table-bordered.table-hover
+            %thead
+              %tr
+                %th Name
+                %th Type
+                %th Childrens
+                %th Workers
+            %tbody
+              - @daycares.each do |item|
+                %tr
+                  %td
+                    %input{type: "radio", value:item.id, name:"daycare"}
+                      =item.name
+                  %td
+                    =item.care_type_text
+                  %td
+                    =item.children.length
+                  %td
+                    =item.workers.length
+        - else
+          %table.table.table-striped.table-bordered.table-hover
+            %thead
+              %tr
+                %th Org Name
+                %th Type
+                %th Workers
+            %tbody
+              - @affiliates.each do |item|
+                %tr
+                  %td
+                    %input{type: "radio", value:item.id, name:"daycare"}
+                      =item.name
+                  %td
+                    =item.affiliate_type_text
+                  %td
+                    =item.users.length
+
+      %button.btn.btn-blue.btn-large Submit

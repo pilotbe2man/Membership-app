@@ -1,0 +1,39 @@
+= content_for :title, t('discussions.discussion')
+
+#discussions
+  .row.page-header
+    %h3 Search child
+
+  .row#search-child-invitation.find-child-invitation-option{'data-child_names': @children_name_birthdate.to_json }
+    = form_tag search_child_collaboration_path, method: :post do
+      .form-group
+        = text_field_tag 'invitee_child', '', class: 'form-control typeahead', placeholder: 'Search Child By Name/Birthday'
+
+      .form-buttons.row
+        .col-md-4
+        .col-md-4
+          = submit_tag t('form_labels.search'), class: 'btn btn-raised btn-success'
+        .col-md-4
+
+
+
+  .row.centralize
+    .row.find-child-invitation-link#search-child-invitation-link
+      = link_to 'Search Child by Name/Birthday', '#', class: 'toggle-child-invitation-link'
+
+    or
+
+    .row.find-child-invitation-link#search-invite-code-link
+      = link_to 'Enter Invite Code', '#',  class: 'toggle-child-invitation-link'
+
+
+  .row#search-invite-code.find-child-invitation-option
+    = form_tag submit_invite_code_path, method: :get do
+      .form-group
+        = text_field_tag 'invite_code', '', class: 'form-control', placeholder: 'Enter Invite Code', required: true
+
+      .form-buttons.row
+        .col-md-4
+        .col-md-4
+          = submit_tag t('form_labels.submit'), class: 'btn btn-raised btn-success'
+        .col-md-4

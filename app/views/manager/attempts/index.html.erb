@@ -1,0 +1,15 @@
+<% content_for :page_title, "#{@survey.name} Attemps" %>
+<% content_for :previous_path, dashboard_manager_surveys_path %>
+
+<div class="row">
+    <div class="twelvecol">
+        <ol>
+            <% @survey.attempts.each do |attempt| %>
+                <li>
+                    <h3><%= attempt.participant.name %></h3>
+                    <%= link_to t('attempt_labels.anwers'), manager_survey_attempt_path(@survey, attempt), :class => 'btn btn-normal btn-green' %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+</div>

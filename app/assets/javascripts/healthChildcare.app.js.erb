@@ -1,0 +1,139 @@
+healthChildcare.app =
+{
+    multiInput: function()
+    {
+        $('.tagsinput').tagsinput();
+    },
+
+    toggleMenu: function()
+    {
+        $('.dropdown').click(function()
+        {
+            $(this).toggleClass('open');
+        });
+    },
+
+    printTodo: function()
+    {
+        $('#print-todo').on('click', function()
+        {
+            window.print();
+            return false;
+        });
+    },
+
+    datepickers: function()
+    {
+        $('.datepicker').datetimepicker({
+            format: 'd/m/Y',
+            timepicker: false
+        });
+
+        $('.datetimepicker').datetimepicker({
+            formatDate: 'd-m-Y',
+            theme:'default'
+        });
+
+        $('.datetimeformatpicker').datetimepicker({
+            format:'Y-m-d  H:i',
+            timepicker: true
+        });
+
+        $('.datetimepicker-date').datetimepicker({
+            timepicker: false,
+            format: 'Y-m-d',
+            theme:'default'
+        });        
+    },
+
+  showRegisteredChildcaresNotification: function() {
+    var beforeSignUpPath = /program/g;
+    var beforeSignUpPlanPath = /pre_user_plan/g;
+    var afterSignUpPath = /welcome/g;
+    var newUser = $('input#notif_new_user').val() == 'true';
+    var showNotif = beforeSignUpPath.test(window.location.pathname) ||
+        beforeSignUpPlanPath.test(window.location.pathname) ||
+        (afterSignUpPath.test(window.location.pathname) && newUser);
+    var featuredDaycare = [];
+
+    if (showNotif) {
+      function fetchFeaturedDaycare() {
+        $.ajax(
+          {
+            url: '/api/daycares/featured_daycare',
+            type: 'GET',
+            dataType: 'json',
+            success: function (data)
+            {
+              if ($.inArray(data.name, featuredDaycare) < 0 ) {
+                featuredDaycare.push(data.name);
+                $.notify({
+                  message: data.name + " " + window._trans['featured_daycare']
+                }, 
+                {
+                  delay: 5000
+                })
+              }
+              else if (featuredDaycare.length == data.set_size)
+                clearInterval(occasionalFetch);
+            }
+          })
+      }
+
+      occasionalFetch = setInterval(fetchFeaturedDaycare, 10000);
+    }
+  },
+
+  showUpgradedChildcaresNotification: function() {
+    // var newPlan = $('input#notif_plan_id').val() || '';
+    // var featuredDaycare = [];
+
+    // if (newPlan != '') {
+    //   function fetchSimilarPlans() {
+    //     $.ajax(
+    //       {
+    //         url: '/api/daycares/by_plan?plan_id=' + newPlan,
+    //         type: 'GET',
+    //         dataType: 'json',
+    //         success: function (data)
+    //         {
+    //           if ($.inArray(data.name, featuredDaycare) < 0 ) {
+    //             featuredDaycare.push(data.name);
+    //             $.notify({
+    //               message: data.name + " " + window._trans['featured_daycare_by_plan']
+    //             })
+    //           }
+    //           else if (featuredDaycare.length == data.set_size)
+    //             clearInterval(occasionalFetch);
+    //         }
+    //       })
+    //   }
+
+    //   occasionalFetch = setInterval(fetchSimilarPlans, 15000);
+    // }
+  },
+
+  addAnotherCertification: function() {
+    $('.add-certification').on('click', function() {
+      var html = $('#user-profile-certifications').html();
+      $(this).before(html);
+    });
+
+  },
+
+  homeSubContentLink: function(){
+    $('#legacy-home .sub-content').on('click', function() {
+      if($(this).hasClass('start')){
+        window.location.href="/description#mark_mission";
+      } else if($(this).hasClass('standard')) {
+        window.location.href="/description#mark_standard";
+      } else if($(this).hasClass('path')) {
+        window.location.href="/description#mark_path";
+      } else if($(this).hasClass('journey')) {
+        $('#exampleModal').modal('show');
+        // window.location.href="/journey";
+      }
+    });    
+  }
+
+}

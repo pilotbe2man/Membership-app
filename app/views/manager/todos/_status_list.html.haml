@@ -1,0 +1,46 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, dashboard_manager_todos_path
+.todo-dash-container
+  .container
+    #todos.row
+      .twelvecol
+        = form_tag search_manager_todos_path, method: :get do
+          .input-group.todo-search
+            = text_field_tag(:query, params[:query], autocomplete: 'off', tabindex: "1", :class => 'form-control')
+            .input-group-btn
+              %button.btn.btn-default{:type => "submit"}
+                %i.glyphicon.glyphicon-search
+        .todo-list
+          %h3=t('manager.todos.labels.todos')
+          - global_todos = User.all_global_todos.where(id: current_user.id)
+          - if global_todos.blank?
+            %p=t('manager.todos.labels.no_todos') 
+          - else
+            %ul
+              - global_todos.each do |todo|
+                %li
+                  .menu-item{ style: 'border-bottom: 1px solid #bababa;' }
+                    %span.todo-id= todo.id
+                    %span.department-name= todo.department_name
+                    .profile-thumb
+                      = image_tag Todo.find(todo.id).icon.file, class: 'img-responsive center-block' unless Todo.find(todo.id).icon.nil?
+                    %span.todo-title= truncate(todo.title, length: 20)
+
+          %h3=t('manager.todos.labels.todos')
+          - local_todos = User.all_self_daycare_todos.where(id: current_user.id)
+          - if local_todos.blank?
+            %p=t('manager.todos.labels.no_todos') 
+          - else
+            %ul
+              - local_todos.each do |todo|
+                %li
+                  .menu-item
+                    %span.todo-id= todo.id
+                    %span.department-name= todo.department_name
+                    .profile-thumb
+                      = image_tag Todo.find(todo.id).icon.file, class: 'img-responsive center-block' unless Todo.find(todo.id).icon.nil?
+                    %span.todo-title= truncate(todo.title, length: 20)
+                  - if todo.todo_active
+                    = link_to t('manager.todos.labels.pause'), inactive_manager_todo_path(todo, department_id: todo.department_id), :class => 'btn btn-yellow btn-normal btn-block'
+                  - else
+                    = link_to t('manager.todos.labels.start'), active_manager_todo_path(todo, department_id: todo.department_id), :class => 'btn btn-green btn-normal btn-block'

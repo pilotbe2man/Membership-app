@@ -1,0 +1,11 @@
+<% content_for :title, 'New Survey' %>
+<% content_for :breadcrumb, 'New' %>
+<% breadcrumb_add 'Surveys', admin_survey_subjects_path %>
+
+<div class="twelvecol">
+    <div class="page-header">
+        <h2 class="widget widget-header"><%= t('admin.survey_subjects.new.heading')%></h2>
+    </div>
+    <%= render partial: 'form_new', locals: { url: admin_survey_subjects_path } %>
+</div>
+

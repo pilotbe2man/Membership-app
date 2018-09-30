@@ -1,0 +1,8 @@
+- SurveySubject.where(language: I18n.locale.upcase).order(created_at: :asc).each_with_index do |subject, idx|
+  .survey-subject
+    .radio-box
+      %input.retake-radio{:type=>"radio", :name => "subject_id", :id => "radio#{subject.id}", :style => "display: none;", value: subject.id, 'data-current_role': @current_user.role}
+      %label{:for => "radio#{subject.id}"}
+        = image_tag subject.icon.file, class: 'img' unless subject.icon.nil?
+      .row.survey-title
+        %span= subject.title

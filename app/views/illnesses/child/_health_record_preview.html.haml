@@ -1,0 +1,28 @@
+.row.filtered-item
+  .row.filtered-item-info
+    .col-md-6.col-sm-8.col-xs-9
+      = pretty_long_date(health_record.created_at)
+    .col-md-6.col-sm-4.col-xs-3
+      %a.print-record-btn{href: '#', 'data-target_record': "#health-record-#{health_record.id}"}
+        %span.pull-right= t('form_labels.print')
+      %a{href: "mailto:#{current_user.email}"}
+        %span.pull-right{:style => 'margin-right: 15px;'} Email
+  .filtered-item-content
+    .row.filtered-item-preview.expandable{'data-health_record_id': health_record.id}
+      .col-md-2.col-sm-3.col-xs-12
+        = image_tag health_record.owner.profile_image.file.url
+      .col-md-10.col-sm-9.col-xs-12
+        %table.information-block 
+          %tr
+            %td.options= t('illnesses.labels.name')
+            %td= health_record.owner.name
+          %tr
+            %td.options= t('illnesses.labels.age')
+            %td= health_record.owner.age
+          %tr
+            %td.options= t('illnesses.labels.birthday')
+            %td= pretty_short_date(health_record.owner.birth_date)
+          %tr
+            %td.options= t('illnesses.labels.reporting_date')
+            %td= pretty_short_date(health_record.created_at)
+    .row.filtered-item-complete-view{'id' => "health-record-#{health_record.id}"}

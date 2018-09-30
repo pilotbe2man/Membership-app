@@ -1,0 +1,19 @@
+- attempt.answers.build
+%h2.server-question-title
+  Survey Questions - #{survey.name}
+= form_for(attempt, url: subject_survey_attempts_path(subject, survey), :html => {:id => "new_survey_attempt#{survey.id}", :class => 'submit-attempt', 'data-tab' => tab}, :remote => true) do |f|
+  = hidden_field_tag "survey_id", survey.id
+  = f.fields_for :answers do |builder|
+    %ol.qustion-list
+      - survey.questions.each_with_index do |question, index|
+        %li.qustion
+          %b
+            %span.qustion-title= question.text
+          = hidden_field_tag "survey_attempt[answers_attributes][#{index}][question_id]", question.id
+          .question-options
+            - question.options.each do |option|
+              %p.options
+                = radio_button_tag "survey_attempt[answers_attributes][#{index}][option_id][]", option.id, @pending_checker.is_pending_option?(option.id, current_user.id) , class: "survey-option", "data-question" => question.id, "data-survey" => survey.id, "data-user" => current_user.id, "data-subject" => @subject.id
+                = option.text
+  .jcmc-buttons.form-buttons
+    = f.button t('form_labels.next'), :class => "btn-round item-manager btn-next", :type => 'submit'

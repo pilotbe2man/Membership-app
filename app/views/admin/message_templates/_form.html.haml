@@ -1,0 +1,18 @@
+= form_for [:admin, @template] do |f|
+  .threecol
+  .ninecol.last
+    = render partial: 'shared/admin/errors', locals: {object: @template}
+
+  .threecol
+    %h3 Template Details
+    %p Set the title and code for your Template.
+
+  .ninecol.last
+    %fieldset.widget.widget-content
+      .form-group
+        = f.label :content
+        = f.cktext_area :content, (@template.nil?) ? {:class => 'form-control'} : {:class => 'form-control', :value => "#{@template.content}"}
+        = f.hidden_field :target_role
+        = f.hidden_field :language
+    .form-action
+      = f.submit 'Submit', class: 'btn btn-blue btn-large'

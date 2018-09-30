@@ -1,0 +1,33 @@
+.row.text-center.step-banner
+  = image_tag 'worker-md.png'
+  %h4=t('account.daycare.worker')
+.row.pane-container.text-center
+  .row.step-banner
+    .col-sm-4.col-xs-4.step-item.first-step{ :class => "item-#{params[:role]}"} 
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-check-mng.png'
+    .col-sm-4.col-xs-4.step-item.second-step.active{ :class => "item-#{params[:role]}"} 
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'worker-sm.png'
+        %span=t('register.labels.select_department')
+    .col-sm-4.col-xs-4.step-item.third-step{ :class => "item-#{params[:role]}"} 
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+  .parent-list-container
+    .parent-item
+      .row.parent-department  
+        .col-sm-12
+          %h3=t('register.labels.select_department')
+          - @departments.each do |department|
+            .row
+              - if !current_user.nil? && current_user.department_id == department.id
+                %input{:type=>"radio", :name => "department_item", :id => "chk_depart_#{@daycare.id}_#{department.id}", :style => "display: none;", "select-link" => new_user_registration_path(role: 'worker', daycare_id: @daycare.id, department_id: department.id, option: params[:option]), checked: '', "data-id" => department.id}
+              - else
+                %input{:type=>"radio", :name => "department_item", :id => "chk_depart_#{@daycare.id}_#{department.id}", :style => "display: none;", "select-link" => new_user_password_path(daycare_id: params[:daycare_id], department_id: department.id, role: params[:role]), "data-id" => department.id}
+              %label{:for => "chk_depart_#{@daycare.id}_#{department.id}"}
+                =department.name

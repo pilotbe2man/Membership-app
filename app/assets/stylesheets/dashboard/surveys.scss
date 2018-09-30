@@ -1,0 +1,44 @@
+#surveys
+{
+    .item
+    {
+        padding-bottom:15px;
+        border-bottom:1px solid $grey;
+        margin-bottom:15px;
+
+        a
+        {
+            margin:15% 0;
+        }
+    }
+}
+#survey
+{
+    .twocol.last
+    {
+        margin-bottom: 40px;
+    }
+    .btn-green
+    {
+        margin-bottom:10px;
+    }
+}
+.survey-module
+{
+    position: relative;
+
+    .row
+    {
+        overflow: inherit;
+    }
+    .divider
+    {
+        overflow: hidden;
+    }
+    .btn-green
+    {
+        position: absolute;
+        top:0;
+        right:0;
+    }
+}

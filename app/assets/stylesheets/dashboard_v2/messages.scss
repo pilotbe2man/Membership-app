@@ -1,0 +1,268 @@
+.message-dash-container{
+  font-family: 'Open Sans', sans-serif;
+
+  .content-main{
+    margin: 20px 0 50px 0;
+
+    .recipients-role{
+      font-size: 16px;
+      border: 2px solid #ff2874;
+      border-radius: 5px;
+      margin-bottom: 10px;
+
+      .role-elem{
+        padding: 7px 10px 7px 10px;
+        &.right-border{
+          border-right: 2px solid #ff2874;        
+        }
+        .recipient-count{
+          padding-left: 10px;
+        }
+      }
+    }
+
+    .partners-list{
+      margin-top : 10px;
+      .panel{
+        border: 2px solid #ff2874;
+        border-radius : 5px;
+
+        .panel-heading{
+          font-size: 18px;
+          color: #6a7884;
+          padding:15px;
+          border-color: #ff2874;
+        }
+
+        .panel-body{
+          padding: 0;
+
+          .table{
+            margin-bottom: 0px;
+            tbody tr{
+              background: #fff !important;
+              td{
+                border-top: 0px solid #ddd;
+                border-bottom: 1px solid #ddd;
+              }
+            }
+          }
+
+          .body-bottom{
+            padding: 10px 20px;
+            background: #f4ccdb;
+            font-size: 14px;
+          }
+
+          .list{
+            margin: 0 10px;
+          }
+        }
+      }
+    }
+
+    textarea{
+      border: 1px solid #ccc;
+      box-shadow: none;
+      height: 200px;
+    }
+
+    a:hover{
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .menu-item{
+      margin-bottom: 20px;
+    }
+
+    .link-content{
+      background: #fff;
+      text-align: center;
+      padding: 40px;
+      border-radius: 5px;
+      border: 3px solid #ff2874; 
+
+      .menu-img{
+        margin: 40px auto;
+        width: 130px;
+        height: 120px;
+        &.send-notify{
+          background: url(message-send-notify.png) no-repeat;
+        }          
+        &.sent-notify{
+          background: url(message-sent-notify.png) no-repeat;
+        }          
+        &.received-notify{
+          background: url(message-received-notify.png) no-repeat;
+        }          
+      }
+
+      span{
+        color: #ff2874;
+        display: block;
+        font-size: 20px;
+        padding: 10px;
+        text-transform: uppercase;
+      }
+
+      &:hover{
+        background: #ff2874;
+        span{
+          color: #fff;
+        }
+        .menu-img{
+          &.send-notify{
+            background: url(message-send-notify-h.png) no-repeat;
+          }          
+          &.sent-notify{
+            background: url(message-sent-notify-h.png) no-repeat;
+          }          
+          &.received-notify{
+            background: url(message-received-notify-h.png) no-repeat;
+          }          
+        }        
+      }
+    }
+  }
+
+  #pdf-wrapper{
+    width: 100%;
+    max-height: 500px;
+    overflow: auto;    
+  }
+}
+
+/************ Old Version **********************/
+.message-content-stage {
+  background: white;
+  padding: 10px 25px;
+  color: black;
+}
+
+.message-list{
+  nav {
+    text-align: center;
+  }
+}
+
+.multi-step-form {
+  .form-step {
+    padding: 0px;
+    position: relative;
+
+    button {
+      z-index: 100;
+    }
+
+    &:first-child {
+      .progress {
+        left: 50%;
+        width: 50%;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+      }
+
+      &.active {
+        .progress {
+          .progress-bar {
+            width: 0%;
+          }
+        }
+      }
+    }
+
+    &:last-child {
+      .progress {
+        width: 50%;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+      }
+
+      &.active {
+        .progress {
+          .progress-bar {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .progress {
+      position: relative;
+      border-radius: 0px;
+      height: 4px;
+      box-shadow: none;
+      margin-top: -5px;
+
+      .progress-bar {
+        width:  0px;
+        box-shadow: none;
+        background: $info-green;
+      }
+    }
+
+    &.complete {
+      .progress {
+        .progress-bar {
+          width: 100%;
+        }
+      }
+    }
+
+    &.active {
+      button {
+        background: $info-blue;
+      }
+
+      .progress {
+        .progress-bar {
+          width: 50%;
+        }
+      }
+    }
+  }
+
+}
+
+
+.edit-filters {
+  -webkit-box-shadow: 2px 2px 7px 0px rgba(219,216,219,0.58);
+  -moz-box-shadow: 2px 2px 7px 0px rgba(219,216,219,0.58);
+  box-shadow: 2px 2px 7px 0px rgba(219,216,219,0.58);
+  background: #F4F4F4;
+  @include border-radius(10px);
+
+  #subject-filters, #sub-subject-filters, #target-role-filters {
+    padding: 10px;
+
+    ul {
+      li {
+        list-style: none;
+        padding: 10px;
+        margin-bottom: 2px;
+        cursor: pointer;
+
+        &.active {
+          background: white;
+
+          .loader {
+            display: inline;
+          }
+        }
+
+        &:hover {
+          background: white;
+        }
+
+        .loader {
+          float: right;
+          display: none;
+        }
+      }
+
+    }
+
+  }
+
+}

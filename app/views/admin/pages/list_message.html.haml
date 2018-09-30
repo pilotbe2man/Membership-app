@@ -1,0 +1,31 @@
+= content_for :title, 'Message Template'
+= content_for :breadcrumb, 'Message Template'
+
+.twelvecol
+  .page-header
+    %h2.widget.widget-header Message Template
+  .twelvecol
+    .table-responsive
+      %table.table.table-striped.table-bordered.table-hover
+        %thead
+          %tr
+            %th Message Subject
+            %th Language
+            %th
+          %form{:action => "/admin/list_message", :method => "get"}
+            %tr
+              %th
+                %input.form-control{:name => "title", :type => "text", :value => "#{(params[:title].nil?) ? '' : params[:title]}"}
+              %th
+                = select_tag :language, options_for_select(pre_countries, :selected=> (params[:language].nil?) ? '' : params[:language].upcase), {:include_blank => 'Select Language', class: 'form-control'}
+              %th
+                %button.btn.btn-blue.btn-large
+                  Search
+        %tbody
+          - @subjects.each do |subject|
+            %tr
+              %td= subject.title
+              %td= subject.language
+              %td
+                = link_to [:admin, subject], method: :delete, data: {confirm: 'Are you sure?'} do
+                  %i.icon-remove

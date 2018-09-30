@@ -1,0 +1,60 @@
+<% content_for :title, 'Departments' %>
+<% content_for :breadcrumb, 'Departments' %>
+
+<div class="twelvecol">
+  <div class="page-header">
+    <h2 class="widget widget-header"><%= t('admin.departments.index.heading')%></h2>
+  </div>
+  <% if @departments.empty? %>
+    <div class="widget widget-content">
+      <div class="helper-notification">
+        <p>You don't have any departments yet.</p>
+        <i class="icon-office"></i>
+      </div>
+    </div>
+  <% else %>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th><%= t('admin.departments.index.label1')%></th>
+            <th><%= t('admin.departments.index.label2')%></th>
+            <th></th>
+          </tr>
+          <form action="/admin/departments" method="get">
+          <tr>
+            <th>
+              <input type="text" name="name" class="form-control" value="<%= (params[:name].nil?) ? '' : params[:name]%>">
+            </th>
+            <th></th>
+            <th>
+              <button class="btn btn-blue btn-large">
+                Search
+              </button>
+            </th>
+          </tr>
+          </form>          
+        </thead>
+        <tbody>
+          <% @departments.each do |dp| %>
+            <tr>
+              <td>
+                <%= dp.name %>
+              </td>
+              <td class="align-left">
+                <a href="/admin/daycares?id=<%= dp.daycare.id unless dp.daycare.nil? %>">
+                  <%= dp.daycare.name unless dp.daycare.nil? %>
+                </a>
+              </td>
+              <td class="align-left">
+                <%= link_to [:admin, dp], method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon-remove"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>

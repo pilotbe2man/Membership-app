@@ -1,0 +1,20 @@
+.row
+  .col-md-6.col-sm-6.col-xs-12
+    %ul.row
+      %li.col-md-6.col-sm-12.col-xs-12
+        %a.record-item{href: 'javascript:;', style: "color: #2f363d;text-decoration: none;"}
+          .department-todo.border-style-b
+            %span.todo-top.bg-style-b-g
+              = record.department.name
+            .todo-command
+              .detail-box
+                %h4=record.illness_name
+  .col-md-6.col-sm-6.col-xs-12{style: 'margin: 20px 0;'}
+    %label=t('dashboard.label.department')
+    - departments = current_user.daycare.department_options << [t('form_labels.all_department'), 0]
+    = select_tag :department_id, options_for_select(departments), class: 'form-control department-select'
+    .row.main{style: 'margin-top: 50px;min-height: 0;'}
+      .col-md-6.form-buttons{style: 'margin: 0 0 10px 0;padding-left: 0;'}
+        %a#notificaion_decline{href: 'javascript:;', class: 'btn btn-gray btn-wizard', "data-id": record.id}= t('form_labels.decline')
+      .col-md-6.form-buttons.text-right{style: 'margin: 0 0 10px 0;padding: 0;'}
+        %a#notificaion_next_department{href: 'javascript:;', class: 'btn bg-style-b btn-wizard', "data-id": record.id}= t('form_labels.next')

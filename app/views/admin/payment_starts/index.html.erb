@@ -1,0 +1,50 @@
+<% content_for :title, 'Payment Starts' %>
+<% content_for :breadcrumb, 'Payment Starts' %>
+
+<div class="twelvecol">
+  <div class="page-header">
+    <%= link_to new_admin_payment_start_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Add Payment Start" do %>
+      <i class="icon-plus"></i>
+    <% end %>
+    <h2 class="widget widget-header"><%= t('admin.payment_starts.index.heading')%></h2>
+  </div>
+  <% if @payment_starts.empty? %>
+    <div class="widget widget-content">
+      <div class="helper-notification">
+        <p>You don't have any payment mode yet.</p>
+        <i class="icon-ticket"></i>
+      </div>
+    </div>
+  <% else %>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th><%= t('admin.payment_starts.index.label1')%></th>
+            <th><%= t('admin.payment_starts.index.label2')%></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @payment_starts.each do |dc| %>
+            <tr>
+              <td>
+                <%= dc.period %>
+              </td>
+              <td>
+                <%= dc.unit %>
+              </td>
+              <td>
+                <%= link_to edit_admin_payment_start_path(dc) do %>
+                  <i class="icon-pencil"></i>
+                <% end %>
+                <%= link_to [:admin, dc], method: :delete, data: { confirm: 'Are you sure?' } do %>  <i class="icon-remove"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>

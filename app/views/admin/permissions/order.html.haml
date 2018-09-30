@@ -1,0 +1,27 @@
+= content_for :title, 'Permission'
+= content_for :breadcrumb, "Order #{@type.titleize} Permissions"
+
+.page-header
+  %h3= "Order #{@type.titleize} Permissions"
+
+
+= form_tag change_order_admin_permissions_path, method: :post do
+  - @permissions.each do |permission|
+    .row
+      .col-md-6
+        .form-group
+          %label{for: 'order'}= "Order for #{permission.feature} (Daycare Id: #{permission.daycare_id})"
+          = text_field_tag "permissions[#{permission.id}][order]", permission.order, class: 'form-control'
+    .row
+      .col-md-6
+        .form-group
+          %label{for: 'section'}= "Section a/b for #{permission.feature} (Daycare Id: #{permission.daycare_id})"
+          = text_field_tag "permissions[#{permission.id}][section]", permission.section, class: 'form-control'
+    = hidden_field "permissions[#{permission.id}]", 'id', value: permission.id
+  .form-buttons
+    = submit_tag 'Save', class: 'btn btn-raised btn-success'
+
+:javascript
+  //Messages.initEditFilters();
+
+

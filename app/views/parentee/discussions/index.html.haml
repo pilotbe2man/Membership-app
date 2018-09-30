@@ -1,0 +1,13 @@
+= content_for :title, t('discussions.discussion')
+
+#discussions
+  .navbar.navbar-default
+    .top-menu
+      = render 'menu'
+
+  .row
+    .col-md-10.well.discussion-box
+      = render 'discussion_box'
+
+    .col-md-2.side-menu
+      = render '/discussions/collaborators'

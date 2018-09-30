@@ -1,0 +1,38 @@
+= content_for :title, 'Permission'
+= content_for :breadcrumb, 'Permission'
+
+.twelvecol
+  .page-header
+    %h2.widget.widget-header 
+      - if params[:option].to_i > 1
+        = "Permissions / #{@type_label} /  #{@daycare.name unless @daycare.nil?}"
+      - else
+        = "Permissions / #{@type_label} /  #{@affiliate.name unless @affiliate.nil?}"
+
+  .widget.widget-content.row
+    %form{action: '/admin/permissions/list', method: :get}
+      %input{type: :hidden, name: 'type', value: params[:type]}
+      %input{type: :hidden, name: 'option', value: params[:option]}
+      %input{type: :hidden, name: 'daycare', value: params[:daycare]}
+      .sixcol
+        %h3 Group Level
+        - if params[:option].to_i > 1
+          .row
+            %input{type: "radio", value:"0", name:"group", checked: true} 
+              Daycare Manager
+          .row
+            %input{type: "radio", value:"1", name:"group"} 
+              Daycare Worker
+          .row
+            %input{type: "radio", value:"2", name:"group"} 
+              Daycare Parent
+        - else
+          .row
+            %input{type: "radio", value:"1", name:"group", checked: true} 
+              Team Member
+          .row
+            %input{type: "radio", value:"3", name:"group"} 
+              Partner contact person
+
+      %div{style: "clear:both;"}
+      %button.btn.btn-blue.btn-large Select

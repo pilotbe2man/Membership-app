@@ -1,0 +1,267 @@
+#legacy-welcome
+{
+    // Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+
+a:hover, a:focus
+{
+    outline: 0;
+    text-decoration: none;
+}
+
+
+.welcome
+{
+    background: image-url('icon-30.png' ) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    overflow: auto;
+}
+
+.welcome > .outer
+{
+    margin-top: 65px;
+}
+
+.welcome .main-heading
+{
+    text-align: center;
+    color: #000;
+    font-size: 55px;
+    font-family: 'HelveticaNeue-LightCond';
+    margin: 0px;
+    padding: 0px;
+    font-weight: normal;
+}
+
+.welcome .tag-line
+{
+    font-size: 30px;
+    color: #bfbfbf;
+    text-align: center;
+    font-family: 'HelveticaNeue-LightCond';
+    margin: 0px;
+    padding: 0px;
+    font-weight: normal;    
+}
+
+.welcome .wrapper
+{
+    height: auto;
+    margin-top: 50px;
+    background-color: rgba(255, 255, 255, .5);
+    border: 2px solid #a2a1a0;
+    overflow: auto;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 200px;
+}
+.welcome .wrapper > div
+{
+     margin: 20px 0;
+}
+
+.welcome .wrapper a > .block
+{
+    height: 100%;
+    width: 100%;
+    padding: 25%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.welcome .wrapper a > .block > .circle
+{
+    border: 3px solid;
+    border-radius: 100%;
+    height: 100%;
+    padding: 5px;
+    width: 100%;
+}
+.welcome .wrapper a > .block > .circle > img
+{
+    width: 100%;
+    padding-bottom: 0px;
+
+}
+
+.welcome .wrapper a > h5
+{
+    padding: 0px 10px;
+    color: #000;
+    font-size: 25px;
+    margin-top: 20px;
+    font-family: 'HelveticaNeue-LightCond';
+    text-decoration: none;
+    font-weight: normal;
+    text-align: center;
+}
+
+}
+
+#socialside {
+    position: fixed;
+    bottom: 50%;
+    right: 0;
+}
+.mainul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+.scli {
+    position: relative;
+    width: 182px;
+    list-style: none;
+    border-radius: 8px 0 0 8px;
+    margin-right: -139px;
+    right:0;
+    cursor: pointer;
+    
+}
+
+.scli img {
+    background-color: white;
+    border-radius: 5px 0 0 5px;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    left: 0;
+    top:0;
+    padding: 3px;
+    border: 1px solid silver;
+}
+
+.scli li {
+    height: 40px;
+    line-height: 40px;
+    margin: 5px 0;
+    padding-left: 50px;
+    font-family: "Archivo Black";
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+}
+
+/****New Design********************************/
+.welcome-container{
+  background: #fff;
+  font-family: 'Open Sans', sans-serif;
+
+  .page-header{
+    width: 100%;
+    box-shadow: none;
+    min-height: 72px;
+    background: #dadada;
+    margin: 0;
+    padding: 16px;
+
+    .logo-mono{
+      img{
+        height: 120px;
+      }
+    }
+  }
+
+  .page-footer{
+    padding-bottom: 30px;
+    background: #242c3f;
+  }  
+
+  .container{
+    .title{
+      margin-top:-60px;
+      h3{
+        font-size:64px;
+        font-weight: 800;
+        color:#242c3f;
+      }
+      h5{
+        font-size:32px;
+        font-weight: 400;
+        color:#242c3f;
+        padding-top: 30px;
+      }
+    }
+
+    .round-menu{
+      margin: 40px;
+      .item-worker{
+        background: #ff5443;
+        background: -webkit-linear-gradient(#ffa63e, #ff0a55);
+        background: -o-linear-gradient(#ffa63e, #ff0a55);
+        background: -moz-linear-gradient(#ffa63e, #ff0a55);
+        background: linear-gradient(#ffa63e, #ff0a55);
+      }
+      .item-manager{
+        background: #f1c942;
+        background: -webkit-linear-gradient(#f2ff32, #f09751);
+        background: -o-linear-gradient(#f2ff32, #f09751);
+        background: -moz-linear-gradient(#f2ff32, #f09751);
+        background: linear-gradient(#f2ff32, #f09751);
+      }
+      .item-partner{
+        background: #00c4cb;
+        background: -webkit-linear-gradient(#0085fe, #00ff9c);
+        background: -o-linear-gradient(#0085fe, #00ff9c);
+        background: -moz-linear-gradient(#0085fe, #00ff9c);
+        background: linear-gradient(#0085fe, #00ff9c);
+      }
+      .item-parentee{
+        background: #8ea4f4;
+        background: -webkit-linear-gradient(#b879ff, #63d1e8);
+        background: -o-linear-gradient(#b879ff, #63d1e8);
+        background: -moz-linear-gradient(#b879ff, #63d1e8);
+        background: linear-gradient(#b879ff, #63d1e8);
+      }
+
+      .menu-line {
+        text-align: center;
+        .block{
+          height: 100%;
+          width: 100%;
+          padding: 25%;
+          padding-top: 0px;
+          padding-bottom: 0px;
+
+          .circle{
+            border-radius: 100%;
+            height: 100%;
+            padding: 5px;
+            width: 100%;        
+
+            img{
+              width: 100%;
+              padding-bottom: 0px;          
+            }
+          }        
+        }
+
+        a{
+          text-decoration: none;
+          h5{
+            padding: 0px 10px;
+            color: #2d2d2d;
+            font-size: 16px;            
+            font-weight: normal;
+            text-align: center;        
+          }
+        }
+      }      
+    }
+  }
+}
+
+footer{
+  .left-footer{
+    overflow:hidden !important;
+  }
+}

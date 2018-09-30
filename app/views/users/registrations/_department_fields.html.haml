@@ -1,0 +1,6 @@
+.row      
+  %h5=t('register.labels.department')
+  .row.inline-input-link
+    = f.text_field :name, :class => 'form-control input-round', :placeholder => t('register.labels.department_name'), :required =>"true"
+    = f.hidden_field :id, :class => 'form-control input-round', :placeholder => "Department Name"
+    = custom_link_to_remove_fields image_tag('manager-sub.png'), f

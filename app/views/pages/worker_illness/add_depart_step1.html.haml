@@ -1,0 +1,70 @@
+= content_for :title, t('illnesses.illness')
+- content_for :page_title, t('illnesses.illness')
+.illness-dash-container
+  .container
+    .row
+      .col-md-12
+        %h4.option-title= t('illnesses.illness')
+        %h5= t('illnesses.labels.department_record_help_text')
+    .row.content-main.illnesses
+      .col-md-12.wizard.clearfix.vertical
+        .steps.clearfix
+          %ul{:role => "tablist"}
+            %li.first.current
+              %a#new-child-record-t-0
+                %span.current-info.audible current step:
+                %span.number 1.
+                = t('illnesses.labels.department_details')
+            %li.disabled
+              %a#new-child-record-t-1
+                %span.number 2.
+                = t('illnesses.labels.illness_details')
+            %li.disabled
+              %a#new-child-record-t-2
+                %span.number 3.
+                = t('illnesses.labels.additional_actions')
+            %li.disabled
+              %a#new-child-record-t-3
+                %span.number 4.
+                = t('illnesses.labels.worker_confirmation')
+        .content.clearfix
+          %label#new-child-record-h-0.title.current Choose the Child
+          %section.child-department.body.current{data:{step: 1, intro: t("guideline.worker.illness_add_depart.step1.content")}}
+            .choose-department
+              .row
+                %h5= t('illnesses.labels.child_details')
+              .row
+                .col-md-6
+                  %h3= t('illnesses.labels.choose_department')
+                  #search-department-name
+                    .form-group.is-empty
+                      %input#search-child-name.form-control.typeahead{:name => "search-child-name", :placeholder => t('illnesses.labels.search'), :type => "text", :value => ""}/
+                .col-md-6
+                  .radio-box-group
+                    .radio-box
+                      %input#chk_depart_1{:name => "department", :style => "display: none;", :type => "radio", :value => "5"}/
+                      %label{:for => "chk_depart_1"}
+                        1 to 2 years old
+                    .radio-box
+                      %input#chk_depart_2{:name => "department", :style => "display: none;", :type => "radio", :value => "5"}/
+                      %label{:for => "chk_depart_2"}
+                        3 to 4 years old
+                    .radio-box
+                      %input#chk_depart_3{:name => "department", :style => "display: none;", :type => "radio", :value => "5"}/
+                      %label{:for => "chk_depart_3"}
+                        5 to 6 years old
+        .actions.clearfix
+          %ul{"aria-label" => "Pagination", :role => "menu"}
+            %li.disabled{"aria-disabled" => "true"}
+              %a{:href => "#previous", :role => "menuitem"}=t('form_labels.previous')
+            %li{"aria-disabled" => "false", "aria-hidden" => "false", data:{step: 2, intro: t("guideline.worker.illness_add_depart.step2.content")}}
+              %a{:href => "#next", :role => "menuitem"}=t('form_labels.next')
+            %li{"aria-hidden" => "true", :style => "display: none;"}
+              %a{:href => "#finish", :role => "menuitem"}=t('form_labels.submit')
+:javascript
+  jQuery(document).ready(function() {
+    healthChildcare.guideline.introGoToStep('add_depart_step2', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.introGoToStep('add_depart_step2', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });    
+  });

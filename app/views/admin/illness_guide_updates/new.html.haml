@@ -1,0 +1,31 @@
+= content_for :title, t('messages.breadcrumb.create_message')
+- content_for :breadcrumb, t('dashboard.menu_item.illness_guide')
+.message-dash-container
+  .container
+    .row.content-main
+      = form_for [:admin, @illness_guide_update] do |f|
+        .col-md-12
+          %h4.option-title Title :
+          = f.text_field :title, placeholder: t('illness_guides.enter_title'), class: 'form-control', required: true
+        .col-md-8.col-sm-8.col-xs-12
+          %h4.option-title= t('illness_guides.enter_discription')
+          = f.cktext_area :description, id: 'my-message_content', ckeditor: {toolbar: "mini"}
+        .col-md-12.form-buttons.text-right.no-h-padding.form-action
+          .col-md-3.col-md-offset-6.col-sm-3.col-sm-offset-6.col-xs-6
+            %a{href: admin_root_path, class: 'btn btn-blue btn-large'} Cancel
+          .col-md-3.col-sm-3.col-xs-6
+            = submit_tag t('illness_guides.create'), class: 'btn btn-green btn-large'
+:javascript
+    //$.material.init();
+
+    $('input[type="checkbox"]').on('click', function() {
+
+      if ($(this).is(':checked')) {
+        $(this).parents('.checkbox').children('.recipient-count').show();
+      }
+      else {
+        $(this).parents('.checkbox').children('.recipient-count').hide();
+      }
+
+    })
+  });

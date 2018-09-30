@@ -1,0 +1,15 @@
+.fixed-sidebar
+  #sidebar-left.fixed-sidebar-left.sidebar--small
+    %ul.left-menu
+      - @permissions.each do |permission|
+        - if permission.active
+          - if permission.plan_deposit == 0
+            %li
+              = link_to permission.path, id: permission.element, class: 'js-sidebar-open' do
+                = image_tag permission.image
+                %span=t(permission.label_key)
+          - else
+            %li
+              %a.js-sidebar-open{href: '#', id: permission.element}
+                = image_tag permission.image
+                %span=t(permission.label_key)

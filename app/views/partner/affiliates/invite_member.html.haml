@@ -1,0 +1,49 @@
+.reg-manager-container.page-boxed
+  .page-header
+  .container
+    .form-content           
+      #rootwizard
+        %ul{:style=> "visibility: hidden; height: 0; position:absolute;"}
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab1"} First
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab2"} Second
+        = form_tag send_invite_member_partner_affiliates_path, method: :post, multipart: true do
+          .tab-content
+            #tab1.tab-pane
+              = render 'pane_invite_address'
+            #tab2.tab-pane
+              = render 'pane_invite_form'
+            .col-sm-12
+              %ul.pager.wizard{:style => "text-align: center;"}
+                %li.previous.hide
+                  %button.btn.btn-round.item-manager{:type => "button"} 
+                    =t('register.labels.previous')
+                %li.next
+                  %button.btn.btn-round.item-manager{:type => "button"} 
+                    =t('register.labels.next')
+                %li.previous.first{:style => "display:none;"}
+                  %a{:href => "#"} First
+                %li.next.last{:style => "display:none;"}
+                  %a{:href => "#"} Last
+      .address_elem.hide
+        = render partial: 'address_fields'            
+:javascript
+  jQuery(document).ready(function() {    
+    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'}); 
+    $('.next button').click(function(){
+      var tab_id = $('.tab-pane.active').attr('id');
+      if(tab_id == "tab2") {
+        $('form').submit();
+      } else {
+        $('.next .btn').html('#{t('manager.invite.send')}');
+        var email_list = '';
+        $('form .daycare-email').each(function(){
+          email_list = email_list + $(this).val() + ", ";
+        });
+        var filename = $('#email_address').val().split('\\').pop();
+        var recipients = email_list + filename;
+        $('#recipient_list').html(recipients);
+      }
+    });
+  });

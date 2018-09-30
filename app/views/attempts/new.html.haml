@@ -1,0 +1,48 @@
+#legacy-survey.survey-result-dash-container
+  .container
+    .row.survey-subjects
+      %input{:type=> 'hidden', :id =>'current_subject', :value => @subject.id}
+      - SurveySubject.where(language: I18n.locale.upcase).each do |subject |
+        .survey-subject
+          .radio-box
+            %input.retake-survey-radio{:type=>"radio", :name => "subject_id", :id => "radio#{subject.id}", :style => "display: none;", value: subject.id, checked: subject.id == @subject.id ? true : false}
+            %label{:for => "radio#{subject.id}"}
+              = image_tag subject.icon.file, class: 'img' unless subject.icon.nil?
+            .row.survey-title
+              %span= subject.title      
+    .row
+      #page.hfeed.site
+        #jcmc-wrap.jcmc-tabs-top
+          %ul#jcmc-tabs.jcmc-tabs.jcmc-arrows.jcmc-blocks
+            - count = 0
+            - @subject.surveys.order(weight: :asc).each_with_index do |survey, index|
+              %li{:class => "#{"jcmc-active-link jcmc-enabled" if index == 0} jcmc-odd", :id => "li_#{index}", "data-survey" => "#{survey.id}", "data-index" => "#{index}"}
+                %a{:href => "javascript:void(0)", :id => "jcmc-trigger-#{index}", :onclick => ""}
+                  %span.jcmc-tab-span
+                    = index+1
+                    - count = index + 1
+                    \. #{survey.name}
+            %li#li_complete.jcmc-even
+              %a#jcmc-trigger-3{:href => "javascript:void(0)", :onclick => ""}
+                %span.jcmc-tab-span
+                  =count + 1
+                  \. #{t('form_labels.check_result')}
+          #jcmc-tab-panels.jcmc-tab-wrapper
+            - @subject.surveys.order(weight: :asc).each_with_index do |survey, index|
+              %div{:class => "jcmc-tab #{"jcmc-active-tab" if index == 0}", :id => "tab_#{index}"}
+                = render :partial => 'form', locals: { subject: @subject, tab: (index == (@subject.surveys.size - 1) ? 'complete' : index+1), attempt: survey.attempts.new, survey: survey}
+            #tab_complete.jcmc-tab
+              .jcmc-buttons.form-buttons
+                = link_to t('form_labels.complete'), complete_pending_option_path(current_user.id, @subject.id), :class => 'btn btn-round item-manager btn-next'
+:javascript
+  jQuery(document).ready(function() {    
+    var pending_survey_id = #{@pending_checker.survey_pending_id(current_user.id, @subject.id)};
+    if (pending_survey_id > 0){
+      $('#jcmc-tabs li').each(function() { 
+           if (pending_survey_id == $(this).data('survey')){
+            var tab_id = $(this).data('index');
+            click_tab(tab_id);
+           }
+       });
+    }
+  });

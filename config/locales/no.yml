@@ -1,0 +1,1754 @@
+nk:
+  device:
+    confirmation:
+      confirmed: Din epost adresse er nå bekreftet
+      send_instructions: Du vil snart motta en epost innholdende informasjon om hvordan bekrefte din epost adresse
+      send_paranoid_instructions: Hvis din epost adresse er registrert i portalen, vil du snart motta en epost innholdene inrfomasjon om hvordan bekrefte din epost adresse.
+    failure:
+      already_authenticated: Du er allerede pålogget.
+      inactive: Du trenger å aktivere bruker kontoen din.
+      invalid: Ugyldig %{authentication_keys} eller passord.
+      locked: Din konto er nå låst for å bevare sikkerhet av andre brukere.
+      last_attempt: Du har et forsøk til før bruker kontoen din blir låst.
+      not_found_in_database: Ugylig %{authentication_keys} eller passord.
+      timeout: Vi beklger at vårt system er litt treg i dag , vennligst prøv på nytt.
+      unauthenticated: Du trenger registrere din brukerprofil eller logge in før du kan fortsette.
+      unconfirmed: Vennlisgt bekreft din epost adresse ved å klikke på linken i epost sendt til deg for å kunne gå til neste steg.
+    mailer:
+      confirmation_instructions:
+        subject: Veiledning for å bekrefte epost adresse.
+      reset_password_instructions:
+        subject: Veiledning for å gjenoprette passord.
+      unlock_instructions:
+        subject: Konto gjenåpningsveiledning
+      password_change:
+        subject: Passordet er endret.
+    omniauth_callbacks:
+      failure: Kunne ikke autentisere deg til %{kind} fordi " %{reason} ".
+      success:  Vellykket autentisering til  %{kind} konto.
+    passwords:
+      no_token: For å få tilgang til siden klikk på linken passordtilbakestillings epost du har mottatt. Ta kontakt med foreningen dersom noe er uklart
+      send_instructions: Du vil snart motta en e-postmelding inneholdende instruksjon om hvordan du kan tilbakestille passord.
+      send_paranoid_instructions: Hvis e-postadressen er registrert i portalen, vil du motta link til å endre passord.
+      updated: Passordet er nå endret. Vennlisgt skjekk om du nå er pålogget.
+      updated_not_active: Passordet er endret.
+    registrations:
+      destroyed: Kontoen er slettet.
+      signed_up: Velkommen til friskere og tryggere barnomsorgprogrammet.
+      signed_up_but_inactive: Din brukerprofil er nå registrert i portalen.For å logge inn, vennligst aktiver kontoen din ved klikke på linken send til deg per epost.
+      signed_up_but_locked: Du er nå registrert. Men vi kunne ikke logge deg inn ettersom din konto er låst
+      signed_up_but_unconfirmed: Vi har sendt en bekreftelseslink til deg. For å aktivere kontoen din, klikk bare på linken og følg instruksjonene.
+      update_needs_confirmation: Din brukerkonto er nå opprettet. Vennligst bekreft e-postadressen din ved å følge den aktuelle linken.
+      updated: Du bruker konto er nå oppdatert.
+    sessions:
+      signed_in: Innloggingen er vellykket.
+      signed_out: Utlogging er vellykket.
+      already_signed_out: Utlogget.
+    Unlock screen:
+      send_instructions: Du vil snart motta en e-post med instruksjoner for å låse opp kontoen din.
+      send_paranoid_instructions: Hvis kontoen eksisterer, vil du snart motta en e-post med instruksjoner for å låse opp den.
+      unlocked: Din konto har blitt låst opp, vennligst logg inn for å fortsette
+  errors:
+    messages:
+      already_confirmed: Kontoen din er allerede bekreftet, vennligst logg inn.
+      confirmation_period_expired: Kontoen din er ikke bekreftet  %{period}, prøv igjen.
+      expired: Sesjonen er tidsbestemt. Vær så snill, prøv på nytt.
+      not_found: Kontoen er ikke funnet.
+      not_locked: Kontoen var ikke låst.
+      not_saved:
+        one: 1 feil forhindret  %{resource} lagring
+        other: "%{count} feil forhindret denne %{resource} lagring"
+  registration:
+    title1: Finne det svakeste smitteforebygging leddet i din barnehage
+    desc1: En kjede er ikke sterkere enn sitt svakeste ledd . I smittevernberedskap sammenheng utgjør det svakeste smitteforebygging leddet i din barnehage manglende bevissthet rundt smitte fremmende vaner blant barnehagepersonale. Dette er fordi dersom personale i din barnehage ikke er bevisste på smitte fremmende vaner kan de, uten å vite det selv, spre smittebærende bakterier og virus gjennom sine daglige rutiner. For at du skal kunne avverge dette i din barnehage inkluderes bevissthet kartleggingsverktøy i smittevernberedskap programmet,friskere og tryggere barnomsorg. Nå kan du gjennom å skape bevissthet om smittefremmende vaner blant barnehage personale både eliminere det svakeste smitteforebygging leddet i din barnehage samtidig som du bidrar til at dine ansatte blir motiverte til å lære om smitteforebyggende rutiner, som en naturlig reaksjon av å være bevisst på kunnskapsmangel som kan sette dem og barn under deres omsorg for smittefare.
+    title2: Styrke smitteforebygging nivå i din barnehage
+    desc2: De fleste av oss handler ut ifra informasjon vi har tilgjengelig. I smittevernbredeskap sammenheng betyr dette at dine ansattes kompetanse innen smitteforebygging direkte påvirker hvordan de utfører sine daglige rutiner i din barnehage. For at du skal kunne styrke smitteforebygging nivå i din barnehage inkluderes derfor dybde trening i smitteforebygging rutiner i friskere og tryggere barnomsorgprogrammet.  Nå kan du gjennom å heve kompetanse rundt smitteforebyggingsrutiner sikre et høyere nivå av smittebeskyttelse for barn og ansatte i din barnehage.
+    title3: Ha kontroll over smitte sikkerhetsnivå i din barnehage
+    desc3: Det er vanskelig å kontrollere noe man ikke har oversikt over. I smittevernberedskap sammenheng er det derfor viktig til enhver tid å ha god oversikt over, om  nødvendig rutiner for å minske risiko for forekomst og spredning av smittsomme sykdommer blir iverksatt i din barnehage eller ikke. Slik unngå du at smitte sikkerhet av barn og ansatte i din barnehage blir overlatt til tilfeldigheter. Derfor inkluderes digital smittevern beredskap internkontroll verktøy i friskere og tryggere barnomsorgprogrammet. Nå kan du som barnehageleder ta kontroll over smitte-sikkerhetsnivå  i din barnehage ved å sikre at samtlige smitteverntiltak blir implementert, sporet og målt på daglig basis i din barnehage.
+    title4: Vite når din barnehage står overfor en overhengende utbrudd fare
+    desc4: Når smittsomme sykdommer først forekommer, i din barnehage, kan hvert minutt være avgjørende for at du, som barnehageleder, skal kunne å kunne stoppe smittespredning og beskytte friske barn fra å bli smitteutsatt. En god smittevernberedskap krever derfor at du, som barnehageleder er til enhver tid oppdatert på hvilke sykdommer som forekommer i din barnehage, uansett hvor du enn måtte befinne deg, uten å være avhengig av at personale skal opplyse deg når dere først møtes. Derfor inkluderes sykdom forekomst varsler verktøyet  i friskere og tryggere barnomsorgprogrammet. Nå kan du være oppdatert på hvilke sykdommer som har forekommer i din barnehage i nåtid og vit når din barnehage står overfor overhengende utbrudd fare.
+    title5: Ta kontroll over smittefarlige situasjoner når smittsomme sykdommer bryter ut i din barnehage
+    desc5: Det er vanskelig å ta kontroll over en smittefarlige situasjoner når en ikke har informasjon om hvordan en bør gjøre det. Og ettersom informasjon nødevendig for å håndtere smitte fare forbundet med én type smittsom sykdom ikke nødvendigvis er den samme for en annen type smittsom sykdom er det derfor avgjørende i smittevernberedskap sammenheng, samtlige ansatte i din barnehage har tilgang til smittevern informasjon tilpasset smittsom sykdom som måtte oppstå i din barnehage. Derfor inkluderes smittsom sykdom håndteringsguide i friskere og tryggere barnomsorgprogrammet. Nå kan du som barnehageleder, sikre at samtlige ansatte og foreldre i din barnehage har informasjon de trenger for å håndtere og ta kontroll over smittefarlige situasjoner når smittsomme sykdommer bryter ut i din barnehage.
+    title6: Eliminere årsaker til høyt sykefravær
+    desc6: friskere og tryggere barnomsorgprogrammet gjør det mulig for deg som barnehageleder å sikre en en høy aktsomhet mot smittsomme sykdommer i din barnehage og dermed ha de forutsetningene som er nødvendig for å eliminere årsaker til høyt sykefravær,knyttet til smittsomme sykdommer.
+    title7: Sikre god kommunikasjon når det trengs mest i barnehagen
+    desc7: Et utbrudd kan ofte skape en situasjon med høy infeksjonsrisiko, derfor kan mangel på god kommunikasjon mellom barnehagen og foreldre raskt skape en situasjon med høy smittefare, sterke følelser og tillitsbrudd. For å avverge dette i din barnehage inkludres kommunikasjon verktøy i smitteberedskap programmet. Nå kan du sikre en god kommunikasjon med både ansatte og foreldre i den avlingen smittsomme sykdommen har forekommet og dermed bidra til å påvirke utbruddets kurs og hindre den fra å spre seg utenfor barnehagen.
+    title8: Komme høy sykdomsrisiko sesonger i forkjøpet
+    desc8: Det er vanskelig å foreberede seg godt når en ikke vet hva en skal forberede seg i mot. I smittevernberedskap sammenheng er det derfor viktig at du som barnehageleder vet hvilke sykdom du skal forberede din barnehage i mot og når. Det er derfor analyse verktøy for å kartlegge høysykdoms risiko sesong inkludert i smittevernberedskap programmet. Nå kan du ved å avdekke høy sykdomsrisiko sesonger spesifikk for din barnehage være i stand til å iverksette passende smitteforebyggende innsats i forkant av høy sykdomsrisiko sesonger i din barnehage og komme de i forkjøpet. I prosessen sikrer du en høyere beskyttelse for de sårbare barna i din barnehage i tillegg til å skape et forent bånd og lagånd mellom ansatte og barneforeldre i din barnehage, gjennom felles forberedelse mot forventet smittefare.
+  payment:
+    title1: Finne det svakeste smitteforebygging leddet i din barnehage
+    desc1: En kjede er ikke sterkere enn sitt svakeste ledd . I smitte beredskapssammenheng utgjør det svakeste smitteforebygging leddet i din barnehage manglende bevissthet rundt smitte fremmende vaner blant barnehagepersonale. Dette er fordi dersom personale i din barnehage ikke er  bevissthet på smitte fremmende vaner kan de, uten å vite det selv, spre smittebærende bakterier og virus gjennom sine daglige rutiner. For at du, som barnehageleder, skal kunne best mulig unngå dette i din barnehage tilgang til smitteforebygging kompetanse kartleggingsverktøy i smitteberedskap programmet, friskere og tryggere barnomsorg. Nå kan du ved å ta i bruk verktøyet i din barnehage ikke bare finne og eliminere det svakeste smitteforebygging leddet i din barnehage, men du får også  bidratt  til at dine ansatte blir motivert til å lære om smitteforebyggende rutiner, som en naturlig reaksjon av å være bevisst på kunnskapsmangel som kan sette dem og barn under deres omsorg for smittefare.
+    title2: Styrke smitteforebygging nivå i din barnehage
+    desc2: De fleste av oss handler ut ifra informasjon vi har tilgjengelig. Dette vil si i smittebredeskaps sammenheng vil dine ansattes kompetanse innen smitteforebygging rutiner  direkte påvirker deres handlinger og dermed  smitteforebygging nivå i din barnehage. For at du skal kunne styrke smitteforebygging nivå i din barnehage får du og personale i din barnehage derfor tilgang til nettbasert trening i smitteforebygging rutiner i smitteberedskap programmet, friskere og tryggere barnomsorg.  Nå kan du ved å ta i bruk nettbasert trening i smitteforebygging heve kompetanse blant din barnehagepersonale som igjen sikrer et høyere nivå av smittebeskyttelse for barn og ansatte i din barnehage.
+    title3: Ha kontroll over smitte sikkerhetsnivå i din barnehage
+    desc3: Det er vanskelig å kontrollere det en ikke har god oversikt over. I smitteberedskap sammenheng vil dette si at dersom det mangler en god oversikt over, om  nødvendig rutiner for å minske risiko for forekomst og spredning av smittsomme sykdommer  blir iverksatt  i din barnehage kan smitte sikkerhet for barn og ansatte overlatt til tilfeldigheter. For at du som barnehageleder skal best mulig kunne avverge dette i din barnehage ,får du og ansatte i din barnehage derfor tilgang digital internkontroll verktøy i smitteberedskap programmet, friskere og tryggere barnomsorg. Nå kan du som barnehageleder ta kontroll over smitte-sikkerhetsnivå  i din barnehage ved å sikre at samtlige smitteverntiltak blir implementert, sporet og målt på daglig basis i din barnehage.
+    title4: Vite når din barnehage står overfor en overhengende utbrudd fare
+    desc4: Når smittsomme sykdommer først forekommer, i din barnehage, kan hvert minutt være avgjørende for at du, som barnehageleder, skal kunne å kunne minske smittespredning og dermed beskytte friske barn fra å bli smitteutsatt. En god smitteberedskap krever derfor at   du, som barnehageleder, vet til enhver tid hvilke sykdommer som forekommer i din barnehage,uansett hvor du enn måtte befinne deg, uten å være avhengig av at personale skal opplyse deg når dere først møtes. For å sikre dette for du og ansatte derfor tilgang til  smittsom sykdom forekomst varsler verktøyet  i smitteberedskap programmet, friskere og tryggere barnomsorg. Nå kan du ved å ta i bruk verktøyet være oppdatert på hvilke sykdommer som har forekommer i din barnehage i nåtid og dermed raskt avdekke hvorvidt andre barn nylig har vært utsatt for samme type sykdom, som kan være en sterk indikator på overhengende utbrudd fare.
+    title5: Ta kontroll over smittefarlige situasjoner når smittsomme sykdommer bryter ut i din barnehage
+    desc5: Det er vanskelig å ta kontroll over en smittefarlige situasjoner når en ikke har informasjon om hvordan en bør håndtere smittefarlige situasjoner. Og ettersom smitteverns tiltak nødvendige for å stoppe spredning av smitte fare forbundet med én type smittsom sykdom ikke nødvendigvis er den samme for en annen type smittsom sykdom er det derfor avgjørende i smitteberedskap sammenheng, at  din barnehage har tilgang til smittevern informasjon tilpasset smittsomme sykdommer som måtte oppstå i din barnehage. Derfor får du og ansatte tilgang til smittsom sykdom håndteringsguide i smitteberedskap programmet, tryggere helsebevarende barneomsorg. Nå kan du gjennom å ta i bruk guiden inneholdende smittevern informasjon, skrevet av kvalifisert barnelege i din barnehage, sikre at samtlige ansatte i din barnehage har informasjon de trenger for å håndtere og ta kontroll over smittefarlige situasjoner når smittsomme sykdommer bryter ut i din barnehage, best mulig.
+    title6: Eliminere årsaker til høyt sykefravær
+    desc6: Smitteberedskap programmet tryggere helsebevarende barneomsorg gjør det mulig for deg som barnehageleder å sikre en en høy aktsomhet mot smittsomme sykdommer i din barnehage og dermed ha de forutsetningene som er nødvendig for å eliminere årsaker til høyt sykefravær,knyttet til smittsomme sykdommer.
+    title7: Sikre god kommunikasjon når det trengs mest i barnehagen
+    desc7: Et utbrudd kan ofte skape en situasjon med høy infeksjonsrisiko, derfor kan mangel på god kommunikasjon mellom barnehagen og foreldre raskt skape en situasjon med sterke følelser og tillitsbrudd. For å unngå dette får du derfor tilgang til kommunikasjon verktøy i smitteberedskap programmet. Nå kan du ved å ta i bruk verktøyet i din barnehage, sikre en  god kommunikasjon med ansatte og foreldre i den avlingen smittsomme sykdommen har forekommet og dermed bidra til å påvirke utbruddets kurs og hindre den fra å spre seg utenfor barnehagen.
+    title8: Komme høy sykdomsrisiko sesonger i forkjøpet
+    desc8: God forberedelse er nøkkelen til suksess også i smitteberedskap sammenheng. Men for at du som barnehageleder skal kunne å kunne være godt forberedt  trenger du først å vite hvilke sykdom du skal forberede din barnehage i mot. Derfor får du tilgang til verktøy for å avdekke høy sykdomsrisiko sesonger i smitteberedskap programmet. Nå kan du ved å ta i bruk verktøyet i din barnehage avdekke høy sykdomsrisiko sesonger spesifikk for din barnehage og dermed i være i stand til å iverksette passende smitteforebyggende innsats i forkant av høy sykdomsrisiko sesonger i din barnehage og komme de i forkjøpet. I prosessen sikrer du en høyere beskyttelse for de sårbare barna i din barnehage i tillegg til å skape et forent bånd og lagånd mellom ansatte og barneforeldre i din barnehage, gjennom felles forberedelse mot forventet smittefare.
+    title9: Beskytt deg selv og din barnehage mot dårlig omdømme og potensielle søksmål
+    desc9: Smitteberedskap programmet gjør det mulig for deg å bygge en infrastruktur i din barnehage som er nødvendig for å beskytte barn og ansatte i barnehagen mot skade, lidelse og potensielle tragedier forbundet med smittsomme sykdommer,til den grad det er praktisk mulig. Slik  eliminerer du sjansen for at du som barnehagelder blir anklaget for likegyldighet og faglig forsømmelse av barns sikkerhet i barnehagen, dersom det skulle oppstå alvorlige uhell forbundet med smittsomme sykdommer.
+    title10: Få en ekte konkurransefortrinn og fyll opp barnehageplassene
+    desc10: Ettersom din barnehage blir sertifisert i tryggere helsebevarende barneomsorg etter å ha implemenetert smitteberedskap programmet, vil det det fungere som en offentlig bekreftelse på at netopp din barnehage tar barnas helse og trygghet på alvor og er alltid først ut med å gjøre det som er nødvendig for å sikre at omsorgs miljøet i barnehagen er så trygg og helsebevarende som mulig for barn. Det er derfor ikke usannsynlig at foreldre velger heller din barnehage fremfor andre barnehager som bare påstår at de bryr seg om barn helse og velvære.
+    title11: Overfør gode verdier til neste generasjon
+    desc11: Ved å implentere tryggere helsebevarende barnesomsorg programmet i din barnehage tilretter du for at barn i din barnehage for mulighet til å observere gode smitteforebyggende daglige rutiner og dermed lære smitteforebyggende rutiner og nyttig kunnskap i ung alder. Dette vil de kunne ta med seg resten av livet og til og med overfør til neste generasjon. På denne måten overfører du ,som barnehage leder, gode verdier til nest generasjon og påvirke kommende generasjoner på en positiv måte ved å implentere smitteberedskap programmet i din barnehage.
+    title12:
+    desc12:
+    title13:
+    desc13:
+  register_popup:
+    title: "Vi gratulerer deg med å ha tatt spranget, fyll skjemaet nedenfor for å reserver en de 313 plassene for din barnehage. Når du først har registrert din barnehage får du mulighet til å sette opp smittevernkonsultasjon med foreningen hvor du får grundig hjelp og veiledning for å komme i gang."
+    description: " "
+    join_button: Velg passende konsultasjontidspunkt
+    paragraph: "For å bygge en infrastuktur som kontinuerlig minsker risiko for forekomst og spredning av smittsomme sykdommer som kan sette barn og ansattes helse i fare i din barnehage. Gjennom landest førte og eneste helomfattene smittevern sertifiseingsertifiseringsprogrammet vil du kunne oppnå følgende: "
+  validation:
+    required:
+      daycare_name: Vennligst oppgi navn på din barnehage.
+      care_type: Vennligst oppi om din barnehage tilhører er en kommunal, enkeltstående eller kjede barnehage.
+      address: Vennligts oppgi barnehage adresse.
+      postcode: Vennligst oppgi postkode.
+      municipal: Vennligst oppgi hvilke fylke din barenhage befinner seg i.
+      telephone: Vennligts oppgi telefonnummer til di barnehage.
+      user_name: Vennligst oppgi ditt navn.
+      email: Vennligst oppgi epost adresse.
+      password: Vennligst oppgi passord.
+      confirm_password: Vennligst bekreft passord.
+    confirm_password: Husk å bekrefte ditt passord
+  pages:
+    nav_bar:
+      home: Til forsiden
+      start_here: Smitterisiko
+      standard: Smittevern
+      path: Program
+      about_user: Om foreningen
+      contact_us: Kontakt foreningen
+      get_started: Reserver en av 310 plassene for din barnehage
+      mission: Smitterisiko
+      your_journey: Reserver plass
+      signup: Rene Hender kampanje
+      dashboard: Smittevernberedskap portalen
+      logout: Logg ut
+      invite: Inviter andre
+      worker: Barnehagepersonale
+      parents: Barnehageforeldre
+      parentee: Barnehageforeldre
+      manager: Barnehageledere
+      partner: Partner
+      admin: Andre barnehageledere
+      member: Personale
+      internal_member: Intern personale
+      external_member: Eksterne kontakter
+    footer:
+      home: Til forsiden
+      mission: Smitterisiko i barnehager
+      standard: Smitteberedskapsplan
+      path: Smittebeerdskapsprogram
+      about_user: Om foreningen
+      resources: Gratis verktøy
+      login: Logg inn
+      logout: Logg ut
+      register: Registrer
+      program: Opplysningsvideo
+      sign_up: Registrer
+    contact_us:
+      label: Kontakt oss
+      email: Skriv inn epost adresse
+      subject: Skriv meldnigsemne
+      content: Skriv innhold
+      submit: Send
+      gohome: Hjem
+    about:
+      main_heading: Sammen om å beskytte barnehagebarn og ansatte mot sykdom og skade
+      paragraph1: Norges Landsforening for friskere barnehager har som kjerne fokus å bistå deg som barnehageleder med å sikre at barn og ansatte i deres barnehage er best mulig beskyttet mot de smittsomme sykdommene som kan sette deres helse i fare.
+      sub_para1: "Foreningen søker å oppnå dette ved å:"
+      step_1: Hjelpe deg som barnehageleder å enklere fremme og spre kunnskap om god smittevern praksis på alle nivåer i din barnehage.
+      step_2: Tilrette nødvendige hjelpeverktøy som gjør det enklere for deg som barnehagelder å sikre god smittevern praksis i din barnehage.
+      step_3: Bidra til å effektivisere samspillet mellom din barnehage og de instansene i samfunnet som ønsker å verne barn og ansatte i din barnehage mot forhold som kan sette deres helse i fare.
+      step_4: Gjøre det enklere for deg som barnehagelder å etterleve rådene i forskrift om miljørettet helsevern for barnehager og skoler.
+      president_heading: Om styrelederen
+      president_subheading: En lidenskap for bevare barns helse og trygghet
+      president_para1: Tareq er andregenerasjons innvandrer til Norge. I 1961 emigrerte hans mor til Norge fra Bangladesh med Tareq og hans yngre bror. Og han oppdaget raskt verdien av et godt utført arbeid. I sin søken etter et bedre liv, jobbet den enslige moren doble skift. Men hun gjorde alltid en utmerket jobb, fordi hun utførte jobben med stolthet.Og dette engasjementet ble overført til Tareq, som senere begynte å tilby hygienetjenester til barnehager.
+      president_para2: “Under utbruddet av svineinfluensa ønsket barnehagene jeg leverte hygieneprodukter og tjenester til, minske risiko for spredningen av pandemien, forteller Tareq. “Men det var da  at jeg ble virkelig klar over hvor viktig dette med smittevern er, jeg innså også at min kunnskap rundt smitterisiko i barnehagemiljø var svært begrenset.  Jeg bestemte meg derfor for å tilegne kunnskap på dette spesifikke feltet.
+      president_para3: ""
+      question_heading: Uønskede konsekvenser
+      question_para1: Og det var da han oppdaget at mye av forskningen i metoder og prosedyrer for god smittevernberedskap i barnehager endte opp i medisinske tidsskrifter som få personer utenfor det medisinske samfunnet hadde tilgang til og kunne dra nytte av.
+      question_para3:
+      question_para4: Selv om de fleste av smittsomme sykdommer som forekommer i barenhagene ikke forstyrrer barns utvikling, kan noen infeksjoner bidra til helsemessige komplikasjoner hos barn senere i utviklingen deres.
+      question_heading2: En advarende historie om nivå av fare smittsomme sykdommer kan utsette barnehagebarn for
+      question2_para1: Et par år etter at Tareq hadde begynt å interessere seg spesifikt for smittevern i barnehager dukket saken om Myles Mayfield opp. For i 2015 måtte to år gamle barnet bøte med livet etter å ha vært utsatt for en svært smittsom sykdom i barnehagen.
+      question2_para3: I rettsaken som fulgte kom det fram at manglende bevissthet rundt smittefare gjorde at ansatte i barnehagen ikke var i stand til å sette tilverks tiltak for beskytte 2 år gamle Myles Mayfield mot smittsomme sykdommen som kostet han livet.
+      question2_para4: "I en uttalelse på vegne av familien sa faren, Barry Mayfield: Selv om vi for alltid vil føle smerten over tapet av Myles, er vi dedikerte til å sørge for at han ikke døde forgjeves ...Dette søksmålet var aldri om penger. Alle pengene i verden kan ikke hente Myles tilbake....ingen andre familier trenger å miste et barn på samme måte som oss. Vi håper at ved å sette søkelyset på det som skjedde med Myles, fremtidige tragedier kan unngåes."
+      question_heading3: Fremtidige tragedier bør unngås
+      question3_para1: Det to år gamle barnehagebarnets dødsfall ble drivkraften bak utvikling av landest første og eneste helomfattende smittevern sertifiseringsprogram for barnehager. Målet er gjøre det enklere for barne helse og trygghet bevisste barnehageldere i landet med sikre at barn og ansatte i deres barnehage er best mulig beskyttet mot de smittsomme sykdommene som kan sette deres helse in fare.
+      question3_para3: Ingen foreldre, barnehageleder eller barnehage personale skal måtte oppleve å miste barn under deres omsorg grunnet mangelfull smittevern i barnehagen.
+      question3_para4:
+    home:
+      slide_header: <b>Visste du</b> <b>som barnehageleder at </b>
+      slide_header_0_content:  barnehagebarn er 2 til 3 ganger mer smitteutsatt enn barn som blir passet på hjemme.
+      slide_header_0_subcontent: Gjennom helomfattende smittevern program for barnehager kan du som barnehageleder minske risiko for sykdommer som kan sette barns helse i fare, i din barnehage.
+      slide_header_1_content: enkelte smittsomme sykdommer kan utsette kvinnelige barnehagepersonale for betydelig helserisiko, om de blir smitteutsatt under graviditeten.
+      slide_header_1_subcontent: Gjennom helomfattende smittevern program for barnehager kan du som barnehageleder skape en tryggere arbeidsmiljø for ansatte i din barnehage.
+      slide_header_2_content: barn med spesielle tilstander, som medfødt hjertesykdom, kroniske lungesykdom eller andre medfødte syndromer, har en enda større risiko for å få alvorlige komplikasjoner som følge av å bli smittet av smittsomme sykdommer i barnehagen.
+      slide_header_2_subcontent: Gjennom helomfattende smittevern program for barnehager kan du som barnehageleder sikre en høyere grad av smitte beskyttelse for de mest sårbare barna i din barnehage.
+      subcontent_start_here: Hva hadde du gjort om dette skjer i din barnehage?
+      start_here_1: Barnehagelederen får beskjed om at to år gamle barnehagebarnet, døde av smittsom sykdom han ble utsatt for i barnehagen.
+      start_here_link: ""
+      subcontent_standard: Hvilke nivå av smittefare er barn og ansatte utsatt for i din barnehage?
+      standard_1: Ved å finn ut hva forutsetningene er for god smittevern praksis i barnehagemiljø kan du lett finne ut hvor smitte utsatt barn og ansatte kan være i din barnehage.
+      standard_link: ""
+      subcontent_path: Ønsker du å sikre best mulig smitte beskyttelse for barn og ansatte i din barnehage?
+      path_1: Landest første og eneste helomfattende smittevern sertifiseringsprogram for barnehager er laget for å gjøre enklere for deg som barnehageleder å planlegge og drive din barnehage på en måte gjør at risikoen for spredning av smittsomme sykdommer blir så liten som praktisk mulig.
+      path_link: ""
+      subcontent_journey: Ikke stå alene mot smittsomme sykdommer.
+      journey_1: Bli med norges landsforening for friskere barnehager og 313 andre barnehelse og tryggehetbevisste barnehageledere, som går sammen i år for å sikre at barneomsorgsmiljøet i deres barnehage, er best mulig beskyttet mot de smittsomme sykdommene som kan sette barn og ansattes helse i fare.
+      journey_link: Gitt stadig skiftende smittefare bilde er det en av de viktigste valgene du som barnehageleder tar i år, for å fremme trygghet, helse og velvære for barn og personalet i din barnehage.
+      free_register: Sette opp smittevernberedskap konsultasjon
+    infection:
+      main_heading: 1. Milestone.
+      para1: Finn det svakeste smitteforbyggingsleddet i din barnehage
+    instruction:
+      main_heading: Styrk smitteforebyggingskompetanse blant barnehagepersonale
+      description: Gjennom nettbasert trening i fem sammenflettede smitterisiko utsatte daglige rutine områder kan du nå sikre et høyre nivå av smittebeskyttelse for barn og ansatte i din barnehage.
+      sub_heading1:
+        title: Smitteforebyggende mathåndtering
+        description: "Ved å gjennomgå denne treningen vil ansatte og foreldre lære:"
+        para1: Hvilke hygieniske rutiner bør implementeres før, under og etter matlaging for å bedre mattryggheten?
+        para2: Hva er de fem kritiske kilder til matforurensning?
+        para3: Hvilke spesielle forholdsregler bør en observere når det gjelder mat for spedbarn og de som lider av matallergier eller mat intoleranser?
+        para4:
+      sub_heading2:
+        title: Håndtring av smittsomme sykdomsutbrudd
+        description: "Ved å gjennomgå denne treningen vil ansatte og foreldre lære:"
+        para1: Hvilke varselstegn en bør være obs på før og under et utbrudd i en barnehage?
+        para2: Hvilke steg en bør følge for å håndtere et utbrudd?
+        para3: Hvordan varsle pårørende om smittsomme sykdomsutbrudd uten å skape panikk?
+        para4:
+      sub_heading3:
+        title: Smitteforebyggende bleieskift
+        description: "Ved å gjennomgå denne treningen vil ansatte og foreldre lære: "
+        para1: Hvilke er de skjulte helserisikoer kan en bli utsatt for gjennom dårlige rutiner rundt bleieskift gjøremålet?
+        para2: Hvilke smitteforebyggende prosedyrer bør en følge under utførelse av bleieskift, håndvask og desinfeksjon?
+        para3: Hvordan bør en håndtere tilskitnede bleier?
+        para4:
+      sub_heading4:
+        title: Smitteforebyggende rengjøring av utgytet kroppsvæske
+        description: "Ved å gjennomgå denne treningen vil ansatte og foreldre lære:"
+        para1: Hvordan en identifiserer smittebærende kroppsvæske?
+        para2: Hvordan bør en rengjøre etter episode med utgytet kroppsvæske?
+        para3: Hva skal du gjøre hvis du kommer i kontakt med kroppsvæske uygytet av et syk barn?
+        para4:
+      sub_heading5:
+        title: Smitteforebyggende håndhygiene i barenhagen
+        description: "Ved å gjennomgå denne treningen vil ansatte og foreldre lære:"
+        para1: Hvorfor håndhygiene er kritisk for smitteforebygging i barnehagen?
+        para2: Hvordan en skal vaske hender korrekt for små barn som mangler motoriske ferdigheter?
+        para3: Hvilke strategier kan brukes til å oppmuntre til korrekt håndvask i barnehagen?
+        para4:
+        para5:
+    take_action:
+      main_heading: Smittevern verktøy inkludert inkludert i smittevern sertifiseringsprogrammet
+      sub_heading1: Intern kontroll verktøy for å avdekke avvik
+      para2: If the required measures to manage infectious disease risk exposure are in your nursery, are not implemented on a consistent basis, then protection against infectious disease outbreaks are left to chance. To counteract this your nursery therefor get access to infection control protocol deviation tracker tool as part of healthier and safer childcare program. This enables you the nursery manager to track and improve accountability as you now can easily uncover which departments in your nursery are behind on implementation of required infection risk control measure
+      sub_heading2: Best practice reminder  tool
+      para3: There are several daily activities undertaken by nursery staff while caring for children that has potential for transmitting infectious disease-carrying bacteria and viruses. To counteract this  your nursery therefor get access to strategically designed A4 sized infection control best practice reminder posters that you can print, laminate and hang them up in strategic places in the nursery to consistently remind nursery staff about safe practices in a brilliant manner.
+      sub_heading3: Childhood Illness management guide.
+      para4: If nursery staff lack the necessary competence on how to manage infectious diseases when children under their care are undergoing disease and suffering, disease of child can quickly lead to full blown infectious diseases outbreak in the nursery. Not knowing what to do when children are undergoing illness and suffering can cause anxiety and lead to lack of self-confidence among daycare staff and parents. To counteract this your nursery therefor get access to childhood illness management guide as part of healthier and safer childcare program. This easy to access online guide contains detailed information on how to manage and control spread of 39 different childhood illnesses, written by a qualified pediatrician. This enables you as healthier and safer childcare conscious nursery manager to facilitate knowledge that reduces guesswork and replace it with confidence and proactive conduct on the part of  nursery staff. <ul> <li>What should one know about the specific illness</li> <li>What are the symptoms of the specific illness</li> <li>How do the specific disease spread</li> <li>What measures can be taken to manage and controll the spread of disease</li> <li>Who belongs to high risk groups and therefor highly vulnerable to the specific disease</li> <li>Which symptoms will require you to contact the doctor as soon as possible</li> </ul>
+      sub_heading4: Høyrisiko sesong kartleggingsverktøy
+      para5: Dersom du vet hvilke perioder i året din barnehage er mest utsatt for smittesykdommer og ikke minst av hvilke type sykdommer , kan smittsomme sykdommer dukke opp på dørstokken uten at din barnehage er godt nok forberedt til å håndtere risikoen smittsomme sykdommen kan bringe med seg i kjølvannet. Får å gjelpe deg å best mulig unngå å havne i en slik situasjon er derfor kartleggingsverktøy for å avdekke høy smitterisisko sesong inkludert i tryggere helsebevarende barneomsorg programmet.
+      sub_heading5: Smitteforekomst varslingsmodul
+      para6: Dersom foreldrene ikke er er informert om foremomst av smittsomme sykdommer tidsnok er de ikke i stand til å ta nødevedige valg for beskytte deres barn mot å bli utsatt for smittsom sykdom som har forekommet i barnehagen.Får å hjelpe deg å kunne informere foreldre raskest mulig innluderes derfor varslingsverktøy for smittekomst i tryggere helsebevarende barenomsorgprogrammet.Ved å ta i bruk dette verktøyet i din barnehage kan du få umiddele oversikt over alle sykdommer som forekommer i din barnehage i nåtid , slik at du kan umiddelbart varsle foreldre i den avdelingen smittsomme sykdommen har oppstått og de for beskyttet deres barn.
+      sub_heading6: Kommunikasjonmodul for smitteforeygging
+      para7: An outbreak often creates a situation where risk infection spread is high where lack of timely notification of parent can not only lead to spread of infectious diseases but also low trust in nursery operator’s ability to manage such situations. To counteract this your nursery therefor get access to instant outbreak notification tool as part of healthier and safer childcare program. This enables you as a healthier and safer childcare conscious nursery manager to instantly notify your whole nursery community of infectious disease outbreak. And to ensure that your outbreak communication addresses issues that can become problems if not remedied at an earlier, this tool also enable you to choose between 39 different childhood disease management template which you can incorporate into your notification which enables you to rebuild trust.
+    illness_guide:
+      main_heading: Komptanse til å ta kontroll over smittefarlige situasjoner når smittsomme sykdommer oppstår
+      description: Når smittsomme sykdommer oppstår kan det være kun et tidsspørsmål før friske barn og ansatte blir utsatt for smittefare dersom nødvedig tiltak for å stoppe smitte spredning ikke blir satt i gang. Smittsom sykdom håndteringsguide gir ansatte og foreldre informasjon de trenger mest , når de trenger det mest , for å ta kontroll over smittefare i barnehagen og hjemme.
+      para1: ""
+    mission_step:
+      promo_header: <blue-b>En advarende historie for enhver barnehage leder som tar barn helse og trygghet på alvor? </blue-b>
+      headline: All smittsom sykdom bygger ikke god immunforsvar hos barnehagebarn
+      main_instro:
+      intro_1: 31 mai slo tragedien til i barnehagen. Barnehagelederen fikk vite at en av de yngste barn i barnehagen, to år gamle Myles Mayfield, døde som et følge av smittsom sykdom han ble utsatt for i barnehagen.
+      intro_2: Smitte spor førte til en ansatt som var utsatt for en smittsom sykdom en uke før. Men ettersom ledelsen og personale i barnehagen ikke var bevisst på helsefare forbundet med smittsomme sykdommen som hadde oppstått, ble ikke de nødvendige tiltakene for å smittebeskytte barna i barnehagen, satt til verks.
+      intro_3: ""
+      scientific_fact: "Fakta om smittefare i barnehagemiljø:"
+      fact_1: Barnehagebarn er utsatt for 51 % flere tilfeller av infeksjoner sammenlignet med barn som blir passet hjemme.
+      fact_2: En svensk studie påvisste at barnehagebarn trengte 40 til 80 % mer medisinsk tilsyn for akutte infeksjoner enn barn som var hjemme.
+      fact_2_1:
+      fact_3: En annen studie utført i Danmark avslørte at barnehagebarn har hadde 69 % flere tilfeller av sykehusinnleggelser på grunn av luftveisinfeksjoner sammenlignet med barn som ble passet hjemme.
+      fact_5: Mens det er riktig at barn kan bli immun mot det smitte stoffet som forårsaker infeksjonen, finnes det infeksjonsykdommer barn får liten eller ingen immunitet mot. Derfor er god smittevern for beskytte barn og personale mot sykdom som kan sette deres helse i fare, uunnværlig i barnehagemiljø.
+      fact_6:
+      children_risk: Helserisikoene forbundet med smittsomme sykdommer for barnehagebarn?
+      children_risk_1: De negative effektene fra noen infeksjoner i barndommen kan fortsette utover den første akutte sykdomsfasen og bidra til helsemessige komplikasjoner hos enkelte barn senere i utviklingen.
+      children_risk_sub_1: Nedre luftveisinfeksjoner foreksempel kan føre til obstruktive luftveissykdommer og redusert lungefunksjon senere i livet.
+      children_risk_sub_2: ""
+      children_risk_2: Mellom ørebetennelse kan ha uheldige konsekvenser som redusert leseforståelse og kompromitterte kognitive evner for barn under 3 år.
+      children_risk_3: Barnehagebarn kan være to til tre ganger mer risikoutsatt for mellomørebetennelse.
+      children_risk_4: Barn som går i barnehage har også en økt risiko for å trenge akutt medisinsk hjelp forbundet med rotavirusinfeksjons. Viruset har visst seg å være involvert i 20 og 60 % av alle sykehusinnleggelser av barn.
+      children_risk_5: Risko for økt bruk av antibiotika
+      children_risk_6: Større hyppighet og alvorlighetsgrad av infeksjoner i barnehagen betyr høyere bruk av antibiotika blant barn.
+      children_risk_7: En stor studie der 1,401 barn ble fulgt over en tid for å se hvem som utvikler astma, fant de en klar en forbindelse mellom bruk av antibiotika innen de første 6 månedene av livet og astma og allergi forekomst hos barn ved 6 års alder.
+      staff_parents_risk: Helserisikoene forbundet med smittsomme sykdommer for barnehagepersonalet?
+      staff_infection: ""
+      staff_parents_risk_1: Blant de sykdommene som utsetter barnehage ansatte for helserisiko er cytomegalovirus, hepatitt, vannkopper, influensa, tuberkulose, hjernehinnebetennelse, streptokokkinfeksjon, diaré, skabb, pedikulose og herpesinfeksjoner.
+      staff_parents_risk_2: Når en barnehage ansatt blir syk, må resten av personalet gjøre mer med mindre menneskelige ressurser, ettersom, de nå må ta ansvar for enda flere barn. Denne ekstra arbeidsbelastningen og mentale påkjenningen kan føre til utbrenthet, stress og nedsatt immunforsvar hos personale, som gjør dem enda mer mottagelig for infeksjoner. Ifølge tall fra Sintef koster én dags sykefravær i arbeidsplassen i gjennomsnitt 2600 kroner, for en arbeidsgiver. Dette betyr 13.000 kroner i ekstra kostnader per uke for hver ansatt som er borte fra barnehagen på grunn av sykdom. Ettersom det er en tariffestet plikt for arbeidsgiver til å betale lønn for disse 14 dagene. Dermed kan barnehagen risikere å havne i en ond sirkel som er belastende, både menneskelig og økonomisk.
+      what_to_do: Hva kan du som barnehageleder gjøre for å sikre barn og ansatte i din barnehage er best mulig beskyttet mot smittsomme sykdommer og de problemene som kan følge i kjøvannet?
+      what_to_do_1: Svaret ligger i drive barnehagen på en måte som effektivt minsker risiko for forekomst og spredning av smittsomme sykdommer til den grad er praktisk mulig.
+      what_to_do_2: "La oss nå derfor se på hva forutsetningene er for å få til dette i din barnehage. Skroll ned til neste side for å lese mer."
+      next_step_header:
+      ref_title: References
+      ref_text_1: "1. Matches-Jorgensen, M., Benn, CS, & Wohlfahrt, J. (2011). Child Care and health: a review of overusing linked national registers. Scand J Public Health, 39 (7 Suppl), 126- 130. doi: 10.1177 / 1403494810395826."
+      ref_text_2: 2. Wald, ER, Dashefsky, B., Byers, C., Guerra, N., & Taylor, F. (1988). Frequency and Severity of Infection in day care. J Pediatr, 112 (4), 540-546.
+      ref_text_3: 3. Rasmussen, F., & Sundelin, C. (1990). Use of medical care and antibiotics among preschool children in different day care settings. Acta Paediatrica, 79 (8-9), 838-846.
+      ref_text_4: "4. Kamper-Jorgensen, M., Wohlfahrt J., Simonsen, J., Grønbæk, M., & Benn, CS (2006). A population-based study of the impact of childcare attendance on hospitalizations for acute respiratory Infections. Pediatrics, 118 (4), 1439 to 1446. doi: 10.1542 / peds.2006-0373 "
+      ref_text_5: 5. Anderson, LJ, Parker RA, Strike, RA, Farrar, YES, Gang Arosa, EJ, Keyserling, HL, & Sikes, RK (1988). Day-care center attendance and hospitalization for lower respiratory tract illness. Pediatrics, 82 (3), 300-308.
+      ref_text_6: 6. Nafstad, P., Hagen, JA, buckets, G., & Jaakkola, J. (1996). Lower respiratory tract infections among Norwegian infants with siblings in day care. American Journal of Public Health, 86 (10 ), 1456-1459.
+      ref_text_7: "7. Teele DW, Klein JO, Chase C, Menyuk P, Rosner BA. Otitis media in infancy and intellectual likeability, school achievement, speech, and language at age 7 years. Greater Boston Otitis Media Study Group. J Infect Dis. 1990; 162: 685-94 "
+      ref_text_8: "8. Uhari M, Mäntysaari K, Niemelä M. A meta-analytic review of the risk factors for acute otitis media. Clin Infect Dis. 1996; 22: 1079-83."
+      ref_text_9: "9. Haskins R Kotch J. Daycare illness: evidence cost and public policy. Pediatrics. 1986; 77 (6 Pt 2): 951-82."
+      ref_text_10: "10. Matson DO. Viral gastroenteritis in day care settings: epidemiology and New Development. Pediatrics. 1994; 94 (6 Pt 2): 999-1001."
+      ref_text_11: 11. Brains, A., Haglund, B., Rasmussen, F., & Rosen, M. (2000). Socioeconomic differences in daycare arrangements and use of medical care and antibiotics in Swedish preschool children. Acta Paediatrica, 89 (10), 1250-1256.
+      ref_text_12: "12. Martel MJ, Rey E, Malo JL, et al. Determinants of the incidence of childhood asthma: a two-stage case-control study. Am J Epidemiol 2009; 169 (2): 195-205."
+      ref_text_13: "13. Calder J. Occupational health and safety issues for child-care providers. Pediatrics. 1994; 94 (6 Pt 2): 1072-4"
+      ref_text_14: "August 14, AM, Dworsky M, Reynolds DW. Cytomegalovirus infection in day-care centers. N Engl J Med. 1982; 307: 477-9."
+      ref_text_15: "15. Hutto C, Ricks R Cloud GA. Increased rate of cytomegalovirus infection among parents of children attending day-care centers. N Engl J Med. 1986; 314: 1414-8."
+      ref_text_16: "16. Little EA, Stagno S, Britt WJ, Alford CA. Young children as a probable source of maternal and congenital cytomegalovirus infection. N Engl J Med. 1987; 316: 1366-70."
+      ref_text_17: "17. Jackson LA, Stewart LK, Soloman S, et al. Risk of infection with hepatitis A, B, C, cytomegalovirus, varicella or measles among childcare providers. Ped Infect Dis J 1996; 15: 584-589. "
+      ref_text_18: 18. Pass, RF, Hutto, C., Lyon, MD, & Cloud, G. (1990). Increased rate of cytomegalovirus infection among day care center workers. Pediatr Infect Dis J, 9 (7), 465- 470.
+      ref_text_19: "19. https://www.nationalcmv.org/congenital-cmv/outcomes.aspx"
+      ref_text_20: "20. Man V, Buffett C, Campbell M, Lee K, O'Donnell R. Effectiveness of day care center infection control interventions. Ontario: Ontario Ministry of Health; 1999. Disponível em: http: //old.hamilton .ca / phcs / ephpp / Research / Full-ShowUserReviews / 98-99 / Day-Care Center Infection Control review.pdf "
+      ref_text_21: "21. Aiello AE, Larson EL. What is the evidence for a causal link between hygiene and Infections? Lancet Infect Dis.2002; 2: 103-8"
+      ref_text_22: "22. https://www.researchgate.net/publication/14397881_Impact_of_an_infection_control_program_in_a_specialized_preschool"
+      ref_text_23: "23. http://www.scielo.br/pdf/jped/v83n4/en_v83n4a04.pdf"
+      ref_text_24: "24. https://www.ncbi.nlm.nih.gov/pubmed/8806992"
+      ref_text_25: "25. http://www.heraldonline.com/news/local/article31183946.html"
+    path:
+      main_heading: Hvordan enklere ta kontroll over smittefare i barnehagemiljø.
+      main_heading2: Milepælene som hjelper deg å minske risiko for smitteforekomst
+      main_heading3: Milepælene som hjelper deg å minske risiko for smittespredning
+      instro:
+      paragraph1: " "
+      paragraph2:
+      paragraph3:
+      sub_heading1: "En enkel steg for steg tilnærming til å minske risiko for forekomst og spreding av smittsomme sykdommer i din barnehage"
+      instro_2: Om du har kommet til denne, gratulerer vi deg for å ha tatt sprange for å gjøre barneomsorgmiljøet i din barnehage så trygg som praktisk mulig mot de smittsomme sykdommene som kan sette barn og ansattes helse i fare. For å bygge en effektiv smittevern infrastruktur som kontinuerlig minsker risiko for forekomst og spredning av smittsomme sykdommer, i din barnehage, på en naturlig og enkel tempo, er smittevern sertifiseringsprogrammet satt opp med følgende milepæler.
+      before:
+        label: "Milepæler for å minske smitteforekomst risiko i din barnehage:"
+        phase1:
+          title: "Den første milepæl: Skape bevissthet rundt smittefremmende vaner"
+          description: "Smittesikkerhetsutbytte når du barnehage har oppnådd den 1. milepæl"
+          para1: Skapt bevissthet blant barnehagepersonale om smitte fremmende vaner som forsterker smittespredningsrisiko i din barnehage.
+          para2: Avdekket eventuell kompetansemangel rundt smitteforebygging blant personalet i barnehagen.
+          para3: Bidratt til å motivere personale om å lære om god smitteforebyggingspraksis i barnehagemiljø.
+        phase2:
+          title: "Den andre milepæl: Heve kompetanse rundt smitteforebyggende rutiner"
+          description: "Smittesikkerhetsutbytte når du barnehage har oppnådd den 2. milepæl"
+          para1: Hevet kompetanse rundt smitteforebyggingsrutiner blant personalet i barnehagen.
+          para2: Mentalt forberedt personalet på en høyere nivå av smitteforebygging i barnehagen.
+          para3: Formidlet retningslinjer for god smitteforebyggingspraksis i barnehagen.
+        phase3:
+          title: "Den tredje milepæl: Sikre systematisk utførelse av smitteforebyggingsrutiner"
+          description: "Smittesikkerhetsutbytte når du barnehage har oppnådd den 3. milepæl"
+          para1: Fått på plass en smittevern internkontroll system som gjør det enklere å påse om gode smitteforebyggingsrutiner blir implementert på konsekvent basis.
+          para2: Fått på plass en smittevern internkontroll system som gjør det enklere å koordinere hvilke rutiner bør implementerest når for minske risiko for smitteforekomst.
+          para3: Fått på plass en smittevern internkontroll system som gjør det enklere for personalet å etterleve god smitteforebyggingspraksis i barnehagen.
+      after:
+        label: Milepæler for å minske smittespedning risiko i din barnehage
+        phase1:
+          title: "Den fjerde milepæl: Skape bevisshet om smittfare ved sykdomsforekomst"
+          description: "Smittesikkerhetsutbytte når du barnehage har oppnådd den 4. milepæl"
+          para1: Fått på plass en varslingssystem som holder deg som barnehageleder oppdatert på sykdomsforekomst i din barnehage, i nå tid.
+          para2: Fått på plass et sykdom forekomst loggføringssystem som gjør det enklere for deg som barnehageleder å avdekke om andre barn nylig har være utsatt for samme sykdom som kan tyde på overhengende utbruddsfare i barnehagen.
+          para3: Fått på plass en varslingssystem som gjør enklere varsle personale, foreldre og kommunelegen om utbrudd eller hyppig forekomst av smittsomme sykdommer i barnehagen.
+        phase2:
+          title: "Den femte milepæl: Heve kompetansen rundt håndtering av smittsomme sykdommer"
+          description: "Smittesikkerhetsutbytte når du barnehage har oppnådd den 4. milepæl"
+          para1: Gjort det mulig for personalet å gjenkjenne helsefarlige smittsomme sykommer.
+          para2: Gjort det mulig for personalet å vite om hvordan forkjellige smittsomme sykdommer sprer seg i barnehagen.
+          para3: Gjort det mulig for personalet å vite om hvem tilhører høyrisiko gruppen dersom smittet.
+          para4: Gjort det mulig for personalet å vite om hvilke akutt symptomer hos de syke nødvendiggjør umiddelbar kontakt med lege.
+        phase3:
+          title: "Den sjette, syvende, åttende og niende milepæl: Iverksette smittevernstiltak"
+          description: "Smittesikkerhetsutbytte når du barnehage har oppnådd den 6.7.8.9 milepæl"
+          para1: Etablert gode sykdomslogg føringsrutiner i barnehagen.
+          para2: Fått på plass en internkontrollsystem som enklegjør koordinering og organisering av krisetiltak når smittsomme sykdommer oppstår i barenhagen.
+          para3: Fått på plass en kommunikasjonsystem som gjør det enklere å sikre god kommuniksjon mellom barnehagen og foreldre ved smittsom sykomsutbrudd.
+          para4: Fått på plass en sykdomsutbrudd kartleggingsverktøy som gjør det enklere å kartlegge høy sykdomsrisiko sesonger for å kunne være best mulig forberedt på forkant høyrisiko sesonger.
+      center:
+        label: Forusetning for god smittevern
+        phase1:
+          title: Skape bevissthet om smittefare
+        phase2:
+          title: Heve kunnskap rundt smittevern
+        phase3:
+          title: Foreta smittefaretilpasset handling
+      step1:
+        title: "Milepæl 1 : Finne det svakeste smitteforebygging leddet i din barnehage."
+        description: "En kjede er ikke sterkere enn sitt svakeste ledd. I smittevern sammenheng utgjør det svakeste smitteforebygging leddet manglende bevissthet rundt smitte fremmende vaner blant barnehagepersonale som gjør at personale kan spre smittebærende bakterier og virus gjennom sine daglige rutiner. For å unngå dette skapes bevissthet om fare knyttet til smitte fremmende vaner gjennom en spørreundersøkelsesverktøy i den første milepæl av smittevern sertifiseringsprogrammet. Dette gjør det mulig for deg å oppnå følgende i din barnehage:"
+        para1: Øke bevissthet rundt smitte fremmende vaner blant samtlige av personalet i barnehagen.
+        para2: Avdekke nivå av smittevern kompetansemangel hos samtlige av personale barnehagen.
+        para3: Skape indre motivasjon og vilje hos samtlige av personale for å lære om smitteforebygging.
+      step2:
+        title: "Milepæl 2 : Styrke smitteforebygging nivå i din barnehage."
+        description: "Det er vanskelig å bli god i noe noe man vet lite om. Og ettersom mangel på kompetanse gjør at barnehagepersonalet ikke er stand til å ta de daglige valgene som er nødvendig for å minske risiko for forekomst av smittsomme sykdommer styrkes kunnskap, og dermed smitteforebyggingsnivå, gjennom nettbasert trening i den andre milepæl av smittevern sertifiseringsprogrammet. Dette gjør det mulig for deg som barnehageleder å oppnå følgende i din barnehage:"
+        para1: Heve kompetansnivå rundt smittevern og smitteforebygging blant samtlige ansatte i barnehagen.
+        para2: Sikre dyp forståelse blant samtlige personale i barnehagen om av hvilke nivå av smitteforebygging er nødvendig for å minske risiko for forekomst av smittsomme sykdommer.
+        para3: Sette en referanse nivå for smitteforebyggingsarbeid i din barnehage.
+      step3:
+        title: "Milepæl 3 : Sikre systematisk utførelse av smitteforebyggingsrutiner"
+        description: "Ingenting smitteforebygging skjer med mindre kompetanse blir satt ut i praksis. For å unngå at smittebeskyttelse av barn og ansatte i din barnehage blir overlatt til tilfeldigheter, sikres konsekvent implementering av smittforebyggingsrutiner i 3 milepæl av smittevern sertifiseringsprogrammet.  Etter å ha fullført andre tredje milepæl har du oppnådd følgende i din barnehage, som barnehageleder:"
+        para1: Sørget for at nødvendig tiltak for å minske smittefare utføres konsekvent i din barnehage.
+        para2: Eliminer gjetning blant barnehagepersonale om hvilke smitteforebyggende tiltak er nødvendig å få utført og når.
+        para3: Fått på plass intern kontroll system for å koordinere og måle implementering av smitteforebyggende tiltak.
+      step4:
+        title: "Milepæl 4 : Skape bevisshet om oppstått smittefare"
+        sub_description:
+        description: "Bevissthet er nødevendig for at handling kan skje. For at du som barnehagelder og de som berøres av smittsomm sykdom skal kunne handle, implementeres verktøy for skape bevisst på forekomst smitteforekomst så fort de forekommer i fjærede milepæl av smittevern sertifiseringsprogrammet. Etter å ha fullført den 4. milepæl har du oppnådd følgende i din barnehage, som barnehageleder:"
+        para1: Fått på plass et varslingssystem som holder deg oppdatert på hvilke smittsom sykdom har oppstått i din barnehage i nåtid, slik at nødvendig tiltak kan settes i gang snarest mulig.
+        para2: Fått på plass et varslingssystem som det enklere for deg å varsle ansatte og foreldre sykdomforekomst basert på avdeling og rolle.
+        para3: Fått på plass et varslingssystem som gjør det mulig for deg å umiddel vite hvilke sykdom nødevendiggjør varsling av kommunelege.
+      step5:
+        title: "Milepæl 5 : Tilrette ressurs for sikre nødvending kompetanse håndtere og ta kontroll over smittefare forbundet med oppståtte sykdommen"
+        description: "Tiltak nødvendig for å kontrollere smittefare forbundet med en type sykdom er ikke alltid det samme for en annen. Tilrettelegges smittevern informasjon om smittsomme 39 forskjellige sykdommer i den femte milepæl av smittevern sertfisrings programmet. Etter å ha fullført den 5. milepæl har du oppnådd følgende i din barnehage, som barnehageleder:"
+        para1: Gjort det mulig for barnehagepersonale og foreldre få tilgang kunnskap de trenger for å gjenkjenne og kontroller smittefare.
+        para2: Gjort det mulig for barnehagepersonale og foreldre å vite om hvor sprer sykdommen og hvilke tiltak stopper spreding av sykdommen.
+        para3: Gjort det mulig for barnehagepersonale og foreldre å gjenkjenne akutt situasjoner som nødvendiggjør umiddelbar kontakt med lege ?
+      step6:
+        title: "Strategiske tiltak for gjøre det som er mulig for å stoppe sprednning av oppståtte sykdommen."
+        description: ""
+      step7:
+        title: "Milepæl 6 : Loggføre sykdomsforekomsten"
+        description: "Når sykdommer er oppdaget i barnehagen er det viktig å finne ut hvorvidt andre barn nylig har vært syke med den samme sykdommen. Ettersom dette kan avgjøre om en utbrudd er på vei, i den sjette milepæl av smittevern sertifiseringsprogrammet implementeres digital sykdomloggføringspraksis i barnehagen slik du som barnehage leder kan enklere:"
+        para1: Trekke ut nøkkelopplysninger og avgjøre hvorvidt andre barn nylig har vært syke med den samme sykdommen.
+        para2: Få tilgang til sykdommer som har forekommet i din barnehage hvor enn du måtte være.
+        para3: Skrive ut rapporter relatert til sykdommer som har forekommet om helsemyndighetene krever det.
+      step8:
+        title: "Milepæl 7 : Iverksett smitteverntiltak tilpasset sykdommen"
+        description: "I femte milepæl fikk barnehagen tilgang til informasjon om hvordan håndtere smittefare forbundet med forskjellig sykdommer. I syvende milepæl av smittevern programmet koordineres smitteverntiltak tilpasset den sykdommen som har oppstått. Etter å ha fullført den 7. milepæl har du dermed oppnådd følgende i din barnehage, som barnehageleder:"
+        para1: Fått på plass en internkontroll løsning som gjør det enklere å kooridinere hva personale skal gjøre når smittsomme sykdom har oppstår i din barnehage.
+        para2: Fått på plass en internkontroll løsning som avdekker avvik i implementering av tiltak nødvendig for stoppe spredning av sykdommer som bryter ut i din barnehage.
+        para3: Fått på plass en internkontroll løsning som gjør det enklere å dokumentere overfor helsemyndigheter at tiltak nødvendig for å verne barn og ansatte fare forbundet med oppståtte smittsomme sykdommer, har blitt implementert i din barnehage.
+      step9:
+        title: "Milepæl 8 : Sikre god kommunikasjon med foreldre"
+        description: "Det er vikitg å sørge for å ha god kommunikasjon med foreldre og ansatte, spesielt hvis et av barna er innlagt på sykehus. For oppretteholde god kommunikasjon for din barnehage tilgang til kommunikasjonsverktøy. Dette gjør det enklere for deg som barnehagelder å:"
+        para1: Fått på plass en digital kommunikasjon løsning som gjør det enklere å sikre at personale og foreldre i barenhagen får nødvendig informasjon om forhold ved barnehagen som kan ha negativ innvirkning på helsen.for å enklere opplyse personale og foreldre om forhold som kan om forhold som kan ha negativ innvirkning på helsen.
+        para2: Fått på plass en digital kommunikasjon løsning som gir deg tilgang til sykdomhåndteringsmal over 39 forkjellige sykdommer spesielt tilpasset for hjelpe foreldre minske risiko for spreding av smittsomme sykdommer hjemme.
+        para3: Fått på plass en digital løsning som gjør det enklere å hold oversikt over kommikasjon mellom forskjellige avdelingeme og barnehagen.
+      step10:
+        title: "Milepæl 9 : Være bedre forberedt på fremtidige utbrudd"
+        description: "For å kunne være godt forberedt til mulige utbrudd, kreves at du får avdekket hvilke perioder i året det er høy risiko for et spesifikt sykdomsutbrudd. Din barnehage får derfor tilgang høysykdomsrisiko sesong karleggingsverktøy som gjør det enklere for deg som barnehageleder å:"
+        para1: Få komplett oversikt over sykdomsforekomsttrenden spesifikk for din barnehage.
+        para2: Avdekke hvilke sykdommer som forekommer oftest, slik at du kan iverksette en kollektiv smitteforebyggende innsats i barnehagen for å fjerne årsaker som gjør at denne smittesykdommen forekommer så ofte.
+        para3: Skape en god lagånd blant de ansatte og foreldre, siden de får mulighet til å jobbe side ved side for en viktig sak.
+      step11:
+        title: Hvorfor komme i gang med friskere og tryggere barneomsorgprogrammet i år ?
+        para1: Tatt i betrakting risikoene som smittesykdommer kan barnehagebarn og ansatte for er derfor ditt valg være smittevern sertifiseringprogrammet en av de viktigste valgene du kan ta som barnehageleder for å fremme helse og trygghet til barn under din omsorg.
+        para2: Som en sertfisert barnehage har din barnehage på plass en smittevern infrastuktur, nødvendig for å beskytte barn og ansatte i barnehagen mot skade, lidelse og potensielle tragedier forbundet med smittsomme sykdommer,til den grad det er praktisk mulig. Slik  eliminerer du sjansen for at du som barnehagelder blir anklaget for likegyldighet og faglig forsømmelse av barns sikkerhet i barnehagen, dersom det skulle oppstå alvorlige uhell forbundet med smittsomme sykdommer.
+        para3:
+      footer:
+        title: Friskere og Tryggere Barneomsorg programmet 2018
+        para1:
+        para2:
+        para3:
+      preview_button: Se nå
+      take_action_button: Klikk her
+      preview_text: Se kort snutt fra nettbasert smitteforbyggingstreningen her
+      action_text: Se full liste over 39 barnnesykdommer inkludert i barnesykdomhåndetringsguiden
+      sub_heading2: Friskere og tryggere barnomsorgprogrammet 2018
+      sub_heading3: Sentrale milepæler i smittevern sertifiseringsprogrammet
+      step_point1: Bevissthet
+      step_point1_desc: Skape bevissthet om smittefare
+      step_point2: Kunnskap
+      step_point2_desc: Heve smittevern kompetanse
+      step_point3: Handling
+      step_point3_desc: Implementere smittvern rutiner
+      phase1_title: Infection control function of the 1 st. milestone
+      phase1_para1: Creating awareness among nursery staff and parent about the necessity of infection control measure and practices.
+      phase1_para2: Stimulating a desire among staff and parents to acquire knowledge of how to manage infectious diseases .
+      phase1_para3: Assessing the risk of infection by getting insight into the current level of infection control competency among staff around the five intertwined areas of infection risk exposure.
+      phase1_det_title:  Creating awareness of infection risk
+      phase1_det_subtitle: Primary infection control function
+      phase1_det_para2: Many of nursery staff and parents may not be aware of risk of infectious disease exposure to children. The function of the first milestone of the healthier and safer Childcare program is therefore, to enable you as a healthier and safer childcare conscious nursery manager address this issue through keeping nursery staff and parents updated of infection occurrences in the nursery so that proper course of action can be taken to control and manage infection exposure to children that are still healthy.
+      phase2_title: Infection control function of the 2 nd milestone.
+      phase2_para1: Raise the level of infection control and risk mitigation competency among staff and parents around the issue of infection control.
+      phase2_para2: Provide skills nursery staff and nursery parents need to reduce the risk of infection exposure in the nursery and at home.
+      phase2_para3: Equip nursery staff and parents with resources they need to deal with infectious diseases?
+      phase2_det_title:  Raising infection control and risk mitigation competency in your nursery.
+      phase2_det_subtitle:  Primary infection control function
+      phase2_det_para2: Lack of expertise around infection control practices greatly inhibits nursery staff and parents ability to take proper course of action to protect themselves and children under their care against infectious diseases.
+      phase2_det_para3: The function of the second milestone of the healthier and safer Childcare program is therefore, to enable you as a healthier and safer childcare conscious nursery manager to remove this critical obstacle by facilitating infection control guidance so that nursery staff and parents are able make informed critical decisions and take proper course of action when children under their care are undergoing illness and suffering. This objective is attained through infection control online training included in the program and childhood illness management guide covering thirty-nine different childhood illnesses written by qualified pediatrician.
+      phase2_button: Learn
+      phase3_title: " Infection control purposes: 3 rd milestone."
+      phase3_para1: Reinforce consistent infection risk control practices .
+      phase3_para2: Manage and verify that critical infection risk control tasks are implemented through the whole nursery.
+      phase3_para3: Identifying high infection risk seasons specific to your nursery so that preemptive measure can be initiated to minimize risk .
+      phase3_button: Learn
+      phase3_det_title: Implementing strategic measures that count .
+      phase3_det_subtitle: Primary infection control  function
+      phase3_det_para2: Managing infection risk exposure prerequisites knowledge in infection control and applying the knowledge strategically, diligently and consistently. The function of the third milestone in the healthier and safer Childcare program is therefore to enable you, the nursery manger ensure that happens in your facility. To enable you to achieve this objective your nursey is given access to infection control task verifier tool and Infection trend identifier tool as part of the program, while infection control task verifier tool to enable you as nursery manager to quickly assess and verify if infection control measures required to ensure infection control safety are being implemented in your facility diligently and consistently. Infection trend identifier tool on the other hand enables you to know when to strategically apply specific infection control measures in your facility as you identify high risk season for specific illnesses throughout the year.  With this critical insight, you are now able to use childhood illness management guide as a reference and initiate a preemptive allied effort in your nursey to minimize infection risk, which not only ensure higher infection control safety but also create a united bond and team spirit between nursery staff and parents’ due to them standing together against expected risk.
+      phase4_title: Congratulations
+      phase4_para1:
+      phase4_para2: Upon completion of the three milestones your facility now have in place an infection control infrastructure to proactively manage infection risk exposure to children, nursery staff and the wider nursery community. Hence your nurseries effort to ensure safety and wellbeing is recognized by the association and your nursery becomes an healthier and safer childcare  accredited facility. Your accreditation certificate is sent to you along with an accreditation plaque and your childcare is listed in the portal for accredited facilities for parents to view.
+      phase4_para3:  Please note that managing infection risk exposure to children is part of a larger body of work for healthier and safer childcare. The reason for accreditation program being launched with limited scope of accreditation is to ensure that you, as a healthier and safer child care conscious nursery manager can take a step by step approach to adopting procedures and practices that can  make your childcare one of the healthiest and safest nurseries in the country.
+    ethic:
+      label:
+        next: Next
+        ready: Reserve my nurseries pot on the program
+        schedule: " Schedule my Infection Control Strategy consulting session"
+      step2:
+        title:"Infection Control Strategy consulting session."
+        heading:"Schedule your "Infection Control Strategy" session to get started with our "Healthier and Safer Childcare Program."
+        para1:"This Infection Control Strategy" session is designed to:"
+        para2:" Create a sense of clarity about the level of infection risk control management  you want to have in your facility."
+        para3:" Discover the essential building blocks for having the optimum infection control in your facility."
+        para4:" Determine the number one thing stopping you from having optimum infection control and risk mitigation in your facility."
+        para5:" Identify the most powerful actions that will move you toward to optimum infection control and prevention in your facility ."
+        para6:" Complete the breakthrough session with the excitement of knowing EXACTLY what to do next to create the optimum level of optimum infection control and risk mitigation in your facility ."
+        para7:" "
+      step4:
+        title: Reserver en av de 313 plassene for din barnehage
+        schedule_list: Velg passende tidspunkt
+        timezone: Velg tidsone
+        schedule_time: Velg passende dato og tid
+        schedule_success: Din konsultasjonstid er når reservert. Vi ser frem til å bistå deg med sikre at barn og ansatte i din barnehage er best mulig beskyttet mot de smittsomme sykdommene som kan sette deres helse i fare.
+        button: Bekreft tid for smittevernberedskapkonsultasjon
+    webinar:
+      title: smittevernberedskap konsultasjon agenda
+      description: "Dette vil vi oppnå sammen :"
+      para1: Kartlegge din barnehage nåværende smittevern – hva er situasjonen i dag ?
+      para2: Gå gjennom din smittevern sertifiseringsprogrammet.
+      para3: Sette opp en plan for å oppnå smittevern milepælene i smittevern programmet for å sikre ønsket sikkerhetsutbytte til barnehagen.
+      para4: Svare på eventuelle spørsmål.
+      para5:
+      date: "Dato:"
+      time: "Tid:"
+    standard:
+      label1: Smitterisiko
+      label2: Utfordringer
+      label3: Smittevern
+      label4: Trening
+      head1: Suksesskriterier for god smittevern i barnehagemiljø?
+      head1: Hva er forusetningene for god smittevern i barnehagemiljø?
+      instro1: På samme måte som vi er avhengig av å være bevisst på et problem, vite hvordan problemet bør løses og deretter foreta handling for å løse et problem vi kan møte på i hverdagen. Er vi avgengig av å gjøre det samme for å løse smittefare problemet i barnehagemiljø. For å sikre god smittevern i barnehagen trenger vi derfor å unngå og falle i følgende fallgruver.
+      instro2: Og ettersom god smittevern i barnehagemiljø forusetter at man både minsker risiko for at smittsomme sykdommer forekommer i barnehagen og om smittsomme sykdommer skulle forekomme, minsker risiko for at den sprer seg i barnehagen. Er det derfor avgjørende at man unngå disse 3 fallgruvene både før og etter barnehagen blir utsatt for smittsom sykdom. La oss nå se på hvorfor.
+      elem1: Mangel på smittefare bevissthet
+      elem2: Mangel på smittevern kunnskap
+      elem3: Mangel på smittefaretilpasset handling
+      subhead1: Fallgruver før sykdommer oppstår i barnehagen
+      subhead2: Fallgruver etter sykdommer oppstår i barnehagen
+      subhead1_1: Mangel på bevisshet om fare knyttet til smittefremmende vaner i barnehagen
+      subhead1_2: Mangel på tilstrekkelig kompetanse rundt gode smittsforebyggingsrutiner i barnehagemiljø
+      subhead1_3: Mangel på konsekvent implementering av smitteforebyggingsrutiner i barnehagen
+      subhead2_1: Mangel på bevissthet om oppstått sykdom i barnehagen
+      subhead2_2: Mangel på kunnskap om hvordan håndtere fare forbundet med sykdom som oppstår i barnehagen
+      subhead2_3: Mangel på implementering av tiltak tilpasset sykdom som oppstått i barnehagen
+      head2: Første fallgruve å unngå
+      head2_label: Mangel på bevissthet
+      para2_1_1: "Dersom samtlige personalet i barnehagen ikke er bevisst på smittefare forbundet med mangel på daglig smitteforebyggingsrutiner kan de fremme spredning smittebærende bakterier og virus gjennom sine daglige rutiner, uten å være klar over det selv. Dette sterkt forsterker risiko for at smittsomme sykdommer oppstår i barnehagen."
+      para2_1_2: Lorem ipsum
+      para2_2_1: "Dersom ansatte eller foreldre ikke er bevisst på forekomst av smittsomme sykdommer når de oppstår i barnehagen, har de ikke mulighet til sette i gang tiltak for å verne seg selv eller barn under deres omsorg mot smittefare."
+      para2_2_2: Lorem ipsum
+      head3: Andre fallgruve å unngå
+      head3_label: Mangel på komptanse
+      para3_1_1: "Dersom personalet i barnehagen ikke har god nok kompetanse rundt hvilke daglige rutiner er nødvendig for å forebygge smittefare, er de ikke i stand til å ta de daglige valgene som er nødvendig for å minske risiko for forekomst av smittsomme sykdommer i barnehagen."
+      para3_1_2: Lorem ipsum
+      para3_2_1: "Dersom personalet og foreldre i barnehagen mangler kunnskap om hvilke tiltak de bør ta i bruk for å minske risiko forbundet med oppståtte sykdommen, blir deres muligheter til å ta nødvendig tiltak for å beskytte seg selv og barn under deres omsorg fra fare, sterkt hemmet."
+      para3_2_2: Lorem ipsum
+      head4: Tredje fallgruve å unnå
+      head4_label: Mangel på handling
+      para4_1_1: "Dersom daglige rutiner nødvendig for å forebygge smitte ikke blir implementert på konsekvent basis i barnehagen, er det bare et tidsspørsmål før sykdommer som kan sette barn og ansattes helse i fare oppstår i barnehagen."
+      para4_1_2: Lorem ipsum
+      para4_2_1: "Dersom smittevernstiltak tilpasset den smittsomme sykdommen som har oppstått i barnehagen ikke blir satt til verks kan sykdommen spre seg uhemmet i barnehagen og sette friske barn og personalet i sykdomsfare."
+      para4_2_2: Lorem ipsum
+      para5_1: Arbeid for å sikre god smittevern i barnehagen bringer seg flere utfordringer, men dersom disse utfordringen ikke overkommes på tilfredstillende måte, blir smittebeskyttelse barn og personale i barnehagen overlatt til tilfeldigheter, som i verste tilfellet sette deres liv i fare, slik som i 2 årig Myles tilfellet.
+      para5_2: Som en barnehageleder som tar barn og ansattes helse og trygg på alvor, er du opptatt av å gjøre det som er riktig for barn du har tilsyn og ansvar for. Du ønsker å forsikre deg om at alle barn under din omsorg, i din barnehage, vokser opp i en trygg helsebevarende omsorgsmiljø som er best mulig beskyttet mot risiko for unødig lidelse og potensiell helseskade som kan komme i kjølvannet av smittsomme sykdommer.
+      para5_3: Det er derfor smittevern sertifiserings programmet for barnehager, friskere og tryggere barneomsorg er laget.
+      para5_4: Programmet er det første og eneste av sitt slag i landet, laget for å gjøre det enklest mulig for deg som barnehageleder å overkomme utfordringene knyttet til å sikre god smittevern i din barnehage.
+      para8_1: Slik siker du som barnehagelder at barn og personale i din barnehage er minst mulig utsatt for de smittsomme sykdommene som kan sette deres helse i fare, til den grad det er praktisk mulig.
+    getting_started:
+      main_heading: Velkommen
+      sub_heading: Velg din rolle og registrer din brukerkonto
+    login:
+      invalid_password: Ugyldig epost adresse/passord kombinasjon
+      invalid_activate: Vennligst aktiver din konto ved å følge veiledningen du har fått tilsendt per epost når du registerte din bruker profil.Dersom du ikke har registret din bruker profil eller vet ikke hvodan du gjøre det, ta kontakt med foreningen ved å sende epost til hjelp@friskereogtryggerebarneomsorg.
+      label: Logg inn
+      forgot_password: Glemt passord
+    password:
+      forgot_label: Har du glemt passord?
+      send_guide: Send ny passord link
+    upgrade:
+      title: Din reise mot tryggere og mer helsevarende barneomsorg starter her.
+      description: Ditt valg om å bli medlem i foreningen er en av de viktigste valgene du tar som barnehageleder for å fremme helse og trygghet til barn og ansatte i din barnehage.
+      para1:
+      para2:
+      reserve: Betal innmeldingsavgift
+      ssl_title: SSL sikret
+      ssl_description: Betaling skjer gjennom SSL og 256-bit kryptering
+      box_title: Medlemskapet i Norges landforening for friskere barnehager starter etter innbetaling av engangs innmeldingsavgift.
+      benefitting: Dette oppnår du i din barnehage ved å bli smittevern sertifisert
+      ben_para1: "Får å oppnå vårt felles mål smittebeskyttelse av barn og ansatte i din barnehage, for du hjelp til å : "
+      ben_para2: <b> Finne det svakeste smitteforbyggingsleddet i din barnehage</b><br/>En kjede er ikke sterkere enn sitt svakeste ledd . I smitteforebyggings sammengheng er dessverre det svakeste leddet i din barnehage, manglefullt kunnskap innen smittefremmende vaner hos barnehagepersonale, som gjør at de kan spre smittebærende bakterier og virus gjennom sitt daglige rutiner uten å vite det selv og at de ikke stopper smittefremmende handlinger hos barn. For å unngå dette i din barnehage og tilrettelegge for ansatte i din barnehage blir din sterkeste støttespiller i smitteforebyggingsarbeidet inkluderes smitterisiko bevisstgjøringsverktøyet i friskere og tryggere barnomsorgprogrammet. Nå kan du som barnhageleder både eliminere svakeste leddet i din barnehage ved å skape bevissthet om smittefremmende vaner blant barnehagepersonale og samtidig motivere dem til å lære om metoder for å unngå å utsette seg selv og barn under deres omsorg for smittefare.
+      ben_para3: <b> Styrke smitteforebyggingskompetanse i din barnehage</b><br/> Fleste av oss handler ut ifra informasjon vi har tilgjengelig. Dette gjelder også for smitteforeygging i din barnehage , hvor dine ansattes kompetanse har direkte påvirkning på deres daglige rutiner. For å styrke kompetanse innen smitteforebygging som igjen styrker inkluderes derfor nettbasert trening i smitteforebygging i friskere og tryggere barnomsorgprogrammet. Nå kan du som barenhageldere gjennom nettbasert trening i smitteforebygging styrke nivå av smitteforebygging og dermed sikre et høyre nivå av smittebeskyttelse for barn og ansatte i din barnehage.
+      ben_para4: <b> Ta styring over smittesikkerhets nivå i din barnehage</b><br/>Du kan kun styre det du har kontrol over, dette gjelder også for smittesikkerhet i din barnehage. Fordi dersom nødvendig rutiner for å minske risiko for smitteforekomst og smittespredning ikke blir iverksatt i samtlige avdelinger, i din barnehage, blir dessverre smittesikkerhet for barn og ansatte overlatt til tilfeldigheter. For å avverge dette inkluderes derfor en digital internkontroll verktøy for smittebeskyttelsestiltak i friskere og tryggere barnomsorgprogrammet. Nå kan du som barenhageleder ta styring over smittesikkehet i din barnehage ved å sikre at samtlige tiltak blir implementert, sporet og målt på daglig basis i din barnehage.
+      ben_para5: <b> Vite når din barnehage står overfor en overhengende utbruddsfare</b><br/>Når smittsomme sykdommer først forekommer, i din barnehage, kan hvert minutt være avgjørende for å kunne minske smittespredning og dermed beskytte friske barn fra å bli smitteutsatt. For å sikre at du som barnehageleder, vet til enhver tid hvilke sykdommer som forekommer i din barnehage,uansett hvor du enn måtte befinne deg eller være avhengig av at personale skal opplyse deg når dere først møtes inkluderes sykdomsforekomst varsler i friskere og tryggere barnomsorgprogrammet. Nå kan du ved å være oppdatert på hvilke sykdommer som har forekommer i din barnehage i nåtid,  raskt avdekket hvorvidt andre barn nylig har blitt utsatt for samme type sykdom som kan være en sterk indikator på en mulig ovehengende utbruddsfare.
+      ben_para6: <b> Kontrollere smittefarlige situasjoner når smittsomme sydkommer oppstår </b><br/>En er ikke helt i kontroll når smittsomme sykdommer forekommer og en ikke helt vet hva må gjøres for å beskytte barn mot helsefare. Dessverre risikerer ansatte i din barnehage å bli utsatt for en slike uhygglig og smittefarlige situasjon dersom de mangler nødevendig smittevern informasjon når smittsomme sykdommer oppstår i din barnehage.Dette er fordi nødvendige handlinger for å stoppe spredning av smittefare forebundet med én type smittsom sykdom ikke er nødvendigvis den samme for en annen type smittsom. Det er derfor smittsom sykdom håndteringshåndbok inneholdende detaljert smittvern informasjon inkludert i friskere og tryggere barnomsorgprogrammet. Nå kan gjennom å tilrette smittevern informasjon om hele 39 smittsomme sykdommer , skrevet av kvalifisert barnelege sikre at samtlige ansatte i din barnehage unngår å havne i uhyggelige situasjoner og vet akkurat hva som bør gjøres for håndtere og kontrollere smittefare når smittsomme sykdommer oppstår i din barnehage.
+      ben_para7: <b> Sikre god kommunikasjon når det trengs mest i barnehagen</b><br/>Et utbrudd kan ofte skape en situasjon med høy infeksjonsrisiko, dersom kommunikasjon er mangelful kan dette skape en situasjon med sterkefølelser og tillitsbrudd. Det er defor kommunikasjonverktøyet for smittsomme sykdommer er inkludert i friskere og tryggere barnomsorgprogrammet. Nå kan du ved å ha god kommunikasjon sikre at foreldre og søsken til barn som går i din barnehage ikke blir utsatt for smittefare grunnet smittsomme sykdommer som har oppstått i din barnehage men også påvirke utbruddets kurs og hindre den fra å spre seg utenfor barnehagen.
+      ben_para8: <b> Komme høysykdomsrisiko sesonger i forkjøpet </b><br/>God forbredelse er nøkkelen til sukksess også i smittevern sammenheng.Men for å kunne være godt forberedt trenger en først å vite vet hva en skal foreberede seg i mot. Det er defor verktøy for å avdekke høysykdomsrisiko sesonger inkludert i friskere og tryggere barnomsorgprogrammet. Dermed kan du, som barnehageleder, nå avdekke høysykdomsrisiko sesonger spesifikk for din barnehage og iverksette passende forebyggende smittebeskyttelsesinnsats for å komme høysykdomsrisiko sesonger i forkjøpet. Ikke bare sikrer du en høyere beskyttelse og trygghetsgrad for de sårbare barna men du bidrar også til å skape et forent bånd og lagånd mellom ansatte og barneforeldre i din barnehage, gjennom felles forberedelse mot forventet smittefare.
+      ben_para9: <b> Eliminere årsaker til høy sykefravær</b><br/>Friskere og tryggere barnomsorgprogrammet gjør det mulig for deg som barnehageleder å sikre en en høy aktsomhet mot smittsomme sykdommer i din barnehage og dermed ha de forutsetningene som er nødevendig for å eliminere årsaker til høy sykefravær.
+      ben_para10: <b>Beskytte deg selv og din barnehage mot dårlig omdømme og potensielle søksmål </b><br/> Sertifisering i friskere og tryggere barnomsorgprogrammet betyr at din barnehage har en infrastruktur som er nødvendig for å beskytte barn og ansatte i barnehagen mot skade, lidelse og potensielle tragedier forbundet med smittsomme sykdommer,til den grad det er praktisk mulig. Slik  eliminerer sjansen for at du som barnehagelder blir anklaget for likegyldighet og faglig forsømmelse av barns sikkerhet i barnehagen, dersom det skulle oppstå alvorlige uhell forbundet med smittsomme sykdommer.
+      ben_para11: <b>Overføre gode verdier til neste generasjon </b><br/>Ved å implementere friskere og tryggere barnomsorgprogrammet i din barnehage tilretter du for at barn i din barnehage for mulighet til å observere gode smitteforebyggende daglige rutiner og dermed lære de helsenyttig kunnskap i ung alder. Dette vil de kunne ta med seg resten av livet og til og med overfør til neste generasjon. På denne måten overfører du ,som barnehage leder, gode verdier til nest generasjon og påvirke kommende generasjoner på en positiv måte.
+      label:
+        apply: Apply here to get started
+        card_number: Kort nummer
+        cvcode: CV2 code
+        discount_code: Rabatt kode
+        card_expiration: Utløpsdato
+  register:
+    parentee:
+      title: Rene hender kampanje
+      subtitle: Hvordan vaske hender
+      button_text: Registrer din barnehage
+      main_heading: Registerer.
+    labels:
+      next: Neste
+      previous: Forrige side
+      update: Oppdater
+      upload_child: Last opp bilde av ditt barn!
+      name: Navn
+      daycare_name: Barnehage navn
+      email: Epost
+      password: Passord
+      pwd_confirm: Passord Bekreftelse
+      url: webadress
+      daycare_url: Barnehages webadresse
+      daycare_type: Barenhage type
+      address: Adresse
+      postcode: Post kode
+      country: Velg land
+      telephone: Telefon nummer
+      organization: Firma
+      register: Registrer
+      congratulation: Gratulerer
+      congratulation_upper: Gratulerer
+      complete_profile: Din profil er nå registert i friskere og tryggere barneomsorg portalen. Du vil om noen minutter få en epost inneholdende en link for innbetaling av reserverings beløp på 299 kr. Du har en hel dag på å betale inn reserveringsbeløpet som reserverer din barnehagers plass blant tidlig forkjempere for barns trygghet og velvære gruppen.Reserverings beløpet trekkes av din barnehagers investering i Friskere og Tryggere barneomsorg porgrammet.
+      complete_profile_survey: Din profil er nå registert i friskere og tryggere barneomsorg portalen.<br/>Du vil nå få en epost inneholdende en link til å aktivere din bruker konto i portalen,vennligst klikk på aktiveringslinken for å aktivere din bruker konto og få nytte av friskere og tryggere barneomsorgportalen.
+      complete_profile_deposit: Din barnehage er nå registert i friskere og tryggere barneomsorg portalen.<br/>Vennlisgt skjekk din epost innboks etter epost tilsendt av foreningen, inneholdende link for innbetaling av reserveringsbeløp på 299 kr . Du har en hel dag på å betale reserveringsbeløpet og reservere din barnehagers plass blant "tidlig forkjempere for barns trygghet og velvære" gruppen. De plassene som ikke blir reservert blir frigitt neste dag.
+      short_email: Eposten er på vei til deg nå.
+      user_info: Bruker informasjon
+      parent_info: Foreldre informasjon
+      upload_child_photo: Last opp bilde av ditt barn.
+      select_department: Velg avdeling
+      select_daycare: Velg barnehage
+      add_child_name: Legg til ditt barns navn
+      birth_day: Fødelsdato
+      add_child: Legg til flere barn
+      department: Avdeling i barnehagen
+      department_name: Avdelingsnavn
+      add_department: Legg til flere
+      add_email: Epost adresse
+      number_of_child: Antall barn
+      child_worker: Barn og barnehagepersonale
+      current_password: Nåværende passord
+      invite_worker: Epost adresse til barnehagepersonale
+      invite_parentee: Epost adresse til barnehageforeldre
+      invite_manager: Epost adresse til likesinnede ledere
+      invite_internal: Interne medlemmers epost adresse
+      invite_external: Eksterne meldemmers epost adresse
+      invite_msg_worker: Inviter barnehagepersonale
+      invite_msg_parentee: Inviter barnehageforeldre
+      invite_msg_manager: Inviter likesinnede ledere
+      invite_msg_internal: Inviter Interne medlemmer
+      invite_msg_external: Inviter Eksterne meldemmer
+      partner_register: Samarbeidspartner profil registrering
+      upload_partner_photo: Last of organisasjons logo i jpg format
+      partner_type: Partner Type
+      num_member: Antall medlemmer
+      upload_address: Last om email adresse via excel
+      municipal: Navn på fylke
+      card_number: Kort nummer
+    caretype:
+      ind: Frittstående
+      fra: Kjede barnehage
+      gov: Kommunal barnehage
+    partner_type:
+      str: Statligeorganer
+      cer: Personell utleiefirma
+  manager:
+    invite:
+      title: Andre barnehagestyrere
+      invitation: Invitasjonsverktøy
+      description: "Inviter barnehagepersonale og barnehageforeldre til portalen <br/> ved å taste inn deres epost adresse:"
+      subject:
+        label: Invitasjonsmelding
+        placeholder: Vennligst skriv inn meldingsemne
+      message:
+        label: Invitasjonsmelding
+        placeholder: Vennligst skriv meldingsemne
+      send: Send invitasjon
+      email: Epost adresse
+      recipient: Mottakere
+      template: Epost adresse mal
+    todos:
+      show:
+        label1: Smittevernstiltak
+        label2: Smittevernsområde
+        label3: Fullføre innen
+        department: Adveling
+        label4: Hvor ofte
+        heading: Tiltak
+        label5: Beskivelse
+        label6: Underliggende tiltak
+        start_date: Start Dato
+        start_day: Start ukedag
+      report:
+        title: Smittevren tiltaksliste
+        create_todo: Du har ingen tiltaksliste. Lag ny her %{create_link}
+        search_title: Søk %{query}
+        search_desc: Du har ingen tiltaksliste som passer søkekritriet du oppgav.
+        range_title: "Velg periode<b> %{title} </b> Rapport:"
+        none_message: Smittevernstiltak var ikke implementert innen fristen for iverksettelse.
+        start_date: "Start dato:"
+        end_date: "Slutt dato:"
+        todo_title: Smittevern tiltaksnavn
+        description: Kort beskrivelse
+        selected_date: Dato
+        task: Tiltak
+      labels:
+        report: Rapport
+        view_report: Se rapport
+        generate_report: Generer rapport
+        add_filter: velg filter
+        department: Avdeling
+        start_date: "Start Dato / Tid:"
+        end_date: "Slutt Dato / Tid:"
+        complete: Fullført
+        incomplete: Ikke fullført
+        access: Slette tiltaksliste
+        task_manager: Smittevern tiltaksliste
+        todos: Smittevernstiltak
+        no_todos: Du har ingen smittevern tiltaksliste
+        show: Vis
+        tasks: Tiltak som iverksettes
+        keytasks: Hoved gjørmål
+        subtasks: Underliggende tiltak
+        btn_complete: Fullfør
+        create: Lag smittevernstiltak
+        select_department: Velg avdeling
+        state: Status
+        start: Start
+        pause: Pause
+        created_by: Laget av
+        title: Tittel
+      new:
+        title: Velg navn på smittevernstiltak
+        departments: Velg om en, flere eller alle avdelinger som skal utføre utføre smittevern tiltaket
+        iteration_type:  Velg om tiltaket kan katagoriseres for å være av en type tiltak som bør utføres rutinemessig eller om den er hendelse basert som for eksempel når en spesiell sykdom oppstår
+        frequency: Velg om tiltaket bør utfører daglig, ukentlig eller månedlig
+        completion_date: Velg hvor lang tid personale har på seg for å fullføre tiltaket
+        add_key_task: Legg til enda en smitteverntiltak
+        save_task:  Lagre smitteverns tiltak
+        key_task: Skriv hvilke underliggende smitteverb tiltak som skal utfører
+        sub_task: Underliggende gjøremål
+        description: Skriv gjerne kort om hvorfor dette tiltake er viktig
+        start_date: Velg hvilke start dato smittevern tiltaket bør settes i gang
+        add_sub_task: Legg til en underliggende smittevern tiltak
+      validation:
+        require_title: Vennligst skriv hva smittevren tiltaket gjelder
+        require_department: Vennligst velg avdeling
+        require_start_date: Vennligst velg hvilke start dato du ønsker at smitteforebygging eller smittevern tiltaket bør settes i gang
+        require_week_day: Vennligst velg om tiltaket bør utfører daglig, ukentlig eller månedlig.
+        require_complete_date: Vennligst oppgi hvor lang tid personale har til å fullføre tiltaket, om det er innen per timer, dag , uker eller måned
+        require_description: Vennligst skriv kort om hvorfor dette tiltaket er vikitig - skal at personale blir oppmuntret til å utføre tiltaket
+        require_key_task: Vennligst skriv smittevern tiltak du ønsker personale skal utføre
+        require_sub_task: Vennligst skriv underliggende tiltak som kan være nødvendig for å fullføre tiltaket på en ordentlig måte.
+    complete:
+      line1: Du kan nå ta i bruk verkøyene i friskere og tryggere barnomsorgprogrammet
+      line2: Smittevernstiltaksliste
+      line3: Smitteforebyggingstrening
+      line4: Smitterisiko bevisstgjøring
+      line5: Reserver plass
+  mailers:
+    supermanager:
+      email: hjelp@friskereogtryggerebarneomsorg.no
+      name: Norges landforening for friskere barnehager
+      url: "http://www.friskereogtryggerebarneomsorg.no"
+    daycare:
+      invite: Dette er en invitasjon til å registere deg friskere og tryggere barnomsorgprogrammet. Vennlist registrer deg i portalen ved å klikke på linken.
+    account_registration:
+      content: Hei%{name}, <br/> Din brukerprofil er nå registert i tryggere helsebevarende barneomsorgportalen.<br/>Vennligst bekreft din brukerprofil ved å klikke på linken.<br/><a href = '%{url}'> %{url}</a>.<p>Velkommen til portalen </p>
+    registration:
+      send_confirmation: Din bruker profil er nå bekrefet. Gratulerer
+    mail_confirm:
+      subject: Vennligst bekreft din brukeprofil for aktivere brukerkontoen i portalen
+      content: Hei%{name}, <br/> Din brukerprofil er nå registert portalen.<br/>Vennligst bekreft din brukerprofil ved å klikke på linken.<br/><a href = '%{url}'> %{url}</a>.<p>Velkommen til portalen </p>
+    mail_reset_password:
+      subject: Vennligst sett ny passord
+      content: <p> Hei %{name}! </p><p> Her er linken du kan bruke for å sett ny passord. Klikk på linken for å forandre ditt passord</p><p><a href = '%{url}'> Bytt mitt passord</a> </p><p> Vennligst se bort i fra denne meldingen hvis du har mottat denne ved feil. </p><p> Di passord forblir den samme til forandrer den.</p>
+    plan_confirm:
+      subject: Din koto er nå oppgradert
+    illness:
+      title: Sykdom forekomst varsler - %{illness} har nå forekommet i barnehagen.
+      content: <p> Hei </p><p> Dette er til orientering- %{illness} er nå registrert i barnehagen, ved eventuelle spørsmål ta kontakt med barnehagen </p>
+  dashboard:
+    nav_var:
+      staff_parent: Number of staff and parents requiring information
+      link:
+        edit_info: Rediger barnehageprofil
+        invite: Inviter andre til portalen
+        logout: Logg ut
+    label:
+      department: Department
+      alert_to: Send Alert To
+    manager:
+      heading1: Infection Control Measures To Do list
+      heading2: Invite
+    parentee:
+      heading1: Infection Control Measures To Do List
+    worker:
+      heading1: Infection Control Measures To Do List
+    notifications:
+      title: Meldinger
+      todo_list: Infection Control Measures To Do List
+      messages: Messages
+      status_of_task: Status på smittevernstiltak
+      record_alert: Sykdomforekomst varsel
+    partners_carousel:
+      title_1: There are several associations sending important health and safety-related messages
+      title_2: To nurseries in the country through the Healthier and Safer Childcare Portal.
+    upgrade:
+      description: Velkommen til friskere og tryggere barnomsorg portalen
+      title: La oss sikre at barn og ansatte er best mulig beskyttet mot helsefarlige smittsomme sykdommer.
+      button: Oppgrader
+      trial: You free trial ends in 14 days
+      trial_description: Please verify that you want this discount before discount code expires.
+      phase1_description: After they verify their their interest to keep disount
+    free_resource: Gratis verktøy
+    menu_item:
+      risk_assessment: Kompetanse kartlegger
+      instruction: Smitteforebyggingstrening
+      task_manager: Smittversntiltak verifiserer
+      communication: Kommunikasjonsverktøy
+      illness_analytic: Høy sykdomsrisiko sesong
+      illness_record: Sykdomslogg
+      illness_guide: Barnesykdom håndetringsguide
+      guide_line: Interaktiv brukerguide
+      health_conversations: Health conversation
+    menu_tooltip:
+      risk_assessment: Kompetanse kartlegger
+      instruction: Smitteforebyggingstrening
+      task_manager: Smittversntiltak verifiserer
+      communication: Kommunikasjonsverktøy
+      illness_analytic: Høy sykdomsrisiko sesong
+      illness_record: Sykdomslogg
+      health_conversations: Helse samtale
+  todos:
+    todo: Smittevernstiltak
+    todo_19: Hendelsebasert smittevern tiltak
+    todo_20: Rutinebasert smittevern tiltak
+    index:
+      heading1: Smitevernstiltak lister
+      heading2: Aktiv smittevernstiltak
+      line1: Du har ingen aktive smittevernstiltak
+      line2: Smittevernstiltak som blir iverksatt
+      show: Vis
+      start: Start
+    search:
+      heading1: "Søk: %{query}"
+      line1: Du har ingen tiltaksliste som passer din søkekriteriet
+    labels:
+      results: Results
+      choose_daycare: Velg Barnehage
+      daycare_name: Barenhage navn
+      daycare_type: Barenhage type
+      childrens: Barn
+      daycares: Barenhager
+      daycare_result: Tiltaks rapport for utvalgte barnehager
+      in_progress: Aktiv smittevernstiltak
+      start_todo: Start smitteverntiltak
+      workers: Ansatte
+  todo_completes:
+    show:
+      label1: Tittel
+      label2: Gjørmålsiste type
+      label3: Gentagelses periode
+      heading: Smittevern gjøremålsliste
+  admin:
+    dashboard:
+      index:
+        heading: Dashboard
+        sub_head: Resource
+        label1: Users
+        label2: Todos
+        label3: Daycares
+        label4: Discount Codes
+        label5: Plans
+        label6: Departments
+        label7: Subjects
+        label8: Surveys
+    lang_dashboard:
+      index:
+        heading: Localisation Dashboard
+        sub_head: Resource
+        label1: Upload information
+        label2: Edit To do
+        label3: Edit Illness
+        label4: Edit Training
+        label5: Edit Message Template
+        label6: Edit Preview Videos & Online Training
+        label7: Edit Posts
+        label8: Edit Invite Message Template
+        label9: Edit Email Verification Message Template
+        label10: Edit Logo
+        label11: Edit Plans
+        label12: Edit Email Campaign Template
+        label13: Edit Package Upgrade Confirmation Email Template
+        label14: Edit Manager Videos
+    daycare:
+      index:
+        heading: Daycare
+        label1: Name
+        label2: Address
+        label3: Country
+        label4: Discount (%)
+        label5: Payment mode
+        label8: Make payment
+        label6: Users
+        label7: Departments
+        label9: Phase
+        label10: Pay Mode
+        line: No results found
+      edit:
+        heading: Edit daycare
+      _form:
+        heading: Daycare details.
+        para: Set the details of Daycare.
+    departments:
+      index:
+        heading: Departments
+        label1: Name
+        label2: Daycare
+        line: You do not have any daycare yet.
+    payment_modes:
+      _form:
+        heading: Payment mode details
+        para: Set the period, unit of payment modes.
+      new:
+        heading: New Payment Mode
+      edit:
+        heading: Edit Payment Mode
+      index:
+        heading: Payment modes
+        label1: Period
+        label2: Unit
+    payment_starts:
+      _form:
+        heading: Start payment details
+        para: Set the period, unit for payment starts.
+      new:
+        heading: New Payment Start
+      edit:
+        heading: Edit Payment Start
+      index:
+        heading: Payment Starts
+        label1: Period
+        label2: Unit
+    discount_codes:
+      _form:
+        heading: Discount code details
+        para: Set the code, percentage value and status for your discount code.
+      new:
+        heading: New Discount Code
+      edit:
+        heading: Edit Discount Code
+      index:
+        heading: Discount Codes
+        label1: the Code
+        label2: Value
+        label3: Status
+    plans:
+      _form:
+        heading: Plan details.
+        para: Set the name, price and child allocation for your plan.
+      edit:
+        heading: Edit Plan
+    subjects:
+      index:
+        heading: Subjects
+        heading1: Name
+      _form:
+        heading: Subject details
+        para: Set the title for your subject.
+      new:
+        heading: New Subject.
+      edit:
+        heading: Edit Subject
+    survey_subjects:
+      _form:
+        heading: Survey details.
+        para: Set the title and description for your survey.
+        heading1: Icon
+        para2: Set the icon imagery for your survey.
+        heading3: Upload
+        para3: Select a spreadsheet file to upload. Please make sure the file you are uploading is a <b> .xlsx </b> format.
+      new:
+        heading: New Survey
+      edit:
+        heading: Edit Survey
+      index:
+        heading: Surveys.
+        para: You do not currently have any surveys.
+  notifications:
+    featured_daycare: har meldt seg på programmet
+    featured_daycare_by_plan:
+  messages:
+    message: Kommunikasjonsverktøy
+    breadcrumb:
+      message: Kommuniser
+      choose_template: Velg meldingsmal
+      create_template: Lag ny melding
+      create_subject: Velg hoved emne
+      create_sub_subject: Velg under liggende emne
+      choose_department: Velg avdeling
+      choose_recipient: Velg mottaker
+      add_content: Tilføy innhold
+      edit_template: Rediger melding
+      message_options: Valg av meldingstyper
+      choose_subject: Velg emne
+      choose_sub_subject: Velg underlagt emne
+      create_message: Tilføy innhold
+      send: Send
+      edit: Rediger
+    notifications:
+      create_template_success: Meldingsmal har blitt laget.
+      create_template_error: Det har forkommet en feil.
+      update_template_success: Utbrudd varslingsmal har nå blitt oppdatert.
+      delete_template_success: Utbrudd varslingsmal er nå slettet.
+      find_template_empty: Det foreligger ingen Utbrudd varslingsmal.
+      send_message_success: Meldingen er nå sendt.
+      send_message_error: Det har forekommet en feil under prosessen.
+      delete_template_confirm: Er du sikker på at du vil slette denne meldingen?
+      no_template_for_role: Ingen medlings mal er funnet.
+      invalid_template_file: Ugyldig filformat! Last opp kun text filer.
+      required_filter_role: Filtrer rolle.
+      required_filter_subject: Filtrer emne.
+      required_filter_sub_subject: Filtrer underliggende emne.
+    labels:
+      subject: Emne
+      choose_subject: Vennligst velg emne
+      create_subject: Vennligst skriv inn emne
+      sub_subject: Relatert emne
+      choose_sub_subject: Velg relatert emne
+      create_sub_subject: Skriv inn relatert emne
+      write_title: Vnnligst skriv hoved tittel til meldingen
+      create_regular_message: Skriv orinær melding
+      write_message_content: Skriv innholdet i budskapet
+      create_message_template: Lag meldingsmal
+      edit_message_template: Rediger meldingsmal
+      upload_message_template: Last opp meldingsmal
+      sent_messages: Sendte meldinger
+      basic_filter: Filtrer for se tilpasset søkeresultat
+      new_notification: Nye meldinger
+      new_template: Ny meldingsmal
+      send_notifications: Send veiledningsskriv for smittevern
+      sent_notifications: Sendte veildningskriv
+      received_notifications: Se mottatte meldinger
+      edit_and_send: Vennligst rediger og send meldingen
+      edit_and_save: vennligts rediger and lagre meldingen
+      choose_recipient: Vennligts velg mottaker
+      choose_department: Vennligst velg avdeling hvor mottakere er
+      choose_language: Velg språk
+      upload_template: Last om meldingsmal
+      filter_by_subject: Filtrer etter emne
+      filter_by_sub_subject: Filtrer etter relaterte emner
+      recipient: Mottaker
+      sender: Sender
+      apply_filters: Bruk Filter
+      message_list: Meldingsliste
+      show_only_messages_to_filter: Vis kun meldinger sendt til
+      show_only_messages_from_filter: Vis kun meldinger sendt fra
+      option_title: Helse, miljø og sikkerhet relaterte meldinger
+      recipient_for_message: "Mottaker av denne meldingen :"
+      receive_messages: Barnehager %{account} vil motta denne meldingen.
+      childcare_member: Barnehager i friskere og tryggere barnehager portalen
+      daycare_total: Totalt %{size} barnehager er registrert i portalen.
+      send: Send
+    tooltip:
+      send_notifications: Send meldnig
+      sent_notifications: Sendte meldinger
+      received_notifications: Se mottatte meldniger
+  registrations:
+    parentee:
+      registration: Foreldre registering
+      select_daycare: Søk og velg barnehage ditt barn går i
+  illness_guides:
+    illness: Barnesykdom håndteringsguide
+    labels:
+      choose_recipient: Velg brukertype
+      guide_content: Barnesykdom håndteringsveileder
+      choose_illness: Velg sykdom
+      prev: Gå tilbake
+      next: Neste
+  illnesses:
+    breadcrumb:
+      illness: Sykdommmer
+    illness: Sykdomsloggfører
+    trends: Høysykdomsrisiko sesong kartlegger
+    labels:
+      add_record: Registrer sykdomsforekomst
+      view_old_records: Få oversikt over registrerte sykdomsforekomst
+      illness_guidance: Sykdoms-guide
+      choose_record_for: Velg å registrere sykdomsforekomst hos barn.
+      child: Child
+      choose_child: Velg barnet det gjelder
+      choose_department: Velg avdeling
+      department: Avdeling
+      daycare: Barnehage
+      graph_type: Graf type
+      search: Søk
+      child_details: Barnets navn
+      department_details: Avdelingsnavn
+      name: Navn
+      age: Alder
+      birthday: Fødselsdag
+      reporting_date: Informasjon  registrerings dag
+      worker_knows_illness_question: Vet du hvilke sykdom dette barnet lider av?
+      illness_details: Sykdoms detaljer
+      illness_yes: Ja
+      illness_no: Nei
+      search_illness_name: Sykdoms søk
+      contact_parent: Kontakt barnets forlelder
+      contact_parent_question: Øsnker du å kontakte barnets forelder?
+      contact_doctor: kontakt barnelege
+      contact_doctor_question: Ønsker du å kontakte legen tilknyttet barnet?
+      additional_actions: Tilleggshandlinger
+      worker_name: Barnehage personalets navn
+      email: Email
+      worker_confirmation: Verifisere identitet
+      worker_details_fill_up: Tilføy informasjon for å fullføre sykdomsforekomst registrering.
+      select_department: Velg avdeling
+      select_worker: Velg barnehage personal
+      select_child: Velg barn
+      select_children: Velg barn
+      worker_details: Barnehagepersonal
+      confirmation_pw: Vennligst skriv inn passord for å verifisere indentitet
+      department_record_question: Vennligst oppgi antall mange som er smittet av sykdommen
+      department_record_help_text: Du kan bare registrere informasjon om en sykdom av gangen. Får å registrere infomasjon om ny sykdom gå gjennom samme prosessen igjen.
+      filter_records_for: Filtrer registrerte sykdomsforekomst
+      basic_filter: Filtrer informasjon
+      required_dept_filter: Velg avdeling
+      required_child_filter: Velg barn
+      trend_filters: Filter for sykdomstrend analyse
+      select_multiple_departments: Velg en eller flere avdelinger
+      select_multiple_illnesses: Velg en eller flere sykdommer
+      select_graph_type: Graf type
+      apply_filter: Bruk filter
+      line_chart_title: Sykdom forekomst i perioden
+      pie_chart_title: Sykdom blant barn
+      children_col_title: Antall barn berørt
+  health_records:
+    flashes:
+      invalid_worker_pw: Ugyldig bruker passord.
+      create_success: Informasjon er nå registrert og lagret i portalen.
+      create_error: Noe gikk galt. Var ikke mulig å registrere informasjon. Prøv igjen
+  discussions:
+    discussion: Helse samtale
+    labels:
+      edit_department: Rediger avdelingsnavn
+      edit_medical_professional_info: Rediger personlig informasjon.
+      invite_is_limited: Du kan invitere en lege.
+      upgrade_to_invite: Oppgrader nå for å kunne invitere flere
+      collaborators: Bidragsytere i helse samtalen
+  form_labels:
+    next: Neste
+    back: Tilbake
+    title: Tittel
+    cancel: Angre
+    send: Send
+    save: Lagre
+    delete: Slett
+    edit: Rediger
+    select: Velg
+    print: Skriv ut
+    post: Post
+    submit: Submit
+    search: Søk
+    complete: Fullført
+    previous: Gå tilbake
+    apply_filter: Filtrer informasjon
+    start_date: Start Dato
+    end_date: Slutta dato
+    intro_done: Neste
+    intro_skip: Hopp over
+    check_result: Skjekk resultat
+    decline: Avvis
+    all_department: Alle avdelinger
+    all_daycares: Alle personale og foreldre
+  attempt_labels:
+    title: Sjekk resultat for %{survey_name} av %{participant_name}
+    correct_answer: Riktig svar
+    incorrect_answer: Feil svar
+    anwers: Svar
+    question: Spørsmål
+  person_labels:
+    name: Navn
+    age: Alder
+    birthday: Fødselsdato
+    department: Avdeling
+    daycare: Barnehage
+  protocols:
+    child_illness_record:
+      illness_code: Sykdom
+      symptom_codes: symptomer
+      symptoms_description: Beskrivelse av symptomer
+      start_date: Når sykdomssymptomene begynte å vise seg
+      end_date: Når sykdomssymptomene ble borte
+      possible_trigger: Kan det vær noen grunner for sykdomsforekomst foreksempel utfluksturer, kontakt med villdyr
+      extra_details: Andre relevant informasjon
+      contact_parent_message: Send melding til forelder
+      contact_parent_reason: Er det noen grunn for å ikke ta kontakt med forelder for dette barnet?
+      contact_doctor_message: Send melding til barnelege tilnytte barnet
+      contact_doctor_reason: Er det noen grunn for å ikke ta kontakt med barnelegen tilknyttet barnet?
+      additional_actions: Informasjon om tilleggs tiltak foretatt. For eksempel førstehjelp, medisinering og så videre..
+    department_illness_record:
+      illness_guide: Sykdomsinformasjon
+      sick_workers_count: Hvor mange av barnehagepersonale er berørt a sykdommen?
+      sick_children_count: Hvor mange av barn er berørt av sykdommen?
+      start_date: Når oppdaget du forekomst av sykdommen?
+      end_date: Når gikk sykdommen bort?
+      possible_trigger: Vet du om det noe som kan ha bidratt til forekomst av sykdommen. For eksempel kontakt med dyr el.
+      extra_details: Andre relevant informasjon du føler det viktig å legge til
+      additional_actions: Er det iverksatt tiltak som feks. førstehjelp, medikasjon osv.
+  survey:
+    breadcrumb:
+      survey_options: Smitteforebyggingskompetanse kartlegger
+      choose_daycare: Velg barnehage
+    labels:
+      worker_progress_chard_title: Smitteforebyggings kompetansemåler
+      groups: Grupper
+      workers: Barnehage personale
+      parents: Barenhageforeldre
+      all: Alle
+      empty_result: Brukere har ikke fullført spørreundersøkelsen
+      retake_test: Foreta spørreundersøkelse
+      results: Resultat
+      choose_daycare: velg barnehage
+      daycare_name: Barnehagenavn
+      daycare_type: Type av barnehage
+      childrens: Antall mange barn
+      daycares: Barnehager
+      municipal: Kommune
+    notifications:
+      not_enough_data: Det er ikke nok innsamlet enda for å kunne vise resultat.
+  user_guide:
+    menu:
+      parent_todo: Som forelder kan du se oversikt over smittevern tiltak
+      parent_message: Som forelder kan du se meldninger
+      parent_health_conversation: Som forelder kan du starte eller ta del i helse samtalen relatert til dine barn
+  footer:
+    contact_us: Kontakt oss
+    hcc: Norges landsforening for friskere barnehager. Alle rettigheter reservert.
+  views:
+    pagination:
+      first: "<<"
+      last: ">>"
+      previous: "<"
+      next: ">"
+      truncate: ...
+  account:
+    daycare:
+      manager: Barnehage leder
+      worker: Barnehagepersonale
+      partner: Strategisk Partner
+      parentee: Barnehageforelder
+      parent: Barnehageforelder
+  guideline:
+    title: Bruker veiledning
+    benifit:
+      message:
+        title: <b>Kommunikasjonsverktøy</b>
+        content: <p>Sikre god kommunikasjon når det trengs mest i din barnehage</p> <ul> <li>Kommuniser med ansatte og foreldre i den avdelingen smittsomme sykdommen har oppstått</li> <li>Enklere del informasjon som hjelper foreldre og ansatte minske risiko for smittespredning</li> <li>Bli en kilde for veiledning når det trengs mest</li> </ul>
+      todo:
+        title: <b>Smittevernstiltak implementringsverktøy</b>
+        content: <p>Ta styring over smittesikkerhets nivå i din barnehage</p> <ul> <li>Koordinere implementering av smittevernn tiltak i hele barnehagen</li> <li>Få umiddelbar oversikt over hvilke tiltak blir implementert i din barnehage</li> <li>Bekreft overfor helsemyndigheter at din barnehage har interkontroll system for smittevern</li> </ul>
+      todo_worker:
+        title: <b>Smittevernstiltak implementringsverktøy</b>
+        content: <p>Sørge for at smittebeskyttende praksis er implementert i din barnehage/p>
+      survey:
+        title: <b>Smitteforebyggingskomptanse kartlegger</b>
+        content: <p>Finn det svakeste smitteforbyggingsleddet i din barnehage</p> <ul> <li>Kartlegg individuelle ansattes nivå av kompetanse rundt smitteforebygging og smitterisikoreduksjon</li> <li>Avdekke kritiske kunnskapsgap blant ansatte for å kunne sikre at nødevendig trening kan tilrettelegges</li> <li>Motiver ansatte og foreldre til å lære om smitteforebyggende rutiner for å bedre beskytte barn under deres omsorg mot smittefare</li> </ul>
+      survey_take:
+        title: <b>Smitteforebyggingskomptanse kartlegger</b>
+        content: <p>Avdekk smitto risiko kristiske mangler i smitteforebyggingskompetanse</p>
+      illness_record:
+        title: <b>Sykdom-loggføringsverktøy</b>
+        content: <p>Oppbevar nøyaktig informasjon om sykdom som forekommer i din barnehage</p> <ul> <li>Få umiddelbar tilgang til informasjon om sykdom som forekomme ri din barnehag.</li> <li>Avdekk om opståtte sykdommer har nylig forkommet i barnehagen</li> <li>Eliminer bruk av papir for loggføring av sykdomsforekomst og spar miljøet.</li> </ul>
+      illness_graph:
+        title: <b>Høysykdomsrisikosesong-Kartleggingsverktøy</b>
+        content: <p>Kom høysykdomsrisiko sesonger i forkjøpet</p> <ul> <li>Få komplett oversikt over høysykdomsrisiko sesonger i din barnehage </li> <li>Avdekk hvilke sykdommer forekommer mer enn andre slik at du for satt i verk fokusert tiltak for å eliminere smittefare</li> <li>Initier kollektiv smitteforebyggingsinsats i forkant av høyrisiko sesinger og bidra til å skape forenet bånd og lagånd mellom ansatte og foreldre.</li> </ul>
+      notify_message:
+        title: <b>Tyggere helsebevarende omsorg meldingstavle</b>
+        content: <p>Få øyeblikkelig melding relatert til viktige områder av helse og sikkerhet</p>
+      instruction:
+        title: <b>Smitteforebyggingstrening</b>
+        content: <p>Styrk smitteforebyggingskompetanse i din barnehage</p>
+      illness_guide:
+        title: <b>Illness Guide</b>
+        content: <p>Illness Guide</p> <ul> <li>Hvordan symtomer avslører om barn og ansatte er smittet av sykdommen?</li> <li>Hvordan spres smittsomme sykommen?</li> <li>Hvilke tiltak bør taes i bruk for minske og/eller eliminere smittespredning ?</li> <li>Hvilke av barn og ansatte tilhører høyrisiko gruppen og er dermed mest risikoutsatt dersom de blir smittet?</li> <li>Hvilke symtomer hos barn eller voksne nødevendiggjør umiddlebar kontakt med lege?</li> </ul>
+    tour_lable:
+      nextBtn: Neste
+      prevBtn: Tilbake
+      doneBtn: Fullført
+      skipBtn: Hopp over
+      closeTooltip: Avslutt
+    illness_guide:
+      step1: Velg gruppe
+      step2: Klikk neste
+      step3: Velg sydkom
+      step4: Klikk neste
+      step5: Sykdom håndtringshåndbok
+    manager:
+      dashboard:
+        title: Steg for steg bruker guide for barnehageleder
+        messaging:
+          instruction:
+            title: Introduksjon
+            content: Et utbrudd kan ofte skape en situasjon med høy infeksjonsrisiko, dersom kommunikasjon er mangelful kan dette skape en situasjon med sterkefølelser og tillitsbrudd. Det er defor kommunikasjonverktøyet for smittsomme sykdommer er inkludert i friskere og tryggere barnomsorgprogrammet. Nå kan du ved å ha god kommunikasjon sikre at foreldre og søsken til barn som går i din barnehage ikke blir utsatt for smittefare grunnet smittsomme sykdommer som har oppstått i din barnehage men også påvirke utbruddets kurs og hindre den fra å spre seg utenfor barnehagen
+          send_message:
+            title: Slik sender du smittekritsik melding til ansatte og foreldre i den avdlingen som er utsatt for smittsom sykdom
+            content:
+            link_text: "For å starte oå send melding gjør følgende:"
+            step_content: "Ført slik på <b>Kommunikasjon verktøy </b> Her vil du kunne: <ul> <li>Velge hvilke avdeling du ønsker å sende melding til</li> <li>Velge om du vil send melding til alle ansatte i utvalgte avdling eller avdelinger </li> <li>Velge om du vil send melding til alle foreldre i utvalgte avdeling eller avdelinger</li> </ul>"
+          sent_message:
+            title: Få oversikt over og skriv ut alle meldinger du har sent
+            content: Dette gjør det mulig for deg å bekrefte, om nødvendig, overfor helsemyndigheter at smittekristike meldinger har blitt sendt ut i tide.
+            link_text: "Slik gjør du det:"
+            step_content: Klikk for sendte meldinger funksjonen i kommunikasjonsverktøyet.
+          view_message:
+            title: Se meldinger du har mottat
+            content: Denne funksjonen gjør det mulig for deg å få raskt tilgang til og få skrevet ut viktig informasjon relatert til helse og sikkerhet når du trenger dem i forbindelse møte møte med ansatte og foreldre i din barnehage.
+            link_text: "Slik gjør du det:"
+            step_content: Klikk på mottatte meldinger i kommunikasjonsvektøyet
+        illness_trends:
+          instruction:
+            title: Introduction
+            content: Proper preparation is key to mitigate on going infection risk. As one can only properly prepare for that which one can anticipate. Illness trends component of the infection control portal helps you better anticipate seasonal illness outbreaks by giving you instant overview illnesses occurring in your facility and detect the trends of illnesses occurring. <br/> In addition, you can also identify how infectious illnesses occurring in your facility stack up against each other so that you may which infectious disease is of primary concern in your facility so that you can initiate collective effort to root out cause of the specific infectious disease. <br/> Thus, laying the foundation for better protection for children under your care and creating a unified bond and team spirit among childcare worker and parents in fighting infectious disease in you childcare facility by coming together for a common cause.
+            overview: Overview Illness Trends
+          trends:
+            title: Get an overview of illness occurring in your facility and detect the trends of illnesses occurring in your facility
+            content:
+            link_text: This is how you do it.
+        illness_record:
+          title: Illness record
+          content: Record the occurances of illnessesses in Your facility
+        todo:
+          instruction:
+            title: Introduction
+            content: A todo is a task or set of tasks to be performed by a daycare worker in order to prevent and control infection. A manager is the one who creates a Todo. The todos can be classified as Incident based (single) Todos and Recurring Todos. <br/> A Single todo is an incident based Todo i.e., a worker has to do this task whenever a particular incident happens at the day care. A worker can do it any number of times with the condition that the incident should have taken place.<br/> A Recurring Todo is a todo which has to be done repeatedly over a period of time. There are three types of recurring Todos – Daily, Monthly and Weekly. A daily Todo has to be done daily by a daycare worker. A Weekly Todo has to be done weekly by a daycare worker. A Monthly Todo has to be done every month by a daycare worker.<br/>
+          create:
+            title: Create Todo
+            content:
+            link_text: This is how you do it.
+            step_content: Click the button for <b>Create Todo</b>.
+            step2:
+              content: "Step 2: <br/>Choose a Department. <br/>Choose Iteration type as 'Single'. <br/>Choose Start date. <br/>Choose Completion Date"
+            step3:
+              content: "Step 3: <br/>More than one task can be added by clicking on the 'ADD KEY TASK' button. <br/>Also sub-tasks for each task can be added by clicking on the 'ADD SUB-TASK' button."
+            step4:
+              content: "Step 4: <br/> Click Save button"
+          delete:
+            title: Delete Todo
+            content:
+            link_text: This is how you do it.
+            step_content: Click the button for <b>Delete Todo</b>.
+            step2:
+              content: "Step 2: <br/>Select Todo."
+            step3:
+              content: "Step 3: <br/>To Delete Todo, click on the 'Delete' button."
+          report:
+            title: Generate report you can submit to the authorities affirming that infection control protocols are implemented, tracked and measured on daily basis
+            content:
+            link_text: This is how you do it.
+            step_content: Click the view report of performed infection control tasks <br/> Illustration missing
+            step2:
+              content: "Step 2: <br/>Select Todo."
+            step3:
+              content: "Step 3: <br/>To Delete Todo, click on the 'Delete' button."
+        survey:
+          instruction:
+            title: Introduction
+            content: If daycare staff are not aware of which daily practices heavily intensify infection risk exposure to children, you may unknowingly become a vehicle for spreading infectious disease pathogens in your childcare facility. Infection risk assessment survey will help you assess the magnitude of infection risk in your facility by uncovering critical knowledge gaps among your staff.  Conducting the survey will create awareness of infection risk exposure and thereby internally motivate staff and parents to learn best practices to better protect children under their care as a natural reaction of becoming aware of the risk.
+          survey_report:
+            title: Detect the magnitude of infection risk exposure in your childcare facility
+            content:
+            link_text: This is how you do it.
+        conversations:
+          title: Health Conversations
+          content: <ul><li>Getting the info about the particular child </li><li> Sending the message to any child collaborators</li>
+      message_send_menu:
+        step1:
+          content: "Step 1: <br/>Specify the department to notify daycare workers and parents in the particular department where the outbreak has occurred."
+        step2:
+          content: "Step 2: <br/>Click the Next button to choose recipients of the outbreak notification and infection control letter."
+        step3:
+          content: "Step 3: <br/>In this step you can choose recipient for the notification and infection control letter . Daycare staff and Daycare parents will get infection control letter that are specially written for their circumstance."
+        step4:
+          content: "Step 4: <br/>Click the Next button to choose the subject of notification."
+        step5:
+          content: "Step 5: <br/>Here you can choose the prewritten subject for the notification."
+        step6:
+          content: "Step 6: <br/>Click the Next button to jump to choose the actual infectious illness involved in the outbreak."
+        step7:
+          content: "Step 7: <br/>Here you can choose the actual infectious disease involved in the outbreak from the list of infectious diseases. <br/>This will give you access to the outbreak control guidance for the specific infectious disease you have chosen."
+        step8:
+          content: "Step 8: <br/>Click the Next button to access and if required slightly edit the sample letter to customize it to your childcare."
+        step9:
+          content: "Step 9: <br/> <b>Edit message content.</b> <br/>Now you can customize and add write personalized outbreak control notification massage in the beginning of the prewritten outbreak control guidance letter. <br/>When done just Click Send button which will instantly notify the chosen recipients group about the outbreak and provide outbreak control guidance needed in an outbreak scenario."
+        step10:
+          content: "Step 10: <br/>After editing the text you can Click Send button to deliver the message to the chosen recipients in the department where the outbreak have occurred."
+      message_sent_menu:
+        step1:
+          content: "Step 1: <br/>Use sort by filters to sort the sent infection control letter by subject, Sub-Subject or Recipient."
+        step2:
+          content: "Step 2: <br/>Then use from date and to date filters to define the period of time during which the outbreak notification and outbreak control guidance was sent."
+        step3:
+          content: "Step 3: <br/>Click the Apply to see the results that can now be printed out if you require. Only outbreak control letters that match the chosen criteria will be displayed."
+        step4:
+          content: "Step 4: <br/>Click Print link to get the hard copy of the notification."
+      message_receive_menu:
+        step1:
+          content: "Step 1: <br/>Then use sort by filters to sort the received massages by sender. In order to ensure that you receive only massages related to health and safety only associations working for health and safety of children or governmental authorities are allowed to send massage to you."
+        step2:
+          content: "Step 2: <br/>Click the Apply Filters button to see the results. Only massages that match the chosen criteria will be displayed."
+        step3:
+          content: "Step 3: <br/>You can click print link to get the hard copy of the notification."
+      illness_graph:
+        step1:
+          content: "Step 1: <br/>First choose which department or departments you to get illness trend insight into. You can remove the rest of the options by clicking the cross sign in the department field."
+        step2:
+          content: "Step 2: <br/>Choose which infectious illness occurrences you want to get insight into. You can remove the rest of the options by clicking the cross sign in the illness field."
+        step3:
+          content: "Step 3: <br/>Use Choose start date and end date to define the period you want to view the illness trends."
+        step4:
+          content: "Step 4: <br/>Click the Apply Filters button to view the result."
+        step5:
+          content: "Step 5: <br/><b>View the result which are presented as three graphs.</b>This graph gives you insight into trends of illnesses occurring in your facility within the timeframe chosen so that you can easier anticipate seasonal illness outbreaks."
+        step6:
+          content: "Step 6: <br/>Following 2 graphs help you uncover how illnesses occurring in your facility stack up against other so that you may know which illness is of primary concern and initiate collective effort to mitigate risk that creates unified bond and team spirit in fighting infectious diseases occurring in your childcare facility."
+        step7:
+          content: "Step 7: <br/>Click Print button to get the hard copy of the results."
+      todo_access:
+        step2:
+          content: "Step 2: <br/>Click the appropriate infection control task list to view current infection tasks."
+      todo_report:
+        step1:
+          content:
+        step2:
+          content: "Step 2: <br/>Click the view report of performed infection control tasks."
+        step3:
+          content: "Step 3: <br/>Select date range you want to generate report for.<br/> Use Start date and End date filters to define the period of time during which the todos were set."
+        step4:
+          content: "Step 4: <br/>Click the Generate Report button to see the result based on the criteria you set above."
+        step5:
+          content: "Step 5: <br/>Once the report are generated you can confirm the data."
+      survey:
+        step1:
+          content: "Step 1: <br/> First invite child care workers and Parents to conduct infection risk assessment survey by Clicking the invite button."
+        step2:
+          content: "Step 2: <br/>Input email addresses of your childcare worker and parents (Optional) and Write personalized massage to conduct the infection risk assessment survey. "
+        step3:
+          content: "Step 3: <br/>Click the Next Button to jump invitation message screen."
+        step4:
+          content: "Step 4: <br/>Edit message content. <br/> Now you can customize our prewritten massage template to invite to Childcare Workers and parents to perform the risk assessment survey."
+        step5:
+          content: "Step 5: <br/>Click the Send Invite Button to send invitation."
+        step6:
+          content: "Step 6: <br/>Once Daycare staff or parents have registered into the infection control portal and conducted infection risk assessment survey you as a childcare manager are able to view the group result of the assessment by clicking the group icon. The pie chart represent the collective data of all the workers/parents in the group. It shows the ratio between the right and wrong answers in the assessments taken by the participants in the group."
+        step7:
+          content: "Step 7: <br/>To check the risk assessment result in any of the 5 core areas that contribute to the dissemination of disease in childcare settings click on the subject icon. "
+        step8:
+          content: "Step 8: <br/>This is how you Detect the magnitude of infection risk exposure in your childcare facility by inviting child workers and Parents (Optional) to conduct infection risk assessment survey "
+    worker:
+      dashboard:
+        messaging:
+          message_receive_menu:
+            title: Get instant notification related to key areas of health and safety
+            content:
+            link_text: "This is how you see the received notification:"
+        illness:
+          instruction:
+            title: Introduction
+            content: To be able to take relevant precautions and apply the right infection risk mitigation. Daycare managers need to identify trends and emerging patterns related to infectious illness occurring in the childcare facility. But this is only possible if accurate information about illness occurring in the childcare facility are properly categorized and recorded. Illness record therefor serves as a critical component in enabling your childcare facility to put optimum infection control and risk mitigation policy in place to better keep children from harm’s way.
+          add_record:
+            title: Record Illness Occurrences
+            content: Click the Record Illness occurrence button in the Dashboard.
+            link_text: This is how you do it.
+            department: Choose Department button to record illness occurrence in the department
+          view_record:
+            title: View Recorded Illness Occurrences
+            content: Click the View Recorded Illness occurrence button in the Dashboard.
+            link_text: This is how you do it.
+            department: Choose Department button to view recorded illness occurrence in the department
+        todo:
+          instruction:
+            title: Introduction
+            content: Implementing infection control practices on consistent basis in your childcare facility are the cornerstone of optimum infection risk mitigation safeguarding children under your care from haram and suffering associated with avoidable infectious diseases. To help you achieve this infection control task manager includes predefined infection control tasks list that enable you to set a baseline for the standard of infection control you want in your facility.
+          take_todo:
+            title: Completing infection control task list
+            content: Here is check off the infection control task to mitigate infection risk in your facility
+            link_text: This is how you do it.
+        survey:
+          take:
+            title: Detect critical knowledge gaps in infection control and risk mitigation
+            content: This is how you do it <br/> Step 1) Access the Infection Risk Assessment survey by clicking the Risk assessment button in the Dashboard.
+      message_receive_menu:
+        step1:
+          content: "Step 1: <br/>Filter the notifications based upon who sent you massage. You will be receiving massage for from Daycare Manager, healthier and Safer Childcare alliance along with associations working for health and safety of children and governmental authorities."
+        step2:
+          content: "Step 2: <br/>Use Start date and End date filters to define the period of time during which the notifications were received."
+        step3:
+          content: "Step 3: <br/>Click the Apply Filters button to see the results. Only notifications that match the chosen criteria will be displayed."
+      illness_add_child:
+        step1:
+          content: "Step 1: <br/>Choose Department where the child registered and then choose the child who is undergoing illness "
+        step2:
+          content: "Step 2: <br/>Then Click the Next button to jump to the next step."
+        step3:
+          content: "Step 3: <br/>Specify if you are aware of the child’s sickness. Choose yes and Click the Next button to see list illnesses likely to occur in a childcare facility"
+        step4:
+          content: "Step 4: <br/>Then Click the Next button to jump to the next step."
+        step5:
+          content: "Step 5: <br/>Choose a Sickness from the predefined list"
+        step6:
+          content: "Step 6: <br/>Check the symptoms of the illness that you’re observing."
+        step7:
+          content: "Step 7: <br/>Fill in the illness details specifying the date when the symptoms have appeared and the date when they have disappeared. Click the Next button to jump to the next step."
+        step8:
+          content: "Step 8: <br/>Then Click the Next button to jump to the next step."
+        step9:
+          content: "Step 9: <br/>Choose contacting the child’s parents option and write a message to them. If you have chosen not to contact them, specify a reason."
+        step10:
+          content: "Step 10: <br/>Then Click the Next button to jump to the next step."
+        step11:
+          content: "Step 11: <br/>Choose contacting the doctor option and write a message to them. If you have chosen not to contact him/her, specify a reason."
+        step12:
+          content: "Step 12: <br/>Then Click the Next button to jump to the next step."
+        step13:
+          content: "Step 13: <br/>Provide clear information on additional steps you have taken."
+        step14:
+          content: "Step 14: <br/>Then Click the Next button to jump to the next step."
+        step15:
+          content: "Step 15: <br/>Verify your identity by selecting your Department and then choosing your name from the list."
+        step16:
+          content: "Step 16: <br/>Verify your identity by selecting your Department and then choosing your name from the list."
+        step17:
+          content: "Step 17: <br/>Check your personal data and enter the password for the authorization."
+        step18:
+          content: "Step 18: <br/>Click the Next button to add the record to the database. If you have chosen to send the notifications to the parents and/or doctor, they will be sent now."
+      illness_add_depart:
+        step1:
+          content: "Step 1: <br/>Choose the Department you are recoding illness for. Please not you can only record illness occurrence in one department at a time."
+        step2:
+          content: "Step 2: <br/>Click the Next button to jump to the next step."
+        step3:
+          content: "Step 3: <br/>Choose a Sickness from the predefined list"
+        step4:
+          content: "Step 4: <br/>Check the symptoms of the illness that you’re observing."
+        step5:
+          content: "Step 5: <br/>Specify the number of daycare staff or / and Children are effected by the illness; specify the date when the symptoms of illness became apparent."
+        step6:
+          content: "Step 6: <br/>Fill in the illness details specifying the date when the symptoms have appeared and the date when they have disappeared. Click the Next button to jump to the next step."
+        step7:
+          content: "Step 7: <br/>Then Click the Next button to jump to the next step."
+        step8:
+          content: "Step 8: <br/>Provide clear information on additional steps you have taken."
+        step9:
+          content: "Step 9: <br/>Then Click the Next button to jump to the next step."
+        step10:
+          content: "Step 10: <br/>Verify your identity by selecting your Department and then choosing your name from the list."
+        step11:
+          content: "Step 11: <br/>Verify your identity by selecting your Department and then choosing your name from the list."
+        step12:
+          content: "Step 12: <br/>Check your personal data and enter the password for the authorization."
+        step13:
+          content: "Step 13: <br/>Click the Next button to add the record to the database. If you have chosen to send the notifications to the parents and/or doctor, they will be sent now."
+      illness_view_child:
+        step1:
+          content: "Step 1: <br/>Use the filter to choose Department and then the child this illness occurrence record is about"
+        step2:
+          content: "Step 2: <br/>Use From date and To date filters to define the period of time during which the illness occurrence was recorded."
+        step3:
+          content: "Step 3: <br/>Apply Filters button to see the results."
+        step4:
+          content: "Step 4: <br/>Click on the individual record that matches the chosen criteria and expand it to view the full report"
+        step5:
+          content: "Step 5: <br/>Click Print link to get the hard copy of the illness record."
+      illness_view_depart:
+        step1:
+          content: "Step 1: <br/>Use the filter to choose Department this illness occurrence record is about "
+        step2:
+          content: "Step 2: <br/>Use From date and To date filters to define the period of time during which the illness occurrence was recorded Use filters to sort the sent notifications by the Department."
+        step3:
+          content: "Step 3: <br/>Apply Filters button to see the results."
+        step4:
+          content: "Step 4: <br/>Click on the individual record that matches the chosen criteria and expand it to view the full report"
+        step5:
+          content: "Step 5: <br/>Click Print link to get the hard copy of the illness record."
+      todo_report:
+        step1:
+          content: "Step 1: <br/> Select Todo"
+        step2:
+          content: "Step 2: <br/> Click 'Start' button"
+        step3:
+          content: "Step 3: <br/> Select Progress Todo"
+        step4:
+          content: "Step 4: <br/> Update Todo Status"
+      survey_take:
+        step1:
+          content:
+        step2:
+          content: "Step 2: <br/> Click on any of the subject icon to access risk assessment survey in any of 5 core areas that contribute to the dissemination of disease in childcare settings. "
+        step3:
+          content: "Step 3: <br/> Choose the answer you believe to be true for questions related to infection control subject matter."
+        step4:
+          content: "Step 4: <br/> After completing the Survey, see the results of the Risk Assessment."
+        step5:
+          content: "Step 5: <br/> Retake the infection risk assessment surgery after completing the infection control training to test yourself again."
+    partner:
+      dashboard:
+        title: Daycare Manager Dashboard Guide
+        messaging:
+          instruction:
+            title: Introduction
+            content: An infection outbreak can often lead to confusion, frustration, and even anger on behalf of parties involved. Clear communication is the key to eliminate confusion and frustration.  Communicating efficiently will reduce stress, help in trust building and minimizing the risk of further infection spreading throughout the childcare community. The Messages tool is therefore specially designed to help you reclaim control of communication in an otherwise stressful outbreak scenario. <br/> Messaging module allows the users of the web app to send messages to the other users of the app and thus quickly share the important information about the child. Click the appropriate icon on the Dashboard to access this functionality.<br/> The Daycare Partner has the opportunity to send notifications to Daycare Managers, Daycare Workers, and DayCare Parents collaborating around the child, and also to view the lists of sent notifications.
+          send_message:
+            title: Creating the regular message
+            content:  Click the appropriate button in the Message Dashboard.
+            link_text: "Here is how you create the regular message:"
+            step_content: Click Create Regular Message button
+          sent_message:
+            title: Viewing the Report of Sent Messages
+            content: Daycare Partner has an opportunity to view all the messages that were sent to other users, to find the required messages, and to print them if necessary.
+            link_text: "Here is how you may investigate the sent messages:"
+            step_content: Click the appropriate button in the Message Dashboard.
+      message_send_menu:
+        step1:
+          content: "Step 1: <br/>Specify the Recipients of the message. You can send the message to Day Care Managers, Day Care Workers, and Day Care Parents. You may choose more than one user type if needed. <br/> By selecting a user type(s) you will see the number of users which will receive your message."
+        step2:
+          content: "Step 2: <br/>Write the message title."
+        step3:
+          content: "Step 3: <br/>Add the message content."
+        step4:
+          content: "Step 4: <br/>Click the Send button. <br/> The message will be send to all the users of a selected type(s). The recipient can see the message notification by entering the app's dashboard or checking the email. <br/> If the Cancel button is chosen instead, you will be redirected to the Message Dashboard, and the target recipients will NOT receive the message."
+      message_sent_menu:
+        step1:
+          content: "Step 1: <br/>Filter the messages. <br/> Use Sort by filters to sort the sent messages by Recipient. <br/> Use From date and To date filters to define the period of time during which the messages were sent."
+        step2:
+          content: "Step 2: <br/>Click the Apply filter button to see the results in the messages list. <br/> Only messages that match the chosen criteria will be displayed."
+        step3:
+          content: "Step 3: <br/>Click the Print link to get the hard copy of the message."
+  poster:
+    button: Download
+    description: Signup for a call below
+    title: Want to get access to the online training ?
+  deposit:
+    button:
+      invest: Invest
+    plan:
+      description_: Membership Plan
+      description_2: You may have selected Informed Membership Plan
+      description_3: You may have selected Certification Membership Plan
+      description_4: You may have selected Accreditation Membership Plan
+  campaign:
+    header:
+      title: How to prevent infection in the nursery
+      description: Ensure that the daily lives of children and staff in your nursery is as safe as possible
+    content:
+      text1: There is no job with a greater risk of infection than in a nursery. Infection control in a nursery poses a real multi-facet challenge for nursery management teams. Failure to address the critical areas of exposure of contagion in the nursery, leading to Infections can leave both children and staff sick, not only putting their health in potential danger but also running the risk of reputational damage to the nursery.
+      text2: In line with Norway's National Association for Fresher Kindergartens aim to assist centre supervisors who have dedicated themselves to protecting children in their care from the harm and suffering associated with infectious diseases occurring in nursery, they have also launched the Norwegian Association for Fresher Kindergartens and Accreditation Program, keeping children healthy and safe in nurseries.
+      text3: And in conjunction with the launch, you now have a <span class = "pink-text"> free 7 day email course </span> on how to prevent infection in the nursery to help you on your way to a healthier and safe nursery, while offering an insight into the accreditation programme, Healthier and Safer childcare.
+      text4: The course is a result of a collaboration between a Private Barnegagesr Association and Norwegian landsfroening for healthier and safe Branehgare
+    step_header: In this email course you will learn
+    module1:
+      label: Module 1
+      title: Preventative strategies for action around food in the nursery.
+      text1: Primary Design
+      text2: Handling of food in your nursery, including storage, preparation and serving of food to children in nursery presents some unique challenges for the nursery. There are countless other opportunities for cross-contamination and damage caused by food-borne illness.
+      text3: "In this course, you will learn why:"
+      fn1: What IMPORTANT bio-security measures you can take to reduce the risk of food borne illness in your nursery and how to make sure that the infection prevention practices for safe food action are implemented, tracked and measured on a daily basis in your nursery.
+      fn2: Which of your staff should know how to identify children with food allergies in the nursery?
+      fn3: What mistakes should be avoided when preparing food for infants in the nursery
+    module2:
+      label: "Module 2:"
+      title: Preventative strategies for the control of infectious diseases in nursery.
+      text1: Primary motive
+      text2: There are several factors in the nursery that contribute to the outbreak of infectious diseases. A severe outbreak can spread quickly, thanks to the children's habits, the number of people in the nursery and the close proximity they have to each other. In many cases, the way we approach an outbreak of infection and timely bio-security communication between parents and nursery during the early stages of the outbreak can affect the outbreak course and its potential to spread.
+      text3: "In this course, you will learn why:"
+      fn1: Which essential bio-security measures you as nursery controllers can take before an infectious disease breaks out in your nursery
+      fn2: Communication Strategies you should be aware of.
+      fn3: What mistakes nursery staff should avoid, to avoid panic when they communicate with parents during infectious disease outbreak in nursery
+    module3:
+      label: "Module 3:"
+      title: Preventative cleaning after episodes involving bodily fluids
+      text1: Primary design
+      text2: Nurseries must face a daily struggle against bodily fluids, which create a considerable risk of spreading infectious disease-carrying germs and viruses. This is particularly challenging since cross- infection can easily occur when staff  had had direct contact with the bodily fluids of a sick child.
+      text3: "In this course, you will learn why:"
+      fn1: What measures you can take to ensure that there are bio security procedures in your nursery for cleaning after episodes of bodily fluids.
+      fn2: Which steps staff should take to prevent equipment becoming infected
+      fn3: How to clean the bodily fluids that may contain infectious disease-carrying germs and viruses
+    module4:
+      label: "Module 4:"
+      title: Preventative action when changing nappies in the nursery
+      text1: Primary motive
+      text2: Changing nappies is considered to be a task with the highest risk of transmission of pathogenic germs and viruses among children and staff in nurseries. The risk of infection associated with changing nappies is quite real as disease-bearing pathogens can spread from person to person; even when there is no sign of illness among the manager and staff.
+      text3: "In this course, you will learn why:"
+      fn1: The ratio of infectious disease outbreak and performing nappy changing shifts in nursery
+      fn2: What measures you can take to raise can take to raise awareness among nursery staff about infection prevention when nappy changing.
+      fn3: Overview of nappy changing procedures that minimise the risk of the spread of disease- carrying germs and viruses.
+    module5:
+      label: "Module 5:"
+      title: Preventative hand-washing in the nursery.
+      text1: Primary motive
+      text2: Good hand washing constitutes the first line of defence against the spread of infectious diseases. A hand that has been in contact with the infection, spreading it onto surfaces that have come in contact with viruses can remain active for a long time. When children and adults touch these surfaces and then touch their face they run the risk of spreading the infection further.
+      text3: "In this course, you will learn why:"
+      fn1: The ratio of infectious disease outbreak and lack of good hand-washing in nursery
+      fn2: What measures you as nursery managers can take to promote good hand-washing in your nursery.
+      fn3: Critical rules for bio-security any nursery employee should know about
+  roles:
+    daycare_admin: "Admin"
+    daycare_manager: "Barnehageleder"
+    daycare_worker: "Barnehage personale"
+    daycare_parentee: "Barnehageforeldre"
+  iteration_types:
+    single: "Hendelsebasert"
+    recurring: "Rutinebasert"
+  permissions:
+    section_a: "MINSKE RISIKE FOR SMITTE FORKOMST"
+    section_b: "MINSKE RISIKE FOR SMITTESPREDNING"
+    title: "Velkommen til smitttevemportalen"
+    button-access: "Access"
+    button-video: "Watch Video"
+    button-illness-popup: "Utforsk"
+    button-illness-guide: "Varsle"
+    order_set: "Right order for permissions set successfully"
+  permissions-a:
+    survey: "Skap bevissthet"
+    online_training: "Heve kompetanse"
+    todo: "Sikre smitteforbyggende handling"
+    survey-title: "Skape bevissthet om smitteforebyggende vaner"
+    online_training-title: "Styrke kompetanse rundt smitteforebyggende rutiner"
+    todo-title: "Sikre kgode smitte forebygging rutiner"
+  permissions-b:
+    title1: "Få bevissthet om smittefare"
+    title2: "Kompetanse for å håndtere smittefare"
+    title3: "Foreta smittefare tilpasset handling"
+    emergency-title: "Bli bevisst fare knyttet til oppståtte sykdommen"
+    illness_record-title: "Bli bevisst på sykdom utbrudd fare"
+    illness_guide-title: "Kompetanse til å håndtere sykdommer i barnehagen"
+    message-title: "Kompetanse til å håndtere sykdommer hjemme"
+    todo-b-title: "Sikre smittefare tillpassede tiltak"
+    illness_analysics-title: "Være bedre forberedt til fremtidig utbrudd"

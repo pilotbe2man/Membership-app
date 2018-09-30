@@ -1,0 +1,28 @@
+= content_for :title, t('illness_guides.illness')
+- content_for :page_title, t('dashboard.menu_item.illness_guide')
+- step_size = 2
+- page_step = 1
+.message-dash-container
+  .container
+    .row
+      = render partial: '/shared/progress_bar', locals: {step_size: step_size, page_step: page_step}
+    .row.content-main
+      = form_tag content_manager_illness_guides_path, method: :get do
+        = hidden_field_tag :target_role, params[:target_role]
+        .col-md-12
+          %h4.option-title= t('illness_guides.labels.choose_illness')
+        .col-md-12
+          = select_tag :illness_id, options_for_select(@illnesses.map { |obj| [obj.title, obj.id] }), class: 'form-control', :prompt => "Placeholder", :placeholder => t('illness_guides.labels.choose_illness')
+        .col-md-12.form-buttons.text-right.no-h-padding
+          .col-md-3.col-md-offset-6.col-sm-3.col-sm-offset-6.col-xs-6
+          .col-md-3.col-sm-3.col-xs-6
+            = submit_tag t('form_labels.next'), class: 'btn bg-style-b btn-wizard'
+:javascript
+  jQuery(document).ready(function() {
+    $("#illness_id").select2({
+        placeholder: $('#illness_id').attr('placeholder')
+    });
+    $('#link_dashboard_guide').on('click', function(){
+      window.location.href = '/guide_page/illness_guide/guide1';
+    });
+  });

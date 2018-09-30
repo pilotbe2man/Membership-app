@@ -1,0 +1,16 @@
+#legacy-result.survey-result-dash-container
+  .container
+    = form_tag new_subject_attempt_path(@subject), method: :get, id: 'retake-form' do
+      .row.survey-subjects
+        = render 'subjects'
+      #progress_charts_partial.wrap
+        = render partial: 'progress_charts', :locals => {trend: @trend}
+      .row.text-center.form-buttons
+        =submit_tag t('survey.labels.retake_test'), :class => 'btn btn-lightred'
+:javascript
+  // Load the Visualization API and the corechart package.
+  jQuery(document).ready(function() {
+    $('#link_dashboard_guide').on('click', function(){
+      window.location.href = '/guide_page/worker_survey/take_step1';
+    });    
+  });  

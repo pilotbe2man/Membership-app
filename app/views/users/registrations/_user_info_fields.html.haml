@@ -1,0 +1,28 @@
+.row.parent-info
+  = devise_error_messages!
+  .col-sm-8.text-left
+    - unless @user.role == "parentee"
+      .row
+        %h5=t('register.labels.name').upcase
+        = user.text_field :name, class: 'form-control input-round', :placeholder => t('register.labels.name').upcase, :required =>"true"
+    - if @user.role == "parentee" or @user.role == "worker"
+      .row
+        %h5=t('register.labels.email').upcase
+        = user.email_field :email, class: 'form-control input-round', :placeholder => t('register.labels.email').upcase
+    - else
+      .row
+        %h5=t('register.labels.email').upcase
+        = user.email_field :email, class: 'form-control input-round', :placeholder => t('register.labels.email').upcase, :required =>"true"
+    / .row
+    /   %h5=t('register.labels.password').upcase
+    /   = user.password_field :password, class: 'form-control input-round', :placeholder => t('register.labels.password').upcase
+    / .row
+    /   %h5=t('register.labels.pwd_confirm').upcase
+    /   = user.password_field :password_confirmation, autocomplete: 'off', class: 'form-control input-round', :placeholder => t('register.labels.pwd_confirm').upcase
+    .row
+      %h5=t('register.labels.current_password').upcase
+      = user.password_field :current_password, autocomplete: 'off', class: 'form-control input-round', :placeholder => t('register.labels.current_password').upcase, :required => "true"
+    - if @minimum_password_length
+      .row
+        %em{:style => "padding-left: 20px;"}
+          (#{@minimum_password_length}) characters minimum

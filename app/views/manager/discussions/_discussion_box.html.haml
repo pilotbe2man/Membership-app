@@ -1,0 +1,12 @@
+.row
+  .col-md-10
+    .discussions.container-fuid
+      - @discussions.each do |discussion|
+        = render partial: '/discussions/discussion', locals: {discussion: discussion}
+
+    .row.discussion-form
+      %hr
+      = render partial: 'form'
+
+  .col-md-2.side-menu
+    = render partial: '/discussions/collaborators'

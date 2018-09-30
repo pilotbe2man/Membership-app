@@ -1,0 +1,46 @@
+<% content_for :title, 'Poster' %>
+<% content_for :breadcrumb, @locale_poster.id.to_s %>
+<% breadcrumb_add 'Poster', admin_locale_posters_path %>
+
+<div class="twelvecol">
+    <div class="page-header">
+        <h2 class="widget widget-header">Poster <%= @locale_poster.poster_file_name %></h2>
+    </div>
+    <%= form_for [:admin, @locale_poster], multipart: true  do |f| %>
+    <div class="threecol"></div>
+    <div class="ninecol last">
+    </div>
+
+    <div class="threecol">
+        <h3>Poster details</h3>
+    </div>
+
+    <div class="ninecol last">
+      <fieldset class="widget widget-content">
+        <div class="form-group">
+          <label>Poster URL</label>
+            <div class='form-control'><%= link_to root_url(download_pdf: @locale_poster.id), root_url(download_pdf: @locale_poster.id) %></div>
+        </div>
+        <div class="form-group">
+          <label>Poster Type</label>
+          <div class='form-control'><%= @locale_poster.poster_type %></div>
+        </div>
+        <div class="form-group">
+          <label>Language</label>
+          <div class='form-control'><%= @locale_poster.language %></div>
+        </div>
+        <div class="form-group">
+          <label>Title</label>
+          <div class='form-control'><%= @locale_poster.title.try(:html_safe) %></div>
+        </div>
+        <div class="form-group">
+          <label>Button</label>
+          <div class='form-control'><%= @locale_poster.button.try(:html_safe) %></div>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <div class='form-control' style="height:100%"><%= @locale_poster.description.try(:html_safe) %></div>
+        </div>
+        </fieldset>
+<% end %>
+</div>

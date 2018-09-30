@@ -1,0 +1,112 @@
+.manager-dash-container
+  .container
+    - if current_user.daycare.present? && current_user.daycare.pay_mode == 1
+      = render 'manager_start'
+    - else
+      = render 'manager_email'
+:javascript
+  jQuery(document).ready(function() {
+    $('body').css("src","background-color: #242c3f !important;");
+    $('footer.normal .container').css("top", "0");
+    $('footer.normal .container .central-footer').css("display", "none");
+
+    $('#main-menu.free-customer .btn-red').on('click', function(){
+        $(this).attr('disabled', true);
+    });
+
+    $('#main-menu.apply-customer .btn-red').on('click', function(){
+        #{current_user.plan_type == 0 ? 'alert("You are already in the process to get access to this package");' : '$(this).attr("disabled", true);'}
+    });
+
+    $("#item_message").popover({
+        container: '.content-main',
+        html: true,
+        placement: "right",
+        trigger: "hover",
+        title: function () {
+            return "#{t('guideline.benifit.message.title')}";
+        },
+        content: function () {
+            return "#{t('guideline.benifit.message.content')}";
+        }
+    });
+
+    $("#item_survey").popover({
+        container: '.content-main',
+        html: true,
+        placement: "right",
+        trigger: "hover",
+        title: function () {
+            return "#{t('guideline.benifit.survey.title')}";
+        },
+        content: function () {
+            return "#{t('guideline.benifit.survey.content')}";
+        }
+    });
+
+    $("#item_todo").popover({
+        container: '.content-main',
+        html: true,
+        placement: "right",
+        trigger: "hover",
+        title: function () {
+            return "#{t('guideline.benifit.todo.title')}";
+        },
+        content: function () {
+            return "#{t('guideline.benifit.todo.content')}";
+        }
+    });
+
+    $("#item_illness_graph").popover({
+        container: '.content-main',
+        html: true,
+        placement: "right",
+        trigger: "hover",
+        title: function () {
+            return "#{t('guideline.benifit.illness_graph.title')}";
+        },
+        content: function () {
+            return "#{t('guideline.benifit.illness_graph.content')}";
+        }
+    });
+
+    $("#item_illness").popover({
+        container: '.content-main',
+        html: true,
+        placement: "right",
+        trigger: "hover",
+        title: function () {
+            return "#{t('guideline.benifit.illness_record.title')}";
+        },
+        content: function () {
+            return "#{t('guideline.benifit.illness_record.content')}";
+        }
+    });
+
+    $("#item_instruction").popover({
+        container: '.content-main',
+        html: true,
+        placement: "right",
+        trigger: "hover",
+        title: function () {
+            return "#{t('guideline.benifit.instruction.title')}";
+        },
+        content: function () {
+            return "#{t('guideline.benifit.instruction.content')}";
+        }
+    });
+
+    $("#item_illness_guide").popover({
+        container: '.content-main',
+        html: true,
+        placement: "right",
+        trigger: "hover",
+        title: function () {
+            return "#{t('guideline.benifit.illness_guide.title')}";
+        },
+        content: function () {
+            return "#{t('guideline.benifit.illness_guide.content')}";
+        }
+    });
+
+  });

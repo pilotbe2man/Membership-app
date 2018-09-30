@@ -1,0 +1,25 @@
+.panel
+  .panel-body
+    %h5
+      = t('survey.labels.groups')
+
+    .survey-group
+      .group-header.parents
+        = image_tag 'parent-icon.png', class: 'img'
+        = t('survey.labels.parents')
+
+      .group-members.parents
+        %a{href: '#', class: 'get-group-result', 'data-subject_group': 'parentee'}= t('survey.labels.all')
+        - @parents.each do |parent|
+          - unless @subject.nil?
+            %a{href: '#', class: 'get-single-user-result', 'data-subject_id': @subject.id, 'data-id': parent.id}= parent.name
+
+    .survey-group
+      .group-header.workers
+        = image_tag 'worker-icon.png', class: 'img'
+        = t('survey.labels.workers')
+      .group-members.workers
+        %a{href: '#', class: 'get-group-result', 'data-subject_group': 'worker'}= t('survey.labels.all')
+        - @workers.each do |worker|
+          - unless @subject.nil?
+            %a{href: '#', class: 'get-single-user-result', 'data-subject_id': @subject.id, 'data-id': worker.id}= worker.name

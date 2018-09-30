@@ -1,0 +1,200 @@
+.legacy-standard
+{
+    .promo{
+        
+    }
+    .promo-img{
+        
+    }
+    .promo-img img {    
+        width:100%;
+    }
+    .promo-img img{
+
+    }
+    .img-text{
+        position: absolute;
+        top: 35%;
+        padding: 40px;
+        width: 65%;
+        font-size: 40px;
+        
+        font-family: 'Open Sans'; font-weight: 400; 
+    }
+
+    .img-text h2{ 
+        font-size: 40px;
+        margin-bottom: 50px;
+    }
+
+    #page-menu li:hover a{
+        background: none;
+        border-bottom:none;
+         color:#426cd5;
+    }
+
+    #page-menu {}
+    #page-menu  li{}
+    #page-menu  li.active a{color:#426cd5;font-weight: normal}
+    #page-menu li a {background: none;color:#dfdfdf;font-size:22px;}
+    
+    #page-menu li:nth-child(1) .fa{
+        background: #426cd5;
+    }    
+
+    #page-menu li:nth-child(2) .fa{
+        background: #ffba03;
+    }    
+
+    #page-menu li:nth-child(3) .fa{
+        background: #89af3a;
+    }    
+
+    #page-menu li:nth-child(4) .fa{
+        background: #1fa5ab;
+    }    
+
+    #page-menu .fa-angle-down {
+        color: #fff;        
+        padding: 7px;
+        border-radius: 50%;
+        margin-right: 16px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        font-size: 27px;
+
+    }
+    #page-menu .fa-angle-right{
+        color: #fff;        
+        padding: 7px;
+        border-radius: 50%;
+        margin-right: 16px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        font-size: 27px;
+
+    }
+    .page-heading{
+
+    }
+    .page-heading h2{
+        font-size: 50px;
+        font-family: open-sans;
+        color:#365ebf;
+        text-align: center
+    }
+    .page-discription{}
+    .page-discription p{
+        font-size:26px;
+        text-align: center;
+        margin-bottom: 100px
+    }
+    .page-description-list{}
+    .listed-thumb{margin-top: 40px; text-align: center;}
+    .list-description,
+    .list-left-description{
+        position: relative;
+        margin-bottom: 30px;
+        margin-top: 30px; 
+        padding: 0px 20px;
+        h3, h4{
+            text-align: center;
+        }
+        h2{    
+            margin-left: 40px; 
+            font-family: open-sans; 
+            font-size: 35px; 
+        } 
+ 
+        p{margin-left: 0;}         
+    }
+    .vertial-border::before {    
+        position: absolute;
+        content: "";
+        width: 4px;
+        height: 100%;
+        color: red;
+        left: 0;
+        top: 0;
+        background: #0465ce; 
+    }
+
+    #get-start-free{    
+        padding: 5px 50px;
+        background: #365ebf;
+        color: #fff;
+        border-radius: 15px;
+        background: #ff5443;
+        background: -webkit-linear-gradient(#ffa63e, #ff0a55);
+        background: -o-linear-gradient(#ffa63e, #ff0a55);
+        background: -moz-linear-gradient(#ffa63e, #ff0a55);
+        background: linear-gradient(#ffa63e, #ff0a55);
+
+    }
+    #get-start-free h2{font-size:27px; color: #feb038;}
+    #get-start-free p{
+        font-size:16px;
+        font-family: Arial;
+        font-style: italic;
+        a{
+            color: #feb038;
+        }
+    }
+    .start-free span{     
+        
+    }
+    #bg{background: image-url('bg.png') no-repeat center ;padding: 20px}
+    .get-start{}
+    .start-free i{  margin-left: 70px;font-size:40px;  }
+    .start-free a{color:#fff;}
+
+    .page-description-list{ 
+        .row{ 
+            margin-top: 40px; 
+            margin-bottom: 40px; 
+
+            .header-before,
+            .header-after{
+                background: #ec004f;
+                color: #fff;
+            } 
+
+            .header-before{
+                border-top-left-radius: 35px;
+                border-bottom-left-radius: 35px;
+            }
+
+            .header-after{
+                border-top-right-radius: 35px;
+                border-bottom-right-radius: 35px;
+            }
+
+            h2{ 
+                padding: 15px 0; 
+            } 
+        } 
+    } 
+ 
+    .image-list-block{ 
+        img{ 
+            border: 2px solid #ddd; 
+            width: 200px; 
+            height: 200px; 
+        } 
+    } 
+ 
+    .orange-text{ 
+        color: #fc5f4a; 
+    } 
+ 
+    .pink-text{ 
+        color: #f03f73; 
+    } 
+ 
+    .white-yellow-bgcolor{ 
+        background: #fdfaf6; 
+        padding-bottom: 40px; 
+    } 
+}

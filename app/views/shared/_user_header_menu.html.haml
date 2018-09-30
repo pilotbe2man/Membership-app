@@ -1,0 +1,10 @@
+#user
+  = image_tag current_user_role_avatar, class: 'img img-thumbnail img-circle'
+  %span.user-name
+    = current_user.name
+
+  = link_to destroy_user_session_path, method: :delete, id: 'logout-link' do
+    %span.glyphicon.glyphicon-off{'aria-hidden': true}
+
+  .user-role
+    = 'Daycare %s' % current_user.role.humanize

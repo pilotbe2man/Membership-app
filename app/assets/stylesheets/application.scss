@@ -1,0 +1,44 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ *= require jquery.datetimepicker
+ *= require normalize-css
+ *= require simple_form_extension
+ *= require select2
+ */
+
+@import "bootstrap-social";
+@import "1100";
+@import "header";
+@import "footer";
+@import "introjs";
+@import "animate";
+@import "legacy/standard";
+@import "legacy/path";
+@import "legacy/upgrade";
+@import "legacy/css";
+@import "legacy/daycares";
+@import "legacy/common";
+@import "legacy/header";
+@import "legacy/back-index";
+@import "legacy/back-one";
+@import "legacy/back-two";
+@import "legacy/back-three";
+@import "legacy/survey";
+@import "legacy/result";
+@import "legacy/user-plan";
+@import "version_2";
+@import "flipclock";
+@import "responsive";
+@import "common";
+@import "description";

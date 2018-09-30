@@ -1,0 +1,16 @@
+- unless @todo.nil?
+  - @todo.tasks.each_with_index do |task, index|
+    - @report = TodoReporter.new(todo_completes: @todo_completes, task_id: task.id).percentages
+    .row.todo-report
+      .sixcol
+        %h3= task.title
+        %p= task.description
+        %p
+          =t('manager.todos.labels.complete')               
+          %span.yellow= @report[:complete].round
+        %p
+          =t('manager.todos.labels.incomplete')               
+          %span.red= @report[:incomplete].round
+      .sixcol.last
+        %canvas.pie-chart{:height => "150", :id => "piePaymentTypeChart#{task.id}", :width => "150"}
+        = render partial: 'shared/chart/pie', format: [:html], locals: { datasets:  Hash(complete: { value: @report[:complete].round, color: "#ffc30b" }, incomplete: { value: @report[:incomplete].round, color: '#ff5637' }), id: "piePaymentTypeChart#{task.id}"}

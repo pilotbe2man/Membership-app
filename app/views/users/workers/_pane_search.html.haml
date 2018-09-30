@@ -1,0 +1,65 @@
+.row.text-center.step-banner
+  = image_tag 'worker-md.png'
+  %h4=t('account.daycare.worker')
+.row.pane-container.text-center
+  .row.step-banner
+    .col-sm-3.col-xs-3.step-item.first-step.item-worker.active
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'worker-sm.png'
+        %span=t('register.labels.select_daycare')
+    .col-sm-3.col-xs-3.step-item.second-step.item-worker
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+    .col-sm-3.col-xs-3.step-item.third-step.item-worker
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+    .col-sm-3.col-xs-3.step-item.fourth-step.item-worker    
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+  = form_tag worker_select_daycare_path, method: :get  
+  .row
+    .col-sm-12.search-inline-text
+      %input{type: :hidden, name: 'option', value: params[:option], id: 'param_option'}
+      = text_field_tag(:query, params[:query], autocomplete: 'off', tabindex: "1", :class => 'form-control input-round', :placeholder => "Search for...")
+      %a.search-submit{:href => "#"}
+        %i.fa.fa-search
+.row.pane-search-result
+  .col-sm-12
+    %ul.list-unstyled.msg_list
+      - @daycares.each do |daycare|
+        - if params[:option].to_i < 2
+          %li
+            %input{:type=>"radio", :name => "daycare_item", :id => "chk_item_#{daycare.id}", :style => "display: none;", "select-link" =>worker_select_department_path(role: 'worker', daycare_id: daycare.id, option: params[:option]) }
+            %label{:for => "chk_item_#{daycare.id}"}
+              %span.image
+                = image_tag (daycare.profile_image.blank?) ? 'worker-md.png' : daycare.profile_image
+              %span
+                %span 
+                  %b=daycare.name
+              %span.message=daycare.address_line1
+              %span.message=daycare.postcode
+              %span.message=daycare.telephone
+        - else
+          %li
+            %input{:type=>"radio", :name => "daycare_item", :id => "chk_item_#{daycare.id}", :style => "display: none;", "select-link" =>worker_select_department_path(daycare_id: daycare.id, option: params[:option]) }
+            %label{:for => "chk_item_#{daycare.id}"}
+              %span.image
+                = image_tag (daycare.profile_image.blank?) ? 'worker-md.png' : daycare.profile_image
+              %span
+                %span 
+                  %b=daycare.name
+              %span.message=daycare.address_line1
+              %span.message=daycare.postcode
+              %span.message=daycare.telephone
+:javascript
+  jQuery(document).ready(function() {    
+    $('.search-submit').click(function(){
+      $('form').submit();
+    });
+  });

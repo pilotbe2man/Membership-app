@@ -1,0 +1,158 @@
+= content_for :title, 'Permission'
+= content_for :breadcrumb, 'Permission'
+
+.twelvecol
+  .page-header
+    = link_to order_all_admin_permissions_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Order All Permissions" do
+      %i.icon-pencil Order All Permissions
+    %h2.widget.widget-header All Permissions in database
+  %h2 Parentee Permissions:
+  = link_to order_admin_permissions_path+'?type=parentee', :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Order Parentee Permissions" do
+    %i.icon-pencil
+  .widget.widget-content.row
+    .table-responsive
+      %table.table-striped.table-bordered.table-hover
+        %thead
+          %th Member type
+          %th Sub type
+          %th Feature
+          %th Active
+          %th Plan
+          %th Path
+          %th Guide path
+          %th Element
+          %th Image
+          %th Label key
+          %th Daycare Id
+          %th Partner Id
+          %th Plan deposit
+          %th Order
+        - @parentee_permissions.each do |permission|
+          %tbody
+            %tr
+              %td= permission.member_type
+              %td= permission.sub_type
+              %td= permission.feature
+              %td= permission.active
+              %td= permission.plan
+              %td= permission.path
+              %td= permission.guide_path
+              %td= permission.element
+              %td= permission.image
+              %td= permission.label_key
+              %td= permission.daycare_id
+              %td= permission.partner_id
+              %td= permission.plan_deposit
+              %td= permission.order
+
+    %h2 Partner Permissions:
+    = link_to order_admin_permissions_path+'?type=partner', :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Order Partner Permissions" do
+      %i.icon-pencil
+    .table-responsive
+      %table.table-striped.table-bordered.table-hover
+        %thead
+          %th Member type
+          %th Sub type
+          %th Feature
+          %th Active
+          %th Plan
+          %th Path
+          %th Guide path
+          %th Element
+          %th Image
+          %th Label key
+          %th Daycare Id
+          %th Partner Id
+          %th Plan deposit
+          %th Order
+        - @partner_permissions.each do |permission|
+          %tbody
+            %tr
+              %td= permission.member_type
+              %td= permission.sub_type
+              %td= permission.feature
+              %td= permission.active
+              %td= permission.plan
+              %td= permission.path
+              %td= permission.guide_path
+              %td= permission.element
+              %td= permission.image
+              %td= permission.label_key
+              %td= permission.daycare_id
+              %td= permission.partner_id
+              %td= permission.plan_deposit
+              %td= permission.order
+    %h2 Manager Permissions:
+    = link_to order_admin_permissions_path+'?type=manager', :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Order Manager Permissions" do
+      %i.icon-pencil
+    .table-responsive
+      %table.table-striped.table-bordered.table-hover
+        %thead
+          %th Member type
+          %th Sub type
+          %th Feature
+          %th Active
+          %th Plan
+          %th Path
+          %th Guide path
+          %th Element
+          %th Image
+          %th Label key
+          %th Daycare Id
+          %th Partner Id
+          %th Plan deposit
+          %th Order
+        - @manager_permissions.each do |permission|
+          %tbody
+            %tr
+              %td= permission.member_type
+              %td= permission.sub_type
+              %td= permission.feature
+              %td= permission.active
+              %td= permission.plan
+              %td= permission.path
+              %td= permission.guide_path
+              %td= permission.element
+              %td= permission.image
+              %td= permission.label_key
+              %td= permission.daycare_id
+              %td= permission.partner_id
+              %td= permission.plan_deposit
+              %td= permission.order
+    %h2 Worker Permissions:
+    = link_to order_admin_permissions_path+'?type=worker', :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Order Worker Permissions" do
+      %i.icon-pencil
+    .table-responsive
+      %table.table-striped.table-bordered.table-hover
+        %thead
+          %th Member type
+          %th Sub type
+          %th Feature
+          %th Active
+          %th Plan
+          %th Path
+          %th Guide path
+          %th Element
+          %th Image
+          %th Label key
+          %th Daycare Id
+          %th Partner Id
+          %th Plan deposit
+          %th Order
+        - @worker_permissions.each do |permission|
+          %tbody
+            %tr
+              %td= permission.member_type
+              %td= permission.sub_type
+              %td= permission.feature
+              %td= permission.active
+              %td= permission.plan
+              %td= permission.path
+              %td= permission.guide_path
+              %td= permission.element
+              %td= permission.image
+              %td= permission.label_key
+              %td= permission.daycare_id
+              %td= permission.partner_id
+              %td= permission.plan_deposit
+              %td= permission.order

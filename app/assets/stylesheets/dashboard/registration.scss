@@ -1,0 +1,18 @@
+.select-daycare, .select-department
+{
+    .item
+    {
+        margin-bottom:30px;
+        border-bottom: 1px solid $grey;
+    }
+}
+.select-daycare
+{
+    .item
+    {
+        a
+        {
+            margin:15% 0;
+        }
+    }
+}

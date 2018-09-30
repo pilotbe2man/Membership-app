@@ -1,0 +1,42 @@
+- content_for :title, 'Localization Dashboard'
+- content_for :breadcrumb, 'Localization'
+.twelvecol
+  .page-header
+    %h2.widget.widget-header= t('admin.lang_dashboard.index.heading')
+  .table-responsive
+    %table.table.table-striped.table-bordered.table-hover
+      %thead
+        %tr
+          %th= t('admin.lang_dashboard.index.sub_head')
+          %th
+      %tbody
+        %tr
+          %td= t('admin.lang_dashboard.index.label1')
+          %td
+            = link_to admin_lang_main_path do
+              %i.icon-search
+        %tr
+          %td= t('admin.lang_dashboard.index.label2')
+          %td
+            = link_to admin_lang_survey_path do
+              %i.icon-search
+        %tr
+          %td= t('admin.lang_dashboard.index.label3')
+          %td
+            = link_to admin_lang_illness_path do
+              %i.icon-search
+        %tr
+          %td= t('admin.lang_dashboard.index.label4')
+          %td
+            = link_to admin_lang_training_path do
+              %i.icon-search
+        %tr
+          %td= t('admin.lang_dashboard.index.label5')
+          %td
+            = link_to admin_lang_template_path do
+              %i.icon-search
+        %tr
+          %td= t('admin.lang_dashboard.index.label6')
+          %td
+            = link_to admin_lang_video_path do
+              %i.icon-search

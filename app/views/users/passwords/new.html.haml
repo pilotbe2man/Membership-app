@@ -1,0 +1,127 @@
+- if @daycare.present?
+  .reg-parentee-container.page-boxed
+    .page-header
+    .container
+      .form-content        
+        #rootwizard
+          %ul{:style=> "visibility: hidden; height: 0; position:absolute;"}
+            %li
+              %a{"data-toggle" => "tab", :href => "#tab1"} First
+          .tab-content
+            #tab1.tab-pane
+              = render 'pass_fields'
+            .col-sm-12
+              %ul.pager.wizard.text-left
+                %li.previous
+                  %button.btn.btn-round.item-manager{:type => "button", :class => "item-#{params[:role]}"} 
+                    =t('register.labels.previous')
+                %li.next{:style => "float:right;"}
+                  %button.btn.btn-round.item-manager{:type => "button", :class => "item-#{params[:role]}"} 
+                    =t('register.labels.next')
+                %li.previous.first{:style => "display:none;"}
+                  %a{:href => "#"} First
+                %li.next.last{:style => "display:none;"}
+                  %a{:href => "#"} Last 
+
+-else
+  .login-container.page-boxed
+    .container
+      .col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-12.text-center
+        .notification-box.border-style-1
+          .row
+            %span.panel-title=t('pages.password.forgot_label')
+          .row.panel-content
+            = image_tag LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? 'logo.png' : LocaleLogo.by_type_language(1, I18n.locale).first.logo.url, :class => 'logo', style: 'width: 130px;'
+          .row
+            = form_for(resource, as: resource_name, url: password_url) do |f|
+              .col-md-12.form-group
+                = devise_error_messages!
+              .col-md-12.form-group
+                = f.email_field :email, autofocus: true, :class => 'form-control input-round', placeholder: 'Email', required: true
+              .col-md-12.form-group.text-center
+                = f.submit t('pages.password.send_guide'), :class => "btn btn-round col-xs-12 item-manager"
+:javascript
+  jQuery(document).ready(function() {
+    $('body').css("src","background-color: #242c3f !important;");
+    $('footer.normal .container').css("top", "0");
+    $('footer.normal .container .central-footer').css("display", "none");
+    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'});
+
+    $('.previous button').click(function(){
+      role = '#{params[:role]}'
+        if (role == 'worker')
+        {
+          path = '#{password_select_department_path(daycare_id: params[:daycare_id], role: params[:role])}'
+        }
+        else
+        {
+          path = '#{password_select_daycare_path(role: params[:role])}'
+        }
+      window.location.href = path;
+    });
+
+    $('.next button').click(function(){
+       if ($('#new_email').val() == 'yes')
+       {
+        $('.new_user').submit();
+       }
+
+       else
+
+       {
+
+        name = $("#user_name").val()
+        role = '#{params[:role]}'
+        if (role == 'worker')
+        {
+          department_id = $('input[name=user\\[department_id\\]]').val();
+        }
+        else
+        {
+          department_id = $('input[name=user\\[department_id\\]]:checked').val();
+        }
+        
+        email =  $("#user_email").val();
+
+        jQuery.ajax({
+            url: 'check_email_exists',
+            type: 'POST',
+            data: {
+              user: {
+              name: name,
+              department_id: department_id
+              },
+            },
+            success: function (data) {
+              response = data.result;
+              if(response == 'email_required')
+              {
+                $("#user_name").hide();
+                $('.parent-department').hide();
+
+                $("#user_email").show();
+                $("#user_email").prop('required',true);
+                $('#new_email').val('yes')
+              }
+              else if(response == 'email_present')
+              {
+                $("#user_email").prop('required',false);
+                $('#new_user').submit();
+              }
+              else
+              {
+                $("#user_email").prop('required',false);
+                $('#new_user').submit();
+              }
+            },
+            error: function () {
+              $("#user_email").prop('required',false);
+              $('#new_user').submit();
+            }
+        }); 
+      }  
+
+
+    });
+
+  });

@@ -1,0 +1,31 @@
+.row
+  .col-md-4
+    .form-group
+      = hidden_field_tag :list_type, params['list_type']
+      = hidden_field_tag :user_role, current_user.role
+      = label_tag :target_role, t('messages.labels.show_only_messages_to_filter')
+      .form-dc-select
+        = select_tag :target_role, options_for_select(options_for_message_recipients_select, selected: params['target_role']), class: 'form-control selectpicker', required: true, prompt: t('messages.labels.recipient'), class: 'form-control'
+
+  .col-md-4
+    .form-group#subject-filter{class: params['target_role'].present? ? '' : 'hidden'}
+      = label_tag :subject, t('messages.labels.subject')
+      .form-dc-select
+        = select_tag :subject_id, options_from_collection_for_select(@subjects, 'id', 'title', params[:subject_id].to_i), class: 'form-control selectpicker', prompt: t('messages.labels.choose_subject'), class: 'form-control'
+
+  .col-md-4
+    .form-group#sub-subject-filter{class: params['target_role'].present? ? '' : 'hidden'}
+
+.row
+  .col-md-4
+    .form-group
+      = label_tag :start_date, t('form_labels.start_date')
+      = text_field_tag :start_date, params['start_date'], class: 'datepicker form-control datetime-input', autocomplete: 'off'
+
+  .col-md-4
+    .form-group
+      = label_tag :end_date, t('form_labels.end_date')
+      = text_field_tag :end_date, params['end_date'], class: 'datepicker form-control datetime-input', autocomplete: 'off'
+
+  .col-md-4.form-buttons.filter-buttons.centralize
+    = link_to t('messages.labels.apply_filters'), '#', class: 'btn bg-style-b', id: 'apply-message-filters'

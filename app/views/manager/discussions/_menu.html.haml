@@ -1,0 +1,13 @@
+.navbar-header
+  %button.navbar-toggle.collapsed{'data-toggle': 'collapse', 'data-target': '#navbar', 'aria-expanded': false, 'aria-controls': 'navbar'}
+    %span.sr-only Toggle Navigation
+    %span.icon-bar
+  %a.navbar-brand{href: '#'}
+    = image_tag daycare_logo(current_user.daycare), class: 'img pull-left'
+    %span= current_user.daycare.name
+
+#navbar.navbar-collapse.collapse
+  %ul.nav.navbar-nav
+    - current_user.daycare.departments.each do |dept|
+      %li{class: dept.id == @active_department.id ? 'active' : ''}
+        %a{href: manager_discussions_path(department_id: dept.id)}= dept.name

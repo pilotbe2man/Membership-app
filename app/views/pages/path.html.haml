@@ -1,0 +1,116 @@
+.legacy-path 
+  .row.promo
+    .promo-img
+      = image_tag 'home_slider.jpg'
+      .img-text.image-text-path
+        %h2= t('pages.path.main_heading').html_safe
+        %p= t('pages.path.paragraph1').html_safe
+        %h4.text-orange
+          =image_tag('standard-new.png')
+          = t('pages.path.instro').html_safe
+  .container
+    = render 'steps_navigation'  
+    .row
+      .col-md-12
+        %h3.heading-letter.text-pink= t('pages.path.sub_heading1').html_safe
+        %p= t('pages.path.instro_2').html_safe
+        %p
+          %b= t('pages.path.instro_3').html_safe
+    .row.phase-wrapper
+      .col-md-4.col-sm-8.col-xs-12.path-step-graph.first-phase
+        =image_tag 'path-step-1.png', class: 'path-step-mark'
+        %h3.text-orange= t('pages.path.step_point1').html_safe
+        %p.text-orange.step-desc= t('pages.path.step_point1_desc').html_safe
+        .phase-frame
+          %h1.text-dark-pink 1
+          %h4.text-bold.text-center= t('pages.path.phase1_title').html_safe
+          %ul
+            %li
+              = t('pages.path.phase1_para1').html_safe
+            %li
+              = t('pages.path.phase1_para2').html_safe
+            %li
+              = t('pages.path.phase1_para3').html_safe
+
+      .col-md-4.col-sm-8.col-xs-12.path-step-graph.second-phase
+        =image_tag 'path-step-2.png', class: 'path-step-mark'
+        %h3.text-light-orange= t('pages.path.step_point2').html_safe
+        %p.text-light-orange.step-desc= t('pages.path.step_point2_desc').html_safe        
+        .phase-frame
+          %h1.text-orange 2
+          %h4.text-bold.text-center= t('pages.path.phase2_title').html_safe
+          %ul
+            %li
+              = t('pages.path.phase2_para1').html_safe
+            %li
+              = t('pages.path.phase2_para2').html_safe
+            %li
+              = t('pages.path.phase2_para3').html_safe
+      .col-md-4.col-sm-8.col-xs-12.path-step-graph.third-phase
+        =image_tag 'path-step-3.png', class: 'path-step-mark'
+        %h3.text-yellow= t('pages.path.step_point3').html_safe
+        %p.text-yellow.step-desc= t('pages.path.step_point3_desc').html_safe
+        .phase-frame
+          %h1.text-yellow 3
+          %h4.text-bold.text-center= t('pages.path.phase3_title').html_safe
+          %ul
+            %li
+              = t('pages.path.phase3_para1').html_safe
+            %li
+              = t('pages.path.phase3_para2').html_safe
+            %li
+              = t('pages.path.phase3_para3').html_safe
+      .col-md-12.text-center
+        %p.text-left= t('pages.path.instro_4').html_safe
+  .row.step-detail-1.detail-wapper
+    .container
+      .phase-director
+      .phase-details
+        %h3.heading= t('pages.path.phase1_det_title').html_safe
+        %p= t('pages.path.phase1_det_para1').html_safe
+        %h4.sub-heading= t('pages.path.phase1_det_subtitle').html_safe
+        %p= t('pages.path.phase1_det_para2').html_safe
+  .row.step-detail-2.detail-wapper
+    .container
+      .phase-director
+      .phase-details
+        %h3.heading= t('pages.path.phase2_det_title').html_safe
+        %p= t('pages.path.phase2_det_para1').html_safe
+        %h4.sub-heading= t('pages.path.phase2_det_subtitle').html_safe
+        %p= t('pages.path.phase2_det_para2').html_safe
+        %p= t('pages.path.phase2_det_para3').html_safe
+        .col-md-offset-3.col-md-6.step-contents.text-center          
+          %p= t('pages.path.preview_text')
+          %button.btn.hcc-btn
+            %a{'href': '/instruction'}
+              = t('pages.path.phase2_button')
+
+  .row.step-detail-3.detail-wapper
+    .container
+      .phase-director
+      .phase-details
+        %h3.heading= t('pages.path.phase3_det_title').html_safe
+        %p= t('pages.path.phase3_det_para1').html_safe
+        %h4.sub-heading= t('pages.path.phase3_det_subtitle').html_safe
+        %p= t('pages.path.phase3_det_para2').html_safe
+        .col-md-offset-3.col-md-6.step-contents.text-center          
+          %p= t('pages.path.action_text')
+          %button.btn.hcc-btn
+            %a{'href': '/take_action'}
+              = t('pages.path.phase3_button')
+  .row.step-detail-4.detail-wapper
+    .container
+      .phase-director
+      .phase-details
+        %h3.heading= t('pages.path.phase4_title')
+        %p= t('pages.path.phase4_para1')
+        %p= t('pages.path.phase4_para2')
+        %p= t('pages.path.phase4_para3')
+    .col-md-12.step-contents
+      .cta-step-box
+        %p= t('pages.standard.para8_1').html_safe
+        %button.btn.hcc-btn
+          %a{'href': '/journey'}
+            = t('pages.nav_bar.get_started').html_safe
+
+

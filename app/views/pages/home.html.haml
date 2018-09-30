@@ -1,0 +1,214 @@
+#legacy-home
+  .row
+    .slider{style: 'width: 100%;'}
+      #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+        / Indicators
+        %ol#carousel-indicators.carousel-indicators
+          %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+          %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+          %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+        / Wrapper for stslides
+        .carousel-inner{:role => "listbox"}
+          .item.active
+            = image_tag 'slide-0.png'
+            .carousel-content
+              .carousel-header
+                = t('pages.home.slide_header').html_safe
+              %p.carousel-main-content= t('pages.home.slide_header_0_content')
+              %p.carousel-sub-content= t('pages.home.slide_header_0_subcontent')
+          .item
+            = image_tag 'slide-1.png'
+            .carousel-content
+              .carousel-header
+                = t('pages.home.slide_header').html_safe
+              %p.carousel-main-content= t('pages.home.slide_header_1_content')
+              %p.carousel-sub-content= t('pages.home.slide_header_1_subcontent')
+          .item
+            = image_tag 'slide-3.png'
+            .carousel-content
+              .carousel-header
+                = t('pages.home.slide_header').html_safe
+              %p.carousel-main-content= t('pages.home.slide_header_2_content')
+              %p.carousel-sub-content= t('pages.home.slide_header_2_subcontent')
+        %a
+        / Controls
+        %a.left.carousel-control{href: '#carousel-example-generic', role: 'button', 'data-slide': 'prev'}
+          %span.glyphicon.glyphicon-chevron-left{'aria-hidden': 'true'}
+          %span.sr-only Previous
+        %a.right.carousel-control{href: '#carousel-example-generic', role: 'button', 'data-slide': 'next'}
+          %span.glyphicon.glyphicon-chevron-right{'aria-hidden': 'true'}
+          %span.sr-only Next
+
+    / END SLIDER
+    / END SLIDER
+    / END SLIDER
+    .main-content
+      .container.content
+        .row        
+          .col-md-7.col-xs-12.sub-content.start
+            = image_tag "dart.png"
+            %h2= t('pages.home.subcontent_start_here')
+            .start-text.row
+              .col-md-9.col-xs-12
+                %p= t('pages.home.start_here_1')
+                %a.content-link{href: '/description#mark_mission'}= t('pages.home.start_here_link')
+          .col-md-5.col-xs-12 &nbsp;
+
+        .row
+          .col-md-5 &nbsp;
+          .col-md-7.col-xs-12.sub-content.standard
+            = image_tag "standard-new.png"
+            %h2= t('pages.home.subcontent_standard')
+            .standard-text.row
+              .col-md-10.col-xs-12
+                %p= t('pages.home.standard_1')
+                %a.content-link{href: '/description#mark_standard'}= t('pages.home.standard_link')
+
+        .row
+          .col-md-7.col-xs-12.sub-content.path
+            = image_tag "flags.png"
+            %h2= t('pages.home.subcontent_path')
+            .path-text.row
+              .col-md-10.col-xs-12
+                %p= t('pages.home.path_1')
+                %a.content-link{href: '/description#mark_path'}= t('pages.home.path_link')
+          .col-md-5 &nbsp;
+
+        .row
+          .col-md-5 &nbsp;
+          .col-md-7.col-xs-12.sub-content.journey
+            .row
+              = image_tag 'map.png'
+            %h2= t('pages.home.subcontent_journey')
+            .journey-text.row
+              .col-md-9.col-xs-12
+                %p= t('pages.home.journey_1')
+                %a.content-link{href: '#'}= t('pages.home.journey_link')
+
+/ Modal
+#exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-dialog-1.modal-lg{:role => "document"}
+    .modal-content
+      .modal-body.no-padding-top
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"}
+            %img{:alt => "", :src => "/assets/close-color.png"}/
+        .row.row-flex
+          .col-xs-12.col-sm-6.col-flex
+            .boxer
+              %p.paragraph.text-left
+                %b= t('register_popup.title')
+              %h4
+              %div{:style => "margin-top: 40px;margin-bottom: 80px"}
+                = simple_form_for(@user, url: "registration/create",  :html => {:class => 'form-horizontal' }) do |f|
+                  = f.input :daycare_name, label: false, wrapper_html: { class: "form-group" }, input_html: { class: "form-control input-lg", placeholder: "Enter daycare name " }, required: true
+                  = f.input :name, label: false, wrapper_html: { class: "form-group" }, input_html: { class: "form-control input-lg", placeholder: "Name" }, required: true
+                  = f.input :email, label: false, as: :string, wrapper_html: { class: "form-group" }, input_html: { class: "form-control input-lg", placeholder: "Email", required: true }
+                  = f.input :mobile, label: false, as: :string, wrapper_html: { class: "form-group" }, input_html: { class: "form-control input-lg", placeholder: "Mobile", required: true }
+                  .gap-30
+                  = f.button :submit, t('register_popup.join_button'), class: "btn-style-1"
+          .col-sm-6.col-flex.hidden-xs{:style => "background: #fefbfa"}
+            .boxer.text-left
+              %p.paragraph.pink-color.text-left
+                %b=t('register_popup.paragraph')
+              .row
+                .col-xs-2{:style => "margin-top: 10px"}
+                  = image_tag "icons/9"
+                .col-xs-10{:style => "padding-left: 22px"}
+                  %p.paragraph.text-left
+                    %b= t('registration.title1')
+                    %br/
+                    = t('registration.desc1')
+              .row
+                .col-xs-2{:style => "margin-top: 10px"}
+                  = image_tag "icons/2"
+                .col-xs-10{:style => "padding-left: 22px"}
+                  %p.paragraph.text-left
+                    %b= t('registration.title2')
+                    %br/
+                    = t('registration.desc2')
+              .row
+                .col-xs-2{:style => "margin-top: 10px"}
+                  = image_tag "icons/3"
+                .col-xs-10{:style => "padding-left: 22px"}
+                  %p.paragraph.text-left
+                    %b= t('registration.title3')
+                    %br/
+                    = t('registration.desc3')
+              .row
+                .col-xs-2{:style => "margin-top: 10px"}
+                  = image_tag "icons/14"
+                .col-xs-10{:style => "padding-left: 22px"}
+                  %p.paragraph.text-left
+                    %b= t('registration.title4')
+                    %br/
+                    = t('registration.desc4')
+              .row
+                .col-xs-2{:style => "margin-top: 10px"}
+                  = image_tag "icons/6"
+                .col-xs-10{:style => "padding-left: 22px"}
+                  %p.paragraph.text-left
+                    %b= t('registration.title5')
+                    %br/
+                    = t('registration.desc5')
+              .row
+                .col-xs-2{:style => "margin-top: 10px"}
+                  = image_tag "icons/4"
+                .col-xs-10{:style => "padding-left: 22px"}
+                  %p.paragraph.text-left
+                    %b= t('registration.title6')
+                    %br/
+                    = t('registration.desc6')
+              .row
+                .col-xs-2{:style => "margin-top: 10px"}
+                  = image_tag "icons/5"
+                .col-xs-10{:style => "padding-left: 22px"}
+                  %p.paragraph.text-left
+                    %b= t('registration.title7')
+                    %br/
+                    = t('registration.desc7')
+              .row
+                .col-xs-2{:style => "margin-top: 10px"}
+                  = image_tag "icons/11"
+                .col-xs-10{:style => "padding-left: 22px"}
+                  %p.paragraph.text-left
+                    %b= t('registration.title8')
+                    %br/
+                    = t('registration.desc8')
+
+= render partial: 'shared/download_pdf'
+= render partial: 'shared/invite_contact'
+:javascript
+  jQuery(document).ready(function(){
+    jQuery('.modal').on('shown.bs.modal', function () {
+        jQuery('#new_user').validate({
+          rules: {
+              username: {
+                  minlength: 3,
+                  maxlength: 15,
+                  required: true
+              },
+              password: {
+                  minlength: 3,
+                  maxlength: 15,
+                  required: true
+              }
+          },
+          highlight: function(element) {
+              jQuery(element).closest('.form-group').addClass('has-error');
+          },
+          unhighlight: function(element) {
+              jQuery(element).closest('.form-group').removeClass('has-error');
+          },
+          errorElement: 'span',
+          errorClass: 'help-block',
+          errorPlacement: function(error, element) {
+              if (element.parent('.input-group').length) {
+                  error.insertAfter(element.parent());
+              } else {
+                  error.insertAfter(element);
+              }
+          }
+      });
+    });
+  })

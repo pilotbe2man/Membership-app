@@ -1,0 +1,42 @@
+.reg-worker-container.page-boxed
+  .page-header
+  .container
+    .form-content        
+      #rootwizard
+        %ul{:style=> "visibility: hidden; height: 0; position:absolute;"}
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab1"} First
+        .tab-content
+          #tab1.tab-pane
+            = render 'pane_department'
+          .col-sm-12
+            %ul.pager.wizard.text-left
+              %li.previous
+                %button.btn.btn-round.item-worker{:type => "button"} 
+                  =t('register.labels.previous')
+              %li.next{:style => "float:right;"}
+                %button.btn.btn-round.item-worker{:type => "button"} 
+                  =t('register.labels.next')
+              %li.previous.first{:style => "display:none;"}
+                %a{:href => "#"} First
+              %li.next.last{:style => "display:none;"}
+                %a{:href => "#"} Last
+
+:javascript
+  jQuery(document).ready(function() {   
+    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'}); 
+    $('.next button').click(function(){
+      var tab_id = $('.tab-pane.active').attr('id');
+      if(tab_id == "tab1"){        
+        if($('input[name=department_item]:checked' ,'.parent-department').attr('select-link'))
+          window.location.href = $('input[name=department_item]:checked' ,'.parent-department').attr('select-link');
+      }
+    });
+
+    $('.previous button').click(function(){
+      var tab_id = $('.tab-pane.active').attr('id');
+      if(tab_id == "tab1"){        
+        window.location.href = '#{worker_select_daycare_path(option: params[:option])}';
+      }
+    });
+  });

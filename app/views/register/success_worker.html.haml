@@ -1,0 +1,47 @@
+.reg-worker-container.page-boxed
+  .page-header
+  .container
+    .form-content        
+      #rootwizard
+        %ul{:style=> "visibility: hidden; height: 0; position:absolute;"}
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab1"} First
+        .tab-content
+          #tab1.tab-pane
+            .row.text-center.step-banner
+              = image_tag 'worker-md.png'
+              %h4=t('account.daycare.worker')
+            .row.pane-container.text-center
+              .row.step-banner
+                .col-sm-3.col-xs-3.step-item.first-step.item-worker
+                  .step-label
+                    = image_tag 'step-arrow.png', :class => "step-arrow right"
+                    = image_tag 'step-check-mng.png'
+                .col-sm-3.col-xs-3.step-item.second-step.item-worker
+                  .step-label
+                    = image_tag 'step-arrow.png', :class => "step-arrow right"
+                    = image_tag 'step-arrow.png', :class => "step-arrow left"
+                    = image_tag 'step-check-mng.png'
+                .col-sm-3.col-xs-3.step-item.third-step.item-worker
+                  .step-label
+                    = image_tag 'step-arrow.png', :class => "step-arrow right"
+                    = image_tag 'step-arrow.png', :class => "step-arrow left"
+                    = image_tag 'step-check-mng.png'
+                .col-sm-3.col-xs-3.step-item.fourth-step.item-worker.active    
+                  .step-label
+                    = image_tag 'step-arrow.png', :class => "step-arrow left"
+                    = image_tag 'worker-sm.png'
+                    %span=t('register.labels.congratulation')
+            .row.pane-search-result.text-center
+              %h3.complete-title.item-worker=t('register.labels.congratulation_upper') 
+              / %h5.compelet-message=t('register.labels.complete_profile')
+              / %h5.compelet-message=t('register.labels.short_email')
+            .parent-congratulation
+:javascript
+  function redirectDashboard(){
+    window.location.href = '#{dashboard_path()}';
+  }
+  jQuery(document).ready(function() {   
+    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'}); 
+    setTimeout(redirectDashboard, 2000);
+  });

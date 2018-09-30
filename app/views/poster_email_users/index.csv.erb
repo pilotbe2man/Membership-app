@@ -1,0 +1,5 @@
+<%- headers = [ 'Email'] -%>
+<%= CSV.generate_line headers %>
+<%- @posters.each do |poster| -%>
+<%= CSV.generate_line([poster.email]) -%>
+<%- end -%>

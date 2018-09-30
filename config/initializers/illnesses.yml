@@ -1,0 +1,126 @@
+rotavirus_infection:
+  code:     rotavirus_infection
+  name:     Rotavirus Infection
+  symptoms:
+rubella:
+  code:     rubella
+  name:     Rubella
+  symptoms:
+salmonellosis:
+  code:     salmonellosis
+  name:     Salmonellosis
+  symptoms:
+giardiasis:
+  code:     giardiasis
+  name:     Giardiasis
+  symptoms:
+hepatitis_a:
+  code:     hepatitis_a
+  name:     Hepatitis A
+  symptoms:
+head_lice:
+  code:     head_lice
+  name:     Head Lice
+  symptoms:
+    itching:
+      code: head_lice_itching
+      name: Itching
+mump:
+  code:     mumps
+  name:     Mumps
+  symptoms:
+    fever:
+      code: mumps_fever
+      name: Fever
+spolmark:
+  code:     spolmark
+  name:     'Mark (children mark) / spolmark'
+  symptoms:
+    fever:
+      code: spolmark_fever
+      name: Fever
+    flu:
+      code: spolmark_flu
+      name: Flu
+measles:
+  code:     measles
+  name:     Measles
+  symptoms:
+    fever:
+      code: measles_fever
+      name: Fever
+meningococcal_disease:
+  code:     meningococcal_disease
+  name:     Meningococcal Disease
+  symptoms:
+    fever:
+      code: meningococcal_disease_fever
+      name: Fever
+    diarrhea_with_vomiting:
+      code: meningococcal_disease_diarrhea_with_vomiting
+      name: Diarrhea With Vomiting
+    diarrhea_without_vomiting:
+      code: meningococcal_disease_diarrhea_without_vomiting
+      name: Diarrhea Without Vomiting
+    conjunctivitis:
+      code: meningococcal_disease_conjunctivitis
+      name: Conjunctivitis
+    cold:
+      code: meningococcal_disease_cold
+      name: Cold
+    flu:
+      code: meningococcal_disease_flu
+      name: Flu
+    cough:
+      code: meningococcal_disease_cough
+      name: Cough
+    otitis:
+      code: meningococcal_disease_otitis
+      name: Otitis
+    impetigo:
+      code: meningococcal_disease_impetigo
+      name: Impetigo
+mrsa:
+  code:     mrsa
+  name:     MRSA infection and MRSA
+  symptoms:
+norovirus_infection:
+  code:     norovirus_infection
+  name:     Norovirus Infection
+  symptoms:
+ringworm:
+  code:     ringworm
+  name:     Ringworm
+  symptoms:
+salmonella_strains:
+  code:     salmonella_strains
+  name:     Salmonella Strains
+  symptoms:
+shigellosis:
+  code:     shigellosis
+  name:     Shigellosis
+  symptoms:
+scabies:
+  code:     scabies
+  name:     Scabies
+  symptoms:
+yersiniosis:
+  code:     yersiniosis
+  name:     Yersiniosis
+  symptoms:
+chickenpox:
+  code:     chickenpox
+  name:     Varicella (chickenpox)
+  symptoms:
+typhoid_fever:
+  code:     typhoid_fever
+  name:     Typhoid Fever
+  symptoms:
+tuberculosis:
+  code:     tuberculosis
+  name:     Tuberculosis
+  symptoms:
+streptococcus_a:
+  code:     streptococcus_a
+  name:     Streptococcus, group A (GAS)
+  symptoms:

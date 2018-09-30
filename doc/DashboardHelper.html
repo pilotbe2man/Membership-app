@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: DashboardHelper
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!DashboardHelper.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (D)</a> &raquo;
+    
+    
+    <span class="title">DashboardHelper</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: DashboardHelper
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">app/helpers/dashboard_helper.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#discussion_notif_link-instance_method" title="#discussion_notif_link (instance method)">- (Object) <strong>discussion_notif_link</strong>(notif) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#notif_per_source_type-instance_method" title="#notif_per_source_type (instance method)">- (Object) <strong>notif_per_source_type</strong>(notifs, source_type) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#notif_sender_avatar-instance_method" title="#notif_sender_avatar (instance method)">- (Object) <strong>notif_sender_avatar</strong>(notif) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#notif_sender_name-instance_method" title="#notif_sender_name (instance method)">- (Object) <strong>notif_sender_name</strong>(notif) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="discussion_notif_link-instance_method">
+  
+    - (<tt>Object</tt>) <strong>discussion_notif_link</strong>(notif) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/dashboard_helper.rb', line 37</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_discussion_notif_link'>discussion_notif_link</span><span class='lparen'>(</span><span class='id identifier rubyid_notif'>notif</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='period'>.</span><span class='id identifier rubyid_parentee?'>parentee?</span>
+    <span class='id identifier rubyid_parentee_discussions_path'>parentee_discussions_path</span><span class='lparen'>(</span><span class='label'>child_id:</span> <span class='id identifier rubyid_notif'>notif</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span><span class='period'>.</span><span class='id identifier rubyid_subject_id'>subject_id</span><span class='comma'>,</span> <span class='label'>notification_id:</span> <span class='id identifier rubyid_notif'>notif</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='period'>.</span><span class='id identifier rubyid_worker?'>worker?</span>
+    <span class='id identifier rubyid_worker_discussions_path'>worker_discussions_path</span><span class='lparen'>(</span><span class='label'>child_id:</span> <span class='id identifier rubyid_notif'>notif</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span><span class='period'>.</span><span class='id identifier rubyid_subject_id'>subject_id</span><span class='comma'>,</span> <span class='label'>notification_id:</span> <span class='id identifier rubyid_notif'>notif</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>#</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="notif_per_source_type-instance_method">
+  
+    - (<tt>Object</tt>) <strong>notif_per_source_type</strong>(notifs, source_type) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3
+4
+5</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/dashboard_helper.rb', line 3</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_notif_per_source_type'>notif_per_source_type</span><span class='lparen'>(</span><span class='id identifier rubyid_notifs'>notifs</span><span class='comma'>,</span> <span class='id identifier rubyid_source_type'>source_type</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_notifs'>notifs</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_source_type'>source_type</span> <span class='op'>==</span> <span class='id identifier rubyid_source_type'>source_type</span><span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="notif_sender_avatar-instance_method">
+  
+    - (<tt>Object</tt>) <strong>notif_sender_avatar</strong>(notif) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/dashboard_helper.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_notif_sender_avatar'>notif_sender_avatar</span><span class='lparen'>(</span><span class='id identifier rubyid_notif'>notif</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_sender'>sender</span> <span class='op'>=</span> <span class='id identifier rubyid_notif'>notif</span><span class='period'>.</span><span class='id identifier rubyid_source_owner'>source_owner</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_sender'>sender</span><span class='period'>.</span><span class='id identifier rubyid_admin?'>admin?</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>super-admin.png</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_sender'>sender</span><span class='period'>.</span><span class='id identifier rubyid_partner?'>partner?</span>
+    <span class='id identifier rubyid_sender'>sender</span><span class='period'>.</span><span class='id identifier rubyid_affiliate'>affiliate</span><span class='period'>.</span><span class='id identifier rubyid_profile_image'>profile_image</span><span class='period'>.</span><span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_url'>url</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_sender'>sender</span><span class='period'>.</span><span class='id identifier rubyid_manager?'>manager?</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>manager.png</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_sender'>sender</span><span class='period'>.</span><span class='id identifier rubyid_parentee?'>parentee?</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>parent.png</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_sender'>sender</span><span class='period'>.</span><span class='id identifier rubyid_worker?'>worker?</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_notif'>notif</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span><span class='period'>.</span><span class='id identifier rubyid_kind_of?'>kind_of?</span><span class='lparen'>(</span><span class='const'>Message</span><span class='rparen'>)</span> <span class='comment'># for Message, show the worker&#39;s default avatar
+</span>      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>worker.png</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>else</span> <span class='comment'># for Discussion, Comment, show the daycare logo
+</span>      <span class='id identifier rubyid_sender'>sender</span><span class='period'>.</span><span class='id identifier rubyid_daycare'>daycare</span><span class='period'>.</span><span class='id identifier rubyid_profile_image'>profile_image</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span> <span class='op'>?</span> <span class='id identifier rubyid_sender'>sender</span><span class='period'>.</span><span class='id identifier rubyid_daycare'>daycare</span><span class='period'>.</span><span class='id identifier rubyid_profile_image'>profile_image</span><span class='period'>.</span><span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_url'>url</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>childcare-logo-04.png</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>logo_menu.png</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="notif_sender_name-instance_method">
+  
+    - (<tt>Object</tt>) <strong>notif_sender_name</strong>(notif) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31
+32
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/dashboard_helper.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_notif_sender_name'>notif_sender_name</span><span class='lparen'>(</span><span class='id identifier rubyid_notif'>notif</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Discussion</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Comment</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_notif'>notif</span><span class='period'>.</span><span class='id identifier rubyid_source_type'>source_type</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_notif'>notif</span><span class='period'>.</span><span class='id identifier rubyid_source_owner'>source_owner</span><span class='period'>.</span><span class='id identifier rubyid_worker?'>worker?</span>
+    <span class='id identifier rubyid_notif'>notif</span><span class='period'>.</span><span class='id identifier rubyid_source_owner'>source_owner</span><span class='period'>.</span><span class='id identifier rubyid_daycare'>daycare</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_notif'>notif</span><span class='period'>.</span><span class='id identifier rubyid_source_owner'>source_owner</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Sep  2 14:53:24 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.3).
+</div>
+
+  </body>
+</html>

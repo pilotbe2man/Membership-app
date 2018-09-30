@@ -1,0 +1,67 @@
+.legacy-path 
+  .row.promo
+    .promo-img
+      = image_tag 'Dollarphotoclub74523.png'
+      .img-text.image-text-path
+        %h2
+          = t('pages.about.sub_heading1')
+          %br
+          = t('pages.about.sub_heading2')
+  #path-content.container
+    .row
+      .col-lg-12.col-md-12.col-sm-12.col-xs-12.about-content
+        %h3.heading-letter.text-pink= t('pages.about.main_heading')
+        %p.text-left= t('pages.about.paragraph1').html_safe
+      .col-lg-12.col-md-12.col-sm-12.col-xs-12.text-left
+        %h4.text-orange= t('pages.about.sub_para1')
+    .row
+      .col-lg-12.col-md-12.col-sm-12.col-xs-12.round-step-box
+        %label.step-number 1
+        %p= t('pages.about.step_1').html_safe
+    .row
+      .col-lg-6.col-md-6.col-sm-6.col-xs-6.step-box-gap
+    .row
+      .col-lg-12.col-md-12.col-sm-12.col-xs-12.round-step-box
+        %label.step-number 2
+        %p= t('pages.about.step_2').html_safe
+    .row
+      .col-lg-6.col-md-6.col-sm-6.col-xs-6.step-box-gap
+    .row
+      .col-lg-12.col-md-12.col-sm-12.col-xs-12.round-step-box
+        %label.step-number 3
+        %p= t('pages.about.step_3').html_safe
+    .row
+      .col-lg-6.col-md-6.col-sm-6.col-xs-6.step-box-gap
+    .row
+      .col-lg-12.col-md-12.col-sm-12.col-xs-12.round-step-box
+        %label.step-number 4
+        %p= t('pages.about.step_4').html_safe
+  .row.president
+    .container
+      .col-md-12
+        %h3.heading-letter.text-pink.text-center= t('pages.about.president_heading')
+        %h4.text-orange.text-center= t('pages.about.president_subheading')
+        %p= t('pages.about.president_para1').html_safe
+        %p= t('pages.about.president_para2').html_safe
+        %p= t('pages.about.president_para3').html_safe
+  .row.second-row
+    .col-lg-4.col-md-4.col-sm-8.col-xs-8.left_line-last
+      %hr.about-dash
+    .col-lg-4.col-md-4.col-sm-8.col-xs-8.text-center.title-box
+      %h3.text-pink= t('pages.about.question_heading')
+    .col-lg-4.col-md-4.col-sm-8.col-xs-8.left_line-last
+      %hr.about-dash
+  .row
+    .container
+      .col-md-12
+        %p= t('pages.about.question_para1').html_safe
+        %p= t('pages.about.question_para2').html_safe
+        %p= t('pages.about.question_para3').html_safe
+        %p= t('pages.about.question_para4').html_safe
+        %p= t('pages.about.question_para5').html_safe
+  .row.call-action-row
+    .next-step
+      %p= t('pages.standard.para8_1').html_safe
+      %button.btn.hcc-btn
+        %a{'href': '/journey'}
+          = t('pages.nav_bar.get_started').html_safe

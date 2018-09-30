@@ -1,0 +1,32 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, manager_reports_todos_root_path
+.todo-dash-container
+  .container
+    .row.report-date-box
+      .col-md-12
+        %h4
+          =t('manager.todos.report.range_title', title: 'Todo Run Task').html_safe
+      .row{data:{step: 3, intro: t("guideline.manager.todo_report.step3.content")}}
+        = form_tag '#', method: :get do
+          .col-md-4.col-sm-4.col-xs-12.form-group
+            = label_tag :start_date
+            .form-prefix
+              = text_field_tag :start_date, params[:start_date], :class => 'datetimepicker form-control', :required => "true"
+              %span
+                %i.icon-calendar
+          .col-md-4.col-sm-4.col-xs-12.form-group
+            = label_tag :end_date
+            .form-prefix
+              = text_field_tag :end_date, params[:end_date], :class => 'datetimepicker form-control', :required => "true"
+              %span
+                %i.icon-calendar
+          .col-md-4.col-sm-4.col-xs-12.form-group.submit-wrapper
+            = submit_tag t('manager.todos.labels.generate_report'), :class => 'btn btn-lightred btn-block', data:{step: 4, intro: t("guideline.manager.todo_report.step4.content")}
+
+:javascript
+  jQuery(document).ready(function() {
+    healthChildcare.guideline.introGoToStep('report_step4', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.introGoToStep('report_step4', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });    
+  });

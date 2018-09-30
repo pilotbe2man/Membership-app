@@ -1,0 +1,32 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, dashboard_path
+
+.todo-dash-container
+  .container
+    .row.content-main
+      .col-md-6.col-sm-6.col-xs-6.menu-item
+        = link_to new_manager_todo_path do
+          .link-content.border-style-a.hover-bg-style-a
+            .menu-img.report
+            %span=t('manager.todos.labels.create')
+      .col-md-6.col-sm-6.col-xs-6.menu-item
+        = link_to status_list_manager_todos_path do
+          .link-content.border-style-a.hover-bg-style-a
+            .menu-img.access
+            %span=t('manager.todos.labels.state')
+      .col-md-6.col-sm-6.col-xs-6.menu-item
+        = link_to manager_todos_path do
+          .link-content.border-style-a.hover-bg-style-a
+            .menu-img.access
+            %span=t('manager.todos.labels.access')
+      .col-md-6.col-sm-6.col-xs-6.menu-item
+        = link_to manager_reports_todos_root_path do
+          .link-content.border-style-a.hover-bg-style-a
+            .menu-img.report
+            %span=t('manager.todos.labels.report')
+:javascript
+  jQuery(document).ready(function() {
+    $('#link_dashboard_guide').on('click', function(){
+      window.location.href = '/guide_page/manager_todo/dash';
+    });
+  });

@@ -1,0 +1,31 @@
+= content_for :title, t('messages.breadcrumb.edit_template')
+
+.page-header
+  %h3= edit_template_header
+
+
+= form_tag filter_admin_message_templates_path, method: :get do
+  .row
+    .col-md-6
+      .form-group#subject-filter
+        %label.step-instruction{for: 'subject_id'}= t('messages.labels.filter_by_subject')
+        = select_tag :subject_id, options_from_collection_for_select(@subjects, 'id', 'title'), class: 'form-control', prompt: t('messages.labels.choose_subject')
+
+    .col-md-6
+      .form-group#sub-subject-filter
+
+  .row
+    .col-md-12
+      .form-group
+        %label.step-instruction{for: 'target_role'}= t('messages.labels.choose_recipient')
+        - MessageTemplate.target_roles.each do |target_role|
+          .radio.radio-primary
+            %label
+              %input{type: 'radio', name: 'target_role', value: target_role[0], checked: true}
+              = target_role[0].humanize
+
+  .form-buttons
+    = submit_tag t('messages.labels.apply_filters'), class: 'btn btn-raised btn-success'
+
+:javascript
+  //Messages.initEditFilters();

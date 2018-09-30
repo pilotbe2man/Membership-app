@@ -1,0 +1,36 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, dashboard_manager_todos_path
+.todo-dash-container
+  .container
+    #todos.row
+      .twelvecol
+        = form_tag '#', method: :get do
+          .input-group.todo-search
+            = text_field_tag(:query, '', autocomplete: 'off', tabindex: "1", :class => 'form-control')
+            .input-group-btn
+              %button.btn.btn-default{:type => "submit"}
+                %i.glyphicon.glyphicon-search
+        .todo-list
+          %h3=t('manager.todos.labels.todos')
+          %ul
+            %li{data:{step: 2, intro: t("guideline.manager.todo_access.step2.content")}}
+              .menu-item
+                %span.todo-id 11
+                .profile-thumb
+                  = image_tag 'todo_list_icon.jpg', class: 'img-responsive center-block'
+                %span.todo-title= truncate('Test Todo', length: 20)
+              = link_to t('manager.todos.labels.show'), '#', :class => 'btn btn-yellow btn-normal btn-block'
+            %li
+              .menu-item
+                %span.todo-id 13
+                .profile-thumb
+                  = image_tag 'todo_list_icon.jpg', class: 'img-responsive center-block'
+                %span.todo-title= truncate('Test Todo', length: 20)
+              = link_to t('manager.todos.labels.show'), '#', :class => 'btn btn-yellow btn-normal btn-block'
+:javascript
+  jQuery(document).ready(function() {
+    healthChildcare.guideline.dashboarStep("#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.dashboarStep("#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });    
+  });

@@ -1,0 +1,24 @@
+= content_for :title, t('illnesses.illness')
+- content_for :page_title, t('illnesses.illness')
+.illness-dash-container
+  .container
+    .row
+      .col-md-12
+        %h4.option-title= t('illnesses.breadcrumb.illness')
+    .row.content-main
+      .col-md-6.col-sm-6.col-xs-6.menu-item
+        = link_to add_record_illnesses_path do
+          .link-content
+            .menu-img.add-record
+            %span= t('illnesses.labels.add_record')
+      .col-md-6.col-sm-6.col-xs-6.menu-item
+        = link_to filter_illnesses_path do
+          .link-content
+            .menu-img.view-record
+            %span= t('illnesses.labels.view_old_records')
+:javascript
+  jQuery(document).ready(function() {
+    $('#link_dashboard_guide').on('click', function(){
+      window.location.href = '/guide_page/worker_illness/dash';
+    });    
+  });

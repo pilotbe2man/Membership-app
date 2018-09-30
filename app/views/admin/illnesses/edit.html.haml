@@ -1,0 +1,9 @@
+- content_for :title, 'Edit Illness'
+- content_for :breadcrumb, 'Edit'
+- breadcrumb_add 'Illness', admin_illnesses_path
+
+.twelvecol
+  .page-header
+    %h2.widget.widget-header Edit Illness
+
+  = render 'form'

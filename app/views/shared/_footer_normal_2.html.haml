@@ -1,0 +1,29 @@
+%footer
+  .container
+    .row
+      .col-md-4
+        %h3= t('footer.contact_us')
+        %p= LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? '' : LocaleLogo.by_type_language(1, I18n.locale).first.address1.html_safe
+        %p= LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? '' : LocaleLogo.by_type_language(1, I18n.locale).first.address2.html_safe
+        %p
+          = link_to LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? '' : LocaleLogo.by_type_language(1, I18n.locale).first.email.html_safe, "mailto:#{LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? '' : LocaleLogo.by_type_language(1, I18n.locale).first.email.html_safe}"
+        %p= LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? '' : LocaleLogo.by_type_language(1, I18n.locale).first.phone_number.html_safe
+        .gap-30
+        %div{style: "display: none;"}
+          %a{:href => "mailto:info@launchcode.org"}
+            %i.fa.fa-envelope
+          %a{:href => "https://www.facebook.com/launchcode.org", :target => "_blank"}
+            %i.fa.fa-facebook
+          %a{:href => "https://twitter.com/launch_code", :target => "_blank"}
+            %i.fa.fa-twitter
+          %a{:href => "https://www.linkedin.com/company/3334793", :target => "_blank"}
+            %i.fa.fa-linkedin
+          %a{:href => "https://www.instagram.com/launchcode", :target => "_blank"}
+            %i.fa.fa-instagram
+
+      .col-md-4.text-center
+        = image_tag LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? 'logo-md.png' : LocaleLogo.by_type_language(1, I18n.locale).first.logo.url, id: "footer_logo_image", style: "width: 120px; height: 120px;"
+        %p= LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? '' : LocaleLogo.by_type_language(1, I18n.locale).first.title.html_safe
+        %p= LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? '' : LocaleLogo.by_type_language(1, I18n.locale).first.copyright.html_safe
+
+

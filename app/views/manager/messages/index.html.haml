@@ -1,0 +1,31 @@
+= content_for :title, t('messages.message')
+- content_for :page_title, t('dashboard.menu_item.communication')
+- content_for :breadcrumb, t('messages.breadcrumb.message')
+
+.message-dash-container
+  .container
+    .row
+      .col-md-12
+        %h3.option-title= t('messages.labels.option_title')
+    .row.content-main
+      .col-md-6.col-sm-6.col-xs-6.menu-item
+        = link_to select_department_manager_messages_path, id: 'item_send_notify', title: t('messages.tooltip.send_notifications') do
+          .link-content.border-style-b.hover-bg-style-b
+            .menu-img.send-notify
+            %span= t('messages.labels.send_notifications')
+      .col-md-6.col-sm-6.col-xs-6.menu-item
+        = link_to list_messages_path(role: current_user.role, list_type: 'sent'), id: 'item_sent_notify', title: t('messages.tooltip.sent_notifications') do
+          .link-content.border-style-b.hover-bg-style-b
+            .menu-img.sent-notify
+            %span= t('messages.labels.sent_notifications')
+      .col-md-6.col-sm-6.col-xs-6.menu-item
+        = link_to list_messages_path(role: current_user.role, list_type: 'received'), id: 'item_received_notify', title: t('messages.tooltip.received_notifications') do
+          .link-content.border-style-b.hover-bg-style-b
+            .menu-img.received-notify
+            %span= t('messages.labels.received_notifications')
+:javascript
+  jQuery(document).ready(function() {
+    $('#link_dashboard_guide').on('click', function(){
+      window.location.href = '/guide_page/manager_message/dash';
+    });
+  });

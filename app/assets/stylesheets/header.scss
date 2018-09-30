@@ -1,0 +1,251 @@
+$orange: #F7941D;
+
+
+header
+{
+    padding: 10px;
+    margin: 0 auto;
+    overflow: hidden;
+
+    &.loggedin
+    {
+      color: white;
+      background-color: #365ebf;
+      #logout-link {
+        color: white;
+        float: right;
+      }
+       a
+        {
+            background-color: #48c38c !important;
+
+            &:hover
+            {
+
+            }
+        }
+        ul
+        {
+            display: none;
+        }
+    }
+
+    .upgrade-header {
+      background: #365ebf;
+      padding: 10px;
+    }
+
+    .primary-header {
+      position: relative;
+      background: #406bd6;
+      padding: 10px;
+
+      .vote-invitations {
+        border-right: 2px dashed #3153a7;
+
+        #vote-btn {
+          margin: 0px 10px;
+        }
+      }
+
+      .vote-results {
+        color: $orange;
+
+        img {
+          height: 50px;
+          margin-right: 5px;
+        }
+
+        p {
+          color: black;
+        }
+
+        .vote-count {
+          font-size: x-large;
+        }
+      }
+    }
+
+    #user
+    {
+      font-size: small;
+      color: #fff;
+        float: right;
+        margin-top: 5px;
+
+      .user-name {
+        color: $orange;
+      }
+
+      .user-role {
+        color: white;
+      }
+
+      img {
+        margin-right: 7px;
+        float: left;
+        height: 35px;
+      }
+    }
+
+    .logo-container {
+      position: absolute;
+      z-index: 5;
+      // left: 45%;
+    }
+
+    #header-logo
+    {
+        height:150px;
+    }
+
+    #menu, ul
+    {
+        float:right;
+    }
+    ul
+    {
+        list-style-type: none;
+        line-height: 80px;
+        margin:0;
+
+        li
+        {
+            display: inline-block;
+            margin-left:25px;
+        }
+    }
+
+    #menu
+    {
+        margin-left: 40px;
+        a
+        {
+            display: block;
+            padding:7px 15px;
+            background-color: #365ebf;
+            color: #fff;
+            text-align: center;
+            font-size:1.1em;
+            margin-bottom: 10px;
+
+            &:hover
+            {
+                color:#fff;
+                text-decoration: none;
+            }
+
+            &:last-child
+            {
+                margin-bottom:0;
+            }
+        }
+    }
+
+    #countdown
+    {
+        #clock
+        {
+            div
+            {
+                display: inline-block;
+                text-align: center;
+
+                div
+                {
+                    padding: 5px;
+                    border: 1px solid #fff;
+                    height:50px;
+                    width:50px;
+                    line-height:40px;
+                    font-size:1.3em;
+                    font-weight: bold;
+                    margin-right:10px;
+
+                    &:last-child
+                    {
+                        margin-right: 0px;
+                    }
+                }
+                span
+                {
+                    margin-top:5px;
+                    display: block;
+                    font-size:0.8em;
+                }
+            }
+        }
+    }
+
+  @media only screen and (max-width : 1199px) {
+    .logo-container {
+      display: block;
+      position: relative;
+      text-align: center;
+      left: 0;
+    }
+
+    ul{
+      line-height: 30px !important;
+      &.main-nav {
+        float: none;
+        padding: 0 !important;
+      }    
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    .logo-container {
+      display: block;
+      position: relative;
+      text-align: center;
+      left: 0;
+    }
+
+    ul{
+      line-height: 30px !important;
+      &.main-nav {
+        float: none;
+        padding: 0 !important;
+      }    
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .logo-container {
+      display: block;
+      position: relative;
+      text-align: center;
+      left: 0;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .logo-container {
+      display: block;
+      position: relative;
+      text-align: center;
+      left: 0;
+    }
+
+    ul.main-nav {
+      line-height: 30px;
+      padding: 0;
+
+      li {
+        display: block;
+        text-align: right;
+        margin: 0;
+      }
+    }
+  }
+
+
+}
+
+.alert.alert-warning {
+  img {
+    height: 50px;
+    margin-right: 12px;
+  }
+}

@@ -1,0 +1,116 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, dashboard_manager_todos_path
+.todo-dash-container
+  .container
+    #todos.row
+      .twelvecol
+        #new_todo.new_todo{"accept-charset" => "UTF-8", :action => "", :enctype => "multipart/form-data", :method => "post"}
+          .container.todo-dash-container
+            .row
+              #todo_info{data:{step: 2, intro: t("guideline.manager.dashboard.todo.create.step2.content")}}
+                .col-md-12.form-group
+                  %label{:for => "todo_title"} Todo Title
+                  %input#todo_title.form-control{:name => "todo[title]", :type => "text"}/
+                .col-md-12.form-group
+                  %label{:for => "todo_department_ids"} Choose Department
+                  %input{:name => "todo[department_ids][]", :type => "hidden", :value => ""}
+                  %select#todo_frequency.form-control.frequency-selector{:name => "todo[frequency]"}
+                    %option{:value => "16"} En-DEP1
+                    %option{:value => "17"} En-DEP2
+                    %option{:value => "32"} En-DEP3
+                .col-md-12.form-group
+                  %label{:for => "todo_iteration_type"} Iteration Type
+                  %select#todo_iteration_type.form-control.iteration-selector{:name => "todo[iteration_type]"}
+                    %option{:selected => "selected", :value => "single"} Single
+                    %option{:value => "recurring"} Recurring
+                .col-md-12.form-group.frequency-fields
+                  %label{:for => "todo_frequency"} Frequency
+                  %select#todo_frequency.form-control.frequency-selector{:name => "todo[frequency]"}
+                    %option{:selected => "selected", :value => "day"} Day
+                    %option{:value => "week"} Week
+                    %option{:value => "month"} Month
+                .col-md-12.form-group.frequency-daily-fields
+                  %label{:for => "todo_start_date"} Start Date
+                  %input#todo_start_date.form-control.datetimepicker-date{:name => "todo[start_date]", :type => "text"}/
+                .col-md-12.form-group.frequency-weekly-fields
+                  %ul.weekday-list
+                    %li.check-box
+                      %input#start_day_0{:name => "start_days[]", :style => "display: none;", :type => "checkbox", :value => "0"}/
+                      %label{:for => "start_day_0"}
+                        Sun
+                    %li.check-box
+                      %input#start_day_1{:name => "start_days[]", :style => "display: none;", :type => "checkbox", :value => "1"}/
+                      %label{:for => "start_day_1"}
+                        Mon
+                    %li.check-box
+                      %input#start_day_2{:name => "start_days[]", :style => "display: none;", :type => "checkbox", :value => "2"}/
+                      %label{:for => "start_day_2"}
+                        Tue
+                    %li.check-box
+                      %input#start_day_3{:name => "start_days[]", :style => "display: none;", :type => "checkbox", :value => "3"}/
+                      %label{:for => "start_day_3"}
+                        Wed
+                    %li.check-box
+                      %input#start_day_4{:name => "start_days[]", :style => "display: none;", :type => "checkbox", :value => "4"}/
+                      %label{:for => "start_day_4"}
+                        Thu
+                    %li.check-box
+                      %input#start_day_5{:name => "start_days[]", :style => "display: none;", :type => "checkbox", :value => "5"}/
+                      %label{:for => "start_day_5"}
+                        Fri
+                    %li.check-box
+                      %input#start_day_6{:name => "start_days[]", :style => "display: none;", :type => "checkbox", :value => "6"}/
+                      %label{:for => "start_day_6"}
+                        Sat
+                .col-md-12.form-group
+                  %label{:for => "todo_Completion Date"} Completion date
+                  .form-coupling
+                    %input#todo_completion_date_value.form-control{:min => "1", :name => "todo[completion_date_value]", :type => "number", :value => "1"}/
+                    %select#todo_completion_date_type.form-control{:name => "todo[completion_date_type]"}
+                      %option{:selected => "selected", :value => "completion_day"} Day
+                      %option{:value => "completion_week"} Week
+                      %option{:value => "completion_month"} Month
+                      %option{:value => "completion_year"} Year
+                      %option{:value => "completion_hour"} Hour
+                .col-md-12.form-group
+                  %input#todo_language{:name => "todo[language]", :type => "hidden", :value => "en"}/
+                  %input#todo_daycare_id{:name => "todo[daycare_id]", :type => "hidden", :value => "14"}/
+                .col-md-12.form-group.text-center
+                  %a.btn.btn-green.btn-normal.add-task{:href => "javascript:void(0);"} Add Key Task
+                .clearfix
+              #tasks.fields.col-md-12{data:{step: 3, intro: t("guideline.manager.dashboard.todo.create.step3.content")}}
+                .fields
+                  .form-group.key-task{:style => "position: relative;"}
+                    %label{:for => "todo_tasks_attributes_0_Key Task"} Key task
+                    %input#todo_tasks_attributes_0_title.form-control.key-task-title{:name => "todo[tasks_attributes][0][title]", :type => "text"}/
+                    %input#todo_tasks_attributes_0_language{:name => "todo[tasks_attributes][0][language]", :type => "hidden", :value => "en"}/
+                    %input#todo_tasks_attributes_0__destroy{:name => "todo[tasks_attributes][0][_destroy]", :type => "hidden", :value => "false"}/
+                    %a.btn.btn-red.btn-normal.remove-key-task{:href => "javascript:void(0);", :onclick => "remove_fields(this)"}
+                      %i.icon-cross.icon-close
+                  .form-group{:style => "position: relative;"}
+                    %label{:for => "todo_tasks_attributes_0_Description"} Description
+                    %textarea#todo_tasks_attributes_0_description.form-control.key-task-description{:name => "todo[tasks_attributes][0][description]"}
+                    %a.btn.btn-red.btn-normal.remove-key-task-description{:href => "#"}
+                      %i.icon-cross.icon-close
+                  .text-center.sub-tasks
+                    %a.btn.btn-green.btn-normal.subtask-link.add{:href => "javascript:void(0);"} Add Sub-task
+                    .form-group.subtask
+                      %label{:for => "todo_tasks_attributes_0_sub_tasks_attributes_0_Sub Task"} Sub task
+                      %input#todo_tasks_attributes_0_sub_tasks_attributes_0_title.form-control.sub-task-title{:name => "todo[tasks_attributes][0][sub_tasks_attributes][0][title]", :placeholder => "Sub-task title", :type => "text"}/
+                      %input#todo_tasks_attributes_0_sub_tasks_attributes_0_sub_task_type{:name => "todo[tasks_attributes][0][sub_tasks_attributes][0][sub_task_type]", :type => "hidden", :value => "local"}/
+                      %input#todo_tasks_attributes_0_sub_tasks_attributes_0_language{:name => "todo[tasks_attributes][0][sub_tasks_attributes][0][language]", :type => "hidden", :value => "en"}/
+                      %input#todo_tasks_attributes_0_sub_tasks_attributes_0__destroy{:name => "todo[tasks_attributes][0][sub_tasks_attributes][0][_destroy]", :type => "hidden", :value => "false"}/
+                      %a.subtask-link{:href => "javascript:void(0)", :onclick => "remove_fields(this)"}
+                        %i.icon-cross.icon-close
+                  %input#todo_tasks_attributes_0_task_type{:name => "todo[tasks_attributes][0][task_type]", :type => "hidden", :value => "local"}/
+              .col-md-12.form-group.text-center
+                %input.btn.btn-blue.save-task{:name => "commit", :type => "submit", :value => "Save Task", data:{step: 4, intro: t("guideline.manager.dashboard.todo.create.step4.content")}}
+                .clearfix
+
+:javascript
+  jQuery(document).ready(function() {
+    healthChildcare.guideline.dashboarStep("#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.dashboarStep("#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });
+  });

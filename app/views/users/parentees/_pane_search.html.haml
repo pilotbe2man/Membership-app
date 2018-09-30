@@ -1,0 +1,52 @@
+.row.text-center.step-banner
+  = image_tag 'parent-md.png'
+  %h4=t('account.daycare.parent')
+.row.pane-container.text-center
+  .row.step-banner
+    .col-sm-3.col-xs-3.step-item.first-step.item-parentee.active    
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'parent-sm.png'
+        %span Select Daycare
+    .col-sm-3.col-xs-3.step-item.second-step.item-parentee
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+    .col-sm-3.col-xs-3.step-item.third-step.item-parentee
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+    .col-sm-3.col-xs-3.step-item.fourth-step.item-parentee
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+  = form_tag parentee_select_daycare_path, method: :get
+  .row
+    .col-sm-12.search-inline-text
+      = text_field_tag(:query, params[:query], autocomplete: 'off', tabindex: "1", :class => 'form-control input-round', :placeholder => "Search for...")
+      %a.search-submit{:href => "#"}
+        %i.fa.fa-search
+.row.pane-search-result
+  .col-sm-12
+    %ul.list-unstyled.msg_list
+      - @daycares.each do |daycare|
+        %li
+          %input{:type=>"radio", :name => "daycare_item", :id => "chk_item_#{daycare.id}", :style => "display: none;", "select-link" =>new_user_registration_path(role: 'parentee', daycare_id: daycare.id)}
+          %label{:for => "chk_item_#{daycare.id}"}
+            %span.image
+              = image_tag (daycare.profile_image.blank?) ? 'parent-md.png' : daycare.profile_image
+            %span
+              %span 
+                %b=daycare.name
+            %span.message=daycare.address_line1
+            %span.message=daycare.postcode
+            %span.message=daycare.telephone
+
+:javascript
+  jQuery(document).ready(function() {    
+    $('.search-submit').click(function(){
+      $('form').submit();
+    });
+  });

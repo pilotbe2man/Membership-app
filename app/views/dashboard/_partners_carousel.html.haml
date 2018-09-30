@@ -1,0 +1,9 @@
+.row
+  %h2=t('dashboard.partners_carousel.title_1') 
+  %h2=t('dashboard.partners_carousel.title_2') 
+  %hr
+
+.slick-carousel
+  - Affiliate.all.reverse_order[0..10].each do |partner|
+    = link_to partner.url || '#', target: '_blank' do
+      = image_tag partner.profile_image ? partner.profile_image.file.url : 'partner.png'

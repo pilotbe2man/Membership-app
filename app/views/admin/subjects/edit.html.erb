@@ -1,0 +1,10 @@
+<% content_for :title, 'Edit Subject' %>
+<% content_for :breadcrumb, 'Edit' %>
+<% breadcrumb_add 'Subjects', admin_subjects_path %>
+
+<div class="twelvecol">
+    <div class="page-header">
+        <h2 class="widget widget-header"><%= t('admin.subjects.edit.heading')%></h2>
+    </div>
+    <%= render 'form' %>
+</div>

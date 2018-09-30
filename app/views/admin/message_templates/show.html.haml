@@ -1,0 +1,26 @@
+= content_for :title, 'Message Template'
+
+.page-header
+  %h3= t('messages.labels.message_template_content')
+
+%div
+  %dl.dl-horizontal
+    %dt= t('messages.labels.subject')
+    %dd= @template.sub_subject.parent_subject.title
+  %dl.dl-horizontal
+    %dt= t('messages.labels.sub_subject')
+    %dd= @template.sub_subject.title
+  %dl.dl-horizontal
+    %dt= t('messages.labels.recipient')
+    %dd= @template.target_role.humanize
+
+.message-content-stage
+  .fr-view
+    = @template.content.html_safe
+
+.row
+  .form-buttons
+    .col-md-6
+      = link_to t('form_labels.delete'), admin_message_template_path(@template), method: :delete, data: {confirm: t('messages.notifications.delete_template_confirm')}, class: 'btn btn-raised btn-info'
+    .col-md-6
+      = link_to t('form_labels.edit'), edit_admin_message_template_path(@template), class: 'btn btn-raised btn-success'

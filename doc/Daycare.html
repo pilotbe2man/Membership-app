@@ -1,0 +1,790 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Daycare
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!Daycare.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (D)</a> &raquo;
+    
+    
+    <span class="title">Daycare</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Daycare
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">ActiveRecord::Base</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">ActiveRecord::Base</li>
+          
+            <li class="next">Daycare</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">app/models/daycare.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h2 id="label-Schema+Information">Schema Information</h2>
+
+<p>Table name: daycares</p>
+
+<pre class="code ruby"><code class="ruby">id               :integer          not null, primary key
+name             :string
+address_line1    :string
+postcode         :string
+country          :string
+telephone        :string
+created_at       :datetime         not null
+updated_at       :datetime         not null
+url              :string
+num_children     :integer
+num_worker       :integer
+care_type        :integer
+discount_code_id :integer          default(&quot;0&quot;)
+payment_month    :integer          default(&quot;0&quot;)
+payment_mode_id  :integer
+payment_start_id :integer</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#active_subscription%3F-instance_method" title="#active_subscription? (instance method)">- (Boolean) <strong>active_subscription?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h1 id="label-3E+Checks+if+the+daycare+contains+a+manager+user+with+an+active+subscription+or+trial.">&gt; Checks if the daycare contains a manager user with an active subscription or trial.</h1>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_available_todos-instance_method" title="#all_available_todos (instance method)">- (Object) <strong>all_available_todos</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h1 id="label-3E+Lists+all+available+todos.">&gt; Lists all available todos.</h1>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_completed_todos-instance_method" title="#all_completed_todos (instance method)">- (Object) <strong>all_completed_todos</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h1 id="label-3E+Lists+all+complete+todos.">&gt; Lists all complete todos.</h1>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_incomplete_todos-instance_method" title="#all_incomplete_todos (instance method)">- (Object) <strong>all_incomplete_todos</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h1 id="label-3E+Lists+all+incomplete+todos.">&gt; Lists all incomplete todos.</h1>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_todos-instance_method" title="#all_todos (instance method)">- (Object) <strong>all_todos</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h1 id="label-3E+Lists+all+todos+within+a+daycare-2C+both+global+and+local.">&gt; Lists all todos within a daycare, both global and local.</h1>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#care_type_text-instance_method" title="#care_type_text (instance method)">- (Object) <strong>care_type_text</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#department_options-instance_method" title="#department_options (instance method)">- (Object) <strong>department_options</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#destroy_others-instance_method" title="#destroy_others (instance method)">- (Object) <strong>destroy_others</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#subscribed%3F-instance_method" title="#subscribed? (instance method)">- (Boolean) <strong>subscribed?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<h1 id="label-3E+Checks+if+the+daycare+contains+a+manager+user+with+an+active+subscription.">&gt; Checks if the daycare contains a manager user with an active subscription.</h1>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="active_subscription?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>active_subscription?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<h1 id="label-3E+Checks+if+the+daycare+contains+a+manager+user+with+an+active+subscription+or+trial">&gt; Checks if the daycare contains a manager user with an active subscription or trial</h1>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/daycare.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_active_subscription?'>active_subscription?</span>
+  <span class='id identifier rubyid_managers'>managers</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:subscribed?</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_managers'>managers</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:active_trial?</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='kw'>true</span> <span class='op'>:</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="all_available_todos-instance_method">
+  
+    - (<tt>Object</tt>) <strong>all_available_todos</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<h1 id="label-3E+Lists+all+available+todos">&gt; Lists all available todos</h1>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+107
+108
+109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/daycare.rb', line 107</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_all_available_todos'>all_available_todos</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_global_available_todos'>global_available_todos</span> <span class='op'>+</span> <span class='id identifier rubyid_local_available_todos'>local_available_todos</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="all_completed_todos-instance_method">
+  
+    - (<tt>Object</tt>) <strong>all_completed_todos</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<h1 id="label-3E+Lists+all+complete+todos">&gt; Lists all complete todos</h1>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/daycare.rb', line 95</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_all_completed_todos'>all_completed_todos</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_global_completed_todos'>global_completed_todos</span> <span class='op'>+</span> <span class='id identifier rubyid_local_completed_todos'>local_completed_todos</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="all_incomplete_todos-instance_method">
+  
+    - (<tt>Object</tt>) <strong>all_incomplete_todos</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<h1 id="label-3E+Lists+all+incomplete+todos">&gt; Lists all incomplete todos</h1>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101
+102
+103</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/daycare.rb', line 101</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_all_incomplete_todos'>all_incomplete_todos</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_global_incomplete_todos'>global_incomplete_todos</span> <span class='op'>+</span> <span class='id identifier rubyid_local_incomplete_todos'>local_incomplete_todos</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="all_todos-instance_method">
+  
+    - (<tt>Object</tt>) <strong>all_todos</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<h1 id="label-3E+Lists+all+todos+within+a+daycare-2C+both+global+and+local">&gt; Lists all todos within a daycare, both global and local</h1>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/daycare.rb', line 113</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_all_todos'>all_todos</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_global_todos'>global_todos</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>language:</span> <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_locale'>locale</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_delete_if'>delete_if</span><span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_gt'>gt</span><span class='op'>|</span> <span class='id identifier rubyid_local_todos'>local_todos</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:title</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_gt'>gt</span><span class='period'>.</span><span class='id identifier rubyid_title'>title</span><span class='rparen'>)</span> <span class='rbrace'>}</span> <span class='op'>+</span> <span class='id identifier rubyid_local_todos'>local_todos</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="care_type_text-instance_method">
+  
+    - (<tt>Object</tt>) <strong>care_type_text</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/daycare.rb', line 140</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_care_type_text'>care_type_text</span>
+    <span class='kw'>case</span> <span class='id identifier rubyid_care_type'>care_type</span>
+    <span class='kw'>when</span> <span class='int'>1</span>
+        <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>register.caretype.ind</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='kw'>when</span> <span class='int'>2</span>
+        <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>register.caretype.fra</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='kw'>when</span> <span class='int'>3</span>
+        <span class='const'>I18n</span><span class='period'>.</span><span class='id identifier rubyid_t'>t</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>register.caretype.gov</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="department_options-instance_method">
+  
+    - (<tt>Object</tt>) <strong>department_options</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+131
+132
+133
+134
+135
+136
+137
+138</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/daycare.rb', line 131</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_department_options'>department_options</span>
+    <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_departments'>departments</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_dept'>dept</span><span class='op'>|</span>
+        <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_dept'>dept</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span>
+        <span class='id identifier rubyid_options'>options</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_dept'>dept</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_dept'>dept</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_options'>options</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="destroy_others-instance_method">
+  
+    - (<tt>Object</tt>) <strong>destroy_others</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/daycare.rb', line 117</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_destroy_others'>destroy_others</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_todo_destroys'>todo_destroys</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_todo_destroys'>todo_destroys</span><span class='period'>.</span><span class='id identifier rubyid_ids'>ids</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_users'>users</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_users'>users</span><span class='period'>.</span><span class='id identifier rubyid_ids'>ids</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user_daycares'>user_daycares</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_ids'>ids</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_departments'>departments</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_surveys'>surveys</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_surveys'>surveys</span><span class='period'>.</span><span class='id identifier rubyid_ids'>ids</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_survey_subjects'>survey_subjects</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_health_records'>health_records</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_local_todos'>local_todos</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_discussions'>discussions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_discussions'>discussions</span><span class='period'>.</span><span class='id identifier rubyid_ids'>ids</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_discussion_participants'>discussion_participants</span><span class='period'>.</span><span class='id identifier rubyid_delete_all'>delete_all</span>     
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="subscribed?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>subscribed?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<h1 id="label-3E+Checks+if+the+daycare+contains+a+manager+user+with+an+active+subscription">&gt; Checks if the daycare contains a manager user with an active subscription</h1>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+90
+91
+92</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/daycare.rb', line 90</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_subscribed?'>subscribed?</span>
+  <span class='id identifier rubyid_managers'>managers</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:subscribed?</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='kw'>true</span> <span class='op'>:</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Sep  2 14:53:25 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.3).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,44 @@
+= form_for [:admin, @daycare] do |f|
+  .threecol
+  .ninecol.last
+    = render partial: 'shared/admin/errors', locals: { object: @daycare }
+  .threecol
+    %h3= t('admin.daycare._form.heading')
+    %p= t('admin.daycare._form.para')
+  .ninecol.last
+    %fieldset.widget.widget-content.widget-last
+      .form-group
+        = f.label :name
+        = f.text_field :name, :class => 'form-control'
+      .form-group
+        = f.label 'Address'
+        = f.text_field :address_line1, :class => 'form-control'
+      .form-group
+        = f.label :postcode
+        = f.text_field :postcode, :class => 'form-control'
+      .form-group
+        = f.label :telephone
+        = f.text_field :telephone, :class => 'form-control'
+      .form-group
+        = f.label 'Nubmer of Childrens'
+        = f.text_field :num_children, :class => 'form-control'
+      .form-group
+        = f.label 'Nubmer of Workers'
+        = f.text_field :num_worker, :class => 'form-control'
+      .form-group
+        = f.label 'Pay Mode: '
+        = f.select :pay_mode, options_for_select([['Price per Head', '1'], ['Fixed Price', '0']], @daycare.pay_mode), {:include_blank => 'Select Pay Mode'}, class: 'form-control'      
+      .form-group
+        = f.label 'Payment Mode'
+        = f.select :payment_mode_id, options_for_select(PaymentMode.all.map{|item| ["#{item.period} #{item.unit}", item.id]}, selected_key = f.object.payment_mode_id), {}, :class => 'form-control', include_blank: true
+      .form-group
+        = f.label 'Payment Start'
+        = f.select :payment_start_id, options_for_select(PaymentStart.all.map{|item| ["#{item.period} #{item.unit}", item.id]}, selected_key = f.object.payment_start_id), {}, :class => 'form-control', include_blank: true
+      .form-group
+        = f.label 'Discount Code: '
+        = f.select :discount_code_id, options_from_collection_for_select(DiscountCode.all, 'id', 'code', @daycare.discount_code_id), {}, :class => 'form-control', :include_blank => true
+      .form-group
+        = f.label 'User Phase: '
+        = select_tag :plan_type, options_for_select([['Free', '0'], ['Phase 1', '2'], ['Phase 2', '3'], ['Phase 3', '4']], @daycare.managers.first.plan_type), {:include_blank => 'Select Phase Type', class: 'form-control'}      
+    .form-action
+      = f.submit 'Submit', :class => 'btn btn-blue btn-large'

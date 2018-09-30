@@ -1,0 +1,43 @@
+= content_for :title, 'New Notification'
+- step_size = 5
+- page_step = 1
+.message-dash-container
+  .container
+    .row
+      .col-md-12.breadcrumb-header            
+        %h3= choose_department_header
+    .row
+      = render partial: '/shared/progress_bar', locals: {step_size: step_size, page_step: page_step}
+    .row.content-main
+      = form_tag '#', method: :get do
+        #department_area.row{data:{step: 1, intro: t("guideline.manager.message_send_menu.step1.content")}}
+          .col-md-12      
+            %h4.option-title= t('messages.labels.choose_department')      
+          .col-md-12.radio-box
+            %input{:type=>"radio", :name => "target_department", :id => "chk_depart_1", :style => "display: none;", value: '1', checked: true, required: true}
+            %label{:for => "chk_depart_1"}
+              Daycare Department
+          .col-md-12.radio-box
+            %input{:type=>"radio", :name => "target_department", :id => "chk_depart_4", :style => "display: none;", value: '1', checked: false, required: true}
+            %label{:for => "chk_depart_4"}
+              Daycare Department
+          .col-md-12.radio-box
+            %input{:type=>"radio", :name => "target_department", :id => "chk_depart_3", :style => "display: none;", value: '1', checked: false, required: true}
+            %label{:for => "chk_depart_3"}
+              Daycare Department
+          .col-md-12.radio-box
+            %input{:type=>"radio", :name => "target_department", :id => "chk_depart_2", :style => "display: none;", value: '1', checked: false, required: true}
+            %label{:for => "chk_depart_2"}
+              Daycare Department
+        .col-md-12.form-buttons.text-right.no-h-padding
+          .col-md-3.col-md-offset-6.col-sm-3.col-sm-offset-6.col-xs-6
+            %a{href: '#', class: 'btn btn-gray btn-wizard'}= t('form_labels.back')
+          .col-md-3.col-sm-3.col-xs-6
+            = submit_tag t('form_labels.next'), class: 'btn btn-yellow-red btn-wizard', id: 'btn_wizard_next', data:{step: 2, intro: t("guideline.manager.message_send_menu.step2.content")}
+:javascript
+  jQuery(document).ready(function() {
+    healthChildcare.guideline.managerMessageSendStep(1, "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.managerMessageSendStep(1, "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });    
+  });

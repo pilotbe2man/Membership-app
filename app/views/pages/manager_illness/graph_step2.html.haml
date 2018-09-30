@@ -1,0 +1,40 @@
+= content_for :title, t('illnesses.illness')
+- content_for :page_title, t('illnesses.trends')
+.illness-dash-container
+  .container
+    .row
+      .col-md-12
+        %h4.option-title= t('illnesses.trends')
+    .row.content-main
+      .col-md-12
+        #trends
+          .col-md-6
+            %dl.dl-horizontal
+              %dt= t('illnesses.labels.daycare')
+              %dd Daycare-Test
+
+              %dt= t('illnesses.labels.department')
+              %dd dept-test
+
+              %dt= t('illnesses.illness')
+              %dd HIV, Mumps
+
+              %dt= t('illnesses.labels.graph_type')
+              %dd day
+          .row
+            .container-fluid
+              #line-chart-div{'data-trend_data': '[["Date","HIV","Mumps"],["26/11/2016",0,1],["27/11/2016",0,1],["29/11/2016",1,0]]', data:{step: 5, intro: t("guideline.manager.illness_graph.step5.content")}}
+              .graph-container{data:{step: 6, intro: t("guideline.manager.illness_graph.step6.content")}}
+                #pie-chart-div{'data-trend_data': '[["HIV",1],["Mumps",2]]'}
+                #bar-chart-div{'data-trend_data': '[["HIV",1],["Mumps",2]]'}
+            .container-fluid.centralize.form-buttons
+              %a.print-trend-btn{href: '#', class: 'btn btn-wizard', data:{step: 7, intro: t("guideline.manager.illness_graph.step7.content")}}
+                = t('form_labels.print')
+:javascript
+  google.charts.load('current', {'packages':['corechart']});
+  jQuery(document).ready(function() {
+    healthChildcare.guideline.introGoToStep('graph_step1', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.introGoToStep('graph_step1', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });    
+  });

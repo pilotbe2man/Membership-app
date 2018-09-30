@@ -1,0 +1,26 @@
+.row
+  %h5= t('illnesses.labels.child_details')
+.row
+  .col-md-6
+    %table.information-block 
+      %tr
+        %td.options= t('illnesses.labels.name')
+        %td= @child.name
+      %tr
+        %td.options= t('illnesses.labels.age')
+        %td= @child.age
+      %tr
+        %td.options= t('illnesses.labels.birthday')
+        %td= pretty_short_date(@child.birth_date)
+  .col-md-6.text-right
+    = image_tag @child.profile_image.file.url
+.row
+  .col-md-12
+    %h4{:style => 'color: #6a7884;'}= t('illnesses.labels.worker_knows_illness_question')
+.row.radio-box-group   
+  .col-md-12
+    - ['yes', 'no'].each do |ans|
+      .radio-box
+        %input{:type=>"radio", :name => "illness[known][answer]", :id => "chk_profile_q_#{ans}", :style => "display: none;", value: ans, :required => "true"}
+        %label{:for => "chk_profile_q_#{ans}"}
+          = t("illnesses.labels.illness_#{ans}")

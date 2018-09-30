@@ -1,0 +1,214 @@
+<%= form_for [:admin, @todo] do |f| %>
+    <div class="threecol"></div>
+    <div class="ninecol last">
+        <%= render partial: 'shared/admin/errors', locals: { object: @todo } %>
+    </div>
+
+    <div class="threecol">
+        <h3>Todo details</h3>
+        <p>Set the title, iteration type, frequency and completion date for your todo.</p>
+    </div>
+    <div class="ninecol last">
+        <fieldset class="widget widget-content">
+            <div class="form-group">
+                <%= f.label :title %>
+                <%= f.text_field :title, :class => 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :iteration_type %>
+                <%= f.select :iteration_type, Todo.iteration_types.keys.map {|type| [type.titleize,type]}, {}, :class => 'form-control iteration-selector' %>
+            </div>
+            <div class="form-group frequency-fields">
+                <%= f.label :frequency %>
+                <%= f.select :frequency, Todo.frequencies.keys.map {|type| [type.titleize,type]}, {}, :class => 'form-control frequency-selector' %>
+            </div>
+            <div class="form-group frequency-daily-fields">
+                <%= f.label 'Start Date' %>
+                <%= f.text_field :start_date, :class => 'form-control datetimepicker-date' %>
+            </div>
+            <div class="form-group frequency-weekly-fields">
+                <ul class="weekday-list">
+                    <% [0, 1, 2, 3, 4, 5, 6].each do |day_index| %>
+                        <li class="check-box">
+                            <input type="checkbox" name="start_days[]" id="start_day_<%= day_index %>" style="display: none;" value="<%= day_index %>">
+                            <label for="start_day_<%= day_index %>">
+                                <%= Date::DAYNAMES[day_index].first(3).capitalize %>
+                            </label>
+                        </li>
+                    <% end %>
+                </ul>                
+            </div>
+            <div class="form-group">
+                <%= f.label 'Completion Time' %>
+                <div class="form-coupling">
+                    <%= f.text_field :completion_date_value, :class => 'form-control' %>
+                    <%= f.select :completion_date_type, Todo.completion_date_types.keys.map {|type| [type.split('_').last.titleize,type]}, {}, :class => 'form-control' %>
+                </div>
+            </div>
+            <div class="form-group form-last">
+                <%= f.label :language %>
+                <%= f.select :language, options_for_select(pre_countries_down, :selected => (f.object.language.nil?) ? '' : f.object.language.downcase ), {}, {:class => 'form-control'} %>
+            </div>
+        </fieldset>
+    </div>
+    <div class="threecol">
+        <h3>Icon</h3>
+        <p>Set the icon imagery for your todo.</p>
+    </div>
+    <div class="ninecol last">
+        <fieldset class="widget widget-content">
+            <%= image_tag @todo.icon.file unless @todo.icon.nil? %>
+            <div class="form-group form-last">
+            <input type="file" name="todo[icon_attributes][file]" id="todo_icon_attributes_file">
+            <!--
+                <%= f.fields_for :icon do |ff| %>
+                    <%= ff.file_field :file %>
+                <% end %>
+            -->
+                <span>&nbsp;</span>
+            </div>
+        </fieldset>
+    </div>
+    <div class="threecol">
+        <h3>Tasks</h3>
+        <p>Set the required tasks for your todo.</p>
+        <%= custom_link_to_add_fields "Add Task", f, :tasks %>
+    </div>
+    <div class="ninecol last">
+        <fieldset class="widget widget-content">
+            <div id="tasks" class="fields">
+                <%= f.fields_for :tasks do |ff |%>
+                    <%= render partial: 'task_fields', locals: { f: ff } %>
+                <% end %>
+            </div>
+        </fieldset>
+    </div>
+    <div class="threecol">
+        <h3>Departments</h3>
+        <p>Assign the relevant departments for your todo.</p>
+    </div>
+    <div class="ninecol last">
+        <fieldset class="widget widget-content widget-last">
+            <div class="form-group form-last">
+                <%= f.collection_select :department_ids, @departments, :id, :name, {}, {:class => 'chosen', multiple: true, data: {placeholder: "Select departments..."}} %>
+            </div>
+        </fieldset>
+        <div class="form-action">
+            <%= f.submit 'Submit', :class => 'btn btn-blue btn-large' %>
+        </div>
+    </div>
+<% end %>
+<style type="text/css">
+  .frequency-weekly-fields{
+    display: none;
+  }
+</style>
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+    $('#new_todo').on('submit', function(){
+      if($('#todo_title').val() == ''){
+        alert('<%="#{t('manager.todos.validation.require_title')}"%>');
+        return false;
+      }
+
+      if($('#todo_department_ids').val() == ''){
+        alert('<%="#{t('manager.todos.validation.require_department')}"%>');
+        return false;
+      }
+
+      if($('#todo_iteration_type').val() == 'single' && $('#todo_start_date').val() == ''){
+        alert('<%="#{t('manager.todos.validation.require_start_date')}"%>');
+        return false;
+      }
+
+      if($('#todo_iteration_type').val() == 'recurring'){
+        if(($('#todo_frequency').val() == 'day' || $('#todo_frequency').val() == 'month') && $('#todo_start_date').val() == ''){
+          alert('<%="#{t('manager.todos.validation.require_start_date')}"%>');
+          return false;
+        }
+      }
+
+      if($('#todo_iteration_type').val() == 'recurring'){
+        if($('#todo_frequency').val() == 'week' && $('input[name="start_days[]"]:checked').length == 0){
+          alert('<%="#{t('manager.todos.validation.require_week_day')}"%>');
+          return false;
+        }
+      }
+
+      if($('#todo_completion_date_value').val() == ''){
+        alert('<%="#{t('manager.todos.validation.require_complete_date')}"%>');
+        return false;
+      }
+
+
+      var isValidate = true;
+      $('.key-task-title').each(function(index, value){
+        if($(this).val() == '') isValidate = false;
+      });
+
+      if(!isValidate){
+          alert('<%="#{t('manager.todos.validation.require_key_task')}"%>');
+          return false;      
+      }
+
+      isValidate = true;
+      $('.key-task-description').each(function(index, value){
+        if($(this).val() == '') isValidate = false;
+      });
+
+      if(!isValidate){
+          alert('<%="#{t('manager.todos.validation.require_description')}"%>');
+          return false;      
+      }
+      isValidate = true;
+      $('.sub-task-title').each(function(index, value){
+        if($(this).val() == '') isValidate = false;
+      });
+
+      if(!isValidate){
+          alert('<%="#{t('manager.todos.validation.require_sub_task')}"%>');
+          return false;      
+      }
+
+      return true;
+    });
+
+    $('#todo_frequency').on('change', function(){
+      validate_completion_type();      
+    });
+
+    $('#todo_iteration_type').on('change', function(){
+      validate_completion_type();      
+    });
+
+    function validate_completion_type(){
+      switch(jQuery('#todo_iteration_type').val()){
+        case 'single':
+          jQuery('#todo_completion_date_type option').show();
+          break;
+        case 'recurring':
+          jQuery('#todo_completion_date_type option').hide();
+          switch(jQuery('#todo_frequency').val()){          
+            case 'day':
+              jQuery(jQuery('#todo_completion_date_type option')[4]).show();
+              jQuery('#todo_completion_date_type').val('completion_hour');
+              break;
+            case 'week':
+              jQuery(jQuery('#todo_completion_date_type option')[4]).show();
+              jQuery(jQuery('#todo_completion_date_type option')[0]).show();
+              jQuery('#todo_completion_date_type').val('completion_day');
+              break;
+            case 'month':
+              jQuery(jQuery('#todo_completion_date_type option')[4]).show();
+              jQuery(jQuery('#todo_completion_date_type option')[0]).show();
+              jQuery(jQuery('#todo_completion_date_type option')[1]).show();
+              jQuery('#todo_completion_date_type').val('completion_day');
+              break;
+          }
+          break;
+      }
+    }
+
+    validate_completion_type();
+  });    
+</script>

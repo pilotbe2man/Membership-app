@@ -1,0 +1,600 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.README.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-README">README</h1>
+
+<p>This README would normally document whatever steps are necessary to get the
+application up and running.</p>
+
+<p>Things you may want to cover:</p>
+<ul><li>
+<p>Ruby version</p>
+</li><li>
+<p>System dependencies</p>
+</li><li>
+<p>Configuration</p>
+</li><li>
+<p>Database creation</p>
+</li><li>
+<p>Database initialization</p>
+</li><li>
+<p>How to run the test suite</p>
+</li><li>
+<p>Services (job queues, cache servers, search engines, etc.)</p>
+</li><li>
+<p>Deployment instructions</p>
+</li><li>
+<p>...</p>
+</li></ul>
+
+<h1 id="label-Getting+started">Getting started</h1>
+
+<p>Install rvm :</p>
+
+<p><code>rvm install ruby-2.2.2</code></p>
+
+<p>Install Redis :</p>
+
+<p><code>brew install redis</code></p>
+
+<p>Install PostgreSQL :</p>
+
+<p><code>brew install postgres</code></p>
+
+<p>Install gems:</p>
+
+<p><code>bundle install</code></p>
+
+<p>Install asset dependencies:</p>
+
+<p><code>bower install</code></p>
+
+<p>Seed the database</p>
+
+<p><code>bundle exec rake db:setup</code></p>
+
+<p>Start the web server and Sidekiq:</p>
+
+<p><code>foreman start -f Procfile.dev</code></p>
+
+<h1 id="label-Seed+data">Seed data</h1>
+
+<h2 id="label-Login+details">Login details</h2>
+
+<p>Admin/Super Admin: admin@daycare.org / mypassword Manager:
+manager@daycare.org / mypassword Worker: worker@daycare.org / mypassword
+Parent: parent@daycare.org / mypassword</p>
+
+<h1 id="label-Stripe">Stripe</h1>
+
+<p>When testing card authorisation and payments, please use the details in the
+following link:</p>
+
+<p><a
+href="https://stripe.com/docs/testing#cards">stripe.com/docs/testing#cards</a></p>
+
+<h1 id="label-Synopsis">Synopsis</h1>
+
+<h2 id="label-Affiliate">Affiliate</h2>
+
+<p>The Affiliate model is used to represent the company that the Daycare
+Partner is connected to. It belongs to a User record with a
+&#39;partner&#39; role. When a partner registers, he/she is required to
+fill in data for the User record as well as for the related Affiliate
+record.</p>
+
+<h2 id="label-Attachment">Attachment</h2>
+
+<p>The Attachment model is a polymoprhic model which can be utilised by any
+other model to enable file attachments via the Carrierwave gem.</p>
+
+<h2 id="label-Child">Child</h2>
+
+<p>The Child model belongs to a User record with the &#39;parentee&#39; role.
+A parentee User can create a Child record when the register for an account.</p>
+
+<h2 id="label-ChildCollaborator">ChildCollaborator</h2>
+
+<p>The ChildCollaborator is a polymorphic model which is used to represent the
+different users which collaborates around a particular child. It is used in
+the Health Conversations, and only those users which has the
+child_collaborator connected to a child can see the conversations, and/or
+receive notifications around the child.</p>
+
+<h2 id="label-CollaboratorInvite">CollaboratorInvite</h2>
+
+<p>The CollaboratorInvite is a model used to represent the invitations to
+collaborate around a child. In the Health Conversations, the parents of the
+child can send an invitation to other users to collaborate around the
+child. When they do this, a collaborator_invite record is created,
+containing invite code and the email of the user being invited.</p>
+
+<h2 id="label-Daycare">Daycare</h2>
+
+<p>The Daycare model is created when a User record with the &#39;manger&#39;
+role is registered on the system. A Daycare record can have multiple Users,
+Departments and local Todos.</p>
+
+<h2 id="label-Department">Department</h2>
+
+<p>The Department model belongs to a Daycare record. Department records are
+created when a User with a &#39;manager&#39; role is registerd on the
+system; they need to be unique within the scope of the parent Daycare
+record.</p>
+
+<h2 id="label-DepartmentTodo">DepartmentTodo</h2>
+
+<p>The DepartmentTodo is a HABTM relationship handler between the Department
+and Todo models. A Department can have mutiple Todos, and a Todo can belong
+to multiple Departments.</p>
+
+<h2 id="label-DiscountCode">DiscountCode</h2>
+
+<p>The DiscountCode model is designed to define available DiscountCodes based
+around on percentage for the subscription part of the system. When creating
+a new DiscountCode, it should automtically create and/or update the linked
+Stripe account with the required information. Stripe needs to hold the
+DiscountCode information in order to apply the discount to the User&#39;s
+subscription every month. If you cannot find the DiscountCode information
+in your stripe dashboard, run the following command:</p>
+
+<p><code>rake stripe:prepare</code></p>
+
+<h2 id="label-DiscountCodeUser">DiscountCodeUser</h2>
+
+<p>The DiscountCodeUser is a HABTM relationship handler between the
+DiscountCode and User models. A DiscountCode can have mutiple Users,
+whereas a User can only have one DiscountCode.</p>
+
+<h2 id="label-Discussion">Discussion</h2>
+
+<p>The Discussion model is used to represent the messages being exchanged in
+the Health Conversations.</p>
+
+<h2 id="label-DiscussionParticipant">DiscussionParticipant</h2>
+
+<p>The DiscussionParticipant model is used to represent the target users of
+the connected discussion. In the Health Conversation, when a discussion is
+created, the sender can select the collaborators that&#39;s going to
+receive notifications. This receiver list is saved in the Discussion&#39;s
+Discussion Participant record.</p>
+
+<h2 id="label-DoctorSpecialization">DoctorSpecialization</h2>
+
+<p>A DoctorSpecialization is record used to save the doctor&#39;s medical
+specialization. It is created when an invited doctor registers in the app.</p>
+
+<h2 id="label-HealthRecord">HealthRecord</h2>
+
+<p>The HealthRecord model is used to save the health records related to a
+child or a department. It is based on a particular protocol and has many
+related health-record component records.</p>
+
+<h3 id="label-Protocol">Protocol</h3>
+
+<p>A protocol is a predefined set of data that is related to a child or a
+department. The currently available protocols are defined in the
+config/initializers/protocols.rb. One Health Record record is based on a
+protocol, and the associated Health Record components are based on the
+protocol&#39;s list of data_codes.</p>
+
+<h2 id="label-Illness">Illness</h2>
+
+<p>An Illness record represents the different illnesses that a child or a
+department can have. It is a currently a built-in data, found in
+config/initializers/illnesses.yml and can be loaded by running</p>
+
+<p><code>rake setup:load_illnesses</code></p>
+
+<p>Future support to add/edit/delete illnesses can be added in the Admin
+panel.</p>
+
+<h2 id="label-MedicalSpecialization">MedicalSpecialization</h2>
+
+<p>The DoctorSpecialization model is a builtin data used to populate the
+different specializationa doctor can have. The list is in
+config/initializers/medical_specializations.rb and can be loaded by running</p>
+
+<p><code>rake setup:load_medical_specializations</code></p>
+
+<h2 id="label-Message">Message</h2>
+
+<p>The Message model is designed to define the message content sent between
+users of the app. It can be user created, or based on a Message Template.
+It can have multiple target roles. When a message is created, a
+corresponding notification is created for all the recipients of the
+message.</p>
+
+<h3 id="label-User+Stories">User Stories</h3>
+
+<p>As an Admin, I can - create regular messages</p>
+
+<p>As a Manager, I can - create messages based on the message templates</p>
+
+<p>As a Partner, I can - create regular messages</p>
+
+<h2 id="label-MessageSubject">MessageSubject</h2>
+
+<p>The MessageSubject model is designed to define a predefined set of subjects
+for Messages. It is a main subject when the parent_subject_id is null, or
+sub-subject when it has a parent_subject_id.</p>
+
+<h2 id="label-MessageTemplate">MessageTemplate</h2>
+
+<p>The MessageTemplate model is designed to define a predefined message that
+the users can send to the other users of the app. It belongs to a main
+subject and sub-subject. It also has one target role.</p>
+
+<h3 id="label-User+Story">User Story</h3>
+
+<p>As an Admin, I can - create message templates - edit message templates -
+delete message templates</p>
+
+<p>As a Manager, I can - can use the message templates created by the Admin to
+be sent to the parents and workers under my daycare</p>
+
+<h2 id="label-Notification">Notification</h2>
+
+<p>The Notification model is designed to define any form of notifications out
+of any actions. It has a polymorphic field, which can be used to record the
+source of the notification. Possible source of notification are Message,
+Discussion, to name a few.</p>
+
+<h2 id="label-Plan">Plan</h2>
+
+<p>The Plan model is designed to define available Plans for when a User would
+like to upgrade their subscription in the system. When creating a new Plan,
+it should automtically create and/or update the linked Stripe account with
+the required information. Stripe needs to hold the Plan information in
+order to charge the User with the correct amount for each month of their
+subscription. If you cannot find the Plan information in your stripe
+dashboard, run the following command:</p>
+
+<p><code>rake stripe:prepare</code></p>
+
+<h2 id="label-Subject">Subject</h2>
+
+<p>The Subject model is designed to define a predefined set of subjects for
+when a User with the &#39;manager&#39; role creates a new Todo for their
+associated Daycare. Instead of a User with a &#39;manager&#39; role
+submitting custom text for the Title of the Todo, they need to select from
+a list of predefined Subjects which have been created by a User with an
+&#39;admin&#39; role. This has been designed in order support legacy
+functionality and is advisable to restructure later on.</p>
+
+<h2 id="label-SubTask">SubTask</h2>
+
+<p>A SubTask record is sub-task associated with a TodoTask record. A TodoTask
+record can have many SubTask records, each of which contain a Title and
+Description attribute.</p>
+
+<h2 id="label-SubTaskComplete">SubTaskComplete</h2>
+
+<p>Behaves similar to TodoTaskComplete for TodoTask, but for SubTask.</p>
+
+<h2 id="label-SurveySubject">SurveySubject</h2>
+
+<p>The SurveySubject model is designed to define the master subject for a
+Survey. Since there are mutliple modules (Survey model) in a Survey, it
+made sense to create a parent record which defined the survey Title,
+Description and Icon. After creating a SurveySubject record, a User can
+then create modules containing questions and answers with the Survey model.
+In order to create SurveySubject or Survey records, a User needs to have an
+&#39;admin&#39; role.</p>
+
+<h2 id="label-Symptom">Symptom</h2>
+
+<p>A Symptom record represents the symptoms that the different illnesses can
+have. It belongs to a particular illness, and has unique code and name
+fields.</p>
+
+<h2 id="label-Todo">Todo</h2>
+
+<p>The Todo logic is broken up into two types: Local and Global. Global Todos
+are created by an admin, and only an admin can create, edit and destroy.
+Managers can view global todos, but cannot modify their data. However, a
+Manager can create local todos, which are only assigned to their associated
+Daycare. Additionally, a Manager can generate reports based in start and
+end time/date for both global todo attempts and local todo attempts by
+their associated parents and managers.</p>
+
+<p>As a Parent or Worker, you can view the global todos created by an admin
+and local todos created by your manager within your associated Daycare.
+Furthermore, Parents and Workers can start a Todo and mark its associated
+tasks as complete.</p>
+
+<h3 id="label-User+stories">User stories</h3>
+
+<p>As an admin I can… - view all global todos - create global todos</p>
+
+<p>As a manager I can… - view all global todos - generate report on global and
+local todos - iew all local todos in relation to my daycare - create local
+todos which are assigned to my daycare</p>
+
+<p>As a worker or parent I can… - view available todos… - view incomplete
+todos… - mark a tasks on a todo as complete - complete all tasks on a todo,
+thereby completing the todo</p>
+
+<h2 id="label-TodoComplete">TodoComplete</h2>
+
+<p>A TodoComplete record is a User&#39;s attempt at trying to complete a Todo
+which is associated with their Daycare. A TodoComplete record has many
+TodoTaskComplete records - one for each of the TodoTask records associated
+with a Todo record. When all TodoTaskComplete records are marked as either
+&#39;pass&#39; or &#39;failed&#39; the completion_date attribute is
+assigned and the status attribute is set to &#39;inactive&#39;. Only a User
+record with a &#39;parentee&#39; or &#39;worker&#39; role may attempt at
+completing a Todo.</p>
+
+<h2 id="label-TodoTask">TodoTask</h2>
+
+<p>A TodoTask record is task associated with a Todo record. A Todo record can
+have many TodoTask records, each of which contain a Title and Description
+attribute.</p>
+
+<h2 id="label-TodoTaskComplete">TodoTaskComplete</h2>
+
+<p>A TodoTaskComplete record is a User&#39;s attempt at trying to complete
+TodoTask associated with a Todo record. When a TodoTaskComplete record is
+created, the result attribute is automatically set to &#39;pending&#39;. If
+a User marks a TodoTaskComplete as &#39;completed&#39;, the result
+attribute is updated to &#39;pass&#39;. Whereas if a User fails to complete
+a TodoTaskComplete within the completion date or frequency, the result
+attrbiute is marked as &#39;failed&#39;. Only a User record with a
+&#39;parentee&#39; or &#39;worker&#39; role may attempt at completing a
+TodoTask.</p>
+
+<h2 id="label-User">User</h2>
+
+<p>A User record is designed to allow people to create their own account, each
+of which is assigned either a &#39;parentee&#39;, &#39;worker&#39;,
+&#39;manager&#39; and &#39;admin&#39; role. Each of the aforementioned
+roles allow the User to perform different types of functionality inside the
+system. A User record is required in order to utilise alot of the dynamic
+functionality inside the system.</p>
+
+<h2 id="label-UserAffiliate">UserAffiliate</h2>
+
+<p>A UserAffilate record is handler between the Users and the Affilicate
+models. Only users with &#39;partner&#39; role can have have UserAffiliate
+records. An Affiliate can have multiple Users, whereas a User with a
+&#39;partner&#39; role can only have one Affiliate.</p>
+
+<h2 id="label-UserDaycare">UserDaycare</h2>
+
+<p>The UserDaycare is a HABTM relationship handler between the Users and
+Daycares models. A Daycare can have mutiple Users, whereas a User can only
+have one Daycare.</p>
+
+<h2 id="label-UserOccurrence">UserOccurrence</h2>
+
+<p>The UserOccurrence model is designed to prevent Users from repeating a Todo
+with a &#39;recurring&#39; iteration type within the defined frequency
+defined for the aforementioned Todo. For example, if a Todo has a
+&#39;recurring&#39; iteration type and a &#39;weekly&#39; frequency, they
+cannot perform the Todo more than once a week.</p>
+
+<h2 id="label-UserProfile">UserProfile</h2>
+
+<p>The UserProfile model is used to save additional information about the
+users. Currently, it is created when an invited doctor registers in the
+app.</p>
+
+<h2 id="label-Vote">Vote</h2>
+
+<p>The Vote model is used to save any votes made by the user. As of writing,
+only Daycare Parents and Daycare Workers are allowed to vote. They can only
+vote once per VoteCandidate Record.</p>
+
+<h2 id="label-VoteCandidate">VoteCandidate</h2>
+
+<p>The VoteCandidate model represents the possible votes that the user can do.
+As of writing, users can only vote on the survey about the app itself.</p>
+
+<h1 id="label-Troubleshooting">Troubleshooting</h1>
+
+<p>When stripe or rollbar causes error in the initial migration, temporarily
+comment out the codes in their respective files in the config/, and run the
+migration.</p>
+
+<p>If there are missing files related to bootstrap-material-design, download
+and use the version from the repo <a
+href="https://github.com/FezVrasta/bootstrap-material-design">github.com/FezVrasta/bootstrap-material-design</a>.</p>
+
+<h2 id="label-using+RESTful+API">using RESTful API</h2>
+
+<h3 id="label-SendingBlue+API">SendingBlue API</h3>
+
+<p>Sendingblue API is the transactional email platform. It has a very
+structured REST, webhooks and a next-generation websockets API to take care
+of all your needs.</p>
+
+<p>Reference - <a
+href="https://apidocs.sendinblue.com">apidocs.sendinblue.com</a>/</p>
+<ul><li>
+<p>Installation  Copy mailin.rb to lib directory</p>
+</li><li>
+<p>Prepare API key and secret key for user</p>
+</li><li>
+<p>Call Sendingblue API for SMTP</p>
+</li><li>
+<p>Example "`ruby m = Mailin.new("<a
+href="https://api.sendinblue.com/v2.0","<YOUR-API-KEY">api.sendinblue.com/v2.0","<YOUR-API-KEY</a>&gt;")
+data = { "to" =&gt; =&gt; "Daycare",  "from" =&gt;
+[message.owner.email, message.owner.name],  "subject" =&gt; message.title, 
+"html" =&gt; message.content }</p>
+
+<p>result = m.send_email(data) "`</p>
+</li></ul>
+
+<h3 id="label-SurveyGizmo+API">SurveyGizmo API</h3>
+
+<p>It&#39;s easier than ever for team members to collaborate across multiple
+survey projects while maintaining administrative control over users and
+their roles.</p>
+
+<p>API Reference - <a
+href="https://apihelp.surveygizmo.com/help/authentication">apihelp.surveygizmo.com/help/authentication</a></p>
+<ul><li>
+<p>Ruby on Rails gem for SurveyGizmo <a
+href="https://github.com/jarthod/survey-gizmo-ruby">github.com/jarthod/survey-gizmo-ruby</a>/</p>
+
+<p>Currently supports SurveyGizmo API v4 (default) and v3.</p>
+</li><li>
+<p>Installation <code>gem &#39;survey-gizmo-ruby&#39;</code></p>
+</li><li>
+<p>Examples "`ruby</p>
+
+<h1 id="label-Iterate+over+your+all+surveys+directly+with+the+iterator">Iterate over your all surveys directly with the iterator</h1>
+
+<p>SurveyGizmo::API::Survey.all(all_pages: true).each { |survey|
+do_something_with(survey) }</p>
+
+<h1 id="label-Iterate+over+the+1st+page+of+your+surveys">Iterate over the 1st page of your surveys</h1>
+
+<p>SurveyGizmo::API::Survey.all(page: 1).each { |survey|
+do_something_with(survey) }</p>
+</li></ul>
+
+<h1 id="label-Retrieve+the+survey+with+id-3A+12345">Retrieve the survey with id: 12345</h1>
+
+<p>survey = SurveyGizmo::API::Survey.first(id: 12345) survey.title # =&gt; “My
+Title” survey.pages # =&gt; [page1, page2,…]
+survey.number_of_completed_responses # =&gt; 355
+survey.server_has_new_results_since?(Time.now.utc - 2.days) # =&gt; true
+survey.team_names # =&gt; [&#39;Development&#39;, &#39;Test&#39;]
+survey.belongs_to?(&#39;Development&#39;) # =&gt; true</p>
+
+<h1 id="label-Retrieve+all+questions+for+all+pages+of+this+survey">Retrieve all questions for all pages of this survey</h1>
+
+<p>questions = survey.questions</p>
+
+<h1 id="label-Strip+out+instruction-2C+urlredirect-2C+logic-2C+media-2C+and+other+non+question+-22questions-22">Strip out instruction, urlredirect, logic, media, and other non question “questions”</h1>
+
+<p>questions = survey.actual_questions</p>
+
+<h1 id="label-Create+a+question+for+your+survey.+The+returned+object+will+be+given+an+-3Aid+parameter+by+SG.">Create a question for your survey. The returned object will be given an :id parameter by SG.</h1>
+
+<p>question = SurveyGizmo::API::Question.create(survey_id: survey.id, title:
+&#39;Do u ruby?&#39;, type: &#39;checkbox&#39;)</p>
+
+<h1 id="label-Update+a+question">Update a question</h1>
+
+<p>question.title = “Do u &lt;3 Ruby?” question.save</p>
+
+<h1 id="label-Destroy+a+question">Destroy a question</h1>
+
+<p>question.destroy</p>
+
+<h1 id="label-Iterate+over+all+your+Responses">Iterate over all your Responses</h1>
+
+<p>survey.responses.each { |response| do_something_with(response) }</p>
+
+<h1 id="label-Use+filters+to+limit+results+-+this+example+will+iterate+over+page+3+of+completed-2C+non+test+data">Use filters to limit results - this example will iterate over page 3 of completed, non test data</h1>
+
+<h1 id="label-SurveyResponses+submitted+within+the+past+3+days+for+contact+999.+The+example+filters+array">SurveyResponses submitted within the past 3 days for contact 999. The example <code>filters</code> array</h1>
+
+<h1 id="label-demonstrates+how+to+use+some+of+the+gem-27s+built+in+filters-2Fgenerators+as+well+as+how+to+construct">demonstrates how to use some of the gem&#39;s built in filters/generators as well as how to construct</h1>
+
+<h1 id="label-an+ad+hoc+filter+hash.">an ad hoc filter hash.</h1>
+
+<h1 id="label-See-3A+http-3A-2F-2Fapihelp.surveygizmo.com-2Fhelp-2Farticle-2Flink-2Ffilters+for+more+info+on+filters">See: <a href="http://apihelp.surveygizmo.com/help/article/link/filters">apihelp.surveygizmo.com/help/article/link/filters</a> for more info on filters</h1>
+
+<p>filters = [ SurveyGizmo::API::Response::NO_TEST_DATA,
+SurveyGizmo::API::Response::ONLY_COMPLETED,
+SurveyGizmo::API::Response.submitted_since_filter(Time.now - 72.hours), {
+field: &#39;contact_id&#39;, operator: &#39;=&#39;, value: 999 } ]
+survey.responses(page: 3, filters: filters).each { |response|
+do_stuff_with(response) }</p>
+
+<h1 id="label-Parse+the+answer+hash+into+a+more+usable+format.">Parse the answer hash into a more usable format.</h1>
+
+<h1 id="label-Answers+with+keys+but+empty+values+will+not+be+returned.">Answers with keys but empty values will not be returned.</h1>
+
+<h1 id="label-22Other-22+text+for+some+questions+is+parsed+to+Answer-23other_text-3B+all+other+answers+to+Answer-23answer_text">“Other” text for some questions is parsed to Answer#other_text; all other answers to Answer#answer_text</h1>
+
+<h1 id="label-Custom+table+question+answers+have+the+question_pipe+string+parsed+out+to+Answer-23question_pipe.">Custom table question answers have the question_pipe string parsed out to Answer#question_pipe.</h1>
+
+<h1 id="label-See+http-3A-2F-2Fapihelp.surveygizmo.com-2Fhelp-2Farticle-2Flink-2Fsurveyresponse-per-question+for+more+info+on+answers">See <a href="http://apihelp.surveygizmo.com/help/article/link/surveyresponse-per-question">apihelp.surveygizmo.com/help/article/link/surveyresponse-per-question</a> for more info on answers</h1>
+
+<p>response.parsed_answers =&gt; # [#&lt;SurveyGizmo::API::Answer
+@survey_id=12345, @question_id=1, @option_id=2,
+@answer_text=&#39;text&#39;&gt;]</p>
+
+<h1 id="label-Retrieve+all+answers+from+all+responses+to+all+surveys-2C+write+rows+to+your+database">Retrieve all answers from all responses to all surveys, write rows to your database</h1>
+
+<p>SurveyGizmo::API::Survey.all(all_pages: true).each do |survey| 
+survey.responses.each do |response|  response.parsed_answers.each do
+|answer|  MyLocalSurveyGizmoResponseModel.create(answer.to_hash)  end  end
+end “`</p>
+</div></div>
+
+    <div id="footer">
+  Generated on Sun Sep  2 14:53:23 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.3).
+</div>
+
+  </body>
+</html>

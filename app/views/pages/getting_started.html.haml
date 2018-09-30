@@ -1,0 +1,47 @@
+.welcome-container.page-boxed
+  .page-header
+    .container.text-center
+      .col-sm-2.logo-mono
+        = image_tag LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? 'logo.png' : LocaleLogo.by_type_language(1, I18n.locale).first.logo.url : LocaleLogo.by_type_language(1, I18n.locale).first.logo.url, class: 'header-mark'
+  .container
+    .row.title.text-center
+      %h3=t('pages.getting_started.main_heading')
+      %h5=t('pages.getting_started.sub_heading')
+    .row.round-menu
+      .row.menu-line
+        .col-sm-4.col-sm-offset-4.col-xs-6.col-xs-offset-3.outer
+          .block
+            .circle.parent-border.item-manager
+              = link_to worker_select_daycare_path do
+                = image_tag 'worker-white.png'
+          %h5
+            =t('account.daycare.worker')
+      .row.menu-line
+        .col-sm-4.col-sm-offset-2.col-xs-6.outer
+          .block
+            .circle.parent-border.item-worker
+              = link_to new_user_registration_path(role: 'manager') do              
+                = image_tag 'manager-white.png'
+            %h5
+              =t('account.daycare.manager')
+        .col-sm-4.col-xs-6.outer
+          .block
+            .circle.parent-border.item-partner
+              = link_to new_user_registration_path(role: 'partner') do
+                = image_tag 'partner-white.png'
+            %h5
+              =t('account.daycare.partner')
+      .row.menu-line 
+        .col-sm-4.col-sm-offset-4.col-xs-6.col-xs-offset-3.outer
+          .block
+            .circle.parent-border.item-parentee
+              = link_to parentee_select_daycare_path do
+                = image_tag 'parent-white.png'
+            %h5
+              =t('account.daycare.parent')
+:javascript
+  jQuery(document).ready(function() {
+    $('body').css("src","background-color: #242c3f !important;");
+    $('footer.normal .container').css("top", "0");
+    $('footer.normal .container .central-footer').css("display", "none");
+  });

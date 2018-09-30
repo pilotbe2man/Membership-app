@@ -1,0 +1,23 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, manager_todos_path
+.todo-dash-container.container
+  .row
+    .col-md-12
+      %h4.option-title=t('manager.todos.labels.select_department')
+    .col-md-12.text-right
+      %a{ href: '#', id: 'select_all_checkbox'} Select All
+    = form_tag new_manager_todo_path, method: :get do
+      - @departments.each do |item|
+        .check-box.col-md-12.department-item
+          %input{type: "checkbox", value: item.id, name:"departments[]", :style => "display: none;", :id => "department_#{item.id}"}
+          %label{:for => "department_#{item.id}"}=item.name        
+      .col-md-offset-4.col-md-4.form-buttons.text-right.no-h-padding
+        = submit_tag t('form_labels.next'), class: 'btn btn-yellow-red btn-wizard'
+:javascript
+  jQuery(document).ready(function() {
+    $('#select_all_checkbox').on('click', function(){
+      $('.department-item input').each(function(){
+        $(this).attr('checked', 'checked');
+      });
+    });
+  });

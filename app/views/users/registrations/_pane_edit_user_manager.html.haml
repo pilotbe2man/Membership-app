@@ -1,0 +1,43 @@
+.row.text-center
+  = image_tag 'manager-md.png'
+  %h4=t('account.daycare.manager')
+.row.pane-container.text-center
+  .row.step-banner
+    .col-sm-3.col-xs-3.step-item.first-step.active
+      .step-label
+        = image_tag 'manager-sm.png'
+        %span=t('register.labels.user_info')
+    .col-sm-3.col-xs-3.step-item.second-step
+      .step-label
+        = image_tag 'step-pending.png'
+    .col-sm-3.col-xs-3.step-item.third-step
+      .step-label
+        = image_tag 'step-pending.png'
+    .col-sm-3.col-xs-3.step-item.fourth-step    
+      .step-label
+        = image_tag 'step-pending.png'
+.row.parent-info
+  = devise_error_messages!
+  .col-sm-8.text-left
+    .row
+      %h5=t('register.labels.name').upcase
+      = user.text_field :name, class: 'form-control input-round', :placeholder => t('register.labels.name').upcase, :required =>"true"
+    .row
+      %h5=t('register.labels.email').upcase
+      = user.email_field :email, class: 'form-control input-round', :placeholder => t('register.labels.email').upcase, :required =>"true"
+    / .row
+    /   %h5=t('register.labels.card_number').upcase
+    /   = user.text_field :card_number, class: 'form-control input-round', :placeholder => t('register.labels.card_number').upcase, :required =>"true"
+    / .row
+    /   %h5=t('register.labels.password').upcase
+    /   = user.password_field :password, class: 'form-control input-round', :placeholder => t('register.labels.password').upcase
+    / .row
+    /   %h5=t('register.labels.pwd_confirm').upcase
+    /   = user.password_field :password_confirmation, autocomplete: 'off', class: 'form-control input-round', :placeholder => t('register.labels.pwd_confirm').upcase
+    .row
+      %h5=t('register.labels.current_password').upcase
+      = user.password_field :current_password, autocomplete: 'off', class: 'form-control input-round', :placeholder => t('register.labels.current_password').upcase, :required => "true"
+    - if @minimum_password_length
+      .row
+        %em{:style => "padding-left: 20px;"}
+          (#{@minimum_password_length}) characters minimum

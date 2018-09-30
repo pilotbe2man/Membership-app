@@ -1,0 +1,44 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+.login-container{
+  background: #fff;
+  font-family: 'Open Sans', sans-serif;
+  .container{
+    min-height: 75vh;  
+
+    .notification-box{
+      border: 5px solid #c6c6c6;
+      @include border-radius(30px);
+      .row{
+        margin: 0;
+      }
+
+      span{
+        color:#ff0552;
+        &.panel-title{
+          display: block;
+          width: 100%;
+          padding: 15px 30px;
+          font-size: 20px;
+          font-weight: 200;
+          text-transform: uppercase;
+          border-bottom: 5px solid #c6c6c6;
+        }
+      }
+
+      .panel-content{
+        min-height: 100px;
+        padding: 15px;
+      }
+
+      .btn-round{
+        color: #fff;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.filtered-item
+  .row.filtered-item-info{class: (message.id == @notification.try(:source_id)) ? "highlight" : ""}
+    .col-md-4.col-sm-4.col-xs-4
+      %span= message_role_label + ' : '
+      %span= t("account.daycare.#{message_role_value(message).downcase}")
+
+    .col-md-4.col-sm-5.col-xs-5.filtered-item-date.centralize
+      = pretty_long_date(message.created_at)
+
+    .col-md-4.col-sm-3.col-xs-3.text-right
+      %a.print-msg-btn{href: '#', 'data-target_message': "#message-#{message.id}", 'data-sub_subject': message.message_template ? message.message_template.sub_subject.title : '', 'data-subject': message.message_template ? message.message_template.sub_subject.parent_subject.title : ''}
+        %span= t('form_labels.print')
+  %div.filtered-item-content
+    .filtered-item-preview.message-content-stage{class: message.id == @notification.try(:source_id) ? 'well well-sm' : 'truncate', id: "message-#{message.id}"}
+      = message.content.html_safe

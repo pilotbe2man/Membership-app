@@ -1,0 +1,40 @@
+.page-boxed{:class => "reg-#{current_user.role}-container"}
+  .page-header
+  .container
+    .form-content           
+      #rootwizard
+        %ul{:style=> "visibility: hidden; height: 0; position:absolute;"}
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab1"} First
+        = form_for(resource, as: resource_name, url: update_user_registration_path(role: current_user.role), html: { method: :put }) do |user|
+          .tab-content
+            #tab1.tab-pane
+              = render "pane_edit_user_#{current_user.role}", user: user
+            .col-sm-12
+              %ul.pager.wizard.text-left
+                %li.previous
+                  %button{:type => "submit", :class => "btn btn-round item-#{current_user.role}"} 
+                    =t('register.labels.update')
+                %li.next{:style => "float:right;"}
+                  %button{:type => "submit", :class => "btn btn-round item-#{current_user.role}"} 
+                    =t('register.labels.next')
+                %li.previous.first{:style => "display:none;"}
+                  %a{:href => "#"} First
+                %li.next.last{:style => "display:none;"}
+                  %a{:href => "#"} Last
+:javascript
+  jQuery(document).ready(function() {    
+    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'}); 
+    $('.previous button').click(function(){
+      var tab_id = $('.tab-pane.active').attr('id');
+      if(tab_id == "tab1") {
+        $('form').submit();
+      }
+    });
+    $('.next button').click(function(){
+      var tab_id = $('.tab-pane.active').attr('id');
+      if(tab_id == "tab1") {
+        //window.location.href = "#{edit_user_info_path(role: current_user.role, id: current_user.id)}";
+      }
+    });
+  });

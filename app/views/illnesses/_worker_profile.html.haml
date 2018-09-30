@@ -1,0 +1,15 @@
+.col-md-12
+  %h5= t('illnesses.labels.worker_details')
+  %dl.dl-horizontal
+    %dt= t('illnesses.labels.name')
+    %dd= @worker.name
+
+    %dt= t('illnesses.labels.email')
+    %dd= @worker.email
+
+    %dt= t('illnesses.labels.department')
+    %dd= @worker.department.name
+
+.col-md-12
+  %h5= t('illnesses.labels.confirmation_pw')
+  = password_field 'worker', 'password', class: 'form-control', :required => "true"

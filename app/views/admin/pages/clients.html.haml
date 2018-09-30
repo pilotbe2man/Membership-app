@@ -1,0 +1,52 @@
+= content_for :title, 'Client Management'
+= content_for :breadcrumb, 'Client Management'
+
+.twelvecol
+  .page-header
+    %h2.widget.widget-header Client Management
+    .twelvecol{style: 'display: block;'}
+      - if @clients.empty?
+        .widget.widget-content
+          .helper-notification
+            %p You don't have any daycares yet from this location.
+            %i.icon-users
+      - else
+        .table-responsive
+          %table.table.table-striped.table-bordered.table-hover
+            %thead
+              %tr
+                %th Name
+                %th Address
+                %th Postcode
+                %th Country
+                %th Discount Code(%)
+                %th Payment Mode(month)
+                %th Payment Start
+                %th Created Date
+                %th
+            %tbody
+              - @clients.each do |client|
+                %tr
+                  %td
+                    = client.name
+                  %td
+                    = client.address_line1
+                  %td
+                    = client.postcode
+                  %td
+                    = client.country
+                  %td
+                    = client.discount_code.value unless client.discount_code.nil?
+                  %td
+                    = "#{client.payment_mode.period} #{client.payment_mode.unit}" unless client.payment_mode.nil?
+                  %td
+                    = "#{client.payment_start.period} #{client.payment_start.unit}" unless client.payment_start.nil?
+                  %td.align-left
+                    = client.created_at.strftime('%d/%m/%Y at %I:%M%p')
+                  %td
+                    = link_to edit_admin_daycare_path(client) do
+                      %i.icon-pencil
+
+:javascript
+  jQuery(document).ready(function() {
+  });  

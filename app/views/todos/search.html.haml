@@ -1,0 +1,24 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, todos_path
+.todo-dash-container
+  .container
+    #todos.row
+      .twelvecol
+        .todo-list
+          %h2
+            =t('todos.search.heading1', query: params[:query])
+          - if @todos.empty?
+            %p=t('todos.search.line1')
+          - else
+            %ul
+              - @todos.each do |todo|
+                %li
+                  .menu-item
+                    %span.todo-id= todo.id
+                    .profile-thumb
+                      = image_tag todo.icon.file, class: 'img-responsive center-block' unless todo.icon.nil?
+                    %span.todo-title= truncate(todo.title, length: 20)
+                  - if todo.in_progress?(current_user.id)
+                    = link_to t('todos.index.show'), manager_todo_path(todo), :class => 'btn btn-yellow btn-normal btn-block'
+                  - else
+                    = link_to t('todos.index.start'), todo_todo_completes_path(todo), method: :post, :class => 'btn btn-lightred btn-normal btn-block'

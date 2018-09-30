@@ -1,0 +1,87 @@
+.reg-manager-container.page-boxed
+  / .page-header
+  /   .header-guide.no-print
+  /     = link_to '#', id: 'link_dashboard_guide' do
+  /       %label.title=t('guideline.title')
+  /       %label.description=t('guideline.tooltip')        
+  .container
+    .form-content           
+      #rootwizard
+        %ul{:style=> "visibility: hidden; height: 0; position:absolute;"}
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab1"} First
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab2"} Second
+        = form_tag send_invite_survey_manager_daycares_path, method: :post do
+          .tab-content
+            #tab1.tab-pane
+              .row.text-center.step-banner
+                = image_tag 'manager-md.png'
+                %h4=t('manager.invite.title')
+              .row.pane-container.text-center
+                .row.step-banner
+                  .col-sm-3.col-xs-3.step-item.first-step
+                    .step-label
+                      = image_tag 'step-check-mng.png'
+                  .col-sm-3.col-xs-3.step-item.second-step
+                    .step-label
+                      = image_tag 'step-check-mng.png'
+                  .col-sm-3.col-xs-3.step-item.third-step
+                    .step-label
+                      = image_tag 'step-check-mng.png'
+                  .col-sm-3.col-xs-3.step-item.fourth-step.active    
+                    .step-label
+                      = image_tag 'manager-sm.png'
+                      %span=t('manager.invite.invitation')
+                .row.pane-invite-info
+                  .col-sm-12.text-left.email-list
+                    .row
+                      .form-group
+                        %label{:for => :title }=t('manager.invite.recipient')
+                        %br
+                        %span#recipient_list
+                          worker@daycare.org, worker@daycare.org, worker@daycare.org
+                      .form-group
+                        %label{:for => :title }=t('manager.invite.subject.label')
+                        = text_field_tag :title, '', placeholder: t('manager.invite.subject.placeholder'), class: 'form-control input-round', required: true
+                      .form-group{data:{step: 4, intro: t("guideline.manager.survey.step4.content")}}      
+                        %label{:for => 'message_content' }=t('manager.invite.message.label') 
+                        = cktext_area :content, '', value: 'Invitation Message Template', id: 'message_content', placeholder: t('manager.invite.message.placeholder')            
+            .col-sm-12
+              %ul.pager.wizard{:style => "text-align: center;"}
+                %li.previous.hide
+                  %button.btn.btn-round.item-manager{:type => "button"}                     
+                %li.next
+                  %button.btn.btn-round.item-manager{:type => "button", data:{step: 5, intro: t("guideline.manager.survey.step5.content")}} 
+                    =t('manager.invite.send')
+                %li.previous.first{:style => "display:none;"}
+                  %a{:href => "#"} First
+                %li.next.last{:style => "display:none;"}
+                  %a{:href => "#"} Last
+      .address_elem.hide
+        .row      
+          %h5=t('register.labels.invite_worker')
+          .row.inline-input-link
+            = text_field_tag 'email[]', '', :class => "form-control input-round daycare-email", required: "true"
+            %a.btn.btn-red.btn-normal{href: '#', "onclick" => "remove_fields(this)" } 
+              =image_tag('manager-sub.png')
+:javascript
+  jQuery(document).ready(function() {    
+    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'}); 
+    $('.remove_button').removeClass("btn");
+    $('.remove_button').removeClass("btn-red");
+
+    //$('#message_content').froalaEditor({
+    //  heightMin: 250
+    //});
+
+    introJs().setOption('doneLabel', "#{t('form_labels.next')}").start().oncomplete(function() {
+      window.location.href = 'result_step4?multipage=true';
+    });
+
+    $('#link_dashboard_guide').on('click', function(){
+      introJs().setOption('doneLabel', "#{t('form_labels.next')}").start().oncomplete(function() {
+        window.location.href = 'result_step4?multipage=true';
+      });
+    });    
+  });

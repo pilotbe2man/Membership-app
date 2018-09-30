@@ -1,0 +1,42 @@
+.row.text-center.step-banner
+  = image_tag 'parent-md.png'
+  %h4=t('account.daycare.parent')
+.row.pane-container.text-center
+  .row.step-banner
+    .col-sm-3.col-xs-3.step-item.first-step.item-parentee
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-check-prt.png'
+    .col-sm-3.col-xs-3.step-item.second-step.item-parentee    
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-check-prt.png'
+    .col-sm-3.col-xs-3.step-item.third-step.item-parentee.active
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'parent-sm.png'
+        %span=t('register.labels.parent_info')
+    .col-sm-3.col-xs-3.step-item.fourth-step.item-parentee
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+  .row
+    = devise_error_messages!
+  .parent-list-container
+    .parent-item
+      .row.parent-info.text-left
+        .col-sm-8
+          .row
+            %h3=t('register.labels.parent_info')
+          .row
+            = f.password_field :password, :class => 'form-control input-round', :placeholder => t('register.labels.password'), :required =>"true"
+          .row
+            = f.password_field :password_confirmation, :class => 'form-control input-round', :placeholder => t('register.labels.pwd_confirm'), :required =>"true"
+          - if @minimum_password_length
+            .row
+              %em
+                (#{@minimum_password_length} characters minimum)
+          = f.fields_for :user_daycare do |user_daycare|
+            = user_daycare.hidden_field :daycare_id, value: (params[:daycare_id].blank?) ? (params[:user][:user_daycare_attributes][:daycare_id] rescue 1) : params[:daycare_id]

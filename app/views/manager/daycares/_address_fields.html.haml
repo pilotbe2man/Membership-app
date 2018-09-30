@@ -1,0 +1,8 @@
+
+%label=t('register.labels.invite_'+@daycare_role)
+%br
+.address_elem
+  .inline-input-link
+    = text_field_tag 'email[]', '', :class => "form-control input-round daycare-email", required: "true", value: ""
+    %a.btn.btn-red.btn-normal{href: '#', "onclick" => "remove_fields(this)" } 
+      =image_tag('manager-sub.png')

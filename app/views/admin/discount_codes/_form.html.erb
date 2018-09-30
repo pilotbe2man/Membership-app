@@ -1,0 +1,34 @@
+<%= form_for [:admin, @discount_code] do |f| %>
+    <div class="threecol"></div>
+    <div class="ninecol last">
+        <%= render partial: 'shared/admin/errors', locals: { object: @discount_code } %>
+    </div>
+
+    <div class="threecol">
+        <h3><%= t('admin.discount_codes._form.heading')%></h3>
+        <p><%= t('admin.discount_codes._form.para')%></p>
+    </div>
+    <div class="ninecol last">
+        <fieldset class="widget widget-content widget-last">
+            <div class="form-group">
+                <%= f.label 'Code Name' %>
+                <%= f.text_field :code, :class => 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label 'Percentage Value' %>
+                <%= f.text_field :value, :class => 'form-control' %>
+            </div>
+            <div class="form-group form-last">
+                <div class="checkbox">
+                    <label>
+                        <%= f.check_box :status, {}, 'active', 'disabled' %>
+                        Active?
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-action">
+            <%= f.submit 'Submit', :class => 'btn btn-blue btn-large' %>
+        </div>
+    </div>
+<% end %>

@@ -1,0 +1,69 @@
+.legacy-ethic
+  .container
+    .row.box-2.step-wrapper-2
+      %h2.btn-style-1=t('pages.ethic.step4.title')
+      .col-md-12.content 
+        = form_tag add_schedule_path, method: :post, id: 'schedule_form' do
+          %h3=t('pages.ethic.step4.schedule_list')
+          - @app_types.each do |type|
+            .radio-box
+              %input{:type=>"radio", :name => "appointment_type", :id => "appointment_type_#{type['id']}", :style => "display: none;", checked: true, value: "#{type['id']}"}
+              %label{:for => "appointment_type_#{type['id']}"}= type['name']
+          %p=t('pages.ethic.step4.timezone')
+          = render partial: 'timezone_select'
+          .row
+            .col-md-6
+              .form-group
+                %p
+                  =t('pages.ethic.step4.schedule_time')
+                  =image_tag '/assets/ajax-loader.gif', id: 'time_loader', style: 'display: none;'
+                = text_field_tag :start_date, '', class: 'datetimepicker-date form-control datetime-input'
+            .col-md-6
+              .time_container{style: 'margin-top: 30px; margin-bottom: 20px;'}
+            = hidden_field_tag :firstName, params[:name]
+            = hidden_field_tag :lastName, '.'
+            = hidden_field_tag :email, params[:email]
+            / = hidden_field_tag :phone, current_user.daycare.telephone
+            / = hidden_field_tag :num_children, current_user.daycare.num_children
+            / = hidden_field_tag :num_worker, current_user.daycare.num_worker
+            / = hidden_field_tag :care_type, current_user.daycare.care_type_text
+          .col-md-12.text-center
+            .row
+              .col-md-3.hidden-xs
+              .col-sm-12.col-md-6.text-center
+                %button.btn.btn-style-1.btn-sm{type: 'submit', style: { "marin-bottom" => "30px"}}
+                  = t('pages.ethic.step4.button')            
+:javascript
+  jQuery(document).ready(function() {
+    jQuery('#verify-timezone').val('Europe/Oslo');
+    var start_date = '';
+    $('.datetimepicker-date').on('change', function(){
+      if(start_date !== $(this).val()){
+        start_date = $(this).val();
+        var url = '/get_available_schedule_time?appointment='+$('input[name=appointment_type]').val()+'&date='+$(this).val()+'&timezone='+$('#verify-timezone').val();
+        $('#time_loader').show();
+        $.ajax({
+            url: url,
+            type:'GET',
+            dataType: 'json',
+            success: function(response){
+              var template = '';
+              for(var i = 0; i < response.length; i++){
+                var available_time = response[i].time.substring(11, 16);
+                template += '<div class="radio-box"><input checked="" id="start_time'+i+'" name="start_time" style="display: none;" type="radio" value="'+available_time+'"><label for="start_time'+i+'">'+available_time+'</label></div>';
+              }
+              $('.time_container').html(template);
+              $('#time_loader').hide();
+            }
+          });              
+      }
+    });
+
+    $('#schedule_form').on('submit', function(e){
+      if(!$('input[name=start_time]').val()){
+        return false;
+      } else {
+        return true;
+      }
+    });
+  });

@@ -1,0 +1,24 @@
+= content_for :title, 'New Message'
+- content_for :breadcrumb, t('messages.breadcrumb.choose_sub_subject')
+
+- step_size = 5
+- page_step = 4
+.message-dash-container
+  .container
+    .row
+      = render partial: '/shared/progress_bar', locals: {step_size: step_size, page_step: page_step}
+    .row.content-main
+      = form_tag content_manager_messages_path, method: :get do
+        = hidden_field_tag :target_department, params[:target_department]
+        = hidden_field_tag :target_role, params[:target_role]
+        = hidden_field_tag :subject_id, params[:subject_id]
+        .col-md-12
+          %h4.option-title= t('messages.labels.choose_sub_subject')
+        .col-md-12
+          = select_tag :sub_subject_id, options_from_collection_for_select(@sub_subjects, 'id', 'title', params[:sub_subject_id]), class: 'form-control'
+        .col-md-12.form-buttons.text-right.no-h-padding
+          .col-md-3.col-md-offset-6.col-sm-3.col-sm-offset-6.col-xs-6
+            %a{href: subject_manager_messages_path(target_department: params[:target_department], target_role: params[:target_role], subject_id: params[:subject_id]), class: 'btn btn-gray btn-wizard'}
+              =t('form_labels.back')
+          .col-md-3.col-sm-3.col-xs-6
+            = submit_tag t('form_labels.next'), class: 'btn bg-style-b btn-wizard'

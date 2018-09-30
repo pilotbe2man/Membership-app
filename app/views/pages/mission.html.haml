@@ -1,0 +1,112 @@
+.row.promo
+  .promo-img
+    = image_tag "mission_promo.jpg"
+    .promo-text
+      %h2= t('pages.mission_step.promo_header')
+      /%p= t('pages.mission_step.promo_text')
+      /%br
+      /%h4.promo-subhead= t('pages.mission_step.promo_subhead')
+  / End Promo Area
+.container
+  = render 'steps_navigation'
+  .row.step-contents
+    %h4.heading-letter.heading= t('pages.mission_step.headline')
+    %h4.sub-heading= t('pages.mission_step.main_instro')
+  .row.step-contents
+    %p= t('pages.mission_step.intro_1')
+    %p
+      = t('pages.mission_step.intro_2')
+      %a.reference-link{href: '#', id: 'reference_1'}1
+      = t('pages.mission_step.intro_3')
+
+  .row.step-contents
+    %p= t('pages.mission_step.scientific_fact')
+    %ul.scientific-facts
+      %li
+        %p
+          = t('pages.mission_step.fact_1')
+          %a.reference-link{href: '#', id: 'reference_2'}2
+      %li
+        %p
+          = t('pages.mission_step.fact_2')
+          %a.reference-link{href: '#', id: 'reference_3'}3
+          = t('pages.mission_step.fact_2_1')
+      %li
+        %p
+          = t('pages.mission_step.fact_3')
+          %a.reference-link{href: '#', id: 'reference_4'}4
+  .row.step-contents.children-risk-content
+    %p= t('pages.mission_step.fact_5')
+    %p= t('pages.mission_step.fact_6')
+
+  .row.step-contents
+    %p
+    = image_tag('start-warning.png')
+    %h3.heading= t('pages.mission_step.children_risk')
+    %p= t('pages.mission_step.children_risk_1')
+
+    %p
+      = t('pages.mission_step.children_risk_sub_1')
+      %a.reference-link{href: '#', id: 'reference_5'}5
+      = t('pages.mission_step.children_risk_sub_2')
+      %a.reference-link{href: '#', id: 'reference_6'}6
+
+    %p
+      = t('pages.mission_step.children_risk_2')
+      %a.reference-link{href: '#', id: 'reference_7'}7
+    %p
+      = t('pages.mission_step.children_risk_3').html_safe
+      %span{style: 'font-size: 8px;'}
+        %a.reference-link{href: '#', id: 'reference_8'}8, 
+        %a.reference-link{href: '#', id: 'reference_9'}9
+
+    %p
+      = t('pages.mission_step.children_risk_4').html_safe
+      %a.reference-link{href: '#', id: 'reference_10'}10
+
+    %h4.sub-heading= t('pages.mission_step.children_risk_5').html_safe
+    %p
+      = t('pages.mission_step.children_risk_6').html_safe
+      %a.reference-link{href: '#', id: 'reference_11'}11
+      = t('pages.mission_step.children_risk_7').html_safe
+      %a.reference-link{href: '#', id: 'reference_12'}12
+
+  .row.step-contents
+    %p
+    = image_tag('start-parent.png')
+    %h3.heading= t('pages.mission_step.staff_parents_risk')
+    %p
+      = t('pages.mission_step.staff_parents_risk_1').html_safe
+      %a.reference-link{href: '#', id: 'reference_13'}13
+    %p
+      = t('pages.mission_step.staff_parents_risk_2').html_safe
+      %a.reference-link{href: '#', id: 'reference_14'}14
+      %a.reference-link{href: '#', id: 'reference_15'}15
+      %a.reference-link{href: '#', id: 'reference_16'}16
+    %p
+      = t('pages.mission_step.staff_parents_risk_3').html_safe
+      %a.reference-link{href: '#', id: 'reference_17'}17
+    %p
+      = t('pages.mission_step.staff_parents_risk_4').html_safe
+      %a.reference-link{href: '#', id: 'reference_18'}18
+    %p
+      = t('pages.mission_step.staff_parents_risk_5').html_safe
+      %a.reference-link{href: '#', id: 'reference_19'}19
+
+    %h4.sub-heading= t('pages.mission_step.what_to_do').html_safe
+    %p
+      = t('pages.mission_step.what_to_do_1').html_safe
+      %span{ style: 'font-size: 8px;'}
+        %a.reference-link{href: '#', id: 'reference_20'}20
+        %a.reference-link{href: '#', id: 'reference_21'}21
+        %a.reference-link{href: '#', id: 'reference_22'}22
+      = t('pages.mission_step.what_to_do_2').html_safe
+
+.row.step-contents.next-step-content
+  .next-step
+    %h4= t('pages.mission_step.next_step_header')
+    %button.btn.hcc-btn
+      %a{'href': '/journey'}
+        = t('pages.nav_bar.get_started').html_safe
+- (1..22).each do |num|        
+  = render 'reference_popover', index: num

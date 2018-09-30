@@ -1,0 +1,24 @@
+= content_for :title, t('messages.message')
+- content_for :page_title, t('dashboard.menu_item.communication')
+.message-dash-container
+  .container
+    .row
+      .col-md-12
+        %h3.option-title=t('messages.breadcrumb.message') + ' :'
+    .row.content-main
+      .col-md-6.col-sm-6.col-xs-6.menu-item
+        = link_to new_partner_message_path do
+          .link-content.border-style-b.hover-bg-style-b
+            .menu-img.send-notify
+            %span= t('messages.labels.create_regular_message')
+      .col-md-6.col-sm-6.col-xs-6.menu-item
+        = link_to list_messages_path(role: current_user.role, list_type: 'sent') do
+          .link-content.border-style-b.hover-bg-style-b
+            .menu-img.sent-notify
+            %span Sent Messages
+:javascript
+  jQuery(document).ready(function() {
+    $('#link_dashboard_guide').on('click', function(){
+      window.location.href = '/guide_page/partner_message/dash';
+    });
+  });

@@ -1,0 +1,42 @@
+- content_for :popup_notifications do
+  = hidden_field_tag 'notif_new_user', current_user.newly_signed_up?
+
+#legacy-back-index
+  .container.back-page-content
+    .row.back-page
+      .col-md-4
+        .single{'data-step'=>"1", 'data-intro'=>"To access the Risk assessment", 'data-position' => 'right'}
+          = image_tag 'back_page.png'
+          %h2.infection
+            = t('pages.welcome.head1').html_safe
+            %br
+              %span= t('pages.welcome.sub_head1').html_safe
+          %p
+            = t('pages.welcome.para1').html_safe
+          %h4.click-here-infection{'data-step'=>"4", 'data-intro'=>"Click here to view risk assement"}
+            = link_to 'Click here to access infection risk assessment for this module', infection_path
+      .col-md-4
+        .single{'data-step'=>"2", 'data-intro'=>"How to access Instruction component", 'data-position' => 'right'}
+          = image_tag 'introduction.png'
+          %h2.instroduction
+            = t('pages.welcome.head2').html_safe
+            %br
+              %span
+                = t('pages.welcome.sub_head2').html_safe
+          %p
+            = t('pages.welcome.para2').html_safe
+          %h4.click-here-introduction{'data-step'=>"5", 'data-intro'=>"This is a tooltip!"}
+            = link_to 'Click here to access infection risk assessment for this module', instruction_path
+      .col-md-4
+        .single{'data-step'=>"3", 'data-intro'=>"How to Access implementation component of the program", 'data-position' => 'left'}
+          = image_tag 'implementaiotn.png'
+          %h2.implementation
+            = t('pages.welcome.head3').html_safe
+            %br
+              %span= t('pages.welcome.sub_head3').html_safe
+          %p
+            = t('pages.welcome.para3').html_safe
+
+            %h4.click-here-implementation{'data-step'=>"6", 'data-intro'=>"Let move to next page where we can demostrate about Todos!"}
+              = link_to 'Click here to access infection risk assessment for this module', dashboard_path
+#socialside                     

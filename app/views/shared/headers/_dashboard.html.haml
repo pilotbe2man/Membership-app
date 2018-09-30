@@ -1,0 +1,26 @@
+%header{style: 'border-bottom : none; height: 0;'}
+  .header-guide.no-print
+    = link_to '#', id: 'link_dashboard_guide' do
+      %label.title=t('guideline.title')
+      %label.description=t('guideline.tooltip')        
+%header
+  = link_to (yield :previous_path), class: 'previous' do
+    = image_tag 'todo-left-arrow.png'
+
+  -if %(todos todo_completes).include?(controller.controller_name)
+    = image_tag LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? 'logo-new.png' : LocaleLogo.by_type_language(1, I18n.locale).first.logo.url, id: 'header-logo', class: 'header-mark'  
+  %h2= yield :page_title
+
+  - if user_signed_in?
+    .dropdown
+      %ul.dropdown-menu{role: 'menu', 'aria-labelledby': 'dLabel'}
+        %li= link_to t('pages.nav_bar.dashboard'), dashboard_path
+        %li= link_to t('pages.nav_bar.logout'), destroy_user_session_path, method: :delete
+
+    .partner-profile
+      = image_tag current_user_role_avatar, class: 'img img-thumbnail img-circle'
+
+    / .header-guide.no-print
+    /   = link_to '#', id: 'link_dashboard_guide' do
+    /     %label.title=t('guideline.title')
+    /     %label.description=t('guideline.tooltip')

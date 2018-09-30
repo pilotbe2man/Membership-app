@@ -1,0 +1,34 @@
+= content_for :title, 'Message Template'
+= content_for :breadcrumb, 'Message Template'
+
+.twelvecol
+  .page-header
+    %h2.widget.widget-header Message Template
+  .twelvecol
+    .table-responsive
+      %table.table.table-striped.table-bordered.table-hover
+        %thead
+          %tr
+            %th Message Subject
+            %th Language
+            %th
+          %form{:action => "/admin/list_verify", :method => "get"}
+            %tr
+              %th
+                %input.form-control{:name => "title", :type => "text", :value => "#{(params[:title].nil?) ? '' : params[:title]}"}
+              %th
+                = select_tag :language, options_for_select(pre_countries, :selected=> (params[:language].nil?) ? '' : params[:language].upcase), {:include_blank => 'Select Language', class: 'form-control'}
+              %th
+                %button.btn.btn-blue.btn-large
+                  Search
+        %tbody
+          - @subjects.each do |subject|
+            %tr
+              %td= subject.title
+              %td= subject.language
+              %td
+                = link_to edit_admin_message_template_path(id: 0, subject: subject, type: 'verify', sub_type: 'deposit') do
+                  Edit Deposit
+                = link_to edit_admin_message_template_path(id: 0, subject: subject, type: 'verify', sub_type: 'register') do
+                  Edit Register
+                /  %i.icon-remove

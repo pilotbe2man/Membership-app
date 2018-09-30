@@ -1,0 +1,1671 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  pages:
+    nav_bar:
+      home: Home
+      start_here: Start Here
+      standard: The HCC Standard
+      path: The Paths to Accreditation
+      about_us: About Us
+      contact_us: Contact Us
+      get_started: Protect children under you care <br/> Apply Here
+      mission: The Mission
+      your_journey: Your Journey
+      dashboard: Dashboard
+      logout: Logout
+      invite: Invite
+      worker: Workers
+      parentee: Parents
+      manager: Managers
+      signup: Sign Up
+      member: Team Members
+      internal_member: Internal Member
+      external_member: External Member
+
+    footer:
+      home: Home
+      mission: Our Mission
+      standard: Our Standard
+      path: Path to Accreditation
+      about_us: About Us
+      resources: Free Resources
+      login: Login
+      logout: Logout
+      register: Register
+
+    contact_us:
+      label: Contact Us
+      email: Please input your email address
+      subject: Please input your subject
+      content: Please input your content
+      submit: Send
+      gohome: Go Home
+
+    about:
+      sub_heading1: "Protecting Children and Employees"
+      sub_heading2: "from harm to their health in Childcare Settings"
+      main_heading: "Protecting Children and Employees from harm to their health in Childcare Settings"
+      paragraph1 : We are the Healthier and Safer Childcare Alliance a unifying and supporting force in the world  of childcare. Our vision is one you most likely share “protecting children and daycare community against harm” <br/> At the Healthier and Safer Childcare Alliance our mission is to assist childcare providers who are committed to  safeguarding children under their care, from avoidable harm and suffering,
+      sub_para1: "We seek to carry out this mission — as we:"
+      step_1: Help you create awareness about the importance of infection control practices among the childcare community to better mitigate risk infection exposure to children.
+      step_2: Facilitate tools and resources that enabling you as a childcare provider to build an ongoing infection risk mitigating infrastructure in your facility.
+      step_3: Connect you with childcare providers who are also committed to safeguarding the health and safety of children under their care so that a community of like minded childcares can help each other grow, promote and sustain a network of safe and health-preserving places for children to grow and be nurtured.
+      step_4: Help your accredited child care facility become a benchmark by which healthier and safer childcare is measured and recognized.
+      president_heading: About the president
+      president_subheading: The healthier Safer childcare alliance's president ,Tareq Ghulam, developed a passion for hygiene in childcare from his mother.
+      president_para1: In 1961, Richard’s mother emigrated to Norway from Bangladesh with Tareq and his younger brother. In search for a better life, the single mother worked double shifts, but always did a superb job as she worked with pride and purpose.
+      president_para2: This commitment was not lost on Tareq, who helped his mother clean daycare.
+      president_para3: Later Tareq himself went into providing hygiene services to childcares where he  became confronted by daycare owners who wanted to help fighting spread of infections. Not being able to provide a proficient answer he felt internally embarrassed to the degree that he made a decision to focus on researching the field of infection control in childcare . During this time,Tareq discovered that a lot of the research about child care infection control methods and practices ended up in journals that few people outside of the scientific community read and benefit from. He was also shocked to discover that children in childcare facilities are 2 to 3 times more vulnerable to infectious illnesses than those who cared for at home1 a fact that researchers have documented for decades in multiple settings. And while most infectious illnesses get resolved without disrupting the development of children, some infections can cause lasting physical damage or even death. He was disturbed and saddened by a real life case that made him certain infection risk mitigation was vital to the childcare community. In May 31, 2015, tragedy struck the Learning Vine Child Development Center, a childcare facility in South Carolina, USA.  The Director of the center was notified that one of its toddlers, two-year-old Myles Mayfield, died following complications from an infection of E. coli.  Myles had acquired the disease from an infected childcare worker two weeks earlier.
+
+      question_heading: "Future tragedies need to be avoided"
+      question_para1: "The management and operators of this institution failed to follow the best practice related to the infection at hand. In a statement on behalf of the family, Barry Mayfield said: “This lawsuit was never about money. All the money in the world can’t bring back Myles. By filing this lawsuit, we just wanted some accountability, so that no other family would ever have to lose a child the way our family did. We hope that by shining a light on what happened to Myles, future tragedies can be avoided.”"
+      question_para2: “While we will forever feel the pain of the loss of Myles, we are dedicated to ensuring that his death was not in vain and that those responsible for operating daycares will follow the rules and will put the safety of children first.”
+      question_para3: Today there is little doubt that taking infection control practices lightly cost lives, thus demand attention of all who care for children.
+      question_para4: The case of Myles became the driving force behind Tareq’s mission as a father himself, to make sure through the Healthier and Safer Childcare Alliance day care communities are being equipped with knowledge , resources and tools needed mitigate infection risk exposure to children. Those who own or manage and operate a childcare facility take on an enormous responsibility.  For them, there can be no greater tragedy than the death of a student in their care.
+      question_para5: No family or daycare provider should ever have to experience the loss of a child under their care.
+    home:
+      slide_header: <b>Healthier</b> <small>and</small> <b>Safer Childcare Alliance</b>
+      slide_header_0_content: Children who attend daycare are 2 to 3 times more vulnerable to illnesses than children cared for at home. One child’s infection can rapidly spread in a close proximity environment like a daycare.
+      slide_header_0_subcontent: Now your daycare can  become a safer place for children to grow and be nurtured through healthier and Safer Childcare Accreditation Program.
+      slide_header_1_content: Working in day care center involves significant occupational risk  for predominantly  female daycare staff in childbearing age. Several changes in the body happening during pregnancy weakens the immune system increasing the chances of the harmful effects of infection for both expecting mothers and children.
+      slide_header_1_subcontent: Now your daycare can become a safer place for your employees to work in, through healthier and Safer Childcare Accreditation Program.
+      slide_header_2_content: Children with special conditions such as congenital heart disease, chronic lung diseases, and other inborn syndromes face an even higher risk of being in danger of serious complications in an infectious disease outbreak scenario in your day care facility.
+      slide_header_2_subcontent: Now your daycare can  better protect the most vulnerable under your care through healthier and Safer Childcare Accreditation Program.
+
+      subcontent_start_here: Start Here
+      start_here_1: Discover the top hidden health risks for children and your daycare staff. Also, learn what it needs to be done to mitigate risks in you daycare facility — to better safeguard children under your care  and also your daycare staff from avoidable harm and suffering.
+      start_here_link: Discover more...
+
+      subcontent_standard: Healthier and Safer Child Care standard
+      standard_1: If you’re committed to keeping the children under you care out of harm’s way then the Healthier and Safer Childcare accreditation standard is specially designed to help you fulfill these ethical and professional responsibility as a childcare provider.
+      standard_link: Learn more...
+
+      subcontent_path: The Path to Accreditation
+      path_1: Discover the path you and your childcare facility can take to avoid unnecessary health maladies of the children and daycare staff  by going through the accreditation process which involves addressing five critical areas of infection risk exposure cutting-edge research deemed necessary for infection risk mitigation.
+      path_link: Explore more...
+
+      subcontent_journey: Start your Journey towards a healtheir and safer Childcare
+      journey_1: Join us in the fight against the spread of infections at your childcare facility, and give children the safe and healthy environment they deserve. Start your journey here.
+      journey_link: You are welcome to apply here...
+
+    infection:
+      main_heading: "Infection risk assessment"
+      para1: "Detect the level of infection risk in your facility"
+
+    instruction:
+      main_heading: "Gain competency phase"
+      description: "Gain competency required to mitigate infectious disease risk exposure."
+      sub_heading1:
+        title: "Infection preventive food handling"
+        description: "Through online training in contraceptive maths management, day care staff and daycare parents can raise their expertise in safe math management practices by learning about:"
+        para1: "What hygienic routine routines one should implement before, during and after cooking to dramatically improve food safety in kindergarten"
+        para2: "How should a food be kept to minimize the risk of disease"
+        para3: "What are the five critical sources of food contamination"
+        para4: "What special precautions should be observed regarding food and formula for infants and those who suffer from food allergies or food intolerances"
+        para5: "Which contraceptive practices should one use as part of the opening and closing of kindergarten and why?"
+      sub_heading2:
+        title: "Infection preventive outbreak control strategies"
+        description: "Through online training in contraceptive management of infectious disease outbreaks, day care staff and daycare parents can raise their expertise in the effective management of infectious disease outbreak by learning about:"
+        para1: "Which warning signs occur before and during an outbreak in a nursery?"
+        para2: "What steps should you follow to prevent, handle and overcome an outbreak?"
+        para3: "How to report relatives about an infectious disease outbreak is a fact in kindergarten?"
+      sub_heading3:
+        title: "Infection preventive diapering"
+        description: "Through online training in infectious diaper shift, nursery staff and daycare parents can raise their expertise in preventive diaper shift practice by learning about:"
+        para1: "What are the hidden health risks associated with diaper shift and the area for diaper shift?"
+        para2: "Which contraceptive procedures should follow in the implementation of diaper change, hand wash and disinfection?"
+        para3: "How should a handled diaper be handled?"
+        para4: "Which contraceptive procedures should follow when children dirt their clothes?"
+        para5: "Which equipment is necessary for changing the range of infections to reduce the risk of infection?"
+      sub_heading4:
+        title: "Infection preventive cleaning of bodily fluids"
+        description: "Through online training in contraceptive handling and cleaning of body fluid, childcare staff and kindergarten parents can raise their skills regarding safe handling of infectious body fluids by learning about:"
+        para1: "How to identify potential contaminated body fluids?"
+        para2: "How should they clean after an episode of potentially infectious body fluids?"
+        para3: "How to prevent one from overlooking important contraceptive steps in the cleaning process?"
+        para4: "When to separate a child that exudes body fluids?"
+      sub_heading5:
+        title: "Infection preventive hand washing"
+        description: "Through online training in Anti-Disease Hand Hygiene, day care staff and kindergarten parents can raise their skills around good hand hygiene practices by learning about:"
+        para1: "Describe the importance of hand washing for contraceptive prevention in kindergarten?"
+        para2: "How to wash hands correctly for young children who lack motor skills?"
+        para3: "What characterizes the proper use of disinfectants"
+        para4: "What are the best ways to teach children about proper hands wash?"
+        para5: "Which strategies can be used to encourage proper hand washing in the kindergarten"
+
+    take_action:
+      main_heading: "Tools and resources for uncompromised health and safety"
+      sub_heading1: "Food handling:"
+      label_post1: Download Food Handling Poster
+      para2: "The storage, preparation and distribution of food in childcare facilities create numerous opportunities for cross-contamination and foodborne illnesses. The infection controll task manager tool in the portal helps you track and measure if stringent protocols that ensure safe food handling contaminant-free meals are in place at your daycare. As an added benefit, with a few clicks, you will be able to create a report that you can submit to the authorities affirming that safe food handling procedures are implemented and are being tracked and measured on daily basis."
+      sub_heading2: "Diapering"
+      label_post2: Download Diapering Poster
+      para3: "Following standardized routines for infection preventive changing and the disposal of used diapers is key to minimizing the infection spreading pathogens.
+        Infection preventive resources in the portal such as downloadable A4 size mini posters which you can print out , laminate and put up in diaper changing area can repeatedly remind daycare staff about the best practices that mitigate infectious disease risk exposure and  increase safety while changing diapers."
+
+      sub_heading3: "Outbreak control"
+      para4: "An outbreak can often create a high infection risk situation where lack of proper infection control guidance offered to daycare staff and parents can put their own health and health of children under their care at in further danger through cross contamination. To mitigate this, outbreak communication manager provides you with Outbreak control control message templates covering 40 of the most infectious illness outbreaks likely to happen in childcare, written by qualified pediatrician. Now you can instantly notify and provide pivotal outbreak control guidance to your daycare staff and parents, that not only helps them mitigate risk of further exposure in an outbreak scenario but also shows them that you are both keeping a level head throughout an otherwise stressful outbreak scenario and have control of the situation, boosting employee morale in your facility."
+
+      sub_heading4: "Illness trends"
+      para5: "Proper preparation is key to mitigate on going infection risk in your childcare facility. As you can only properly prepare for that which you can anticipate, Illness trends tool, helps you better anticipate seasonal illness outbreaks by giving you instant overview of trends of illnesses occurring in you facility. In addition, by giving you critical insight into how illnesses that occur in your facility stack up against each other, it enables you to detect which illnesses are of primary concern so that you can initiate collective effort to root out cause of illnesses. Laying the foundation for better protection for children and creating a unified bond and team spirit between daycare staff and parents in fighting infections in your childcare facility."
+
+      sub_heading5: "Cleaning bodily fluids"
+      para6: "Cleaning up bodily fluids such as vomit or feces without having the critical tasks in the correct order can greatly increase the risk of cross contamination. To mitigate this infection risk the bodily fluid cleaning task manager has been created. It  helps daycare staff avoid missing out critical steps in cleaning while  enabling you to confirm  that correct procedures are implemented. You can print out a report of compliance to give to authorities verifying your childcare facilities are committed to infection control and safety."
+
+      sub_heading6: "Hand Hygiene"
+      label_post6: Download Hand Hygiene Poster
+      para7: "Given the importance of hand hygiene in disease-preventing procedures, the value of reinforcing proper hand washing concepts among children and caregivers in childcare settings cannot be understated. Infection preventive resources in the portal such as downloadable A4 size mini posters which you can print out , laminate and put up in diaper changing area can repeatedly remind daycare staff about when and how to properly clean hands and also to initiate a reward program to effectively encourage hand washing among the children."
+
+    mission_step:
+      promo_header: The Optimum Resource for Childcare Operators Committed to Safeguarding the Health and Well-being of Children Under Thier Care
+      promo_text: Childcare environments are a breeding ground for bacterial and viral infections. We owe it to our children to give them the safest and healthiest start to life.
+      promo_subhead: Breeding ground for childhood infections with potential long­term damage
+      headline: Safeguarding children and day care staff against harm
+      main_instro: Childcare environments are a breeding ground for bacterial and viral infections with potential long-term damage. We owe it to our children to give them the safest and healthiest environment possible.
+      intro_1: In the world of childcare, the safety of children is of primary importance. As a child care provider you  want to do what’s right for the children under your care and supervision. You want to be sure that all children under your care are in a safe nurturing environment.
+      intro_2: Yet, the reality is daycare settings are the breeding ground for infections and diseases. Children in childcare facilities are 2 to 3 times more vulnerable to infectious illnesses than those who cared for at home.
+      intro_3: A fact that researchers have documented for decades in multiple settings.
+      scientific_fact: "For example:"
+      fact_1:  Children attending childcare centres had 51 per cent more episodes of infection, and 134 percent more days of illness, compared to children cared for at home.
+      fact_2: A Swedish study reported children in childcare required 40 to 80 per cent more medical consultations
+      fact_2_1: for acute infections than did children who are at home.
+      fact_3: A Danish study reported 69 per cent higher incidence of hospitalizations among children in daycare for acute respiratory infection compared with children in home care.
+      fact_5: For childcare facility providers , understanding why infections disperse more intensively during group childcare, may be logically concluded. Managing a variety of biological discharges, is part of the daily routine. Children, by nature act in ways that facilitate disease dissemination. Little hands can easily become the instruments of illness transmission. Objects are grabbed, put in mouths and then shared with others. Germs of all varieties can easily accompany those objects.
+      fact_6: In addition to the obvious physical transferal of bacteria and viruses, there are also the issue of undeveloped immune systems in babies,a factor that could easily contribute to the onset of disease.
+      children_risk: Top health risks to children in your childcare
+      children_risk_1: The negative health effects of childhood infections can extend beyond the initial acute phase of illness. Some infections have been known to cause health complications during later development in some children.
+
+      children_risk_sub_1: Hospitalization for lower respiratory tract infection associated with daycare attendance
+      children_risk_sub_2: can lead to obstructive airway diseases and reduced lung function later in life.
+
+      children_risk_2: Otitis media - or middle ear infection - can have adverse consequences in children under 3 years old, including reduced reading comprehension and compromised cognitive ability.
+      children_risk_3: Daycare attendance has been cited as increasing the risk of acquiring OME by two to three times .
+      children_risk_4: Children who attend daycare also have an increased risk of needing urgent medical attention as a result of rotavirus infection. Rotaviruses are thought to be responsible for between 20% and 60% of hospital admissions in children.
+      children_risk_5: Heightened use of  antibiotics and health complications
+      children_risk_6: Given that children in daycare acquire infections with greater frequency and severity compared to children at home they also use antibiotics more often.
+      children_risk_7: Many studies report association between antibiotic use and childhood asthma, including a large prospective cohort study with more than 5,000 cases of childhood asthma that determined early antibiotic exposure to be one of the most important predictors of childhood asthma.
+
+      staff_parents_risk: Top health risks to worker in your childcare
+      staff_infection: Infections
+      staff_parents_risk_1: Working in childcare centers involves significant occupational risk for predominantly female childcare workers in childbearing age.  During pregnancy, the immune system undergoes several changes which weaken the immune system. This increases the chances of the harmful effects of infection for both expecting mothers and children. Among occupational risks identified among childcare staff are risk of diseases such as cytomegalovirus,  hepatitis, varicella, influenza, tuberculosis, meningitis, streptococcal infection, diarrheal disease, scabies, pediculosis and herpes infections.
+      staff_parents_risk_2: With relation to cytomegalovirus (CMV), small children excreting CMV are a common source of infections of mothers and daycare workers.
+      staff_parents_risk_3: A cross-sectional study in 1996 found that 62% of childcare workers --the majority of whom are of childbearing age- had contracted CMV, which carries a high risk of severe consequences for the fetus if contracted during pregnancy.
+      staff_parents_risk_4: Furthermore researchers in the New England Journal of Medicine reported that, compared to parents with stay-at-home children, those whose children attend daycare have a highly and statistically significantly increased risk of cytomegalovirus (CMV) infection.
+      staff_parents_risk_5: While it rarely results in disease in normal children or adults, it can be responsible for severe cases in fetuses and immunocompromised individuals. Such as limited to Hearing Loss, Vision Problems and learning problems.
+      what_to_do: What to do next—to mitigate risk in your facility, increase safety, and show you care.
+      what_to_do_1: Just as researchers have clarified the risk of increased infection rates in childcare facilities, they have also recognized that infection  control measures to reduce the transmission of infectious diseases are both effective and necessary.
+      what_to_do_2: The solution begins with understanding that infection risk mitigation in childcare facility require a multifaceted infection control program which goes beyond implementation of good hand washing policy.
+
+      next_step_header: 'Next step : mitigate risk in your facility and show you care'
+
+      ref_title: Reference
+      ref_text_1: "1. Kamper-Jorgensen, M., Benn, C. S., & Wohlfahrt, J. (2011). Childcare and health: a review of using linked national registers. Scand J Public Health, 39(7 Suppl), 126-130. doi:10.1177/1403494810395826"
+      ref_text_2: "2. Wald, E. R., Dashefsky, B., Byers, C., Guerra, N., & Taylor, F. (1988). Frequency and severity of infections in day care. J Pediatr, 112(4), 540-546"
+      ref_text_3: "3. Rasmussen, F., & Sundelin, C. (1990). Use of medical care and antibiotics among preschool children in different day care settings. Acta Paediatrica, 79(8‐9), 838-846."
+      ref_text_4: "4. Kamper-Jorgensen, M., Wohlfahrt, J., Simonsen, J., Gronbaek, M., & Benn, C. S. (2006). Population-based study of the impact of childcare attendance on hospitalizations for acute respiratory infections. Pediatrics, 118(4), 1439-1446. doi:10.1542/peds.2006-0373"
+      ref_text_5: "5. Anderson, L. J., Parker, R. A., Strikas, R. A., Farrar, J. A., Gangarosa, E. J., Keyserling, H. L., & Sikes, R. K. (1988). Day-care center attendance and hospitalization for lower respiratory tract illness. Pediatrics, 82(3), 300-308."
+      ref_text_6: "6. Nafstad, P., Hagen, J. A., Botten, G., & Jaakkola, J. (1996). Lower respiratory tract infections among Norwegian infants with siblings in day care. American journal of public health, 86(10), 1456-1459."
+      ref_text_7: "7. Teele DW, Klein JO, Chase C, Menyuk P, Rosner BA. Otitis media in infancy and intellectual ability, school achievement, speech, and language at age 7 years. Greater Boston Otitis Media Study Group. J Infect Dis. 1990;162:685-94"
+      ref_text_8: "8. Uhari M, Mäntysaari K, Niemelä M. A meta–analytic review of the risk factors for acute otitis media. Clin Infect Dis. 1996;22:1079–83. "
+      ref_text_9: "9. Haskins R, Kotch J. Day care illness: evidence, cost and public policy. Pediatrics. 1986;77(6 Pt 2):951–82."
+      ref_text_10: "10. Matson DO. Viral gastroenteritis in day care settings: epidemiology and new developments. Pediatrics. 1994;94(6 Pt 2):999-1001."
+      ref_text_11: "11. Hjern, A., Haglund, B., Rasmussen, F., & Rosen, M. (2000). Socio‐economic differences in daycare arrangements and use of medical care and antibiotics in Swedish preschool children. Acta Paediatrica, 89(10), 1250-1256."
+      ref_text_12: "12. Martel MJ, Rey E, Malo JL, et al. Determinants of the incidence of childhood asthma: a two-stage case-control study. Am J Epidemiol 2009;169(2):195-205"
+      ref_text_13: "13. Calder J. Occupational health and safety issues for child-care providers. Pediatrics. 1994;94(6 Pt 2):1072-4"
+      ref_text_14: "14. August AM, Dworsky M, Reynolds DW. Cytomegalovirus infection in day–care centers. N Engl J Med. 1982;307:477–9."
+      ref_text_15: "15. Hutto C, Ricks R, Cloud GA. Increased rate of cytomegalovirus infection among parents of children attending day–care centers. N Engl J Med. 1986;314:1414–8."
+      ref_text_16: "16. Little EA, Stagno S, Britt WJ, Alford CA. Young children as a probable source of maternal and congenital cytomegalovirus infection. N Engl J Med. 1987;316:1366–70"
+      ref_text_17: "17. Jackson LA, Stewart LK, Soloman S, et al. Risk of infection with hepatitis A, B, C, cytomegalovirus, varicella or measles among child care providers. Ped Infect Dis J 1996; 15: 584-589."
+      ref_text_18: "18. Pass, R. F., Hutto, C., Lyon, M. D., & Cloud, G. (1990). Increased rate of cytomegalovirus infection among day care center workers. Pediatr Infect Dis J, 9(7), 465-470.  "
+      ref_text_19: "19. https://www.nationalcmv.org/congenital-cmv/outcomes.aspx"
+      ref_text_20: "20. Mann V, Buffett C, Campbell M, Lee K, O’Donnell R. Effectiveness of day care centre infection control interventions. Ontario:Ontario Ministry of Health; 1999. Disponível em: http://old.hamilton.ca/phcs/ephpp/Research/Full-Reviews/98-99/Day-Care-Centre-Infection-Control-review.pdf"
+      ref_text_21: "21. Aiello AE,Larson EL. What is the evidence for a causal link between hygiene and infections? Lancet Infect Dis.2002;2:103-8"
+      ref_text_22: "22. https://www.researchgate.net/publication/14397881_Impact_of_an_infection_control_program_in_a_specialized_preschool"
+      ref_text_23: "23. http://www.scielo.br/pdf/jped/v83n4/en_v83n4a04.pdf"
+      ref_text_24: "24. https://www.ncbi.nlm.nih.gov/pubmed/8806992"
+      ref_text_25: "25. http://www.heraldonline.com/news/local/article31183946.html"
+
+    path:
+      main_heading: "You’re just 3 steps away from being<br>part of The Health Preserving Accreditation"
+      instro: "Upon completing the requirements, you will receive Accreditation and an Accreditation Plaque for display"
+      paragraph1: "Note that our health-preserving accreditation program has 3 major components. This program will acquaint you with high level of knowledge on six intertwined areas of infection risk exposure to children and staff. Plus a clear, effective infection prevention protocol to help your facility mitigate these risks."
+
+      sub_heading1: "Path to accreditation and optimum infection control in your facility"
+      instro_2: "To thoroughly mitigate the ongoing risk of infection to children under you care and the wider child care community including daycare staff and parents of children, your childcare will go through 3 phases of the accreditation program,where each phase builds a foundation for the next."
+      instro_3: "The 3 phases in the accreditation program you will go through in order are:"
+      instro_4: "Upon completion of  the 3 phases, your facility will have an infection control infrastructure in place that continuously mitigates infection risk in you facility. You childcare is now eligible for accreditation. Certificate of Accreditation is therefore  issued, together with an Accreditation Plaque to put on display in your facility."
+
+      step_point1: "Risk assessment phase :"
+      step_point1_desc: "Assess the infectious diseases risk of exposure in your facility"
+      step_point2: "Competence phase:"
+      step_point2_desc: "Gain competency required to mitigate infectious disease risk exposure  in you facility"
+      step_point3: "Action phase:"
+      step_point3_desc: "Put infection control competency into practical action to achieve desired outcome of healthier and safer childcare."
+
+      phase1_title: "Assess Risk phase:"
+      phase1_para1: "Discover your employee’s level of competency in key areas of infection control and thereby detect how much infectious disease risk exposure there currently is in your facility, as childcare staff is your first line of defence against infection risk."
+      phase1_para2: "Create awareness among daycare staff and parents about infection risk exposure and the importance of infection risk mitigating practices."
+      phase1_para3: "Internally motivate your staff and parents of children, to learn about infection control practices to safeguard  children under their care from preventable harm."
+
+      phase1_det_title: "Infection risk assessment phase :"
+      phase1_det_para1: "Detect the risk of infectious disease exposure in your facility"
+      phase1_det_subtitle: "Principle motive :"
+      phase1_det_para2: "If daycare staff are not aware of which daily practices heavily intensify infection risk exposure to children, they may unknowingly become a vehicle for spreading infectious disease pathogens in your childcare facility. Infection risk assessment survey will help you assess the magnitude of infection risk in your facility by uncovering critical knowledge gaps among your staff.  Conducting the survey will also  create awareness of infection risk exposure and thereby internally motivate staff and parents to learn best practices to better protect children under their care as a natural reaction of becoming aware of the risk."
+
+      phase2_title: "Gain competency phase :"
+      phase2_para1: "Greatly improve the competency of your daycare staff and parents of children in infectious disease control and risk mitigation."
+      phase2_para2: "Improve the ability of daycare staff and parents to root out causes of infectious diseases in childcare and home setting "
+      phase2_para3: "Clear up fundamental misconceptions around infection control practices, among daycare staff and parenty."
+
+      phase2_det_title: "Gain Competency Phase :"
+      phase2_det_para1: "Gain competency required to mitigate infectious disease risk exposure"
+      phase2_det_subtitle: "Principle motive :"
+      phase2_det_para2: "It is not possible to get good at something one does not know about .Lack of skills and competency in infection control and risk mitigating practices impedes daycare staff  and parents ability to safeguard children under their care from infectious disease risk exposure. "
+      phase2_det_para3: "This phase is therefore specifically designed to qualify your daycare staff in five critical areas of infection risk exposure in your childcare facility so that they have the  skills and competency required  to mitigate infection risk exposure .  In this phase your daycare staff and parents of children are getting access to highly interactive online infection control training available nowhere else, specially designed to help you :
+        <br/>
+        Increase daycare staff’s ability to root out the causes of infectious disease risk exposure to themselves and children under their care.
+        <br/>
+        Make infection control and risk mitigation training convenient and accessible for daycare staff and parents through online training.
+        <br/>
+        Positively impact the future generations and thereby leave a legacy. Children who observe best practices  performed by parents at home and child care staff in childcare facility, will be learning life skills that they’ll be able to take with them for the rest of their lives and even teach their own children. Hence this training can positively Impact generations to come. "
+      phase2_button: "Take me to preview page"
+      preview_text: "Click the button to see preview of interactive online infection control training:"
+
+      phase3_title: "Take action phase :"
+      phase3_para1: "The third phase will enable you to:"
+      phase3_para2: "Put infection control concepts into easy applicable practices that matters when it comes to mitigating infectious disease risk exposure in your facility "
+      phase3_para3: "Measure deficiencies in applied infection control practices and thereby quickly rectify shortcomings."
+      phase3_button: "Learn more"
+
+      phase3_det_title: "Take Action Phase :"
+      phase3_det_para1: "Take action required to acquire desired health and safety outcome"
+      phase3_det_subtitle: "Principle motive :"
+      phase3_det_para2: "No progress in any area of endeavour  can be made unless learned competency is put into practice. The challenge, especially as it relates to infection control  in childcare facilities, is to be able to take  infection control concepts and put them into easily applicable practices childcare staff can follow without getting overwhelmed with all issues one needs to consider for infection risk mitigation. <br/>
+        In the action phase your childcare is given  access to the Healthier and Safer Child Care infection control portal which, while staying in accordance with scientific and evidence based infection control protocols, gives you ready made tools and resources to put infection control concepts into practices in your facility in a way that it both easy and understandable for your childcare staff to follow and apply  consistently."
+
+      action_text: "To learn more about what tools and resources are available in the portal to reinforce and uphold optimum  infection control and risk mitigating practices in your facility click the learn more button."
+
+      phase4_title: "Congratulation"
+      phase4_para1: "You’ll have built a superior infrastructure to mitigate the risk of infection throughout the community."
+      phase4_para2: "Proudly display your authentic HSCA Accreditation Certificate to let parents know about your new credentials!"
+      phase4_para3: "Receiving accreditation through HSCA signifies your personal and professional commitment to the highest levels of health and safety for children under your care."
+
+    journey:
+      instruction:
+        benefit_apply: Ongoing Accerditation Membership Benefits
+        benefit_reg: Registration Benefits
+        para1: "Infection preventive newsletter <br/>Receive the latest health and safety messages from the most cutting edge research on infection risk in your facility. Rest assured that you will stay up to date with information about mitigating risk of infection in your childcare facility."
+        para2: "Assess infection risk <br/> Assess the scope of infection risk that children under your care and supervision are exposed to in your facility."
+        para3: "Become qualified in infection control and risk mitigation <br/>Get access to exclusive infection control training to train and qualify your daycare staff in the six core areas of infection and disease risk mitigation in your facility."
+        para4: "Boost employee confidence<br/> As you daycare staff gain knowledge and competence that enable them to better safeguard health and the wellbeing of children under their care, they become more confident in their ability serve and protect."
+        para5: "Be a source of guidance when needed most <br/> An outbreak can often create a high infection risk situation where lack of proper guidance can put daycare communities health and wellbeing in further danger through cross contamination. You will be given access to an outbreak communication manager tool which has message templates written  by qualified pediatricians  to help you  instantly notify and provide pivotal infection control guidance to your daycare staff and parents, when it matters most."
+        para6: "Ensure that infection risk mitigating actions are reinforced and upheld in you facility <br/>Consistent daily action in areas related to infection control best practices is the key to mitigating ongoing infection risk in your childcare facility. To accomplish this the infection control task manager tool available to you as part of the accreditation program is created ,it enables you to make infection control practices easy for daycare staff to follow while at the same time the ability to track and measure if best practices are implemented , thus increasing  accountability and follow-through."
+        para7: "Be better prepared of against ongoing outbreak risk <br/> Get instant insight into trends of illnesses occurring in you facility so that you can  better anticipate seasonal illness outbreaks. By swiftly distinguishing which illness should be of primary concern through the illness analytics tool available to as part of the accreditation program , you are both able to better prepare against impending illness outbreak but also to initiate collective effort throughout the childcare community to better safeguard children  and childcare staff."
+        para8: "Root out causes that lead to absenteeism <br/> Operating your childcare according to the infection risk mitigating standard can greatly decrease the risk of infectious diseases and employee turnover due to unnecessary sickness among you daycare staff."
+        para9: "Leave a legacy <br/> Your pursuit of excellence in healthier and safer care raises the standards and behaviour of everyone around. Children who observe best infection preventive practices in use both at home and in the childcare facility, will be learning life skills at a young age that they will be able to take with them for the rest of their lives. This way you action to become healthier and safer accredited can positively affect generation to come. It’s not uncommon for parents to seek out and choose your childcare facility for their children, instead of others, due to your commitment to health preserving care."
+        para10: "Get the competitive edge <br/> With the advent of internet technology, parents now have a greater understanding of health risks to their children. So expectations are higher than ever. Going through the accreditation program is the best way to shine like a trustworthy beacon in the marketplace hereby giving you business a true competitive edge as a provider of healthiest and safest environment for their precious children while they are not present to protect them. It not uncommon for parents to seek out and choose your childcare facility for their children , instead of of others due to your commitment to safety of their children.practices in use, both at home and in the childcare,will be learning life skills at a young age that they’ll be able to take with them for the rest of their lives. This way your staff and children’s parents can positively affect on the  generations to come."
+        para11: "Avoid potential costly lawsuits  <br/>Healthier and safer childcare accreditation confirms that your childcare has the infection control infrastructure in place to safeguard children from unnecessary harm and suffering associated with avoidable infections disease. This greatly diminishes the potential for a lawsuit against your facility in outbreak scenarios, accusing you of indifference and professional negligence toward the safety of children in your facility."
+
+      guarantee:
+        heading: "No risk, all-your-money-back guarantee"
+        para1: "We’re so certain that the HSCA assessment will work for you that we’re offering a no-risk, all-of-your-money-back guarantee. If the key strategies and tools that are provided as part of our accreditation program do not provide your daycare/s with ongoing benefit of mitigating risk of infection, contact us. We’ll refund your accreditation cost."
+      process:
+        heading: Your path towards a higher level of Childcare starts here
+        sub_heading: In just a few clicks, you’re on your way
+        apply_para1: "I oxidation desired to get started in protecting children under my care and kindergarten staff in my kindergarten from potential damage and suffering associated with infectious diseases. Take me to the application page, so I can determine if I meet admission requirements for Healthier and safer childcare program designed to make the daily lives of children and kindergarten employees are as safe as possible .. (Please note that we can only accommodate a limited number of kindergartens *)"
+        apply_para2: "Given the critical role of infection control plays in limiting the health risks for children and nursery staff are all 4455 kindergartens, which currently stands as subscribers of our free preventive newsletters, are invited to download the free biosecurity resources to help them weigh a healthier and safer childcare. Despite our desire, we can alliekvel not only provide accreditation more than a limited number of stand-alone kindergartens, per year. We therefore expect great demand and many applicants. It is therefore recommended for reserve space for your nursery if you meet admission requirements to enroll your kindergarten in at Healthier and Safer childcare program."
+        register_para1: I want to get to access to the complimentary infection risk assessment of my  facility as I want to know the level of infection risk children and daycare staff are exposed to.
+      label:
+        apply: Apply Here
+        register: Register to get access
+        card_number: Please input credit card number
+        cvcode: CV Code
+        discount_code: Discount Code
+        card_expiration: Card Expiration
+    ethic:
+      step1:
+        title: Code Of Ethics
+        heading: Core beliefs centered around keeping children and the surrounding community out of harm’s way.
+        description: Moving forward together
+        para1: "Congratulations on coming this far in your quest to better safeguarding the health and wellbeing of children under your care and supervision."
+        para2: "Please review our Code of Ethics. Upon agreeing with the Code of Ethics, you are eligible to enlist into the accreditation program and start your journey towards optimum infection control and risk mitigation in your childcare facility."
+        para3: "Our members share the following core group of beliefs that verifies their commitment to the highest levels of health preservation for children and the surrounding community."
+        para4: "Our members believe that:"
+        para5: "Safeguarding children and daycare workers is a key priority, and knowledge is the first step to make this possible. Our accreditation members therefore believe it is important to encourage daycare staff to participate in online training courses provided by the association as part of the infection risk mitigating accreditation program to remove insecurities in key areas that affect children and uphold the health, safety and wellbeing of children"
+        para6: "Reaching the goal of healthier and safer childcare is intrinsically difficult without the correct tools. Our accreditation members therefore believe it is pivotal to apply the tools and resources, provided by the association as part of the program, to enable daycare staff reach the goal of a healthier and safer childcare more efficiently."
+        para7: "Safeguarding the health and wellbeing of employees and children is a professional and ethical responsibility. Our accreditation members therefore believe any decision that can impact the health and safety of children should supersede commercial interest."
+        para8: "The value of ensuring that  children grow up in a safe , nurturing environment, that is dedicated to safeguard health and learning, cannot be understated. Our accreditation members therefore believe in sharing information about the accreditation program with other childcare providers who share their values, in collaboration with the association."
+        sub_heading1: "1. Sound knowledge guides smart choices"
+        sub_heading2: "2. The right tools are the keys to success"
+        sub_heading3: "3. The health and safety of children supersede commercial interests"
+        sub_heading4: "4. Sharing the vision of healthier and safer childcare"
+        agree_text: I believe the same to the true
+        disagree_text: I don't share this belief
+      label:
+        next: Next
+        ready: I am ready to proceed
+        schedule: Schedule My Breakthrough Session
+      step2:
+        title: Breakthrough session
+        heading: "Schedule your Infection Control Breakthrough session in order to start the actual accreditation process"
+        para1: "Create a sense of clarity about the optimum infection control and risk mitigation you want to have in your facility"
+        para2: "Discover the essential building blocks for having the optimum infection control in your facility"
+        para3: "Determine the Nr 1 thing stopping you from having optimum infection control in and risk mitigation your facility"
+        para4: "Identify the most powerful actions that will move you toward to optimum infection control and prevention in your facility"
+        para5: "Complete the breakthrough session with the excitement of knowing EXACTLY what to do next to create the optimum level of optimum infection control and risk mitigation in your facility"
+        para6: "We'll explain exactly how the program works"
+        para7: "Unsure about which package to choose or talk to us before starting Your Journey, schedule a free sessseion to talk to us"
+      step3:
+        title: Congratulations
+        para1: If you have come to this page and you’re reading these words right now , it means our goals and aspirations align with each other. We therefor congratulate you as we now will be able to move forward and get you on board with our accreditation program. Your decision verifies your professional and ethical commitment to protect the health and wellbeing of children and staff under your care.
+        para2: In order to move forward and become an integral member of our association  to build and healthier and safer childcare, this is what you need to do.
+        para3: <b>First Step:</b>  Register your childcare facility into Health and safer Childcare portal.
+        para4: <b>Second Step:</b> You will get an email which you would need to verify to activate Your account and make deposit of 100 kr, which will only be be possible if there are availble spot on the program . The deposit will ensure that no one else gets your spot on the accerdiation program. Your Investment in Health and Safety of Children and the wider childcare community is calculated based on amount of children in your facility muliplied by 1 kr per child per day. Are you among the first 100 facilities enrolling to preserve the health and well-being of their children under your care, you become automaticaly eligable for "Early Champion Discount of 50%  wich will be automatically applied to your Healthier and Safer childcare accerdiation investment.
+        para5: <b>Third Step:</b> If the deposit is accepted that means you are now onborad. Schedule Infection Control Breakthrough session in order to start the actual accreditation process.
+      step4:
+        title: Meeting Schedule
+        schedule_list: Schedule List
+        timezone: Set your time zone to continue
+        schedule_time: Schedule Time
+    standard:
+      label1: "1. The Mission"
+      label2: "2. The Standard"
+      label3: "3. The Path to Accreditation"
+      label4: "Your Journey!"
+      head1: "The benchmark of healthier and safer Childcare"
+      sub_head1: "Adhering to the healthier and safer child care standard gives you the confidence and satisfaction of knowing that your facility has achieved a higher level of child care, health and safety."
+      instro1: "For childcare providers, the ability to control and mitigate risk of infectious diseases in childcare facility and thereby better safeguard health and wellbeing of children and daycare staff, comes down to being able to affirmatively address critical areas of infection risk exposure, cutting edge research deemed necessary for <b>mitigating risk of infection in daycare facilities</b>."
+      instro2: "Importantly, the key to optimum infection control in childcare facilities is the adoption of  a standardized infection control policy which comprehensively address following  critical areas of infection risk exposure  :"
+      para1: "The role of comprehensive infection control program is keeping children, daycare staff and the wider childcare community out of harm's way ."
+
+      head2: "Food Storage and Handling"
+      subhead2_1: "Principle Motive:"
+      para2_1: "The storage, preparation of food in childcare facilities presents some unique challenges for daycare staff. With numerous opportunities for cross-contamination and harm caused by foodborne illnesses. "
+      subhead2_2: "What You Need to Consider:"
+      para2_2: "Are there any measures that can be taken to create awareness among daycare staff and parents about importance of infection preventive food handling?<br/><br/>Is there any training that can be made available to instruct daycare staff and parents about how to safeguard against cross-contamination and foodborne illnesses?<br/><br/>Are there any measures in place to track and measure daycare staff’s compliance to  food safety protocols that ensure contaminant-free meals to children in the childcare facility?"
+
+      head3: "Diaper changing"
+      subhead3_1: "Principle Motive:"
+      para3_1: "Diaper changing is a procedure with high risk for transmission of infectious diseases spreading  pathogens between children and daycare and parents."
+      subhead3_2: "What You Need to Consider:"
+      para3_2: "Are there any measures that can be taken to create awareness among day care staff and parents about infection risk exposure through  bodily fluids such as urine and vomit?<br/><br/>Is there any training that can be made available to daycare staff and parents on how to safeguard against infectious disease transmission through cross contamination when cleaning up bodily fluids such as urine and vomit?<br/><br/>Are there any measures in place to track and measure daycare staff compliancy to infection preventive cleaning procedures when cleaning up urine and vomit thereby avoid cross contamination mitigate and infection risk exposure to themselves and children under their care, through cross contamination?"
+
+      head4: "Cleaning of Body fluids such as urine and vomit"
+      subhead4_1: "Principle Motive:"
+      para4_1: "Childcare facilities cope with a daily battle of bodily fluids that create significant circumstances for infection risk exposure through cross contamination as disease spreading pathogens can be passed on even without direct contact with the bodily fluid from sick children."
+      subhead4_2: "What You Need to Consider:"
+      para4_2: "Are there any measures that can be taken to create awareness among daycare staff and parents about infectious disease transmission risk during diaper changing process?<br/><br/>Is there any training that can be made available to instruct daycare staff and parents on how to safeguard themselves against infectious disease transmission while changing diapers?<br/><br/>Are there any measures that can be taken to help repeatedly remind  daycare staff and parents about best practices that mitigate infectious disease risk exposure and  increase safety while changing diapers?"
+
+      head5: "Outbreak control"
+      subhead5_1: "Principle Motive:"
+      para5_1: "There are several factors that contribute to outbreak of infectious diseases being inherent with childcare centers. A severe outbreak can spread rapidly due to children’s habits, the high number of occupants and the close physical proximity typically found in daycares."
+      subhead5_2: "What You Need to Consider:"
+      para5_2: "Are there any measures that can be taken to create awareness among day care staff and parents about the importance of following best practices in an outbreak scenario that would mitigate the risk of infectious disease spreading further throughout the wider child care community? <br/><br/>Is there any training that can be made available to daycare staff and parents on how to control outbreak during an outbreak scenario in childcare?<br/><br/>Are there any measures in place to identify trends of illnesses occurring in the childcare so proper preparation can be made before a potential full blown outbreak can be detected before it actually happens?<br/><br/>If an outbreak has been identified in the childcare facility are there procedures in place for to instantly notify parents with guidance on how to mitigate risk of outbreak from spreading further?"
+
+      head6: "Hand hygiene"
+      subhead6_1: "Principle Motive:"
+      para6_1: "Good hand hygiene constitute the first line of defense against the spread of infectious diseases as germs are easily accumulated and shared by the hands."
+      subhead6_2: "What You Need to Consider:"
+      para6_2: "Are there any measures that can be taken to create awareness among day care staff and parents about the importance of hand-hygiene to mitigate risk of cross contamination and infectious disease risk exposure in childcare facility and at home?<br/><br/>Is there any training that can be made available to instruct daycare staff and parents about best practices related to hand-hygiene to mitigate risk of infectious disease spread?<br/><br/>Are there any measures that can be taken to repeatedly remind daycare staff and parents about when to wash their hands and thereby avoid exposure to infection spreading pathogens?"
+
+      head7: "Creating a healthier and safer childcare better safeguard children from avoidable harm and suffering."
+      para7_1: "Infection control in childcare facilities pose a multifaceted challenge for childcare providers as falling short in properly addressing any one of critical  infection risk exposure, can put health and wellbeing of children and daycare staff in jeopardy."
+      para7_2: "To that end, in line with our mission to assist child care providers who are committed to  safeguard children under their care, from avoidable harm and suffering, the Healthier and safer childcare accreditation program has been developed. "
+      para7_3: "It enables childcare providers to comprehensively address critical areas of  infection risk exposure to children and  daycare staff in their facility hence substantially increase the level of protection of health, safety and wellbeing of children and childcare staff in the childcare facility."
+      para7_4: "While it may not be possible to prevent all infectious disease in child care , but research in the field of infection control and prevention has proven beyond doubt that comprehensive infection control can significantly reduce the  risk of infection."
+      para7_5 : "And thereby associated potential tragedies."
+      para7_6: "For health preserving care committed childcare providers, the reward of adopting the systematic and evidence-based Infection risk mitigating accreditation standard is more than mitigating infection, but also having the confidence and the peace of mind of knowing, that whatever is necessary to safeguard children from potential harm and suffering."
+      para7_7: "Associated with preventable infectious diseases, are promoted, implemented and upheld in their childcare facility. This commitment naturally  resonates not only with parents of children  but also with daycare staff, government agencies and the general public."
+      para7_8: "If you want to learn more about the highest standard in the world for disease mitigation in childcare settings — The Health prevering care Standard."
+      para8_1: "Get started and make your nursery safer and more health-preserving place for children to grow up in Apply to sign up"
+
+    getting_started:
+      main_heading: "Welcome"
+      sub_heading: "Lets get started and choose who you are!"
+
+    login:
+      invalid_password: Ugyldig epost adresse/passord kombinasjon
+      invalid_activate: vennligst aktiver din konto ved å følge veiledningen du har fått tilsendt per epost når du registerte din bruker profil.Dersom du ikke har registret din bruker profil eller vet ikke hvodan du gjøre det, klikk på kontakt oss knappen for å ta kontakt med foreningen
+      label: LOGIN
+      forgot_password: Forgot Password
+
+    password:
+      forgot_label: Forgot your password?
+      send_guide: Send Reset Password Guide
+
+    upgrade:
+      title: Your path toward higher level of Healthier and Safer ChildCare starts here
+      description: You have selected accreditation plan for %{num_child} children.
+      para1: Your Investment in Health and Safety of Children and the wider childcare community is calculated based on %{num_child} children in your facility multiplied by %{currency_symbol} %{amount} per child per day.
+      para2: "Please Note: You will only be able to make deposit of $100,  if there are availble spots on the program. If the deposit is accepted that means you are now onboard."
+      reserve: Reserve My Spot
+      ssl_title: Secured PAYMENT
+      ssl_description: Your information is protected by 256-bit SSL encryption
+      box_title: Make a deposit to reserve your spot on the accreditation  program
+      benefit: ONGOING ACCREDITATION MEMBERSHIP BENEFITS
+      ben_para1: "Once you’re accredited with HSCA, you will have a vast array of benefits that will enhance your childcare management. There will be a higher the level of understanding on infection and disease control in your facility, community and the industry.  Here are some of the perks you can look forward to as a result of your accreditation:"
+      ben_para2: "<b>Periodic letter</b><br/>
+                Receive the latest health and safety messages from the most cutting-edge research on infection mitigation in your facility. Rest assured you will stay up-to-date with information about mitigating risk of infections in your childcare facility."
+      ben_para3: "<b>Assess the scope of infection risk in your facility</b><br/>Get  insight in your employees level of competence in the six core areas for infection control. This action will enable you to assess the scope of the risk of infections that children under your supervision are exposed for."
+      ben_para4: "<b>Get instruction in optimal infective practices</b><br/> Exclusive online instruction in infection control  available nowhere else—In this instruction component, your daycare staff will be trained and qualified in the six core areas of mitigating risk of infection and diseases in your facility. This  provides them a clear course of performance. The net results will be infection preventive choices that are intrinsically linked to healthier and safer childcare environment."
+      ben_para5: "<b>Boost employee confidence</b><br/> Our online  instruction courses  are designed to increase  your employees’ knowledge and understanding of health and safety issues which impact children in childcare. This course of action  reduces guesswork, replacing it with confidence and proactive conduct on the part of your employees. Lower employee stress, help  employees to thrive and  make  your childcare facility a better place to work."
+      ben_para6: "<b>Decrease in absenteeism</b><br/>Operating your childcare facility according to The Health Preserving Care Standard also helps decrease the risk of infection . You know all too well these factors can drain your childcare of productivity.The optimum  “cure” for employee turnover due to unnecessary sickness of your staff is to have infection preventive infrastructure in place through health preserving care accreditation program."
+      ben_para7: "<b>Avoid potentially costly lawsuits</b><br/>Health-preserving accreditation through HSCA certifies that your facility has the procedures and skilled personnel in place to uphold the highest standards of health and safety. This greatly diminishes the potential for a lawsuit against your facility, accusing you of indifference or professional negligence toward the safety of children in your care."
+      ben_para8: "<b>Meet regulatory standards gets easier</b><br/>HSCA accreditation gives you the tools to track and report key actions required to reduce risk and increase the health and safety of children and your daycare staff. Our app makes reporting faster and easier and simplifies the process of record keeping, thereby potentially avoiding costly shutdowns and problematic inspections."
+      ben_para9: "<b>Get access to tools that enables your staff to work smarter</b><br/>Achieving the goal of a healthy and safe childcare facility is especially difficult without the correct tools. That is why accreditation program comes with  tools that enables daycare staff to  work smarter instead of  just harder to provide the most optimal health preserving care possible."
+      ben_para10: "<b>Get the competitive edge</b><br/>Going through the HSCA Accreditation Program is the best way to shine like a trustworthy beacon in the marketplace, thereby giving your business a true competitive edge as provider of comprehensive protection of children under your care and supervision. It’s not uncommon for parents to seek out and choose your childcare facility for their children, instead of others, due to your commitment to health preserving care."
+      ben_para11: "<b>Positively affect  the next generation</b><br/>Your  pursuit of excellence in health Preserving care raises the standards and behaviors of everyone around you. Children who observe the proper infection-prevention practices in use, both at home and in the childcare,will be learning life skills at a young age that they’ll be able to take with them for the rest of their lives. This way your staff and children’s parents can positively affect on the  generations to come."
+  register:
+    parentee:
+      main_heading: "Children"
+
+    labels:
+      next: Next
+      previous: Previous
+      update: Update
+      upload_child: You need to upload your children photo!
+      children: Children
+      name: Name
+      daycare_name: Daycare Name
+      email: Email
+      password: Password
+      pwd_confirm: Password Confirmation
+      url: URL
+      daycare_url: Daycare URL
+      daycare_type: Type of Daycare
+      address: Address
+      postcode: Postcode
+      country: Country
+      telephone: Telephone
+      organization: Orgnization
+      register: Register
+      congratulation: Congratulation
+      congratulation_upper: CONGRATULATIONS!
+      complete_profile: You have now successfully created your account in healtheir and safer childcare portal. <br/>You will be a getting an email shorty ,Please verify Your email to activate your account and start the risk aseesment process.
+      complete_profile_survey:  You have now successfully created your account in healtheir and safer childcare portal. <br/>You will be a getting an email shorty ,Please verify Your email to activate your account and start the risk aseesment process.
+      complete_profile_deposit: You have now successfully registred your childcare into healthier an safer childcare portal. <br/>
+        You will be getting an email shorty, click the link in the email to verify your account and make the deposit of 100 kr to resreve Your spot on the program. <br/>
+         If the deposit is accepted that means you are now onboard. Schedule your Infection Control Breakthrough session in order to start the actual accreditation process.
+      short_email: Shortly you will get a Email.
+      user_info: User Information
+      parent_info: Parent Information
+      upload_child_photo: Upload your child photo!
+      select_department: Select Department
+      select_daycare: Select Daycare
+      add_child_name: Add your child name
+      birth_day: BirthDay
+      add_child: " ADD CHILDREN"
+      department: DAYCARE DEPARTMENT
+      department_name: Department Name
+      add_department: Add Department
+      add_email: Add Email
+      number_of_child: NUMBER OF CHILDREN
+      child_worker:  Children & Worker
+      current_password: Current Password
+      invite_worker: Daycare Worker's Email Address
+      invite_parentee: Daycare Parent's Email Address
+      invite_manager: Daycare Manager's Email Address
+      invite_internal: Internal Member's Email Address
+      invite_external: External Member's Email Address
+      invite_msg_worker: Invite Daycare Workers
+      invite_msg_parentee: Invite Daycare Parents
+      invite_msg_manager: Invite Daycare Managers
+      invite_msg_internal: Invite Internal Team Member
+      invite_msg_external: Invite External Team Member
+      partner_register: Partner Registration
+      upload_partner_photo: Upload Company logo
+      partner_type: Partner Type
+      num_member: Number of Members
+      upload_address: Please upload the email address via Excel file.
+
+    caretype:
+      ind: Independent
+      fra: Franchise
+      gov: Government
+
+    partner_type:
+      str: Strategic Alliance Partner
+      cer: Certification Partner
+
+  manager:
+    invite:
+      title: Daycare Manager
+      invitation: Invitation
+      description: "Invite parents and workers to your Daycare on our platform now <br/> by entering their email address in below:"
+      subject:
+        label: Invitation Subject
+        placeholder: Please input invitation subject
+      message:
+        label: Invitation Message
+        placeholder: Please input invitation message
+      send: Send Invitation
+      email: Daycare Email
+      recipient: Recipients
+    todos:
+
+      show:
+        label1: "Title"
+        label2: "Iteration Type"
+        label3: "Completion date"
+        department: "Department"
+        label4: "Frequency"
+        heading: "Tasks"
+        label5: "Description"
+        label6: "Sub-tasks"
+      report:
+        title: Daycare Todos
+        create_todo: You have no Daycare todos currently, you can %{create_link} one now.
+        search_title: "Search: %{query}"
+        search_desc: You have no Daycare todos matching the search parameters.
+        range_title: "Select a date range for your <b>%{title}</b> Todo report:"
+        none_message: None of your parents or workers have started or completed this todo yet within the set of date parameters provided
+      labels:
+        report: View Report of Performed Infection Control Tasks
+        view_report: View Report
+        generate_report: Generate Report
+        add_filter: Add Filters
+        department: "Department:"
+        start_date: "Start Date/Time:"
+        end_date: "End Date/Time:"
+        complete: "Complete:"
+        incomplete: "Incomplete:"
+        access: View Task to Infection Control Task List
+        task_manager: Infection Control Task Manager
+        todos: Todos
+        no_todos: You have no Todos currently.
+        show: Show
+        tasks: Tasks
+        keytasks: Key Tasks
+        subtasks: Sub Tasks
+        btn_complete: Complete
+
+    complete:
+      line1: "You can now access some great new features which you can share with your parents and workers in your Daycare, such as :"
+      line2: "Todo Mangement"
+      line3: "Online Training"
+      line4: "Survey Management"
+      line5: "You can get started now by going to your"
+
+  mailers:
+    supermanager:
+      email: kontakt@friskereogtryggerebarnehager.no
+      name: Norges Landsforening for Friskere Barnehager
+      url: healthierandsaferchildcare.org
+    daycare:
+      invite: "You have been invited to Health Childcare application. Please click on the below link to register:"
+    registration:
+      send_confirmation: "Thank you for signing up!"
+    mail_confirm:
+      subject: "Please verify your email address for healthcare"
+      content: "Hello %{name}, <br/>
+                Thank you for signing up. <br/>
+                Please verify your email address using below url <br/>
+                <a href='%{url}'>%{url}</a>"
+    mail_reset_password:
+      subject: "Please reset your password for healthcare"
+      content: "<p>Hello %{name}!</p>
+                  <p>Someone has requested a link to change your password. You can do this through the link below.</p>
+                  <p>
+                        <a href='%{url}'> Change my password </a>
+                  </p>
+                  <p>If you didn't request this, please ignore this email.</p>
+                  <p>Your password won't change until you access the link above and create a new one.</p>"
+    plan_confirm:
+      subject: "You have upgraded Phase"
+
+    illness:
+      title: Illness Record is created
+      content: "<p>Hello</p><p>Illness Record - %{illness} is created</p>"
+
+  dashboard:
+    nav_var:
+      staff_parent: "HOW MANY DAYCARE STAFF AND PARENT WANT THIS"
+      link:
+        edit_info: "Edit Information"
+        invite: "Invite"
+        logout: "Logout"
+    manager:
+      heading1: "Todos"
+      heading2: "Invite"
+    parentee:
+      heading1: "Todos"
+    worker:
+      heading1: "Todos"
+    notifications:
+      title: "Notifications"
+      todo_list: "Todo List"
+      messages: "Messages"
+    partners_carousel:
+      title_1: "So Many Associations Are Sending Critical Messages"
+      title_2: "To Childcare Community Through Healthier Childcare Portal"
+    upgrade:
+      description: "Want to keep children and staff under your care from harm's way and fulfil your ethical and professional obligation? Join us to eliminate the factors that spread ongoing infection and absenteeism which can drain your child care facility's productivity."
+      title: "CONTRIBUTE TO THE HEALTH AND HAPPINESS OF CHILDREN AND EMPLOYEES UNDER YOUR CARE AND SUPERVISION TODAY."
+      button: "Upgrade"
+      plan:
+        title: Your current plan is Phase %{plan_type}
+        button: Proceed to Phase %{new_plan_type}
+        phase1: Proceed to PHASE 1
+        phase2: Proceed to PHASE 2
+        phase3: Proceed to PHASE 3
+      phase0: You are in FREE ACCOUNT PHASE
+      phase1: You are in RISK ASSESSMENT PHASE
+      phase2: You are in COMPETENCE PHASE
+      phase3: You are in ACTION PHASE
+      phase1_title: RISK ASSESSMENT PHASE
+      phase2_title: COMPETENCE PHASE
+      phase3_title: ACTION PHASE
+    free_resource: "Free Resources"
+    menu_item:
+      risk_assessment: Risk Assessment Module
+      instruction: Competence Module
+      task_manager: Infection Control Task Manager
+      communication: Outbreak Communication
+      illness_analytic: ILLNESS Trends
+      illness_record: ILLNESS Record
+      illness_guide: ILLNESS Guide
+      guide_line: Guide Line
+      health_conversations: Health Conversations
+    menu_tooltip:
+      risk_assessment: "Infection Risk Assessment"
+      instruction: Instruction
+      task_manager: Infection Preventive Task Manager
+      communication: Outbreak Control Communication Manager
+      illness_analytic: Illness Trends
+      illness_record: Illness Record
+      health_conversations: Health Conversations
+  todos:
+    todo: Todos
+    index:
+      heading1: "Available Todos"
+      heading2: "In Progress Todos"
+      line1: "You have no avaiable todos at the moment."
+      line2: "You have no todos in progress currently."
+      show: Show
+      start: Start
+    search:
+      heading1: "Search: %{query}"
+      line1: "You have no Daycare todos matching the search parameters."
+
+    labels:
+      results: Results
+      choose_daycare: Choose Daycare
+      daycare_name: Daycare Name
+      daycare_type: Daycare Type
+      childrens: Childrens
+      daycares: Daycares
+      daycare_result: Todo Results of selected Daycares
+
+
+  todo_completes:
+    show:
+      label1: "Title"
+      label2: "Iteration Type"
+      label3: "Frequency"
+      heading: "Tasks"
+
+  admin:
+    dashboard:
+      index:
+        heading: "Dashboard"
+        sub_head: "Resource"
+        label1: "Users"
+        label2: "Todos"
+        label3: "Daycares"
+        label4: "Discount Codes"
+        label5: "Plans"
+        label6: "Departments"
+        label7: "Subjects"
+        label8: "Surveys"
+
+    lang_dashboard:
+      index:
+        heading: "Localization Dashboard"
+        sub_head: "Resource"
+        label1: "Upload Information"
+        label2: "Edit Todo"
+        label3: "Edit Illness"
+        label4: "Edit Training"
+        label5: "Edit Message Template"
+        label6: "Edit Preview Videos & Online Training"
+        label7: "Edit Poster"
+        label8: "Edit Invite Message Template"
+        label9: "Edit Email Verification Message Template"
+        label10: "Edit Logo"
+        label11: "Edit Plans"
+        label12: "Edit Email Campaign Template"
+        label13: "Edit Package Upgrade Confirm Email Template"
+        label14: "Edit Manager Videos"
+    daycare:
+      index:
+        heading: "Daycares"
+        label1: "Name"
+        label2: "Address"
+        label3: "Country"
+        label4: "Discount(%)"
+        label5: "Payment Mode"
+        label8: "Payment Start"
+        label6: "Users"
+        label7: "Departments"
+        label8: "Phase"
+        line: "There is no result"
+
+      edit:
+        heading: "Edit Daycares"
+
+      _form:
+        heading: "Daycare Details"
+        para: "Set the details of Daycares"
+
+    departments:
+      index:
+        heading: "Departments"
+        label1: "Name"
+        label2: "Daycare"
+        line: You don't have any daycares yet.
+
+    payment_modes:
+      _form:
+        heading: "Payment Mode details"
+        para: "Set the period, unit for payment modes."
+
+      new:
+        heading: "New Payment Mode"
+
+      edit:
+        heading: "Edit Payment Mode"
+
+      index:
+        heading: "Payment Modes"
+        label1: "Period"
+        label2: "Unit"
+
+    payment_starts:
+      _form:
+        heading: "Payment Start details"
+        para: "Set the period, unit for payment starts."
+
+      new:
+        heading: "New Payment Start"
+
+      edit:
+        heading: "Edit Payment Start"
+
+      index:
+        heading: "Payment Starts"
+        label1: "Period"
+        label2: "Unit"
+
+    discount_codes:
+      _form:
+        heading: "Discount Code details"
+        para: "Set the code, percentage value and status for your discount code."
+
+      new:
+        heading: "New Discount Code"
+
+      edit:
+        heading: "Edit Discount Code"
+
+      index:
+        heading: "Discount Codes"
+        label1: "Code"
+        label2: "Value"
+        label3: "Status"
+
+    plans:
+      _form:
+        heading: "Plan details"
+        para: "Set the name, price and child allocation for your plan."
+
+      edit:
+        heading: "Edit Plan"
+
+    subjects:
+      index:
+        heading: "Subjects"
+        heading1: "Name"
+
+      _form:
+        heading: "Subject details"
+        para: "Set the title for your subject."
+
+      new:
+        heading: "New Subject"
+
+      edit:
+        heading: "Edit Subject"
+
+    survey_subjects:
+      _form:
+        heading: "Survey details"
+        para: "Set the title and description for your survey."
+        heading1: "Icon"
+        para2: "Set the icon imagery for your survey."
+        heading3: Upload
+        para3: "Select a spreadsheet file to upload. Please make sure the file you are uploading is a <b>.xlsx</b> format."
+      new:
+        heading: "New Survey"
+
+      edit:
+        heading: "Edit Survey"
+
+      index:
+        heading: "Surveys"
+        para: "You don't have any surveys yet."
+
+  notifications:
+    featured_daycare: Childcare has enrolled into the Healthier and Safer Childcare accreditation Program to better safeguard the children and my daycare staff from potential harm and suffering associated with preventable infectious diseases.
+    featured_daycare_by_plan: Daycare has Reserved their spot on the accreditation program by making a deposit of 100 kr.
+
+  messages:
+    message: Communication Manager
+
+    breadcrumb:
+      message: Message
+      choose_template: Choose Template
+      create_template: Create Template
+      create_subject: Create Subject
+      create_sub_subject: Create Sub-Subject
+      choose_department: Choose Department
+      choose_recipient: Choose Recipient
+      add_content: Add Content
+      edit_template: Edit Message Template
+      message_options: Message Options
+      choose_subject: Choose Subject
+      choose_sub_subject: Choose Sub-subject
+      create_message: Create Message
+      send: Send
+      edit: Edit
+
+    notifications:
+      create_template_success: Message template was successfully created.
+      create_template_error: There are errors creating the message templates.
+      update_template_success: Message template successfully updated.
+      delete_template_success: Message template successfully deleted.
+      find_template_empty: No message template match.
+      send_message_success: Message successfully sent.
+      send_message_error: There was an error creating the message.
+      delete_template_confirm: Are you sure you want to delete this template?
+      no_template_for_role: No message template found.
+      invalid_template_file: Invalid file! Please upload text file only.
+      required_filter_role: Please choose filter Role.
+      required_filter_subject: Please choose filter Subject.
+      required_filter_sub_subject: Please choose filter Sub-subject.
+
+    labels:
+      subject: Subject
+      choose_subject: Please Choose Subject
+      create_subject: Please Write Subject
+      sub_subject: Sub-subproject
+      choose_sub_subject: Please Choose Sub-subject
+      create_sub_subject: Please Create Sub-subject
+      write_title: Please write the title of the message
+      create_regular_message: Create Regular Message
+      write_message_content: Please write the content of your message
+      create_message_template: Create Message Template
+      edit_message_template: Edit Message Template
+      upload_message_template: Upload Message Template
+      sent_messages: Sent Messages
+      basic_filter: Filter options to see your messages
+      new_notification: New Notification
+      new_template: New Template
+      send_notifications: Send Outbreak Notifications and Outbreak Control Guidance
+      sent_notifications: Sent Outbreak Notifications and Outbreak Control Guidance
+      received_notifications: View Received Messages
+      edit_and_send: Please Edit and Send Message
+      edit_and_save: Please Edit and Save Message
+      choose_recipient: Please Choose Target Recipient
+      choose_department: Please choose target department for this message
+      choose_language: Please Select the Language
+      upload_template: Or Upload Message Template File
+      filter_by_subject: Filter by Subject
+      filter_by_sub_subject: Filter by Sub-subject
+      recipient: Recipient
+      sender: Sender
+      apply_filters: Apply Filters
+      message_list: Message List
+      show_only_messages_to_filter: Show only messages sent to
+      show_only_messages_from_filter: Show only messages received from
+      option_title: MESSAGE OPTION
+      recipient_for_message: "Recipient for this message :"
+      receive_messages: Daycare %{account} will receive this message.
+      childcare_member: Healthier Childcare Alliance Members
+      daycare_total: Total %{size} Daycare organizations are listed.
+      send: Send
+    tooltip:
+      send_notifications: Send Outbreak Notifications and Outbreak Control Guidance
+      sent_notifications: Sent Outbreak Notifications and Outbreak Control Guidance
+      received_notifications: View Recieved Messages
+  registrations:
+    parentee:
+      registration: Parent Registration
+      select_daycare: Search and select the daycare which your child is part of
+
+  illness_guides:
+    illness: Illness Guide
+    labels:
+      choose_recipient: Please Choose Role
+      guide_content: Illness Guideline
+      choose_illness: Choose Illness
+      prev: Prev
+      next: Next
+
+  illnesses:
+    breadcrumb:
+      illness: Illness
+    illness: Illness Record
+    trends: Illness Trends
+
+    labels:
+      add_record: Record Illness Occurrence
+      view_old_records: View Recorded Illness Occurrence
+      illness_guidance: Illness Guidance
+      choose_record_for: Add record related to a
+      child: Child
+      choose_child: Choose the Child
+      choose_department: Choose the Department
+      department: Department
+      daycare: Daycare
+      graph_type: View Result by
+      search: Search
+      child_details: Child Details
+      department_details: Department Details
+      name: Name
+      age: Age
+      birthday: Birthday
+      reporting_date: Reporting Date
+      worker_knows_illness_question: Do you what sickness the child is suffering?
+      illness_details: Illness Details
+      illness_yes: 'Yes'
+      illness_no: 'No'
+      search_illness_name: Search Illness by Name
+      contact_parent: Contact Parent
+      contact_parent_question: Do you want to contact the parents of this child?
+      contact_doctor: Contact Doctor
+      contact_doctor_question: Do you want to contact the doctor of this child?
+      additional_actions: Additional Actions
+      worker_name: Worker Name
+      email: Email
+      worker_confirmation: Worker Confirmation
+      worker_details_fill_up: Write your personal details to complete this record
+      select_department: Select Department
+      select_worker: Select Worker
+      select_child: Select Child
+      select_children: Select Children
+      worker_details: Worker Details
+      department: Department
+      confirmation_pw: Please enter your login password to validate
+      department_record_question: Please indicate the number of people having the same illness all at once
+      department_record_help_text: You can only record one illness at a time. To record additional illness, please go through the process again.
+      filter_records_for: Select records to filter
+      basic_filter: Filter options to see your list
+      required_dept_filter: Please choose a department
+      required_child_filter: Please choose a child
+      trend_filters: Filter options for the Illness Trend
+      select_multiple_departments: Select one or more Departments
+      select_multiple_illnesses: Select one or more Illnesses
+      select_graph_type: Show result by
+      apply_filter: Apply filters
+
+  health_records:
+    flashes:
+      invalid_worker_pw: Invalid worker password.
+      create_success: Successfully created the record.
+      create_error: Something went wrong. Unable to save the data.
+
+  discussions:
+    discussion: Health Conversations
+    labels:
+      edit_department: Edit Department
+      edit_medical_professional_info: Edit Personal Info
+      invite_is_limited: You are only allowed to invite one doctor.
+      upgrade_to_invite: Upgrade now to invite more!
+      collaborators: Collaborators
+
+  form_labels:
+    next: Next
+    back: Back
+    title: Title
+    cancel: Cancel
+    send: Send
+    save: Save
+    delete: Delete
+    edit: Edit
+    select: Select
+    print: Print
+    post: Post
+    submit: Submit
+    search: Search
+    complete: Complete
+    previous: Previous
+    apply_filter: Apply Filters
+    start_date: Start Date
+    end_date: End Date
+    intro_done: Next
+    intro_skip: Skip
+    check_result: Check Results
+
+  attempt_labels:
+    title: Attempt for %{survey_name} by %{participant_name}
+    correct_answer: Correct answers
+    incorrect_answer: Incorrect answers
+    anwers: Answers
+    question: Questions
+
+  person_labels:
+    name: Name
+    age: Age
+    birthday: Birthday
+    department: Deparment
+    daycare: Daycare
+
+  protocols:
+    child_illness_record:
+      illness_code: Illness
+      symptom_codes: Symptoms
+      symptoms_description: Description of symptoms and circumstance
+      start_date: Date when the symptoms started showing
+      end_date: Date when the symptoms stopped showing
+      possible_trigger: Any events which could be possible causes of the outbreak, including field trips, contact with animals etc.
+      extra_details: Other relevant details
+      contact_parent_message: Message to the parent
+      contact_parent_reason: Appropriate reason for not contacting the parents of this child.
+      contact_doctor_message: Message to the doctor
+      contact_doctor_reason: Appropriate reason for not contacting the doctors of this child.
+      additional_actions: Additional actions taken including first aid administration of medication in your facility
+
+    department_illness_record:
+      illness_guide: Illness Guideline
+      sick_workers_count: Number of workers sick
+      sick_children_count: Number of children sick
+      start_date: Date when the symptoms started showing
+      end_date: Date when the symptoms stopped showing
+      possible_trigger: Any events which could be possible causes of the outbreak, including field trips, contact with animals etc.
+      extra_details: Other relevant details
+      additional_actions: Additional actions taken including first aid administration of medication in your facility
+
+  survey:
+    breadcrumb:
+      survey_options: Survey Options
+      choose_daycare: Choose Daycare
+
+    labels:
+      worker_progress_chard_title: Infection Risk Assessment
+      groups: Groups
+      workers: Daycare Workers
+      parents: Daycare Parents
+      all: All
+      empty_result: User has not taken the survey yet..
+      retake_test: Retake Test
+      results: Results
+      choose_daycare: Choose Daycare
+      daycare_name: Daycare Name
+      daycare_type: Daycare Type
+      childrens: Childrens
+      daycares: Daycares
+
+    notifications:
+      not_enough_data: Please enough data to show result.
+
+  user_guide:
+    menu:
+      parent_todo: As a parent, you can manage todo list
+      parent_message: As a parent, you can view messages
+      parent_health_conversation: As a parent, you can initiate/view health conversations
+
+  footer:
+    contact_us: Contact Us
+    hcc: Healthier and Safer Childcare Alliance
+
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"
+  account:
+    daycare:
+      manager: "Daycare Manager"
+      worker: "Daycare Worker"
+      partner: "Daycare Partner"
+      parent: "Daycare Parent"
+      parentee: "Daycare Parent"
+
+  guideline:
+    title: Start Help
+    tooltip: Get step by step tutorial in each functionality
+    benifit:
+      message:
+        title: "<b>Outbreak Communication</b>"
+        content: "<p>Get an edge on communication in a stressful outbreak scenario</p>
+                  <ul>
+                    <li>Instantly notify daycare staff and parents about illness outbreak in your facility</li>
+                    <li>Provide easy-to-read infection control guidance to parents and staff helping them make sense of the situation at hand and mitigate risk of further exposure in an outbreak scenario</li>
+                    <li>Become the source of guidance when needed most</li>
+                  </ul>"
+      todo:
+        title: "<b>Infection Control Task Manager</b> "
+        content: "<p>Ensure optimum infection risk mitigation practices are in place at your childcare facility.</p>
+                  <ul>
+                    <li>Enables you to set a baseline for the standard of infection control in your facility</li>
+                    <li>Help you coordinate Key infection control task effortlessly throughout your whole facility.</li>
+                    <li>Generate report that you can submit to the authorities affirming that infection control protocols are implemented, tracked and measured on daily basis</li>
+                  </ul>"
+      todo_worker:
+        title: "<b>Infection Control Task Manager</b> "
+        content: "<p>Ensure optimum infection risk mitigation practices are in place at your childcare facility.</p>"
+      survey:
+        title: "<b>Infection Risk Assessment</b>"
+        content: "<p>Detect the magnitude of infection risk exposure in your childcare facility</p>
+                  <ul>
+                    <li>Discover individual employees level of competency in key areas of infection control and risk mitigation </li>
+                    <li>Uncover critical knowledge gaps among individual day care staff which if not remedied can pose the risk of infection exposure to children under their care.</li>
+                    <li>Create awareness of infection risk and thereby internally motivate staff and parents to learn best practices to better protect children under their care as a natural reaction of becoming aware of infectious disease risk exposure</li>
+                  </ul>"
+      survey_take:
+        title: "<b>Infection Risk Assessment</b>"
+        content: "<p>Uncover critical knowledge gaps in infection control which if not remedied can pose the risk of infection exposure to children under your care</p>"
+      illness_record:
+        title: "<b>Illness Record</b>"
+        content: "<p>Keep accurate records to enable critical insight into illness occurrences</p>
+                  <ul>
+                    <li>Keep accurate records of each illness occurrences in your childcare facility. </li>
+                    <li>Makes identifying trends and emerging patterns in infectious sickness occurring in the childcare, possible.</li>
+                    <li>Eliminate unnecessary paperwork in recording critical information related to infectious illness occurrences in your childcare facility and preserve the nature in the process.</li>
+                  </ul>"
+      illness_graph:
+        title: "<b>Illness Trends</b>"
+        content: "<p>Get insight into the infection Occurrences in your facility</p>
+                  <ul>
+                    <li>Get complete overview of infections occurring your facility </li>
+                    <li>Get insight into trends of illnesses occurring in your facility so that you can easier anticipate seasonal illness outbreaks.</li>
+                    <li>See how illnesses occurring in your facility stack up against other so that you may know which illness is of primary concern and initiate collective effort to mitigate risk that  creates unified bond and team spirit in fighting infection throughout your facility.</li>
+                  </ul>"
+      notify_message:
+        title: "<b>Health and Safety Message Board</b>"
+        content: "<p>Get instant notification related to key areas of health and safety</p>"
+      instruction:
+        title: "<b>Instruction</b>"
+        content: "<p>Instruction</p>"
+      illness_guide:
+        title: "<b>Illness Guide</b>"
+        content: "<p>Illness Guide</p>"
+
+    tour_lable:
+      nextBtn: Next
+      prevBtn: Previous
+      doneBtn: Done
+      skipBtn: Skip
+      closeTooltip: Close
+
+    illness_guide:
+      step1: "Select Daycare type"
+      step2: "Click Next"
+      step3: "Select Illness to check"
+      step4: "Click Next"
+      step5: "It's illness guideline for daycare"
+
+    manager:
+      dashboard:
+        title: Daycare Manager Dashboard Guide
+        messaging:
+          instruction:
+            title: Introduction
+            content: "An outbreak can often create a high infection risk situation where lack of proper infection control guidance offered to daycare staff and parents can put their own health and health of children under their care at in further danger through cross contamination. <br/>To mitigate this outbreak communication manager provides you with infection control letter  templates covering 40 of the most infectious illness outbreaks likely to happen in childcare, written by qualified pediatrician. <br/>Now you can instantly notify and provide pivotal infection control guidance to your daycare staff and parents, that not only helps them minimize the risk of further exposure in an outbreak scenario but also shows them that you are both keeping a level head throughout an otherwise stressful outbreak scenario and have control of the situation, boosting employee morale in your facility."
+          send_message:
+            title: Instantly notify daycare staff and parents about illness outbreak  and provide Outbreak infection control guidance, when needed most
+            content: " "
+            link_text: "This is how you do it:"
+            step_content: "First click the <b>Send Outbreak Notifications and Outbreak control guidance button</b>. Here you get access to outbreak control guidance sample letters  covering 40 of the most infectious illness outbreaks likely to occur in a childcare facility, written by qualified pediatrician. Outbreak control guidance sample letters includes information about the infectious disease involved in the outbreak and answers critical questions daycare staff and parents need to know answers to for effective outbreak control. <br/>Critical question covered in guidance letters are :
+              <ul>
+                <li>What are the symptoms to detect infectious disease that is involved in the outbreak?</li>
+                <li>What are the ways of transmission of the specific infectious disease?</li>
+                <li>What to do in terms of preventive measures to mitigate risk of infectious disease outbreak from spreading further throughout the community?</li>
+                <li>Who are most the vulnerable and at high risk of developing complications if they are infected by the specific infectious disease involved in outbreak?</li>
+                <li>When should one contact the doctor, in case one is infected with the specific infectious disease?</li>
+              </ul>"
+          sent_message:
+            title: Get report of sent outbreak control notification and guidance letters
+            content: All the outbreak control letters send by you as Daycare Manager are securely stored and can be printed out when you require.
+            link_text: "This is how you get access to sent letters:"
+            step_content: "Click Sent Outbreak Notification and Outbreak Control Guidance letter button."
+          view_message:
+            title: View Critical Health and Safety received massages
+            content: In order to avoid clutter and to ensure that you receive only massages related to health and safety only associations working for health and safety of children or governmental authorities are allowed to send massage to you. You can readily access important massages related to health and safety received by you as daycare in the infection control portal which you can print out use in meetings with your daycare staff and parents.
+            link_text: "This is how you may get access to received massages related to health and safety:"
+            step_content: "Click the View Received Messages button."
+        illness_trends:
+          instruction:
+            title: "Introduction"
+            content: "Proper preparation is key to mitigate on going infection risk. As one can only properly prepare for that which one can anticipate. Illness trends component of the infection control portal helps you better anticipate seasonal illness outbreaks by giving you instant overview illnesses occurring in your facility and detect the trends of illnesses occurring. <br/> In addition, you can also identify how infectious illnesses occurring in your facility stack up against each other so that you may which infectious disease is of primary concern in your facility so that you can initiate collective effort to root out cause of the specific infectious disease. <br/> Thus, laying the foundation for better protection for children under your care and creating a unified bond and team spirit among childcare worker and parents in fighting infectious disease in you childcare facility by coming together for a common cause."
+            overview: "Overview Illness Trends"
+          trends:
+            title: Get an overview of illness occurring in your facility and detect the trends of illnesses occurring in your facility
+            content: " "
+            link_text: This is how you do it.
+        illness_record:
+          title: Illness record
+          content: Record the occurances of illnessesses in Your facility
+        todo:
+          instruction:
+            title: "Introduction"
+            content: "Encouraging and validating that infection control practices are implemented in your childcare facility are the cornerstone of optimum infection risk mitigation in your facility. To help you achieve this infection control task manager enables your childcare staff to perform predefined infection control tasks based on a checklist so that you can validate that tasks geared towards optimum risk mitigation and infection control are in place in your childcare facility. In addition using the infection control task manager, you can with a few clicks, create a report that you can submit to the authorities affirming that actions required for infection risk mitigation are performed tracked and measured on daily basis, in your childcare facility."
+          access:
+            title: View infection control task list and set a baseline for standard of infection control in your childcare facility
+            content: " "
+            link_text: This is how you do it.
+            step_content: Click the button for <b>View Infection Control Task List</b>. The list of all current infection control task related to key areas if infection control in your facility will be shown.
+          report:
+            title: Generate report you can submit to the authorities affirming that infection control protocols are implemented, tracked and measured on daily basis
+            content: " "
+            link_text: This is how you do it.
+            step_content: Click the view report of performed infection control tasks <br/> Illustration missing
+        survey:
+          instruction:
+            title: "Introduction"
+            content: "If daycare staff are not aware of which daily practices heavily intensify infection risk exposure to children, you may unknowingly become a vehicle for spreading infectious disease pathogens in your childcare facility. Infection risk assessment survey will help you assess the magnitude of infection risk in your facility by uncovering critical knowledge gaps among your staff.  Conducting the survey will create awareness of infection risk exposure and thereby internally motivate staff and parents to learn best practices to better protect children under their care as a natural reaction of becoming aware of the risk."
+          survey_report:
+            title: "Detect the magnitude of infection risk exposure in your childcare facility"
+            content: " "
+            link_text: This is how you do it.
+        conversations:
+          title: Health Conversations
+          content: "<ul><li>Getting the info about the particular child </li><li> Sending the message to any child collaborators</li>"
+      message_send_menu:
+        step1:
+          content: "Step 1: <br/>Specify the department to notify daycare workers and parents in the particular department where the outbreak has occurred."
+        step2:
+          content: "Step 2: <br/>Click the Next button to choose recipients of the outbreak notification and infection control letter."
+        step3:
+          content: "Step 3: <br/>In this step you can choose recipient for the notification and infection control letter . Daycare staff and Daycare parents will get infection control letter that are specially written for their circumstance."
+        step4:
+          content: "Step 4: <br/>Click the Next button to choose the subject of notification."
+        step5:
+          content: "Step 5: <br/>Here you can choose the prewritten subject for the notification."
+        step6:
+          content: "Step 6: <br/>Click the Next button to jump to choose the actual infectious illness involved in the outbreak."
+        step7:
+          content: "Step 7: <br/>Here you can choose the actual infectious disease involved in the outbreak from the list of infectious diseases. <br/>This will give you access to the outbreak control guidance for the specific infectious disease you have chosen."
+        step8:
+          content: "Step 8: <br/>Click the Next button to access and if required slightly edit the sample letter to customize it to your childcare."
+        step9:
+          content: "Step 9: <br/> <b>Edit message content.</b> <br/>Now you can customize and add write personalized outbreak control notification massage in the beginning of the prewritten outbreak control guidance letter. <br/>When done just Click Send button which will instantly notify the chosen recipients group about the outbreak and provide outbreak control guidance needed in an outbreak scenario."
+        step10:
+          content: "Step 10: <br/>After editing the text you can Click Send button to deliver the message to the chosen recipients in the department where the outbreak have occurred."
+      message_sent_menu:
+        step1:
+          content: "Step 1: <br/>Use sort by filters to sort the sent infection control letter by subject, Sub-Subject or Recipient."
+        step2:
+          content: "Step 2: <br/>Then use from date and to date filters to define the period of time during which the outbreak notification and outbreak control guidance was sent."
+        step3:
+          content: "Step 3: <br/>Click the Apply to see the results that can now be printed out if you require. Only outbreak control letters that match the chosen criteria will be displayed."
+        step4:
+          content: "Step 4: <br/>Click Print link to get the hard copy of the notification."
+      message_receive_menu:
+        step1:
+          content: "Step 1: <br/>Then use sort by filters to sort the received massages by sender. In order to ensure that you receive only massages related to health and safety only associations working for health and safety of children or governmental authorities are allowed to send massage to you."
+        step2:
+          content: "Step 2: <br/>Click the Apply Filters button to see the results. Only massages that match the chosen criteria will be displayed."
+        step3:
+          content: "Step 3: <br/>You can click print link to get the hard copy of the notification."
+      illness_graph:
+        step1:
+          content: "Step 1: <br/>First choose which department or departments you to get illness trend insight into. You can remove the rest of the options by clicking the cross sign in the department field."
+        step2:
+          content: "Step 2: <br/>Choose which infectious illness occurrences you want to get insight into. You can remove the rest of the options by clicking the cross sign in the illness field."
+        step3:
+          content: "Step 3: <br/>Use Choose start date and end date to define the period you want to view the illness trends."
+        step4:
+          content: "Step 4: <br/>Click the Apply Filters button to view the result."
+        step5:
+          content: "Step 5: <br/><b>View the result which are presented as three graphs.</b>This graph gives you insight into trends of illnesses occurring in your facility within the timeframe chosen so that you can easier anticipate seasonal illness outbreaks."
+        step6:
+          content: "Step 6: <br/>Following 2 graphs help you uncover how illnesses occurring in your facility stack up against other so that you may know which illness is of primary concern and initiate collective effort to mitigate risk that creates unified bond and team spirit in fighting infectious diseases occurring in your childcare facility."
+        step7:
+          content: "Step 7: <br/>Click Print button to get the hard copy of the results."
+      todo_access:
+        step2:
+          content: "Step 2: <br/>Click the appropriate infection control task list to view current infection tasks."
+      todo_report:
+        step1:
+          content: ""
+        step2:
+          content: "Step 2: <br/>Click the view report of performed infection control tasks."
+        step3:
+          content: "Step 3: <br/>Select date range you want to generate report for.<br/> Use Start date and End date filters to define the period of time during which the todos were set."
+        step4:
+          content: "Step 4: <br/>Click the Generate Report button to see the result based on the criteria you set above."
+        step5:
+          content: "Step 5: <br/>Once the report are generated Click the Print button to get the hard copy of the report."
+      survey:
+        step1:
+          content: "Step 1: <br/> First invite child care workers and Parents to conduct infection risk assessment survey by Clicking the invite button."
+        step2:
+          content: "Step 2: <br/>Input email addresses of your childcare worker and parents (Optional) and Write personalized massage to conduct the infection risk assessment survey. "
+        step3:
+          content: "Step 3: <br/>Click the Next Button to jump invitation message screen."
+        step4:
+          content: "Step 4: <br/>Edit message content. <br/> Now you can customize our prewritten massage template to invite to Childcare Workers and parents to perform the risk assessment survey."
+        step5:
+          content: "Step 5: <br/>Click the Send Invite Button to send invitation."
+        step6:
+          content: "Step 6: <br/>Once Daycare staff or parents have registered into the infection control portal and conducted infection risk assessment survey you as a childcare manager are able to view the group result of the assessment by clicking the group icon. The pie chart represent the collective data of all the workers/parents in the group. It shows the ratio between the right and wrong answers in the assessments taken by the participants in the group."
+        step7:
+          content: "Step 7: <br/>To check the risk assessment result in any of the 5 core areas that contribute to the dissemination of disease in childcare settings click on the subject icon. "
+        step8:
+          content: "Step 8: <br/>This is how you Detect the magnitude of infection risk exposure in your childcare facility by inviting child workers and Parents (Optional) to conduct infection risk assessment survey "
+    worker:
+      dashboard:
+        messaging:
+          message_receive_menu:
+            title: Get instant notification related to key areas of health and safety
+            content: " "
+            link_text: "This is how you see the received notification:"
+        illness:
+          instruction:
+            title: Introduction
+            content: To be able to take relevant precautions and apply the right infection risk mitigation. Daycare managers need to identify trends and emerging patterns related to infectious illness occurring in the childcare facility. But this is only possible if accurate information about illness occurring in the childcare facility are properly categorized and recorded. Illness record therefor serves as a critical component in enabling your childcare facility to put optimum infection control and risk mitigation policy in place to better keep children from harm’s way.
+          add_record:
+            title: Record Illness Occurrences
+            content: "Click the Record Illness occurrence button in the Dashboard."
+            link_text: This is how you do it.
+            department: Choose Department button to record illness occurrence in the department
+          view_record:
+            title: View Recorded Illness Occurrences
+            content: "Click the View Recorded Illness occurrence button in the Dashboard. "
+            link_text: This is how you do it.
+            department: Choose Department button to view recorded illness occurrence in the department
+        todo:
+          instruction:
+            title: Introduction
+            content: Implementing infection control practices on consistent basis in your childcare facility are the cornerstone of optimum infection risk mitigation safeguarding children under your care from haram and suffering associated with avoidable infectious diseases. To help you achieve this infection control task manager includes predefined infection control tasks list that enable you to set a baseline for the standard of infection control you want in your facility.
+          take_todo:
+            title: Completing infection control task list
+            content: "Here is check off the infection control task to mitigate infection risk in your facility "
+            link_text: This is how you do it.
+        survey:
+          take:
+            title: Detect critical knowledge gaps in infection control and risk mitigation
+            content: "This is how you do it <br/> Step 1) Access the Infection Risk Assessment survey by clicking the Risk assessment button in the Dashboard."
+      message_receive_menu:
+        step1:
+          content: "Step 1: <br/>Filter the notifications based upon who sent you massage. You will be receiving massage for from Daycare Manager, healthier and Safer Childcare alliance along with associations working for health and safety of children and governmental authorities."
+        step2:
+          content: "Step 2: <br/>Use Start date and End date filters to define the period of time during which the notifications were received."
+        step3:
+          content: "Step 3: <br/>Click the Apply Filters button to see the results. Only notifications that match the chosen criteria will be displayed."
+      illness_add_child:
+        step1:
+          content: "Step 1: <br/>Choose Department where the child registered and then choose the child who is undergoing illness "
+        step2:
+          content: "Step 2: <br/>Then Click the Next button to jump to the next step."
+        step3:
+          content: "Step 3: <br/>Specify if you are aware of the child’s sickness. Choose yes and Click the Next button to see list illnesses likely to occur in a childcare facility"
+        step4:
+          content: "Step 4: <br/>Then Click the Next button to jump to the next step."
+        step5:
+          content: "Step 5: <br/>Choose a Sickness from the predefined list"
+        step6:
+          content: "Step 6: <br/>Check the symptoms of the illness that you’re observing."
+        step7:
+          content: "Step 7: <br/>Fill in the illness details specifying the date when the symptoms have appeared and the date when they have disappeared. Click the Next button to jump to the next step."
+        step8:
+          content: "Step 8: <br/>Then Click the Next button to jump to the next step."
+        step9:
+          content: "Step 9: <br/>Choose contacting the child’s parents option and write a message to them. If you have chosen not to contact them, specify a reason."
+        step10:
+          content: "Step 10: <br/>Then Click the Next button to jump to the next step."
+        step11:
+          content: "Step 11: <br/>Choose contacting the doctor option and write a message to them. If you have chosen not to contact him/her, specify a reason."
+        step12:
+          content: "Step 12: <br/>Then Click the Next button to jump to the next step."
+        step13:
+          content: "Step 13: <br/>Provide clear information on additional steps you have taken."
+        step14:
+          content: "Step 14: <br/>Then Click the Next button to jump to the next step."
+        step15:
+          content: "Step 15: <br/>Verify your identity by selecting your Department and then choosing your name from the list."
+        step16:
+          content: "Step 16: <br/>Verify your identity by selecting your Department and then choosing your name from the list."
+        step17:
+          content: "Step 17: <br/>Check your personal data and enter the password for the authorization."
+        step18:
+          content: "Step 18: <br/>Click the Next button to add the record to the database. If you have chosen to send the notifications to the parents and/or doctor, they will be sent now."
+      illness_add_depart:
+        step1:
+          content: "Step 1: <br/>Choose the Department you are recoding illness for. Please not you can only record illness occurrence in one department at a time."
+        step2:
+          content: "Step 2: <br/>Click the Next button to jump to the next step."
+        step3:
+          content: "Step 3: <br/>Choose a Sickness from the predefined list"
+        step4:
+          content: "Step 4: <br/>Check the symptoms of the illness that you’re observing."
+        step5:
+          content: "Step 5: <br/>Specify the number of daycare staff or / and Children are effected by the illness; specify the date when the symptoms of illness became apparent."
+        step6:
+          content: "Step 6: <br/>Fill in the illness details specifying the date when the symptoms have appeared and the date when they have disappeared. Click the Next button to jump to the next step."
+        step7:
+          content: "Step 7: <br/>Then Click the Next button to jump to the next step."
+        step8:
+          content: "Step 8: <br/>Provide clear information on additional steps you have taken."
+        step9:
+          content: "Step 9: <br/>Then Click the Next button to jump to the next step."
+        step10:
+          content: "Step 10: <br/>Verify your identity by selecting your Department and then choosing your name from the list."
+        step11:
+          content: "Step 11: <br/>Verify your identity by selecting your Department and then choosing your name from the list."
+        step12:
+          content: "Step 12: <br/>Check your personal data and enter the password for the authorization."
+        step13:
+          content: "Step 13: <br/>Click the Next button to add the record to the database. If you have chosen to send the notifications to the parents and/or doctor, they will be sent now."
+      illness_view_child:
+        step1:
+          content: "Step 1: <br/>Use the filter to choose Department and then the child this illness occurrence record is about"
+        step2:
+          content: "Step 2: <br/>Use From date and To date filters to define the period of time during which the illness occurrence was recorded."
+        step3:
+          content: "Step 3: <br/>Apply Filters button to see the results."
+        step4:
+          content: "Step 4: <br/>Click on the individual record that matches the chosen criteria and expand it to view the full report"
+        step5:
+          content: "Step 5: <br/>Click Print link to get the hard copy of the illness record."
+      illness_view_depart:
+        step1:
+          content: "Step 1: <br/>Use the filter to choose Department this illness occurrence record is about "
+        step2:
+          content: "Step 2: <br/>Use From date and To date filters to define the period of time during which the illness occurrence was recorded Use filters to sort the sent notifications by the Department."
+        step3:
+          content: "Step 3: <br/>Apply Filters button to see the results."
+        step4:
+          content: "Step 4: <br/>Click on the individual record that matches the chosen criteria and expand it to view the full report"
+        step5:
+          content: "Step 5: <br/>Click Print link to get the hard copy of the illness record."
+      todo_report:
+        step1:
+          content: "Step 1: <br/> Choose from the infection control task lists the appropriate tasks list you want to complete and click the start button."
+        step2:
+          content: "Step 2: <br/>Click the Complete button to mark the tasks as completed. When all the Tasks are completed, the task list will be saved. "
+      survey_take:
+        step1:
+          content: " "
+        step2:
+          content: "Step 2: <br/> Click on any of the subject icon to access risk assessment survey in any of 5 core areas that contribute to the dissemination of disease in childcare settings. "
+        step3:
+          content: "Step 3: <br/> Choose the answer you believe to be true for questions related to infection control subject matter."
+        step4:
+          content: "Step 4: <br/> After completing the Survey, see the results of the Risk Assessment."
+        step5:
+          content: "Step 5: <br/> Retake the infection risk assessment surgery after completing the infection control training to test yourself again."
+    partner:
+      dashboard:
+        title: Daycare Manager Dashboard Guide
+        messaging:
+          instruction:
+            title: Introduction
+            content: "An infection outbreak can often lead to confusion, frustration, and even anger on behalf of parties involved. Clear communication is the key to eliminate confusion and frustration.  Communicating efficiently will reduce stress, help in trust building and minimizing the risk of further infection spreading throughout the childcare community. The Messages tool is therefore specially designed to help you reclaim control of communication in an otherwise stressful outbreak scenario. <br/>
+              Messaging module allows the users of the web app to send messages to the other users of the app and thus quickly share the important information about the child. Click the appropriate icon on the Dashboard to access this functionality.<br/>
+              The Daycare Partner has the opportunity to send notifications to Daycare Managers, Daycare Workers, and DayCare Parents collaborating around the child, and also to view the lists of sent notifications."
+          send_message:
+            title: Creating the regular message
+            content: " Click the appropriate button in the Message Dashboard. "
+            link_text: "Here is how you create the regular message:"
+            step_content: "Click Create Regular Message button"
+          sent_message:
+            title: Viewing the Report of Sent Messages
+            content: Daycare Partner has an opportunity to view all the messages that were sent to other users, to find the required messages, and to print them if necessary.
+            link_text: "Here is how you may investigate the sent messages:"
+            step_content: "Click the appropriate button in the Message Dashboard. "
+      message_send_menu:
+        step1:
+          content: "Step 1: <br/>Specify the Recipients of the message. You can send the message to Day Care Managers, Day Care Workers, and Day Care Parents. You may choose more than one user type if needed. <br/> By selecting a user type(s) you will see the number of users which will receive your message."
+        step2:
+          content: "Step 2: <br/>Write the message title."
+        step3:
+          content: "Step 3: <br/>Add the message content."
+        step4:
+          content: "Step 4: <br/>Click the Send button. <br/> The message will be send to all the users of a selected type(s). The recipient can see the message notification by entering the app's dashboard or checking the email. <br/> If the Cancel button is chosen instead, you will be redirected to the Message Dashboard, and the target recipients will NOT receive the message."
+      message_sent_menu:
+        step1:
+          content: "Step 1: <br/>Filter the messages. <br/> Use Sort by filters to sort the sent messages by Recipient. <br/> Use From date and To date filters to define the period of time during which the messages were sent."
+        step2:
+          content: "Step 2: <br/>Click the Apply filter button to see the results in the messages list. <br/> Only messages that match the chosen criteria will be displayed."
+        step3:
+          content: "Step 3: <br/>Click the Print link to get the hard copy of the message."
+
+  # ------------------ Additional Yml Texts -----------------
+  deposit:
+    button:
+      invest: Invest
+    plan:
+      description_2: You have selected Informed Membership Plan
+      description_3: You have selected Certification Membership Plan
+      description_4: You have selected Accreditation Membership Plan
+  user_plan:
+    header:
+      title: Healthier Childcare membership
+      content: Enjoy the benefits of being part of our Healthier Childcare network. Though you will not be accredited, you can access our highly informative program to help you mitigate risk of infections in your childcare community.
+    button:
+      book: BOOK NOW
+      apply: APPLY PLAN
+    phase1:
+      label: PHASE 1
+      type: Informed Membership
+      rate: $ <span> %{rate} </span> / mo
+      desc: (USD, billed yearly)
+
+    phase2:
+      label: PHASE 2
+      type: Certification Membership
+      rate: $ <span> %{rate} </span> / mo
+      desc: (USD, billed yearly)
+
+    phase3:
+      label: PHASE 3
+      type: Accreditation Membership
+      rate: $ <span> %{rate} </span> / mo
+      desc: (USD, billed yearly)
+
+    benefit:
+      title: ONGOING ACCREDITATION MEMBERSHIP BENEFITS
+      text1: Access the scope of infection risk in your facility
+      text2: Priodic Newsletter
+      text3: Get instruction in optimal infective practices
+      text4: Boost employee confidence
+      text5: Positively affect the next generation
+      text6: Infection record management
+      text7: Infection analytics
+      text8: Infection preventive communication manager
+      text9: Infection preventive task manager
+      text10: Avoid potentially costly lawsuits
+      text11: Get the competitive edge
+
+      survey: Description
+      online_training: Description
+      message: Description
+      todo: Description
+      illness_analysics: Description
+      illness_record: Description
+      illness_guide: Description
+
+
+  campaign:
+    header:
+      title: How to prevent infection in the nursery
+      description: daily lives of children and staff in your nursery is as safe as possible
+    content:
+      text1: In no jobs are riskonen of becoming ill as large as in kindergartens. Infection control in a nursery poses a real multi-faceted challenge for kindergarten boards. To fail to address the critical areas of exposure of contagion in kindergarten, leading to infections which leaves both children and staff sick, putting their health in potential danger and may even damage the reputation of the institution.
+      text2: In line with Norway's national association for fresher kindergartens aim to assist center supervisors who are dedicated to protecting children under their care from harm and suffering associated with infectious diseases occurring in kindergarten addition, launching the Norwegian Association for fresher kindergartens and accreditation program, Healthier and Safer in nurseries.
+      text3: And in connection with the launch, you now have a <span class="pink-text">free 7 day email course </span> on how to prevent infection in the nursery to help you on your weight to a healthier and safer nursery, while providing an insight into the accreditation program, Healthier and Safer childcare.
+      text4: The course is a result of collaboration between Private Barnegagesr Association and Norges landsfroening for healthier and safer Branehgare
+    step_header: "In this email course you will learn:"
+    module1:
+      label: "Module 1:"
+      title: Preventative strategies for handling food in the nursery.
+      text1: Primary Design
+      text2: Handling of food in your nursery, including storage, preparation and serving of food to children in kindergarten presents some unique challenges for the nursery. Here there are countless opportunities for cross-contamination and damage caused by food-borne illnesses.
+      text3: "In this course you will learn why:"
+      fn1: What important biosecurity measures you as kindergarten boards can take to reduce the risk of foodborne illnesses in your nursery and how to make sure that the infection prevention practices for safe food handling is implemented, tracked and measured on a daily basis in your nursery.
+      fn2: What any of your nursery personnel should know to be able to arrange for children who suffer from food allergies in kindergarten?
+      fn3: What mistakes should be avoided when preparing food for infants in the nursery
+
+    module2:
+      label: "Module 2:"
+      title: Preventative strategies for the control of infectious sykdomsutbrudds kindergarten.
+      text1: Primary motive
+      text2: There are several factors in the nursery that contribute to outbreaks of infectious diseases. A severe outbreak can spread quickly, thanks to children's habits, the number of people in the nursery and the dense close they have to each other. In many cases, the way we approach an outbreak of, including timely biosecurity communication between parents and kindergarten during the early stages of the outbreak can affect the outbreak course and its potential to spread.
+      text3: "In this course you will learn why:"
+      fn1: Which essential biosecurity measures you as kindergarten controls can take before infectious disease breaks out in your nursery
+      fn2: Communication Strategies you like kindergarten boards should know in case it occurs infectious disease outbreaks in your nursery
+      fn3: What mistakes kindergarten personnel should avoid, too few to avert panic when they communicate with parents during infectious disease outbreaks in nursery
+
+    module3:
+      label: "Module 3:"
+      title: Preventative cleaning after episodes of bodily fluids
+      text1: Primary design
+      text2: Kindergartens must face a daily struggle against bodily fluids, which creates a substantial risk of being exposed to infectious disease-carrying germs and viruses. This is particularly challenging since cross- infection can easily although one had directly with the body fluids of a sick child.
+      text3: "In this course you will learn why:"
+      fn1: What measures you as kindergarten boards can take to ensure that there are biosecurity procedures in your nursery for cleaning after episodes of bodily fluids.
+      fn2: Which smittforebyggende cleaning equipment nursery staff needs to avoid becoming infected
+      fn3: How to clean the body fluids that may contain infectious disease-carrying germs and viruses
+
+    module4:
+      label: "Module 4:"
+      title: Preventative changing diapers in the nursery
+      text1: Primary motive
+      text2: Changing diapers is considered that the task with the highest risk of transmission of pathogenic germs and viruses among children and staff in kindergartens. The risk of infection associated with changing diapers is quite real as disease-bearing pathogens can spread from person to person, although there are no signs of illness.
+      text3: "In this course you will learn why:"
+      fn1: The ratio of infectious disease outbreaks and performing diaper shifts in kindergarten
+      fn2: What measures you as kindergarten boards can take to create more awareness among kindergarten staff about infection prevention nappy changing.
+      fn3: Overview of diaper changing procedures that minimize the risk of spread of disease carrying germs and viruses.
+
+    module5:
+      label: "Module 5:"
+      title: Preventative hand hygiene in kindergarten.
+      text1: Primary motive
+      text2: Good hand hygiene constitute the first line of defense against the spread of infectious diseases. A hand that has been in contact with the infection, spreading it on to surfaces that come in contact with, where viruses can remain active for a long time. When children and adults touch these surfaces and then touching your face spread the infection further.
+      text3: "In this course you will learn why:"
+      fn1: The ratio of infectious disease outbreaks and lack of good hand hygiene in kindergarten
+      fn2: What measures you as kindergarten boards can take to promote good hand hygiene in your nursery.
+      fn3: Critical rules for biosecurity sink any nursery employee should know about

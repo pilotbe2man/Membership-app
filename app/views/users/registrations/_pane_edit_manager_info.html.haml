@@ -1,0 +1,48 @@
+.row.text-center
+  = image_tag 'manager-md.png'
+  %h4=t('account.daycare.manager')
+.row.pane-container.text-center
+  .row.step-banner
+    .col-sm-3.col-xs-3.step-item.first-step.active
+      .step-label
+        = image_tag 'manager-sm.png'
+        %span=t('register.labels.user_info')
+    .col-sm-3.col-xs-3.step-item.second-step
+      .step-label
+        = image_tag 'step-pending.png'
+    .col-sm-3.col-xs-3.step-item.third-step
+      .step-label
+        = image_tag 'step-pending.png'
+    .col-sm-3.col-xs-3.step-item.fourth-step    
+      .step-label
+        = image_tag 'step-pending.png'
+  .row.parent-info
+    - if @daycare.errors.any?
+      #error_explanation
+        %h2= pluralize(@daycare.errors.count, "error") + " prohibited this daycare from being saved:"
+
+        %ul
+          - @daycare.errors.full_messages.each do |message|
+            %li= message         
+    .col-sm-8.text-left
+      .row
+        %h5=t('register.labels.daycare_name').upcase
+        = daycare.text_field :name, class: 'form-control input-round', :placeholder => t('register.labels.daycare_name'), :required =>"true"
+      .row
+        %h5=t('register.labels.daycare_type').upcase
+        = daycare.select :care_type, options_for_select([[t('register.caretype.ind'), 1], [t('register.caretype.fra'), 2], [t('register.caretype.gov'), 3]]), {},class: 'form-control input-round', :placeholder => t('register.labels.daycare_type')
+      .row
+        %h5=t('register.labels.address').upcase
+        = daycare.text_field :address_line1, class: 'form-control input-round', :placeholder => t('register.labels.address'), :required =>"true"
+      .row
+        %h5=t('register.labels.postcode').upcase
+        = daycare.text_field :postcode, class: 'form-control input-round', :placeholder => t('register.labels.postcode'), :required =>"true"
+      .row
+        %h5=t('register.labels.municipal').upcase
+        = daycare.select :municipal_id, options_for_select(municipal_list), {}, class: 'form-control input-round', :placeholder => t('register.labels.municipal'), :required =>"true"
+      / .row
+      /   %h5=t('register.labels.country').upcase
+      /   = daycare.text_field :country, class: 'form-control input-round', :placeholder => t('register.labels.country'), :required =>"true"
+      .row
+        %h5=t('register.labels.telephone').upcase
+        = daycare.text_field :telephone, class: 'form-control input-round', :placeholder => t('register.labels.telephone'), :required =>"true"

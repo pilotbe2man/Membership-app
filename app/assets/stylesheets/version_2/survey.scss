@@ -1,0 +1,237 @@
+.survey-result-dash-container {
+  padding-top: 20px;
+
+  .survey-subjects {
+    .survey-subject {
+      display: inline-block;
+      margin: 10px 20px;
+      max-width: 150px;
+      vertical-align: top;
+      text-align: center;      
+
+      .survey-title{
+        margin-left: 15px;
+      }
+    }
+
+    .radio-box{
+      input[type=radio] + label{
+        display: block;
+        margin-right: 15px;          
+        background-image: url(/assets/msg-radio-off.png);
+        background-repeat: no-repeat;
+        background-position-y: center;      
+        padding-left: 25px;
+        height: auto;
+        vertical-align: middle;
+        font-weight: 400;
+        margin: 5px 10px;
+        font-size: 18px;
+        text-decoration: none;
+      }
+
+      input[type=radio]:checked + label{
+        display: block;
+        margin-right: 15px;
+        background-image: url(/assets/msg-radio-on.png);
+        background-position-y: center;      
+        background-repeat: no-repeat;
+        padding-left: 25px;
+        height: auto;
+        vertical-align: middle;
+        font-weight: 400;
+        margin: 5px 10px;
+        font-size: 18px;
+        text-decoration: none;
+        color: #ff2874;
+      }
+    } 
+  }
+
+  .survey-charts {
+    margin-top: 30px;
+  }
+
+  .survey-groups {
+    .panel {
+      border: 2px solid #ccc;
+      @include border-radius(20px);
+    }
+
+    .group-header {
+      margin: 10px 0;
+      cursor: pointer;
+      border: 2px solid white;
+      @include border-radius(10px);
+
+      img {
+        @include border-radius(50%);
+        width: 50px;
+      }
+
+      &.parents {
+        img {
+          border: 2px solid #8da5f3;
+        }
+      }
+
+      &.workers {
+        img {
+          border: 2px solid #f1b747;
+        }
+      }
+
+      &.daycares {
+        img {
+          border: 2px solid #ff5637;
+        }
+      }
+
+      &:hover {
+        @include hcc-hover;
+
+        img {
+          border-color: white;
+        }
+
+        &.parents {
+          border-color: #8da5f3;
+          @include hcc-transition(border-color);
+        }
+        &.workers {
+          border-color: #f1b747;
+          @include hcc-transition(border-color);
+        }
+
+        &.daycares {
+          border-color: #ff5637;
+          @include hcc-transition(border-color);
+        }
+
+      }
+    }
+
+    .group-members {
+      display: none;
+
+      a {
+        display: block;
+        padding: 5px 5px;
+        border-bottom: 1px solid #ddd;
+
+        &:hover {
+          color: white;
+          text-decoration: none;
+        }
+      }
+
+      &.parents {
+        a {
+          color: #ff5637;
+
+          &:hover, &.active {
+            color: #fff;
+            background: #ff5637;
+            @include hcc-transition(background);
+          }
+        }
+      }
+
+      &.workers {
+        a {
+          color: #ff5637;
+
+          &:hover, &.active {
+            color: #fff;
+            background: #ff5637;
+            @include hcc-transition(background);
+          }
+        }
+      }
+
+      &.daycares {
+        a {
+          color: #ff5637;
+
+          &:hover, &.active {
+            color: #fff;
+            background: #ff5637;
+            @include hcc-transition(background);
+          }
+        }
+      }
+
+    }
+  }
+
+  .progress{
+
+    background: -webkit-linear-gradient(left, #ff005a, #ffde00, #b2cf70); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #ff005a, #ffde00, #b2cf70); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #ff005a, #ffde00, #b2cf70); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #ff005a, #ffde00, #b2cf70); /* Standard syntax */    
+    height: 40px;
+    border-radius: 20px;
+
+    .progress-inner-trans{
+      width:100%;
+      height: 100%;
+      padding: 3px;
+
+      .progress-inner{
+        background: #fff;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        padding: 3px;
+        overflow: hidden;
+
+        .progress-inner-back{
+          width: 100%;
+          height: 100%;
+          border-radius: 20px;
+
+          background: -webkit-linear-gradient(left, #ff005a, #ffde00, #b2cf70); /* For Safari 5.1 to 6.0 */
+          background: -o-linear-gradient(right, #ff005a, #ffde00, #b2cf70); /* For Opera 11.1 to 12.0 */
+          background: -moz-linear-gradient(right, #ff005a, #ffde00, #b2cf70); /* For Firefox 3.6 to 15 */
+          background: linear-gradient(to right, #ff005a, #ffde00, #b2cf70); /* Standard syntax */    
+        }
+      }
+    }
+
+    .progress-bar{
+      float: right;
+      background: #fff;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      box-shadow: none;
+      margin-right: -15px;
+
+      span{
+        p{
+          color: #ff0957;
+          position: relative;
+          top: -27px;
+          right: 70px;
+          text-align: right;
+          font-size: 18px;
+          z-index: 10;        
+        }
+
+        &:before{
+          content: " ";
+          border-top: 30px solid transparent;
+          border-bottom: 0px solid transparent;
+          border-right: 15px solid #dfdede;
+          border-right-color: #fff;
+          position: relative;
+          left: -15px;
+          top: 0px;
+          z-index: 1;
+          display: table;
+          clear: both;
+        }        
+      }
+    }    
+  }
+}

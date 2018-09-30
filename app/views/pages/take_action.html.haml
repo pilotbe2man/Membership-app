@@ -1,0 +1,28 @@
+#legacy-back-three
+  .row.pink-banner
+    .container
+      .col-xs-8
+        %h2.text-dark-pink.text-bold.text-upper= t('pages.illness_guide.main_heading').html_safe
+        %p.text-blue= t('pages.illness_guide.description').html_safe
+      .col-xs-4.text-right
+        = image_tag 'second-compass.png'
+  .container.back-page-content
+    .row{style: 'margin-top: 30px;'}
+      / .col-md-12
+      /   %p.text-bold= t('pages.illness_guide.para1').html_safe
+    .row
+      .col-md-12
+        - @illnesses.each do |item|
+          %h4{style: 'background: #fcf3f0; padding: 20px;'}=item.name
+          %p{style: 'padding: 10px 40px;'}=item.description.html_safe unless item.description.nil?
+
+  .row{style: "margin-bottom: 30px;"}
+    .col-sm-12.text-center
+      %a.btn.btn-primary.btn-style-1{href: getting_started_path, style: "padding-top: 15px; width: auto;"}
+        =t('pages.home.free_register')
+
+:javascript
+  var switchTo5x=true;
+%script#st_insights_js{:src => "http://w.sharethis.com/button/buttons.js?publisher=61a0d461-0187-4167-a801-c2684d6a8bad", :type => "text/javascript"}
+:javascript
+  stLight.options({publisher: "61a0d461-0187-4167-a801-c2684d6a8bad", doNotHash: false, doNotCopy: false, hashAddressBar: false});

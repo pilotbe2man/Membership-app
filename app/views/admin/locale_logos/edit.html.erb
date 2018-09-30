@@ -1,0 +1,10 @@
+<% content_for :title, 'Logos' %>
+<% content_for :breadcrumb, 'Logos' %>
+
+<div class="twelvecol">
+    <div class="page-header">
+        <h2 class="widget widget-header">Edit Logo</h2>
+    </div>
+    <%= render partial: 'form', locals: { url: admin_locale_logo_path } %>
+</div>
+

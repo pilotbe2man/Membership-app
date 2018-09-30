@@ -1,0 +1,26 @@
+#invite-collaborator-modal.modal.fade{tabindex: '-1', role: 'dialog', 'aria-labelledby': 'invite-collaborator-modal'}
+  .modal-dialog{role: 'document'}
+    .modal-content
+      .modal-header
+        %button.close{'data-dismiss': 'modal', 'aria-label': 'Close'}
+          %span{'aria-hidden': true} &times;
+
+        %h4.modal-title Invite Collaborators
+
+      .modal-body
+        - if allowed_collaborations_reached?(@active_child)
+          .invite-limited
+            %p= t('discussions.labels.invite_is_limited') + ' ' + t('discussions.labels.upgrade_to_invite')
+        - else
+          .invite-limited.hide
+            %p= t('discussions.labels.invite_is_limited') + ' ' + t('discussions.labels.upgrade_to_invite')
+          .invite-unlimited
+            = form_for CollaborationInvite.new, url: invite_doctor_parentee_discussions_path, remote: true do |f|
+              = hidden_field_tag 'collaboration_invite[child_id]', @active_child.id
+              .form-group
+                = f.label :email
+                = f.text_field :invitee_email, type: 'email', class: 'form-control'
+
+      .modal-footer
+        %button.btn.btn-default{'data-dismiss': 'modal'} Cancel
+        %button.btn.btn-primary#submit-invite-form Invite

@@ -1,0 +1,84 @@
+= content_for :title, t('messages.breadcrumb.create_message')
+- content_for :page_title, t('dashboard.menu_item.communication')
+.message-dash-container
+  .container
+    .row.content-main
+      .col-md-12{data:{step: 1, intro: t("guideline.partner.message_send_menu.step1.content")}}      
+        %h4.option-title=t('messages.labels.recipient_for_message')
+        .row.recipients-role
+          .col-md-4.col-sm-4.col-xs-6.role-elem.right-border
+            .check-box.partners
+              = check_box_tag 'message[target_roles][]', "parentee", false, :id => "chk_depart_1", :style => "display: none;"
+              %label{:for => "chk_depart_1"}
+                Daycare Parentees
+          .col-md-8.col-sm-8.col-xs-6.role-elem
+            %span.recipient-count
+              %b 30
+              =t('messages.labels.receive_messages', account: 'Daycare Parentees')
+        .row.recipients-role
+          .col-md-4.col-sm-4.col-xs-6.role-elem.right-border
+            .check-box.partners
+              = check_box_tag 'message[target_roles][]', "worker", false, :id => "chk_depart_2", :style => "display: none;"
+              %label{:for => "chk_depart_2"}
+                Daycare Workers
+          .col-md-8.col-sm-8.col-xs-6.role-elem
+            %span.recipient-count
+              %b 10
+              =t('messages.labels.receive_messages', account: 'Daycare Workers')
+        .row.recipients-role
+          .col-md-4.col-sm-4.col-xs-6.role-elem.right-border
+            .check-box.partners
+              = check_box_tag 'message[target_roles][]', "manager", false, :id => "chk_depart_3", :style => "display: none;"
+              %label{:for => "chk_depart_3"}
+                Daycare Managers
+          .col-md-8.col-sm-8.col-xs-6.role-elem
+            %span.recipient-count
+              %b 20
+              =t('messages.labels.receive_messages', account: 'Daycare Managers')
+      .col-md-12{data:{step: 2, intro: t("guideline.partner.message_send_menu.step2.content")}}      
+        %h4.option-title Title :
+        = text_field_tag :title, '', placeholder: t('messages.labels.write_title'), class: 'form-control', required: true
+      .col-md-8.col-sm-8.col-xs-12{data:{step: 3, intro: t("guideline.partner.message_send_menu.step3.content")}}      
+        %h4.option-title= t('messages.labels.write_message_content')
+        = cktext_area :content, '', id: 'message_content'
+      .col-md-4.col-sm-4.col-xs-12.partners-list
+        .panel
+          .panel-heading=t('messages.labels.childcare_member')
+          .panel-body
+            .list
+              %table.table.table-striped
+                - Affiliate.all.each do |partner|
+                  %tr
+                    %td= partner.name
+            .body-bottom
+              %span
+                =t('messages.labels.daycare_total', size: Affiliate.all.size)
+      .col-md-12.form-buttons.text-right.no-h-padding
+        .col-md-3.col-md-offset-6.col-sm-3.col-sm-offset-6.col-xs-6
+          %a{href: partner_messages_path, class: 'btn btn-gray btn-wizard'} Cancel
+        .col-md-3.col-sm-3.col-xs-6{data:{step: 4, intro: t("guideline.partner.message_send_menu.step4.content")}}      
+          = submit_tag t('messages.labels.send'), class: 'btn btn-yellow-red btn-wizard'
+:javascript
+  jQuery(document).ready(function() {    
+    //$('#message_content').froalaEditor({
+    //  heightMin: 250
+    //});
+
+    //$.material.init();
+
+    $('input[type="checkbox"]').on('click', function() {
+
+      if ($(this).is(':checked')) {
+        $(this).parents('.checkbox').children('.recipient-count').show();
+      }
+      else {
+        $(this).parents('.checkbox').children('.recipient-count').hide();
+      }
+
+    })
+
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.introGoToStep('dash', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });       
+    healthChildcare.guideline.introGoToStep('dash', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+  });

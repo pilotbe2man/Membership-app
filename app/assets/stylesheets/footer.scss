@@ -1,0 +1,42 @@
+footer
+{
+    background-color:#242c3f;
+    color:#fff;
+    margin: 0 auto;
+    padding:75px 0;
+    max-width: 1170px;
+
+    .fourcol
+    {
+        text-align: center;
+
+        img
+        {
+            height:120px;
+            margin-bottom: 30px;
+        }
+    }
+    .threecol
+    {
+        ul
+        {
+            list-style-type: none;
+            margin:10px 0 0;
+
+            li
+            {
+                margin-bottom:10px;
+
+                a
+                {
+                    color: #fff;
+
+                    &:hover
+                    {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}

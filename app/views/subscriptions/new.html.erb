@@ -1,0 +1,158 @@
+<!-- <div id="legacy-upgrade">
+    <div class="container">
+    <div class="row promo">
+        <div class="promo-img">
+            <%= image_tag 'promo_journey.jpg' %>
+            <div class="img-text img-text-jr3">
+                 <h2>Your path toward higher level of Health Preserving Care starts here</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 information">
+            <div class="offer-cost">
+                <h2>You've selected Accreditation program
+                plan for <span><%= @subscription.plan.allocation %></span> children and it costs <span><%= number_to_currency @subscription.plan.price %></span></h2>
+            </div>
+            <%= form_for [@subscription.plan, @subscription], method: :post do |f| %>
+                <div class="form">
+                    <div class="row credit-card-form">
+                        <div class="col-xs-12 col-md-12 col-lg-12">
+                            <% if @subscription.errors.any? %>
+                                <div class="error_messages">
+                                    <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+                                    <ul>
+                                        <% @subscription.errors.full_messages.each do |msg| %>
+                                        <li><%= msg %></li>
+                                        <% end %>
+                                    </ul>
+                                </div>
+                            <% end %>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Payment Details</h3>
+                                </div>
+                                <%= f.hidden_field :plan_id %> 
+                                <%= f.hidden_field :user_id, value: current_user.id %>
+                                <%= f.hidden_field :stripe_card_token %>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <label>
+                                                    <%= label_tag :card_number, "Credit Card Number" %>
+                                                </label>
+                                                <div class="input-group">
+                                                    <%= text_field_tag :card_number, nil, name: nil, :class => 'form-control' %>
+                                                    <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-7 col-md-7">
+                                            <div class="form-group expire-date">
+                                                <%= label_tag :card_month, "Card Expiration" %>
+                                                <div class="col-xs-6 col-lg-6 pl-ziro">
+                                                    <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month", :class => 'form-control'} %>
+                                                </div>
+                                                <div class="col-xs-6 col-lg-6 pl-ziro">
+                                                    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", :class => 'form-control'} %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-5 col-md-5 pull-right">
+                                            <div class="form-group">
+                                                <%= label_tag :card_code, "CV Code" %>
+                                                <%= text_field_tag :card_code, nil, name: nil, :class => 'form-control' %>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-md-12 col-lg-12">
+                                            <div class="form-group promo-area">
+                                                <%= label_tag :discount_code, 'Promo Code' %>
+                                                    <%= text_field_tag :discount_code, "", :class => 'form-control' %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="tearms-condition">
+                                <%= f.check_box :terms, checked: false %> I accept the Code of Ethics
+                            </p>
+                            <%= f.submit "Pay Now" %>
+                            <div id="stripe_error">
+                                <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% end %>           
+         </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="ongoing">
+                <div class="ongoing-heading">
+                    <h2>ONGOING ACCERDITATION MEMBERSHIP BENEFITS</h2>
+                    <p>Once you’re accredited with HSCA, you will have a vast array of benefits that will enhance your childcare management. There will be a higher the level of understanding on infection and disease control in your facility, community and the industry.  Here are some of the perks you can look forward to as a result of your accreditation:</p>
+                </div>
+                <div class="single-ongoing">
+                    <%= image_tag 'ongoing_one.png' %>
+                    <p>
+                        <span class="accredation-header">Greater employee confidence</span>
+                        Our training modules are designed to increase you and your employees’ knowledge and understanding of health and safety issues which impact children in childcare. Training reduces guesswork, replacing it with confidence and proactive conduct on the part of your employees. This helps lower employee stress, and helps employees to thrive, making you childcare facility a better place to work.
+                    </p>
+                </div>
+                <div class="single-ongoing">
+                    <%= image_tag 'ongoing_two.png' %>
+                    <p>
+                        <span class="accredation-header">Improved childcare reputation with parents</span>
+                        HSCA’s accreditation can give your facility recognition and clout like never before. Our accreditation will instill trust among parents and respect among industry peers as it signifies that you have taken the extra step to provide The Standard of comprehensive protection of children and employees. With HSCA Accreditation, your facility will also earn a dignified place in a national list of accredited childcare agencies, along with your earned credentials. It’s not uncommon for parents seeking a daycare center for their children to consult a list like this to make their decision.
+                    </p>
+                </div>
+                <div class="single-ongoing">
+                    <%= image_tag 'ongoing_three.png' %>
+                    <p>
+                        <span class="accredation-header">Shine like a beacon of safety in the marketplace</span> 
+                        Going through the HSCA Accreditation Program is the best way to shine like a trustworthy beacon in the marketplace, thereby giving your business a true competitive edge. Your accreditation status will give parents the reassurance that their children are out of harm’s way.
+                    </p>
+                </div>
+                <div class="single-ongoing">
+                    <%= image_tag 'ongoing_four.png' %>
+                    <p>
+                        <span class="accredation-header">Minimize employee turnover </span> 
+                        Going through the HSCA Accreditation Program is the best way to shine like a trustworthy beacon in the marketplace, thereby giving your business a true competitive edge. Your accreditation status will give parents the reassurance that their children are out of harm’s way.
+                        <br>
+                        <br>
+                        The best “cure” for employee turnover due to unnecessary sickness of your staff is to receive accreditation through HSCA.
+
+                    </p>
+                </div>
+                <div class="single-ongoing">
+                    <%= image_tag 'ongoing_five.png' %>
+                    <p>
+                        <span class="accredation-header">Avoid potentially costly lawsuits</span>
+                        Health-preserving accreditation through HSCA certifies that your facility has the procedures and skilled personnel in place to uphold the highest standards of health and safety. This greatly diminishes the potential for a lawsuit against your facility, accusing you of indifference or professional negligence toward the safety of children in your care.     
+                    </p> 
+                </div>
+                <div class="single-ongoing">
+                    <%= image_tag 'ongoing_six.png' %>
+                    <p>
+                        <span class="accredation-header"> Meeting regulatory standards gets easier</span>
+                        HSCA accreditation gives you the tools to track and report key actions required to reduce risk and increase the health and safety of children and your daycare staff. Our app makes reporting faster and easier and simplifies the process of record keeping, thereby potentially avoiding costly shutdowns and problematic inspections.
+                    </p>
+                </div>
+                <div class="single-ongoing">
+                    <%= image_tag 'ongoing_seven.png' %>
+                    <p>
+                        <span class="accredation-header">
+                        An authentic Certificate of Accreditation and Accreditation Plaque— </span>
+                        you’ll want to proudly display these in your office to demonstrate your facility’s knowledge, dedication, and awareness of disease and illness prevention to parents and anyone else who stops by. They immediately communicate to visitors that you’re a well-regarded expert in the area of infection mitigation.
+                    </p>
+                </div>
+            </div>                      
+        </div>
+    </div>
+</div>
+</div> -->

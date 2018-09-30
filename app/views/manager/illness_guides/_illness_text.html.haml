@@ -1,0 +1,9 @@
+.row.content-main
+  .col-md-12
+    %h4.option-title= t('illness_guides.labels.guide_content')
+  .col-md-12
+    .row.guide-title
+      %h1
+        %strong= @title
+      .row
+        %h4= @title_desc.html_safe rescue nil

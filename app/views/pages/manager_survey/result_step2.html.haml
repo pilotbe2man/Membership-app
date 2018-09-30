@@ -1,0 +1,104 @@
+.reg-manager-container.page-boxed
+  / .page-header
+  /   .header-guide.no-print
+  /     = link_to '#', id: 'link_dashboard_guide' do
+  /       %label.title=t('guideline.title')
+  /       %label.description=t('guideline.tooltip')        
+  .container
+    .form-content           
+      #rootwizard
+        %ul{:style=> "visibility: hidden; height: 0; position:absolute;"}
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab1"} First
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab2"} Second
+        = form_tag send_invite_survey_manager_daycares_path, method: :post do
+          .tab-content
+            #tab1.tab-pane
+              .row.text-center.step-banner
+                = image_tag 'manager-md.png'
+                %h4=t('account.daycare.manager')
+              .row.pane-container.text-center
+                .row.step-banner
+                  .col-sm-3.col-xs-3.step-item.first-step
+                    .step-label
+                      = image_tag 'step-check-mng.png'
+                  .col-sm-3.col-xs-3.step-item.second-step
+                    .step-label
+                      = image_tag 'step-check-mng.png'
+                  .col-sm-3.col-xs-3.step-item.third-step
+                    .step-label
+                      = image_tag 'step-check-mng.png'
+                  .col-sm-3.col-xs-3.step-item.fourth-step.active    
+                    .step-label
+                      = image_tag 'manager-sm.png'
+                      %span=t('manager.invite.invitation')
+                .row.pane-search-result.text-center
+                  %h3=t('register.labels.invite_msg_worker') 
+                .row.parent-info
+                  .col-sm-12.text-left.department-list
+                    .row{data:{step: 2, intro: t("guideline.manager.survey.step2.content")}}      
+                      %h5=t('register.labels.invite_worker')
+                      .row.inline-input-link
+                        = text_field_tag 'email[]', '', :class => "form-control input-round daycare-email", required: "true"
+                        %a.btn.btn-red.btn-normal{href: '#', "onclick" => "remove_fields(this)" } 
+                          =image_tag('manager-sub.png')
+                  .col-sm-12.text-left
+                    %a.btn.btn-green.btn-normal.btn-round.item-manager{href: '#', 'onclick' => 'add_fields()'}
+                      =t('register.labels.add_email')
+            .col-sm-12
+              %ul.pager.wizard{:style => "text-align: center;"}
+                %li.previous.hide
+                  %button.btn.btn-round.item-manager{:type => "button"}                     
+                %li.next
+                  %button.btn.btn-round.item-manager{:type => "button", data:{step: 3, intro: t("guideline.manager.survey.step3.content")}} 
+                    =t('register.labels.next')
+                %li.previous.first{:style => "display:none;"}
+                  %a{:href => "#"} First
+                %li.next.last{:style => "display:none;"}
+                  %a{:href => "#"} Last
+      .address_elem.hide
+        .row      
+          %h5=t('register.labels.invite_worker')
+          .row.inline-input-link
+            = text_field_tag 'email[]', '', :class => "form-control input-round daycare-email", required: "true"
+            %a.btn.btn-red.btn-normal{href: '#', "onclick" => "remove_fields(this)" } 
+              =image_tag('manager-sub.png')
+:javascript
+  function add_fields() {
+    var item_html = $('.address_elem').html();
+    $('.department-list').append(item_html);  
+  }
+
+  function remove_fields(link) {
+    $(link).prev("input[type=hidden]").val("1");
+
+    if ($(link).hasClass('subtask-link')) {
+      $(link).parent('.subtask').remove();
+    } else {
+      $(link).parent().parent().remove();
+    }
+  }
+  jQuery(document).ready(function() {    
+    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'}); 
+    $('.remove_button').removeClass("btn");
+    $('.remove_button').removeClass("btn-red");
+
+    //$('#message_content').froalaEditor({
+    //  heightMin: 250
+    //});
+
+    $('.btn-invite').click(function(){
+      
+    });
+
+    introJs().setOption('doneLabel', "#{t('form_labels.next')}").start().oncomplete(function() {
+      window.location.href = 'result_step3?multipage=true';
+    });
+
+    $('#link_dashboard_guide').on('click', function(){
+      introJs().setOption('doneLabel', "#{t('form_labels.next')}").start().oncomplete(function() {
+        window.location.href = 'result_step3?multipage=true';
+      });
+    });    
+  });

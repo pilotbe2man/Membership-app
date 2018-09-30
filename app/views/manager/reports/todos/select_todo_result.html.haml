@@ -1,0 +1,24 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, manager_reports_todos_root_path
+.todo-dash-container
+  .container
+    .row{style: "margin-top: 20px;"}
+      .col-md-6
+        %h4=@department.name
+      .col-md-6.text-right{style: "margin-top: 20px;"}
+        %span=t('manager.todos.report.start_date')
+        %span=params[:start_date]
+        %span
+          &nbsp;&nbsp;&nbsp;
+        %span=t('manager.todos.report.end_date')
+        %span=params[:end_date]
+    .row.report-complete-box
+      %ul.report-complete-list
+        - @todo_completes.each do |item|
+          %li
+            .report-header
+              %span.todo-name=item.todo.title
+              %span.todo-date=item.created_at.strftime("%Y/%m/%d")
+            .report-body
+              %a.complete-link{href: manager_reports_todo_show_path(@todo, complete_id: item.id, department: params[:department], start_date: params[:start_date], end_date: params[:end_date])}
+                %i.fa.fa-icon.fa-search

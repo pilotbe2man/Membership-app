@@ -1,0 +1,23 @@
+<% attempt.answers.build %>
+<h2 class="server-question-title">Survey Questions - <%= survey.name %></h1>
+<%= form_for(attempt, url: subject_survey_attempts_path(subject, survey), :html => {:id => "new_survey_attempt#{survey.id}", :class => 'submit-attempt', 'data-tab' => tab}, :remote => true) do |f| %>
+        <%= hidden_field_tag "survey_id", survey.id %>
+    <%= f.fields_for :answers do |builder| %>
+        <ol class="qustion-list">
+          <% survey.questions.each_with_index do |question, index| %>
+              <li class="qustion">
+                <b><span class="qustion-title"><%= question.text %></span></b>
+                <%= hidden_field_tag "survey_attempt[answers_attributes][#{index}][question_id]", question.id %>
+                <div class="question-options">
+                  <% question.options.each do |option| %>
+                      <p class="options"><%= radio_button_tag "survey_attempt[answers_attributes][#{index}][option_id][]", option.id %>
+                        <%= option.text %></p>
+                  <% end -%>
+                </div>
+              </li>
+          <% end -%>
+        </ol>
+    <% end %>
+    <div class="jcmc-buttons ">
+      <%= f.submit t('form_labels.next'), :class => "jcmc-button jcmc-nextprev jcmc-order alt" %></div>
+<% end %>

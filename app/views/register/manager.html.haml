@@ -1,0 +1,87 @@
+.reg-manager-container.page-boxed
+  .page-header
+  .container
+    .form-content           
+      #rootwizard
+        %ul{:style=> "visibility: hidden; height: 0; position:absolute;"}
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab1"} First
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab2"} Second
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab3"} Third
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab4"} Fourth  
+        = form_for @daycare, url: daycare_registration_path, html: { method: :post} do |daycare|        
+          .tab-content
+            #tab1.tab-pane
+              = render 'pane_manager_user', daycare: daycare 
+            #tab2.tab-pane
+              = render 'pane_manager_info', daycare: daycare
+            #tab3.tab-pane
+              = render 'pane_manager_depart', daycare: daycare
+            #tab4.tab-pane
+              = render 'pane_manager_person', daycare: daycare
+            .col-sm-12
+              %ul.pager.wizard.text-left
+                %li.previous
+                  %button.btn.btn-round.item-manager{:type => "button"} 
+                    =t('register.labels.previous')
+                %li.next{:style => "float:right;"}
+                  %button.btn.btn-round.item-manager{:type => "button"} 
+                    =t('register.labels.next')
+                %li.previous.first{:style => "display:none;"}
+                  %a{:href => "#"} First
+                %li.next.last{:style => "display:none;"}
+                  %a{:href => "#"} Last
+:javascript
+  jQuery(document).ready(function() {    
+    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'}); 
+    $('.next button').click(function(){
+      var tab_id = $('.tab-pane.active').attr('id');
+      switch(tab_id){
+      case 'tab1':
+        if($('#daycare_user_daycares_attributes_0_user_attributes_name').val() == ''){
+          $('#info_error').text('#{t("validation.required.user_name")}');
+          return false;
+        } else if($('#daycare_user_daycares_attributes_0_user_attributes_email').val() == ''){
+          $('#info_error').text('#{t("validation.required.email")}');
+          return false;
+        } else if($('#daycare_user_daycares_attributes_0_user_attributes_password').val() == ''){
+          $('#info_error').text('#{t("validation.required.password")}');
+          return false;
+        } else if($('#daycare_user_daycares_attributes_0_user_attributes_password').val() != $('#daycare_user_daycares_attributes_0_user_attributes_password_confirmation').val()){
+          $('#info_error').text('#{t("validation.confirm_password")}');
+          return false;
+        }
+        break;
+      case 'tab2':
+        if($('#daycare_name').val() == ''){
+          $('#info_error').text('#{t("validation.required.daycare_name")}');
+          return false;
+        } else if($('#daycare_care_type').val() == ''){
+          $('#info_error').text('#{t("validation.required.care_type")}');
+          return false;
+        } else if($('#daycare_address_line1').val() == ''){
+          $('#info_error').text('#{t("validation.required.address")}');
+          return false;
+        } else if($('#daycare_postcode').val() == ''){
+          $('#info_error').text('#{t("validation.required.postcode")}');
+          return false;
+        } else if($('#daycare_municipal_id').val() == ''){
+          $('#info_error').text('#{t("validation.required.municipal")}');
+          return false;
+        } else if($('#daycare_telephone').val() == ''){
+          $('#info_error').text('#{t("validation.required.telephone")}');
+          return false;
+        }
+        break;
+      case 'tab3':
+
+        break;
+      }
+      if(tab_id == "tab4") {
+        $('form').submit();
+      }
+    });
+  });

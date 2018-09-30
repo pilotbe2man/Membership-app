@@ -1,0 +1,52 @@
+- content_for :page_title, t('dashboard.notifications.status_of_task')
+- content_for :breadcrumb, t('dashboard.notifications.status_of_task')
+
+.notification-box.border-style-1
+  .row#notify_todos.panel-content
+    %ul.row
+      - User.all_self_department_todos.where(id: current_user.id).each do |todo|
+        - todo_obj = Todo.find(todo.id)
+        - if !todo_obj.nil? && todo_obj.recurring_available_by_department(todo.department_id)
+          - diff_time = get_remain_time(todo.id)
+          - if (todo_obj.single? && diff_time[2] != -1)
+            %li.col-md-3.col-sm-4.col-xs-6
+              .department-todo.border-style-b
+                %span.todo-top.bg-style-b-g
+                  = todo.department_name
+                .todo-command
+                  .detail-box
+                    %h5=t("todos.todo_#{todo.id}")
+                    %ul#time-counter.time-counter
+                      %li.days
+                        %label=(diff_time[0] < 0) ? "-" : diff_time[0]
+                        %span Days
+                      %li.hours
+                        %label=(diff_time[0] < 0) ? "-" : diff_time[1]
+                        %span Hours
+                      %li.minutes
+                        %label=(diff_time[0] < 0) ? "-" : diff_time[2]
+                        %span Mins
+                    - percent = get_current_status(todo.id, todo.department_id)
+                    .progress
+                      .value{style: "width: #{percent}%;"}
+          - if (todo_obj.recurring? && todo_obj.is_active == 1)
+            %li.col-md-3.col-sm-4.col-xs-6
+              .department-todo.border-style-b
+                %span.todo-top.bg-style-b-g
+                  = todo.department_name
+                .todo-command
+                  .detail-box
+                    %h5=t("todos.todo_#{todo.id}")
+                    %ul#time-counter.time-counter
+                      %li.days
+                        %label=diff_time[0]
+                        %span Days
+                      %li.hours
+                        %label=diff_time[1]
+                        %span Hours
+                      %li.minutes
+                        %label=diff_time[2]
+                        %span Mins
+                    - percent = get_current_status(todo.id, todo.department_id)
+                    .progress
+                      .value{style: "width: #{percent}%;"}

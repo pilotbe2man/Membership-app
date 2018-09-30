@@ -1,0 +1,31 @@
+= content_for :title, t('illnesses.illness')
+- content_for :page_title, t('illnesses.illness')
+.illness-dash-container
+  .container
+    .row
+      .col-md-12
+        %h4.option-title= t('illnesses.illness')
+        %h5= t('illnesses.labels.filter_records_for')
+    .row.content-main
+      .col-md-6.col-sm-6.col-xs-6.menu-item
+        - if current_user.role == "worker"
+          = link_to '#' do
+            .link-content.disabled.border-style-b.hover-bg-style-b
+              .menu-img.add-record-child
+              %span= t('illnesses.labels.child')
+        - else
+          = link_to list_illnesses_path(record_type: 'child') do
+            .link-content.border-style-b.hover-bg-style-b
+              .menu-img.add-record-child
+              %span= t('illnesses.labels.child')
+      .col-md-6.col-sm-6.col-xs-6.menu-item
+        = link_to list_illnesses_path(record_type: 'department') do
+          .link-content.border-style-b.hover-bg-style-b
+            .menu-img.add-record-department
+            %span= t('illnesses.labels.department')
+:javascript
+  jQuery(document).ready(function() {
+    $('#link_dashboard_guide').on('click', function(){
+      window.location.href = '/guide_page/worker_illness/view_dash';
+    });
+  });

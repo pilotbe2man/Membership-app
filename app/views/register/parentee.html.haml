@@ -1,0 +1,149 @@
+.reg-parentee-container.page-boxed
+  .page-header
+  .container
+    .form-content        
+      #rootwizard
+        %ul.tab-nav{:style=> "visibility: hidden; height: 0; position:absolute;"}
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab1"} First
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab2"} First
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'row'}) do |f|
+          .tab-content
+            - index = 1
+            = f.fields_for :children do |child|
+              .tab-pane{:id => "tab#{index}"}
+                = render partial: 'pane_parentee_child', locals: { child: child }
+                - index = index + 1
+            .tab-pane{:id => "tab#{index}"}
+              = render partial: 'pane_parentee_reg', locals: { f: f }
+          .col-sm-12
+            %ul.pager.wizard.text-left
+              %li.previous
+                %button.btn.btn-round.item-parentee.btn-prev{:type => "button"} 
+                  =t('register.labels.previous')
+              %li.next{:style => "float:right;"}
+                %button.btn.btn-round.item-parentee.btn-next{:type => "button"} 
+                  =t('register.labels.next')
+
+:javascript
+  function add_fields(link, association, content) {
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_" + association, "g");
+
+    if ($(link).hasClass('subtask-link')) {
+      $(link).parent().find('.form-group').last().after(content.replace(regexp, new_id));
+    } else {
+      var new_tabid = 'tab'+new_id;
+      var new_tab_template = '<div class="tab-pane" id="'+new_tabid+'"></div>';
+      $('.tab-content').append(new_tab_template);
+      $('#'+new_tabid).append(content.replace(regexp, new_id));
+      $('.tab-pane').removeClass('active');
+      $('#'+new_tabid).addClass('active');
+    }
+
+    $('.datepicker').datetimepicker({
+      format: 'd/m/Y',
+      timepicker: false
+    });
+  }
+
+  function onNextHandle(tab, navigation, index) {
+    var total = $('#rootwizard .tab-pane').length;
+    var tab_id = $('.tab-pane.active').attr('id');      
+    var tab_number = tab_id.replace('tab', '');      
+
+    var current = parseInt(tab_number) + 1;
+    if(current > total) current = current - 1;
+
+    var next_tab = '#tab' + current;
+    $('.tab-pane').removeClass('active');
+    $(next_tab).addClass('active');
+    return false;
+  }
+
+  function onPrevHandle(tab, navigation, index) {
+    var tab_id = $('.tab-pane.active').attr('id');      
+    var tab_number = tab_id.replace('tab', '');      
+
+    var current = parseInt(tab_number) - 1;
+    if(current <= 0) return false;
+    
+    var next_tab = '#tab' + current;
+    $('.tab-pane').removeClass('active');
+    $(next_tab).addClass('active');
+    return false;
+  }
+
+  jQuery(document).ready(function() {    
+    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills', onNext : onNextHandle, onPrevious : onPrevHandle}); 
+    $('.add-child').removeClass("btn");
+    $('.add-child').removeClass("btn-normal");
+    $('.datepicker').datetimepicker({
+        format: 'd/m/Y',
+        timepicker: false
+    });
+
+    $('.next button').on('click', function(){
+      var total = $('#rootwizard .tab-pane').length;
+      var tab_id = $('.tab-pane.active').attr('id');      
+      var tab_num = tab_id.replace('tab', '');
+      if(tab_num == total){
+        var bUpload = true;
+        $('input:file').each(function(){
+          if($(this).val() == '')
+            bUpload = false;
+        });
+        
+        // if(bUpload){        
+          $('form').submit();
+        //} else {
+          //alert('You need to upload your children photo!');
+        //}
+      }
+    });
+
+    $('.previous button').on('click', function(e){
+      var tab_id = $('.tab-pane.active').attr('id');      
+      if(tab_id == "tab1"){        
+        window.location.href = '#{parentee_select_daycare_path()}';
+      }
+    });
+
+    $('#rootwizard').on('click', '.add-child', function(e){
+      var tab_count = $('.tab-pane').length;
+      var tab_last = $('.tab-pane').length;
+
+      $('#tab'+tab_last).attr("id",'tab'+(tab_last + 1));
+
+
+      var new_tab_id = 'tab'+ tab_count;
+      var new_tab_template = '<div id="'+new_tab_id+'" class="tab-pane"></div>';
+      var new_tab_nav = '<li class="active"><a data-toggle="tab" href="#'+new_tab_id+'" aria-expanded="true">First</a></li>';
+      $('#rootwizard ul.tab-nav li').removeClass('active');
+      $('#rootwizard ul.tab-nav').append(new_tab_nav);
+
+      $('.tab-content').append(new_tab_template);
+      $('.tab-pane').removeClass('active');
+      $('#' + new_tab_id).addClass('active');
+
+      var new_tab_content = $('#tab'+(tab_last - 1)).html();
+      var value_index = parseInt(tab_last) - 2;
+      var new_value_index = parseInt(tab_last) - 1;
+
+      new_tab_content = new_tab_content.split('['+value_index+']').join('['+new_value_index+']');
+      new_tab_content = new_tab_content.split('_'+value_index+'_').join('_'+new_value_index+'_');
+      $('.add-child').remove();
+      $('#' + new_tab_id).append(new_tab_content);
+
+      $('#' + new_tab_id +' input.form-control').val("");
+      $('#' + new_tab_id +' input:file').val("");
+
+      $('.datepicker').datetimepicker({
+          format: 'd/m/Y',
+          timepicker: false
+      });
+      e.preventDefault();
+    });
+
+  });

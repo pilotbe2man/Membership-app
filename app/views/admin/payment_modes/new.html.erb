@@ -1,0 +1,10 @@
+<% content_for :title, 'New Payment Mode' %>
+<% content_for :breadcrumb, 'New' %>
+<% breadcrumb_add 'Payment Mode', admin_payment_modes_path %>
+
+<div class="twelvecol">
+    <div class="page-header">
+        <h2 class="widget widget-header"><%= t('admin.payment_modes.new.heading')%></h2>
+    </div>
+    <%= render 'form' %>
+</div>

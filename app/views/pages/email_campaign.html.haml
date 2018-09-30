@@ -1,0 +1,182 @@
+.row.promo.email_campaign
+  .promo-img
+    .promo-text
+      %h2
+        = t('campaign.header.title').html_safe
+      %h2
+        %small 
+          = t('campaign.header.description').html_safe
+      /%br
+      /%h4.promo-subhead= t('pages.mission_step.promo_subhead')
+  / End Promo Area
+.container.email_campaign
+  .row
+    .introduction.gradient-border
+      %p.text-left
+        %b
+          = t('campaign.content.text1').html_safe
+      %p.text-left
+        = t('campaign.content.text2').html_safe        
+      %p.text-left
+        = t('campaign.content.text3').html_safe
+      %p.text-left
+        = t('campaign.content.text4').html_safe        
+  / Module 1
+  .row.step-contents
+    %h4.heading-letter.heading.text-center
+      = t('campaign.step_header').html_safe
+  .row.module-header
+    .col-md-2.col-sm-2.col-xs-12.text-center
+      = image_tag 'campaign-1.png'
+    .col-md-10.col-sm-10.col-xs-12
+      %h5 
+        %span.pink-text
+          = t('campaign.module1.label').html_safe
+        = t('campaign.module1.title').html_safe        
+  .row.module-content
+    %p
+      = t('campaign.module1.text1').html_safe      
+    %p
+      = t('campaign.module1.text2').html_safe            
+    %p
+      = t('campaign.module1.text3').html_safe
+
+    %ul.scientific-facts
+      %li
+        %p
+          = t('campaign.module1.fn1').html_safe          
+      %li
+        %p
+          = t('campaign.module1.fn2').html_safe                    
+      %li
+        %p
+          = t('campaign.module1.fn3').html_safe          
+  .row
+    .col-xs-6.col-xs-offset-3.module-divider
+
+  / Module 2
+  .row.module-header
+    .col-md-2.col-sm-2.col-xs-12.text-center
+      = image_tag 'campaign-2.png'
+    .col-md-10.col-sm-10.col-xs-12
+      %h5 
+        %span.pink-text
+          = t('campaign.module2.label').html_safe
+        = t('campaign.module2.title').html_safe        
+  .row.module-content
+    %p
+      = t('campaign.module2.text1').html_safe      
+    %p
+      = t('campaign.module2.text2').html_safe            
+    %p
+      = t('campaign.module2.text3').html_safe
+
+    %ul.scientific-facts
+      %li
+        %p
+          = t('campaign.module2.fn1').html_safe          
+      %li
+        %p
+          = t('campaign.module2.fn2').html_safe                    
+      %li
+        %p
+          = t('campaign.module2.fn3').html_safe          
+  .row
+    .col-xs-6.col-xs-offset-3.module-divider
+
+  / Module 3
+  .row.module-header
+    .col-md-2.col-sm-2.col-xs-12.text-center
+      = image_tag 'campaign-3.png'
+    .col-md-10.col-sm-10.col-xs-12
+      %h5 
+        %span.pink-text
+          = t('campaign.module3.label').html_safe
+        = t('campaign.module3.title').html_safe        
+  .row.module-content
+    %p
+      = t('campaign.module3.text1').html_safe      
+    %p
+      = t('campaign.module3.text2').html_safe            
+    %p
+      = t('campaign.module3.text3').html_safe
+
+    %ul.scientific-facts
+      %li
+        %p
+          = t('campaign.module3.fn1').html_safe          
+      %li
+        %p
+          = t('campaign.module3.fn2').html_safe                    
+      %li
+        %p
+          = t('campaign.module3.fn3').html_safe          
+  .row
+    .col-xs-6.col-xs-offset-3.module-divider
+
+  / Module 4
+  .row.module-header
+    .col-md-2.col-sm-2.col-xs-12.text-center
+      = image_tag 'campaign-4.png'
+    .col-md-10.col-sm-10.col-xs-12
+      %h5 
+        %span.pink-text
+          = t('campaign.module4.label').html_safe
+        = t('campaign.module4.title').html_safe        
+  .row.module-content
+    %p
+      = t('campaign.module4.text1').html_safe      
+    %p
+      = t('campaign.module4.text2').html_safe            
+    %p
+      = t('campaign.module4.text3').html_safe
+
+    %ul.scientific-facts
+      %li
+        %p
+          = t('campaign.module4.fn1').html_safe          
+      %li
+        %p
+          = t('campaign.module4.fn2').html_safe                    
+      %li
+        %p
+          = t('campaign.module4.fn3').html_safe          
+  .row
+    .col-xs-6.col-xs-offset-3.module-divider
+
+  / Module 5
+  .row.module-header
+    .col-md-2.col-sm-2.col-xs-12.text-center
+      = image_tag 'campaign-5.png'
+    .col-md-10.col-sm-10.col-xs-12
+      %h5 
+        %span.pink-text
+          = t('campaign.module5.label').html_safe
+        = t('campaign.module5.title').html_safe        
+  .row.module-content
+    %p
+      = t('campaign.module5.text1').html_safe      
+    %p
+      = t('campaign.module5.text2').html_safe            
+    %p
+      = t('campaign.module5.text3').html_safe
+
+    %ul.scientific-facts
+      %li
+        %p
+          = t('campaign.module5.fn1').html_safe          
+      %li
+        %p
+          = t('campaign.module5.fn2').html_safe                    
+      %li
+        %p
+          = t('campaign.module5.fn3').html_safe          
+  .row
+    .col-xs-6.col-xs-offset-3.module-divider
+
+  .row.module-footer.text-center
+    %h4
+      Paticipate right now!
+    %button.btn.hcc-btn-vertical
+      %a{'href': '/manager/register'}
+        Participate

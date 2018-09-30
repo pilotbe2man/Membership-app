@@ -1,0 +1,26 @@
+%ul
+  %li
+    = link_to '/dashboard', class: 'js-sidebar-open' do
+      = image_tag image_url("new_style_icons/home.png")
+  - @permissions.each do |permission|
+    - if permission.active
+      - if permission.plan_deposit == 0
+        %li
+          = link_to permission.path, id: permission.element, class: 'js-sidebar-open' do
+            %div=t(permission.label_key)
+            = image_tag image_url("new_style_icons/#{permission.feature}.png")
+      - else
+        %li
+          %a.js-sidebar-open{href: permission.path, id: permission.element}
+            %div=t(permission.label_key)
+            = image_tag image_url("new_style_icons/#{permission.feature}.png")
+  - feature = 'emergency'
+  %li
+    = link_to '#', class: 'js-sidebar-open' do
+      %div=t('dashboard.notifications.record_alert')
+      = image_tag image_url("new_style_icons/#{feature}.png")
+  - feature = 'todo-b'
+  %li
+    = link_to task_status_permissions_path, class: 'js-sidebar-open' do
+      %div=t('dashboard.notifications.status_of_task')
+      = image_tag image_url("new_style_icons/#{feature}.png")

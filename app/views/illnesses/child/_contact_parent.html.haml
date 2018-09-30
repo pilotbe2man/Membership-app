@@ -1,0 +1,17 @@
+.row
+  %h5= t('illnesses.labels.contact_parent_question')
+.row.radio-box-group   
+  - ['yes', 'no'].each do |ans|
+    .radio-box
+      %input{:type=>"radio", :name => "contact[parent][answer]", :id => "chk_contact_q_#{ans}", :style => "display: none;", value: ans, :required => "true"}
+      %label{:for => "chk_contact_q_#{ans}"}
+        = t("illnesses.labels.illness_#{ans}")
+.contact-parent-ans#contact-parent-yes
+  .form-group
+    %h3= t('protocols.child_illness_record.contact_parent_message')
+    = text_area 'record', 'contact_parent_message', class: 'form-control', rows: '8'
+
+.contact-parent-ans#contact-parent-no
+  .form-group
+    %h3= t('protocols.child_illness_record.contact_parent_reason')
+    = text_area 'record', 'contact_parent_reason', class: 'form-control', rows: '8'

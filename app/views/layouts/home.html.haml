@@ -1,0 +1,18 @@
+!!! 5
+%html
+  %head
+    %title= LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? " - Healthier Childcare Administration" : LocaleLogo.by_type_language(1, I18n.locale).first.app_title.html_safe
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true
+    %link{href: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css', rel: 'stylesheet'}
+    %link{href: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', rel: 'stylesheet'}
+    %link{href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', rel: 'stylesheet'}
+    %link{href: 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic', rel: 'stylesheet', type: 'text/css'}
+    = javascript_include_tag 'application', 'data-turbolinks-track': true
+    = csrf_meta_tags
+    %link{href: "/assets/lang/style_#{I18n.locale.downcase}.css", rel: 'stylesheet', type: 'text/css'}
+
+  %body
+    = render partial: 'shared/headers/home'
+    .main
+      = yield
+    = render partial: 'shared/footer'

@@ -1,0 +1,67 @@
+.legacy-ethic
+  .container
+    .row.step-wrapper
+      %h2.step-title=t('pages.ethic.step1.title')
+      .col-md-12.content        
+        %h3.heading.text-center=t('pages.ethic.step1.heading')
+        %p.text-center=t('pages.ethic.step1.description')
+        %p=t('pages.ethic.step1.para1')
+        %p=t('pages.ethic.step1.para2')
+        %p=t('pages.ethic.step1.para3')
+        %p.text-center=t('pages.ethic.step1.para4')
+        %h4.sub-heading=t('pages.ethic.step1.sub_heading1')
+        %p=t('pages.ethic.step1.para5')
+        .row
+          .radio-box.col-md-4.col-sm-6.col-xs-12.agree
+            %input{:type=>"radio", :name => "step1_option", :id => "step1_agree", :style => "display: none;", checked: false, value: "agree"}
+            %label{:for => "step1_agree"}=t('pages.ethic.step1.agree_text')
+          .radio-box.col-md-4.col-sm-6.col-xs-12.disagree
+            %input{:type=>"radio", :name => "step1_option", :id => "step1_disagree", :style => "display: none;", checked: false, value: "diagree"}
+            %label{:for => "step1_disagree"}=t('pages.ethic.step1.disagree_text')        
+        %h4.sub-heading=t('pages.ethic.step1.sub_heading2')
+        %p=t('pages.ethic.step1.para6')
+        .row
+          .radio-box.col-md-4.col-sm-6.col-xs-12.agree
+            %input{:type=>"radio", :name => "step2_option", :id => "step2_agree", :style => "display: none;", checked: false, value: "agree"}
+            %label{:for => "step2_agree"}=t('pages.ethic.step1.agree_text')
+          .radio-box.col-md-4.col-sm-6.col-xs-12.disagree
+            %input{:type=>"radio", :name => "step2_option", :id => "step2_disagree", :style => "display: none;", checked: false, value: "diagree"}
+            %label{:for => "step2_disagree"}=t('pages.ethic.step1.disagree_text')
+        %h4.sub-heading=t('pages.ethic.step1.sub_heading3')
+        %p=t('pages.ethic.step1.para7')
+        .row
+          .radio-box.col-md-4.col-sm-6.col-xs-12.agree
+            %input{:type=>"radio", :name => "step3_option", :id => "step3_agree", :style => "display: none;", checked: false, value: "agree"}
+            %label{:for => "step3_agree"}=t('pages.ethic.step1.agree_text')
+          .radio-box.col-md-4.col-sm-6.col-xs-12.disagree
+            %input{:type=>"radio", :name => "step3_option", :id => "step3_disagree", :style => "display: none;", checked: false, value: "diagree"}
+            %label{:for => "step3_disagree"}=t('pages.ethic.step1.disagree_text')
+        %h4.sub-heading=t('pages.ethic.step1.sub_heading4')
+        %p=t('pages.ethic.step1.para8')
+        .row
+          .radio-box.col-md-4.col-sm-6.col-xs-12.agree
+            %input{:type=>"radio", :name => "step4_option", :id => "step4_agree", :style => "display: none;", checked: false, value: "agree"}
+            %label{:for => "step4_agree"}=t('pages.ethic.step1.agree_text')
+          .radio-box.col-md-4.col-sm-6.col-xs-12.disagree
+            %input{:type=>"radio", :name => "step4_option", :id => "step4_disagree", :style => "display: none;", checked: false, value: "diagree"}
+            %label{:for => "step4_disagree"}=t('pages.ethic.step1.disagree_text')
+      .col-md-12.text-center
+        %a.btn.hcc-green-btn-vertical.disagree{'href': '#'}
+          = t('pages.ethic.label.next')
+:javascript
+  jQuery(document).ready(function() {
+    $('input[type=radio]').on('click', function(){
+      var agree_count = 0;
+      $('input[type=radio]:checked').each(function(){
+        if($(this).val() == "agree")
+          agree_count++;
+      });
+      if(agree_count == 4){
+        $('.hcc-green-btn-vertical').removeClass('disagree');
+        $('.hcc-green-btn-vertical').attr('href', '/ethic_3');
+      } else {
+        $('.hcc-green-btn-vertical').addClass('disagree');
+        $('.hcc-green-btn-vertical').attr('href', '#');
+      }
+    });
+  });            

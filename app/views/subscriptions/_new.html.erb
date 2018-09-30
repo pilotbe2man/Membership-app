@@ -1,0 +1,79 @@
+<%= form_for [@subscription.plan, @subscription], method: :post do |f| %>
+    <div class="form">
+        <div class="row credit-card-form">
+          <div class="offer-cost">
+                <h2>You've selected Accreditation program
+                plan for <span><%= @subscription.plan.allocation %></span> children and it costs <span><%= number_to_currency @subscription.plan.price %></span></h2>
+            </div><br>
+            <!-- <div class="col-xs-12 col-md-12 col-lg-12"> -->
+             <% if @subscription.errors.any? %>
+                <div class="error_messages">
+                    <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+                    <ul>
+                        <% @subscription.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Discount Code</h3>
+                </div>
+                <%= f.hidden_field :plan_id %> 
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.hidden_field :stripe_card_token %>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-7 col-md-7">
+                            <div class="form-group">
+                                <label>
+                                    <%= label_tag :card_number, "Credit Card Number" %>
+                                </label>
+                                <div class="input-group">
+                                    <%= text_field_tag :card_number, nil, name: nil, :class => 'form-control gry' %>
+                                   <span class="input-group-addon"><i class="fa fa-credit-card"></i></span> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-5 col-md-5">
+                            <div class="form-group">
+                                <%= label_tag :card_code, "CV Code" %>
+                                <%= text_field_tag :card_code, nil, name: nil, :class => 'form-control gry' %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12 col-lg-12">
+                            <div class="form-group expire-date">
+                                <%= label_tag :card_month, "Card Expiration" %>
+                                <div class="col-xs-4 col-md-4 col-lg-4 mon pl-ziro">
+                                    <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month", :class => 'form-control gry'} %>
+                                </div>
+                                <div class="col-xs-3 col-md-3 col-lg-3 pl-ziro">
+                                    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", :class => 'form-control gry'} %>
+                                </div>
+                            </div>
+                    
+                        <div class="col-xs-5 col-md-5 col-lg-5 prom">
+                          <div class="form-group promo-area">
+                            <%= label_tag :discount_code, 'Promo Code' %>
+                            <%= text_field_tag :discount_code, "", :class => 'form-control gry' %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                     <p class="tearms-condition">
+                        <%= f.check_box :terms, checked: false %> I accept the Code of Ethics
+                        </p>
+                    <%= f.submit "Apply",:class => "apply-btn" %>
+                </div>
+            </div>
+            <div id="stripe_error">
+                <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+            </div>
+        <!-- </div> -->
+        </div>
+    </div>
+<% end %>         

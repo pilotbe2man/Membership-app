@@ -1,0 +1,17 @@
+.row
+  %h5= t('illnesses.labels.contact_doctor_question')
+.row.radio-box-group   
+  - ['yes', 'no'].each do |ans|
+    .radio-box
+      %input{:type=>"radio", :name => "contact[doctor][answer]", :id => "chk_doctor_q_#{ans}", :style => "display: none;", value: ans, :required => "true"}
+      %label{:for => "chk_doctor_q_#{ans}"}
+        = t("illnesses.labels.illness_#{ans}")
+.contact-doctor-ans#contact-doctor-yes
+  .form-group
+    %h3= t('protocols.child_illness_record.contact_doctor_message')
+    = text_area 'record', 'contact_doctor_message', class: 'form-control', rows: '8'
+
+.contact-doctor-ans#contact-doctor-no
+  .form-group
+    %h3= t('protocols.child_illness_record.contact_doctor_reason')
+    = text_area 'record', 'contact_doctor_reason', class: 'form-control', rows: '8'

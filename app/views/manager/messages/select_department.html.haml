@@ -1,0 +1,23 @@
+= content_for :title, 'New Notification'
+- content_for :breadcrumb, t('messages.breadcrumb.choose_department')
+
+- step_size = 5
+- page_step = 1
+.message-dash-container
+  .container
+    .row
+      = render partial: '/shared/progress_bar', locals: {step_size: step_size, page_step: page_step}
+    .row.content-main
+      = form_tag recipient_manager_messages_path, method: :get do
+        .col-md-12
+          %h4.option-title= t('messages.labels.choose_department')
+        - @departments.each do |department|
+          .col-md-12.radio-box
+            %input{:type=>"radio", :name => "target_department", :id => "chk_depart_#{department.id}", :style => "display: none;", value: department.id, checked: params[:target_department].to_i == department.id, required: true}
+            %label{:for => "chk_depart_#{department.id}"}
+              =department.name
+        .col-md-12.form-buttons.text-right.no-h-padding
+          .col-md-3.col-md-offset-6.col-sm-3.col-sm-offset-6.col-xs-6
+            %a{href: manager_messages_path, class: 'btn btn-gray btn-wizard'}= t('form_labels.back')
+          .col-md-3.col-sm-3.col-xs-6
+            = submit_tag t('form_labels.next'), class: 'btn bg-style-b btn-wizard'

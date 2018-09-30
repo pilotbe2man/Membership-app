@@ -1,0 +1,26 @@
+- user_is_owner = current_user.id == comment.owner_id
+.row.comment
+  .col-md-2.comment-owner
+    - unless user_is_owner
+      - if comment.owner.parentee?
+        = image_tag 'parent.png'
+        %p= comment.owner.name
+      - elsif comment.owner.worker?
+        = image_tag daycare_logo(comment.owner.daycare), class: 'img'
+        %p= comment.owner.daycare.name
+
+  .col-md-8.comment-content
+    %p= comment.content
+    %p.comment-time
+      %small
+        %em
+          = time_ago_in_words(comment.created_at) + ' ago'
+
+  .col-md-2.comment-owner
+    - if user_is_owner
+      - if comment.owner.parentee?
+        = image_tag 'parent.png'
+        %p You
+      - elsif comment.owner.worker?
+        = image_tag daycare_logo(comment.owner.daycare), class: 'img'
+        %p= comment.owner.daycare.name

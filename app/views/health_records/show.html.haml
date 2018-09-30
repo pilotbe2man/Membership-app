@@ -1,0 +1,38 @@
+.panel.panel-info
+  .panel-heading.bg-style-b
+    #{pretty_short_date(@record.created_at)} : #{@record.owner.name}
+  .panel-body
+    %dl
+      %dt= t('illnesses.labels.reporting_date')
+      %dd= pretty_short_date(@record.created_at)
+      %hr
+
+      %dt= t('illnesses.labels.name')
+      %dd= @record.owner.name
+      %hr
+      - if @record.for_child?
+        %dt= t('illnesses.labels.age')
+        %dd= @record.owner.age
+        %hr
+
+        %dt= t('illnesses.labels.birthday')
+        %dd= pretty_short_date(@record.owner.birth_date)
+        %hr
+
+        %dt= t('illnesses.labels.department')
+        %dd= @record.owner.department.name
+        %hr
+
+        %dt= t('illnesses.labels.daycare')
+        %dd= @record.owner.department.daycare.name
+        %hr
+
+      - elsif @record.for_department?
+        %dt= t('illnesses.labels.daycare')
+        %dd= @record.owner.daycare.name
+        %hr
+      - @record.health_record_components.each do |hr_component|
+        - if hr_component.value.present?
+          %dt= t("protocols.#{@record.protocol_code}.#{hr_component.code}")
+          %dd= hr_component.pretty_value
+          %hr

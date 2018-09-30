@@ -1,0 +1,15 @@
+.field
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+    = f.hidden_field :code, value: (f.object.id) ? f.object.code : "SY-BLANK"
+
+  = custom_link_to_remove_fields 'Remove Symptom', f
+:javascript
+  jQuery(document).ready(function() {   
+    $('input[type=hidden]').each(function(){
+      if($(this).val() == "SY-BLANK"){
+        $(this).val("SY-" + Date.now());            
+      }
+    });
+  });

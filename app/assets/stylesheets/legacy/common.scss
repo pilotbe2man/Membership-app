@@ -1,0 +1,579 @@
+header{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  background: #fff;
+
+  .btn.active, 
+  .btn:active{
+    color: #fff;
+    background:#ff6632;
+  }
+
+  li{
+    a{
+      font-size: 16px;
+      color: #000;
+      font-weight: 200;
+    }
+  }  
+}
+
+.main{
+  font-family: 'Open Sans', sans-serif;
+  background: #fff;
+
+  .input-round{
+    border-radius: 30px;
+  }  
+
+  .btn{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+  }
+
+  .btn-green, .btn-green:active{
+    background: #2bd34d !important;
+    a{
+      color: #fff;
+      text-decoration: none;
+    }    
+  }
+
+  .btn-round {
+    border-radius: 20px;
+    border: none;
+    min-width: 120px;
+    min-height: 30px;
+    padding: 6px 20px;
+  }
+
+  .btn.active.focus, 
+  .btn.active:focus, 
+  .btn.focus, 
+  .btn:active.focus, 
+  .btn:active:focus, 
+  .btn:focus{
+    color: #fff;
+    outline: none;
+  }
+
+  .btn.active, 
+  .btn:active{
+    color: #fff;
+    background-image:none;
+    background:#ff6632;
+  }
+
+  .hcc-green-btn-vertical.btn.active, 
+  .hcc-green-btn-vertical.btn:active,
+  .hcc-green-btn.btn.active, 
+  .hcc-green-btn.btn:active{
+    color: #fff;
+    background-image:none;
+    background:#2bd34d;
+  }
+
+  .btn.focus, 
+  .btn:focus, 
+  .btn:hover{
+    color: #fff;
+    text-decoration: none;  
+  }
+
+  input.form-control{
+    border: 1px solid #242c3f;
+    min-height: 40px;
+    vertical-align: top;
+    padding: 6px 20px;
+    line-height: normal;
+    font-size: 14px;
+
+    &:focus{
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  .border-red{
+    border-color: #fb045b !important;
+  }
+
+  .border-green{
+    border-color: #2bd34d !important;
+  }
+
+  .item-red{
+    background-color: #fb045b !important;
+    color: #fff;
+  }
+
+  .item-green-manager{
+    background: #2bd34d;
+    color: #fff;
+    &:active{
+      background: #2bd34d;
+    }
+  }
+
+  .item-manager{
+    background: #ff5443;
+    background: -webkit-linear-gradient(#ffa63e, #ff0a55);
+    background: -o-linear-gradient(#ffa63e, #ff0a55);
+    background: -moz-linear-gradient(#ffa63e, #ff0a55);
+    background: linear-gradient(#ffa63e, #ff0a55);
+    color: #fff;
+  }
+
+  .item-worker{
+    background: #f1c942;
+    background: -webkit-linear-gradient(#f2ff32, #f09751);
+    background: -o-linear-gradient(#f2ff32, #f09751);
+    background: -moz-linear-gradient(#f2ff32, #f09751);
+    background: linear-gradient(#f2ff32, #f09751);
+    color: #fff;
+  }
+  .item-partner{
+    background: #00c4cb;
+    background: -webkit-linear-gradient(#0085fe, #00ff9c);
+    background: -o-linear-gradient(#0085fe, #00ff9c);
+    background: -moz-linear-gradient(#0085fe, #00ff9c);
+    background: linear-gradient(#0085fe, #00ff9c);
+    color: #fff;
+  }
+  .item-parentee{
+    background: #8ea4f4;
+    background: -webkit-linear-gradient(#b879ff, #63d1e8);
+    background: -o-linear-gradient(#b879ff, #63d1e8);
+    background: -moz-linear-gradient(#b879ff, #63d1e8);
+    background: linear-gradient(#b879ff, #63d1e8);
+    color: #fff;
+  }  
+
+}
+
+/****************Original Version*************************/
+.legacy-common
+{
+    .bg-custom
+{
+    background-color: #fdf8f7;
+}
+.under-line
+{
+    border-bottom: 1px solid #bbbdbf;
+}
+
+.success-text
+{
+    color: #9dc93b !important;
+}
+
+.common
+{
+    padding: 25px;
+    padding-top: 70px;
+}
+.common a
+{
+    cursor: pointer;
+}
+
+.common .btn
+{
+    border-radius: 15px;
+}
+
+.common .success-text
+{
+    color: #9dc93b;
+    margin: 20px 12px;
+}
+
+.common input[type='text'], .common input[type='email'], .common input[type='password'], .common select
+{
+    outline: none;
+    width: 100%;
+    color: #727272;
+    border: none;
+    height: 50px;
+    font-size: 20px;
+    margin-top: 10px;
+    border-bottom: 1px solid #f3f4f4;
+    font-family: 'MyriadPro-Regular';
+}
+
+.common input[type='submit']
+{
+    color: #fff;
+    padding: 10px 26px;
+    margin-top: 42px;
+    background-color: #47d6d6;
+    font-size:24px;
+    border-color:#47d6d6;
+}
+
+.common .btn-primary
+{
+    border-radius: 10px;
+}
+
+.common .multiple_field
+{
+    background-color: #eeeeee;
+    width: 95%;
+    float: left;
+}
+
+.common .btn-add-more
+{
+    background-color: #9dc93b;
+    border-radius: 39px;
+    color: #fff;
+    float: right;
+    font-size: 25px;
+    height: 40px;
+    margin-top: 13px;
+    padding: 0 12px;
+}
+
+//  Actions  Main menu
+
+.common .actions
+{
+    padding: 0px;
+    margin-top: 50px;
+}
+
+.common .tab
+{
+    padding: 15px;
+}
+
+.common .block
+{
+    border-radius: 10px;
+}
+.common .tab img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.common .tab-title
+{
+    font-size: 20px;
+    text-align: center;
+    height: 40px;
+    padding: 5px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-family: 'MyriadPro-Regular';
+}
+
+
+// Todo Tab
+.common .tab-todo
+{
+    background-color: #4ea075;
+}
+
+.common .tab-todo > .tab-title
+{
+    background-color: #50916a;  
+    color: #fff;
+}
+
+
+// Calendar Tab
+.common .tab-calendar
+{
+    background-color: #698ef4;
+}
+
+.common .tab-calendar > .tab-title
+{
+    background-color: #6880dc;  
+    color: #fff;
+}
+
+// Todo Message
+.common .tab-message
+{
+    background-color: #f07e00;
+}
+
+.common .tab-message > .tab-title
+{
+    background-color: #e17201;  
+    color: #fff;
+}
+
+// Attendance Tab
+.common .tab-attendance
+{
+    background-color: #d2b800;
+}
+
+.common .tab-attendance > .tab-title
+{
+    background-color: #c6a601;  
+    color: #fff;
+}
+
+// Medication Tab
+.common .tab-medication
+{
+    background-color: #6aab58;
+}
+
+.common .tab-medication > .tab-title
+{
+    background-color: #699a50;  
+    color: #fff;
+}
+// Intolerance Tab
+.common .tab-intolerance
+{
+    background-color: #f05c51;
+}
+
+.common .tab-intolerance > .tab-title
+{
+    background-color: #e1534a;  
+    color: #fff;
+}
+// Allergy Tab
+.common .tab-allergy
+{
+    background-color: #438f94;
+}
+
+.common .tab-allergy > .tab-title
+{
+    background-color: #468186;  
+    color: #fff;
+}
+
+
+// Notification panel
+
+.common .notification-panel
+{
+    border-left: 2px solid #eaeaea;
+    height: 100%;
+    margin-right: -40px;
+    margin-top: -3px;
+    min-height: 700px;
+    overflow: auto;
+}
+
+.common .notification-panel .notif-heading
+{
+    background-color: #eaeaea;
+    color: #2a2a2a;
+    height: auto;
+  padding: 0px 0px 10px 4px;
+}
+
+.common .notification-panel .notificaiton-list
+{
+    margin-top: 5px;
+}
+
+.common .notification-panel .notificaiton-list .todo-notifiation
+{
+    background-image: image-url('todo_menu_icon.png');
+    background-repeat: no-repeat;
+    height: 38px;
+    color: #727272;
+    font-size: 15px;
+    padding-left: 40px;
+    padding-top: 5px;
+    border-bottom: 1px solid #9a9a9a;
+}
+
+.common .notification-panel .notificaiton-list .todo-notifiation ul
+{
+    margin-left: 40px;
+}
+
+.common .noti_count {
+  text-align: center;
+  background-color: #88C641;
+  padding: 4px 10px;
+  border-radius: 50%;
+  color: #fff;
+  position: absolute;
+  margin-top: 19px;
+}
+
+.common .actions .function-tab
+{
+    padding: 10px;
+}
+.common .actions .function-tab .tab-action 
+{
+    border-radius: 15px;
+}
+.common .actions .function-tab .tab-title
+{
+    color: #fff;
+}
+.common .actions .function-tab .tab-action img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.common .actions .function-tab .create
+{
+    background-color: #4ea075;
+}
+
+.common .actions .function-tab .edit
+{
+    background-color: #4f8d9e;  
+}
+
+.common .actions .function-tab .access
+{
+    background-color: #9b89b3;  
+}
+
+.common .actions .function-tab .report
+{
+    background-color: #e2af33;  
+}
+
+
+.common .actions .function-tab .create .tab-title
+{
+    background-color: #50916a;
+}
+
+.common .actions .function-tab .edit .tab-title
+{
+    background-color: #517f8f;  
+}
+
+.common .actions .function-tab .access .tab-title
+{
+    background-color: #957ca2;  
+}
+
+.common .actions .function-tab .report .tab-title
+{
+    background-color: #d59e2f;  
+}
+
+// Worker
+
+.common .customer-list
+{
+    height: 50px;
+}
+
+.no-pad
+{
+    padding: 0px !important;
+}
+.common .search-form
+{
+    width: 100%;
+    height: 100px;
+    padding: 15px;
+    background-color: #eeeeee;
+}
+
+.common .search-form form
+{
+    background-color: #e6e7e8;
+    overflow: auto;
+    border-radius: 15px;
+    padding: 5px;
+    height: 70px;
+}
+.common .search-field
+{
+    background-color: transparent;
+    color: #a5a7aa;
+    margin: 0px !important;
+    border: none !important;
+    width: 95% !important;
+    float: left;
+}
+
+.common .search-form form input.search-icon
+{
+    background: image-url('search_btn.png');
+    background-repeat: no-repeat;
+    border: 0;
+    margin-right: 15px;
+    margin-top: 15px;
+    display: block;
+    height: 35px !important;
+    width: 30px !important;
+    float: right;
+}
+.common .heading-title
+{
+    font-size: 20px;
+    color: #2a2a2a;
+    font-family: 'MyriadPro-Regular';
+}
+
+.customers-list .customer-panel
+{
+    height: 120px;
+    padding: 15px;
+}
+
+.customers-list .customer-panel hr
+{
+    margin: 100px 60px;
+    border: 2px solid #eeeeee;
+}
+
+.customers-list .customer-panel .name
+{
+    font-size: 20px;
+    color: #2a2a2a;
+    font-family: 'MyriadPro-Regular';
+}
+
+.customers-list .customer-panel .address, 
+.customers-list .customer-panel .postal-code, 
+.customers-list .customer-panel .telephone
+{
+    font-family: 'MyriadPro-Regular';
+    color: #727272;
+}
+
+
+
+.customers-list .customer-panel input[type=radio] {
+display:none;
+}
+/*--------------------------------------------------------------------------------
+Creating radio button and label as a Single unit(for Cross browser compatibility)
+----------------------------------------------------------------------------------*/
+.customers-list .customer-panel input[type='radio'] + label{
+padding-left:31px;
+display:inline-block;
+line-height:35px;
+background-repeat:no-repeat;
+cursor:pointer;
+background-position: 0 0px;
+background-image:image-url('unactive_tick.png')
+}
+.customers-list .customer-panel input[type='radio']:checked + label {
+background-image:image-url('active_tick.png')
+}
+.customers-list .customer-panel label{
+display: none;
+width: 20px;
+overflow: hidden;
+margin-top: 30px;
+} 
+}

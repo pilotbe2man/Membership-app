@@ -1,0 +1,87 @@
+= content_for :title, t('illnesses.illness')
+- content_for :page_title, t('illnesses.illness')
+.illness-dash-container
+  .container
+    .row
+      .col-md-12
+        %h4.option-title= t('illnesses.illness')
+    .row.content-main.illnesses
+      .col-md-12.wizard.clearfix.vertical
+        .steps.clearfix
+          %ul{:role => "tablist"}
+            %li.first.done
+              %a#new-child-record-t-0
+                %span.current-info.audible current step:
+                %span.number 1.
+                = t('illnesses.labels.choose_child')
+            %li.current
+              %a#new-child-record-t-1
+                %span.number 2.
+                = t('illnesses.labels.child_details')
+            %li.disabled
+              %a#new-child-record-t-2
+                %span.number 3.
+                = t('illnesses.labels.illness_details')
+            %li.disabled
+              %a#new-child-record-t-3
+                %span.number 4.
+                = t('illnesses.labels.contact_parent')
+            %li.disabled
+              %a#new-child-record-t-4
+                %span.number 5.
+                = t('illnesses.labels.contact_doctor')
+            %li.disabled
+              %a#new-child-record-t-5
+                %span.number 6.
+                = t('illnesses.labels.additional_actions')
+            %li.disabled.last
+              %a#new-child-record-t-6
+                %span.number 7.
+                = t('illnesses.labels.worker_confirmation')
+        .content.clearfix
+          %section#new-child-record-p-1.child-profile.body.current{data:{step: 3, intro: t("guideline.worker.illness_add_child.step3.content")}}
+            .row
+              %h5= t('illnesses.labels.child_details')
+            .row
+              .col-md-6
+                %table.information-block
+                  %tbody
+                    %tr
+                      %td.options Name
+                      %td Alice
+                    %tr
+                      %td.options Age
+                      %td 2
+                    %tr
+                      %td.options Birthday
+                      %td 08/11/2015
+              .col-md-6.text-right
+                %img{:alt => "Avatar1", :src => "/assets/super-admin.png", :style =>"height: 125px;"}/
+            .row
+              .col-md-12
+                %h4{:style => "color: #6a7884;"} Do you what sickness the child is suffering?
+            .row.radio-box-group
+              .col-md-12
+                .radio-box
+                  %input#chk_profile_q_yes{:name => "illness[known][answer]", :required => "true", :style => "display: none;", :type => "radio", :value => "yes"}/
+                  %label{:for => "chk_profile_q_yes"}
+                    Yes
+                .radio-box
+                  %input#chk_profile_q_no{:name => "illness[known][answer]", :required => "true", :style => "display: none;", :type => "radio", :value => "no"}/
+                  %label{:for => "chk_profile_q_no"}
+                    No
+        .actions.clearfix
+          %ul{"aria-label" => "Pagination", :role => "menu"}
+            %li.disabled{"aria-disabled" => "true"}
+              %a{:href => "#previous", :role => "menuitem"}=t('form_labels.previous')
+            %li{"aria-disabled" => "false", "aria-hidden" => "false", data:{step: 4, intro: t("guideline.worker.illness_add_child.step4.content")}}
+              %a{:href => "#next", :role => "menuitem"}=t('form_labels.next')
+            %li{"aria-hidden" => "true", :style => "display: none;"}
+              %a{:href => "#finish", :role => "menuitem"}=t('form_labels.submit')
+:javascript
+  jQuery(document).ready(function() {
+    healthChildcare.guideline.introGoToStep('add_child_step3', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.introGoToStep('add_child_step3', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });    
+  });

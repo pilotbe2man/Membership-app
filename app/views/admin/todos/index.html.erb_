@@ -1,0 +1,75 @@
+<% content_for :title, 'Todos' %>
+<% content_for :breadcrumb, 'Todos' %>
+
+<div class="twelvecol">
+  <div class="page-header">
+    <%= link_to new_admin_todo_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Add Todo" do %>
+      <i class="icon-plus"></i>
+    <% end %>
+    <h2 class="widget widget-header">Todos</h2>
+  </div>
+  <% if @todos.empty? %>
+    <div class="widget widget-content">
+      <div class="helper-notification">
+        <p>You don't have any todos yet.</p>
+        <i class="fa fa-th-large"></i>
+      </div>
+    </div>
+  <% else %>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Iteration Type</th>
+            <th>Frequency</th>
+            <th>Completion Date</th>
+            <th>Daycare</th>
+            <th>Type</th>
+            <th>User</th>
+            <th>Language</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @todos.each do |todo| %>
+            <tr>
+              <td>
+                <%= todo.title %>
+              </td>
+              <td>
+                <%= todo.iteration_type.titleize %>
+              </td>
+              <td>
+                <%= todo.frequency.try(:titleize) %>
+              </td>
+              <td>
+                <%= "#{todo.completion_date_value} #{todo.completion_date}" %>
+              </td>
+              <td>
+                <%= todo.daycare.try(:name) %>
+              </td>
+              <td>
+                <%= todo.global? ? 'Global' : 'Local' %>
+              </td>
+              <td>
+                <%= todo.user.name %>
+              </td>
+              <td>
+                <%= todo.language %>
+              </td>
+              <td>
+                <%= link_to edit_admin_todo_path(todo) do %>
+                  <i class="icon-pencil"></i>
+                <% end %>
+                <%= link_to [:admin, todo], method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon-remove"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>

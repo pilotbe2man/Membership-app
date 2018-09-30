@@ -1,0 +1,7 @@
+= content_for :title, t('messages.breadcrumb.create_message')
+- content_for :breadcrumb, t('dashboard.menu_item.illness_guide')
+.message-dash-container
+  .container
+    .row.content-main
+      = form_tag admin_message_templates_updates_path do
+        =render 'form'

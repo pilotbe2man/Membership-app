@@ -1,0 +1,1146 @@
+@media handheld, only screen and (max-width: 767px)
+{
+    body
+    {
+        header
+        {
+            #countdown
+            {
+                display: none;
+            }
+        }
+        footer
+        {
+            padding:50px 0;
+
+            .threecol
+            {
+                text-align: center;
+            }
+            ul
+            {
+                padding:0;
+            }
+            .fourcol
+            {
+                padding:50px 0;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+  .welcome-container{
+    .page-header{
+      height: 72px;
+      .logo-mono{
+        position: absolute;
+      }
+    }
+  }
+
+  /* Manager Dashboard */
+  .manager-dash-container{
+    .page-header{
+      height: 85px;
+      border-bottom: 3px solid #ddd;
+      padding-top: 0px;
+      .header-logo {
+        margin-top: 23px;
+        background-color: #fff;
+      }
+      h4{
+        &.stuff-parent{
+          font-weight: 600;
+          font-size: 24px;
+          margin-bottom: 10px !important;
+        }
+      }
+
+      .header-item{
+        span{
+          font-size: 48px;
+          font-weight: 700;
+        }
+      }
+
+      .header-guide{
+        a{
+          line-height: 115px;
+          vertical-align: bottom;
+          font-size: 28px;
+        }
+      }
+    }
+  }
+
+  /* Dashboard Menu Item */
+  #main-menu{
+    .menu-items{
+      a{
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+        padding: 10px 15px 0 15px;
+        border: 5px solid #ff0552;
+        img{
+          margin: 10px;
+        }
+        span{
+          padding:5px 0;
+          font-size: 18px;
+          line-height: 30px;
+          font-weight: 200;
+        }
+      }
+    }
+    a.btn-round{
+      width: 200px;
+      margin: 0px 0px 25px 0;
+    }
+  }
+  .content-header{
+    p{
+      &.description{
+        font-size: 20px;
+      }
+      &.title{
+        font-size: 24px;
+      }
+    }
+  }
+
+  /* Login */
+  .login-container{
+    .notification-box{
+      margin: 100px 0;
+    }
+  }
+
+  /* Upgrade Page */
+  .legacy-upgrade{
+    .upgrade-plan{
+      margin-top: 80px;
+    }
+
+    .instruction{
+      .ongoing{
+        padding: 20px;
+        p{
+          margin-left: 80px;
+        }
+      }
+    }
+  }
+
+  /* Legacy pages */
+  .legacy-header{
+    height: 130px;
+    #header-logo{
+      height: 170px;
+    }
+
+    ul.main-nav{
+      .hcc-btn{
+        height: 55px;
+        border-radius: 30px;
+        padding: 0 20px;
+      }
+    }
+  }
+
+  #legacy-home{
+    .carousel-inner>.item>img{
+      max-width: none !important;
+      position: relative;
+      left: 0px;
+    }
+  }
+
+  /* Start Page */
+  .promo{
+    .promo-img{
+      .promo-text{
+        h2{
+          font-size: 42px;
+          line-height: 54px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  /* Clock */
+  .flip-clock-wrapper{
+    margin: 40px auto 0 auto;
+    display: block;
+    width: 630px;
+  }
+}
+/*****************************************************/
+@media screen and (max-width: 1199px) {
+  .welcome-container{
+    .page-header{
+      height: 72px;
+      .logo-mono{
+        position: absolute;
+      }
+    }
+  }
+
+  /* Manager Dashboard */
+  .manager-dash-container{
+    .page-header{
+      height: 155px;
+      h4{
+        &.stuff-parent{
+          font-weight: 600;
+          font-size: 24px;
+        }
+      }
+
+      .header-guide{
+        a{
+          line-height: 95px;
+          vertical-align: bottom;
+          font-size: 28px;
+        }
+      }
+
+      .header-item{
+        span{
+          font-size: 48px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  /* Dashboard Menu Item */
+  #main-menu{
+    .menu-items{
+      a{
+        width: 200px;
+        height: 200px;
+        margin: 0 20px 20px 0;
+        padding: 10px 15px 0 15px;
+        border: 5px solid #ff0552;
+        img{
+          margin: 10px;
+        }
+        span{
+          padding:5px 0;
+          font-size: 20px;
+          line-height: 30px;
+          font-weight: 200;
+        }
+      }
+    }
+    a.btn-round{
+      width: 200px;
+      margin: 0px 20px 25px 0;
+    }
+  }
+  .content-header{
+    p{
+      &.description{
+        font-size: 20px;
+      }
+      &.title{
+        font-size: 24px;
+      }
+    }
+  }
+
+  /* Login */
+  .login-container{
+    .notification-box{
+      margin: 100px 0;
+    }
+  }
+
+  /* Upgrade Page */
+  .legacy-upgrade{
+    .upgrade-plan{
+      margin-top: 0px;
+    }
+    .instruction{
+      .ongoing{
+        padding: 20px;
+        p{
+          margin-left: 80px;
+        }
+      }
+    }
+  }
+
+  /* Legacy pages */
+  .legacy-header{
+    height: auto;
+    #header-logo{
+      height: 150px;
+    }
+
+    ul.main-nav{
+      text-align: center;
+      li{
+        margin-left: 20px !important;
+        a{
+          font-size: 16px;
+        }
+      }
+      .hcc-btn{
+        height: 45px;
+        border-radius: 30px;
+        padding: 0 10px;
+      }
+    }
+  }
+
+  #legacy-home{
+    .carousel-inner>.item>img{
+      max-width: none !important;
+      height: 400px !important;
+      position: relative;
+      left: 0px;
+    }
+
+    .carousel-inner {
+      .carousel-content{
+        top: 5% !important;
+        padding-left: 10% !important;
+        width: 60% !important;
+        font-size: 16px !important;
+
+        .carousel-header{
+          font-size: 34px !important;
+        }
+      }
+    }
+  }
+
+  /* Start Page */
+  .promo{
+    .promo-img{
+      .promo-text{
+        h2{
+          font-size: 42px;
+          line-height: 48px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .next-step{
+    width: 40% !important;
+  }
+
+  /* Clock */
+  .flip-clock-wrapper{
+    margin: 40px auto 0 auto;
+    display: block;
+    width: 630px;
+  }
+}
+/**********************Tablet **************************************************/
+
+@media screen and (max-width: 992px) {
+  .step-banner{
+    .step-label{
+      span{
+        display: none !important;
+      }
+    }
+  }
+
+  .welcome-container{
+    .page-header{
+      height: 72px;
+      .logo-mono{
+        position: absolute;
+      }
+    }
+  }
+
+  /* Manager Dashboard */
+  .manager-dash-container{
+    .page-header{
+      height: 125px;
+      .header-logo{
+        img{
+          width: 90px;
+        }
+      }
+
+      h4{
+        &.stuff-parent{
+          font-weight: 600;
+          font-size: 18px;
+        }
+      }
+
+      .header-guide{
+        a{
+          line-height: 95px;
+          vertical-align: bottom;
+          font-size: 28px;
+        }
+      }
+
+      .header-item{
+        img{
+          width: 50px;
+        }
+
+        span{
+          font-size: 32px;
+          font-weight: 600;
+        }
+      }
+
+      .account-thumb{
+        padding: 0px !important;
+        .account-info{
+          font-size: 18px !important;
+          .account-type{
+            font-size: 12px !important;
+          }
+        }
+      }
+    }
+  }
+
+  /* Dashboard Menu Item */
+  #main-menu{
+    .menu-items{
+      text-align: center;
+      a{
+        width: 150px;
+        height: 150px;
+        margin: 0 10px 10px 0;
+        padding: 5px 10px 5px 10px;
+        border: 4px solid #ff0552;
+        img{
+          margin: 10px;
+          width: 80px;
+        }
+        span{
+          padding:10px 0;
+          font-size: 14px;
+          line-height: 20px;
+          font-weight: 200;
+        }
+      }
+    }
+    a.btn-round{
+      width: 150px;
+      font-size: 12px !important;
+      margin: 0px 10px 25px 0;
+    }
+  }
+  .content-header{
+    p{
+      &.description{
+        font-size: 16px;
+      }
+      &.title{
+        font-size: 16px;
+      }
+    }
+  }
+
+  /* Login */
+  .login-container{
+    .notification-box{
+      margin: 60px 0;
+      .form-group{
+        min-height: 40px;
+      }
+    }
+  }
+
+  /* Upgrade Page */
+  .legacy-upgrade{
+    h2{
+      font-size: 28px;
+    }
+    .upgrade-plan{
+      margin-top: 0px;
+    }
+    .instruction{
+      .ongoing{
+        padding: 10px;
+        p{
+          margin-left: 80px;
+        }
+      }
+    }
+  }
+  /* Illness Board */
+  .illness-dash-container{
+    .link-content{
+      min-height: 362px !important;
+    }
+  }
+
+  /* Legacy pages */
+  .legacy-header{
+    height: auto;
+    #header-logo{
+      height: 150px;
+    }
+
+    ul.main-nav{
+      text-align: center;
+      margin-left: -20px;
+      li{
+        margin-left: 10px !important;
+        line-height: 20px;
+        a{
+          font-size: 14px;
+        }
+      }
+      .hcc-btn{
+        height: 35px;
+        border-radius: 30px;
+        padding: 0 10px;
+      }
+    }
+  }
+
+  #legacy-home{
+    .carousel-inner>.item>img{
+      max-width: none !important;
+      height: 400px !important;
+      position: relative;
+      left: -100px;
+    }
+
+    .carousel-inner {
+      .carousel-content{
+        top: 5% !important;
+        padding-left: 10% !important;
+        width: 70% !important;
+        font-size: 16px !important;
+
+        .carousel-header{
+          font-size: 34px !important;
+        }
+      }
+    }
+  }
+
+  /* Start Page */
+  .promo{
+    .promo-img{
+      .promo-text{
+        top: 5% !important;
+        padding: 10px 30px !important;
+        width: 60% !important;
+        h2{
+          font-size: 32px;
+          line-height: 40px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  /* Path Page*/
+  .legacy-path{
+    .img-text{
+      font-size: 16px !important;
+      top: 5% !important;
+      padding-left: 10% !important;
+      width: 72%;
+
+      h2{
+        font-size: 24px !important;
+      }
+
+      h4{
+        font-size: 16px !important;
+      }
+    }
+  }
+
+  .next-step{
+    width: 50% !important;
+  }
+
+  /* Path Page*/
+  .legacy-path{
+    .phase-wrapper{
+      background: none !important;
+      .first-phase,
+      .second-phase,
+      .third-phase{
+        margin-top: 0;
+      }
+      .phase-frame{
+        width: 100% !important;
+        img{
+          margin-top: -45px !important;
+        }
+      }
+    }
+  }
+
+  /* Clock */
+  .flip-clock-wrapper{
+    margin: 40px auto 0 auto;
+    display: block;
+    width: 500px;
+  }
+  .flip-clock-wrapper ul { height: 50px; line-height: 50px; }
+  .flip-clock-wrapper ul li a div.up:after { top: 24px; }
+  .flip-clock-divider { height: 50px; }
+  .flip-clock-dot { height: 6px; width: 6px; left: 7px;}
+  .flip-clock-dot.top { top: 17px; }
+  .flip-clock-dot.bottom { bottom: 8px; }
+  .flip-clock-divider .flip-clock-label { font-size: 16px; }
+  .flip-clock-divider.hours .flip-clock-label { right: -66px; }
+  .flip-clock-divider.minutes .flip-clock-label { right: -78px; }
+  .flip-clock-divider.seconds .flip-clock-label { right: -78px; }
+
+  .flip-clock-wrapper ul { width: 37px; }
+  .flip-clock-wrapper ul li a div div.inn { font-size: 30px; line-height: 50px;}
+}
+
+/**********************Mobile **************************************************/
+@media screen and (max-width: 767px) {
+  .step-banner{
+    .step-label{
+      span{
+        display: none !important;
+      }
+    }
+  }
+
+  .popover{
+    display: none !important;
+  }
+
+  /* Welcome Page */
+  .welcome-container{
+    .page-header{
+      height: 160px;
+      .logo-mono{
+        position: relative;
+        img{
+          height: 100px !important;
+        }
+      }
+    }
+    .container{
+      .title{
+        margin-top:-50px;
+        h3{
+          font-size:48px;
+          font-weight: 800;
+          color:#242c3f;
+        }
+        h5{
+          font-size:24px;
+          font-weight: 400;
+          color:#242c3f;
+          padding-top: 10px;
+        }
+      }
+    }
+  }
+
+  /* Register Partner Page */
+  .reg-partner-container{
+    .upload-wrapper {
+      position: relative;
+      left: 10px;
+
+      .caption{
+        display: block;
+      }
+    }
+  }
+
+  /* Manager Page */
+  .reg-manager-container{
+    .inline-input-link{
+      width: 100%;
+    }
+    .invite-option{
+      .text-center{
+        text-align: left !important;
+      }
+    }
+  }
+
+  h3.complete-title{
+    font-size: 28px !important;
+    font-weight: 800;
+  }
+
+  h5.compelet-message{
+    font-size: 14px !important;
+  }
+
+  .pane-invite{
+    h3{
+      font-size: 16px !important;
+    }
+  }
+
+  .btn-round {
+    line-height: 1 !important;;
+    font-size: 16px !important;
+  }
+
+  /* Worker Page */
+  .reg-worker-container{
+    .parent-department{
+      h3{
+        font-size: 18px;
+      }
+      label{
+        font-size: 16px !important;
+      }
+    }
+  }
+
+  /* Parent Page */
+  .reg-parentee-container{
+    .upload-wrapper {
+      position: relative;
+      left: 0px !important;
+      .caption{
+        display: block;
+      }
+      input.upload{
+        left: -10px !important;
+      }
+    }
+  }
+
+  /* Dashboard Header*/
+  .manager-dash-container,
+  .parentee-dash-container,
+  .partner-dash-container,
+  .worker-dash-container{
+    .page-header{
+      text-align: center;
+      height: 100%;
+      .header-logo{
+        img{
+          width: 80px;
+          margin-left: 45px;
+        }
+      }
+
+      h4{
+        &.stuff-parent{
+          font-weight: 600;
+          font-size: 14px;
+        }
+      }
+
+      .header-item{
+        padding: 0 !important;
+        img{
+          width: 35px;
+        }
+
+        span{
+          font-size: 24px;
+          font-weight: 600;
+        }
+      }
+
+      .account-thumb{
+        padding: 10px !important;
+        /* margin-top: 85px !important; */
+        margin-top: 30px !important;
+        .account-info{
+          display:none !important;
+        }
+      }
+    }
+  }
+
+  /* Dashboard Menu Item */
+  #main-menu{
+    .menu-items{
+      text-align: center;
+      a{
+        width: 150px;
+        height: 150px;
+        margin: 0 10px 10px 0;
+        padding: 5px 10px 5px 10px;
+        border: 4px solid #ff0552;
+        img{
+          margin: 10px;
+          width: 80px;
+        }
+        span{
+          padding:10px 0;
+          font-size: 14px;
+          line-height: 20px;
+          font-weight: 200;
+        }
+      }
+    }
+    a.btn-round{
+      width: 150px;
+      font-size: 12px !important;
+      margin: 0px 10px 25px 0;
+    }
+  }
+
+  .content-header{
+    p{
+      &.description{
+        font-size: 16px;
+      }
+      &.title{
+        font-size: 16px;
+      }
+    }
+  }
+
+  /* Login */
+  .login-container{
+    .notification-box{
+      margin: 30px 0;
+      .form-group{
+        min-height: 30px;
+      }
+      .panel-content{
+        img{
+          width: 100px;
+        }
+      }
+    }
+  }
+
+  /* Upgrade Page */
+  .legacy-upgrade{
+    h2{
+      font-size: 24px;
+    }
+    .upgrade-plan{
+      margin-top: 0px;
+    }
+
+    .instruction{
+      .ongoing{
+        padding: 0;
+        p{
+          margin-left: 80px;
+        }
+      }
+    }
+  }
+
+  /* ToDo Dashboard */
+  .todo-dash-container{
+    .report-date-box{
+      h4{
+        font-size: 16px !important;
+        text-align: center !important;
+      }
+    }
+
+    ul#complete-task{
+      .btn-fx-small{
+        width: 60px !important;
+        font-size: 12px !important;
+        padding: 6px 3px !important;
+      }
+      span.btn-fx-small{
+        padding: 0 !important;
+      }
+    }
+    .todo-info{
+      .twelvecol{
+        .btn{
+          padding: 3px !important;
+          font-size: 12px !important;
+        }
+      }
+    }
+
+    #todos ul{
+      text-align: center;
+      li{
+        margin: 0 10px 10px 0 !important;
+      }
+    }
+
+    .todo-list{
+      .profile-thumb{
+        margin: 5px !important;
+        width: 125px !important;
+        height: 75px !important;
+        img{
+          height: 75px;
+        }
+      }
+      .btn-lightred,
+      .btn-yellow{
+        padding: 5px 20px;
+      }
+      span.todo-title{
+        font-size: 12px !important;
+      }
+    }
+  }
+
+  /* Todo Dashbord Header */
+  header{
+    a.previous{
+      margin-left: 0px !important;
+      padding: 0 8px !important;
+    }
+
+    .dropdown{
+      margin: 13px 3px !important;
+      width: 20px !important;
+    }
+
+    h2{
+      font-size: 14px !important;
+      font-weight: 400;
+      max-width: 180px;
+    }
+
+    .partner-profile{
+      img{
+        height: 35px !important;
+      }
+    }
+  }
+
+  /* Sub Dashboard Menu Item */
+  .link-content{
+    min-height: 125px !important;
+    padding: 10px !important;
+    .menu-img{
+      margin: 5px auto !important;
+      width: 65px !important;
+      height: 60px !important;
+      background-size: 65px 60px !important;
+    }
+
+    span{
+      font-size: 14px !important;
+      padding: 5px !important;
+    }
+  }
+
+  /* Message Board */
+  .message-dash-container{
+    h4.option-title{
+      font-size: 14px;
+    }
+    .form-group{
+      label{
+        font-size: 12px !important;
+      }
+    }
+
+    .filtered-item{
+      .filtered-item-info{
+        font-size: 12px !important;
+      }
+    }
+  }
+
+  /* Illness Board */
+  .illness-dash-container{
+    .link-content{
+      min-height: 166px !important;
+    }
+
+    .wizard{
+      .steps{
+        a{
+          font-size: 12px !important;
+          padding: 5px 10px !important;
+        }
+      }
+
+      .content{
+        min-height: 400px !important;
+        .child-profile{
+          .text-right{
+            text-align: left !important;
+          }
+        }
+      }
+
+      .dl-horizontal {
+        dd{
+          line-height: 20px !important;
+        }
+      }
+
+      .actions{
+        ul li{
+          width: 120px !important;
+          font-size: 14px !important;
+        }
+      }
+
+      h3, h4{
+        font-size: 14px !important;
+      }
+    }
+
+    .filtered-contents{
+      .filtered-item-info{
+        font-size: 14px !important;
+      }
+    }
+  }
+
+  /* Dashboard Header */
+  .short-user-info{
+    display: none !important;
+  }
+
+  header{
+    .header-guide{
+      display: none !important;
+    }
+  }
+
+  /* Legacy pages */
+  .legacy-header{
+    height: auto;
+    #header-logo{
+      height: 120px;
+    }
+
+    ul.main-nav{
+      margin-left: 0;
+      .hcc-btn{
+        height: 45px;
+        border-radius: 30px;
+        padding: 0 10px;
+      }
+    }
+  }
+
+  #legacy-home{
+    .carousel-inner>.item>img{
+      max-width: none !important;
+      height: 300px !important;
+      position: relative;
+      left: -300px;
+    }
+
+    .carousel-inner {
+      .carousel-content{
+        top: 5% !important;
+        padding-left: 10% !important;
+        width: 90% !important;
+        font-size: 12px !important;
+
+        .carousel-header{
+          font-size: 22px !important;
+        }
+      }
+    }
+  }
+
+  /* Start Page */
+  .promo{
+    .promo-img{
+      .promo-text{
+        top: 5% !important;
+        padding: 10px 30px !important;
+        width: 70% !important;
+        h2{
+          font-size:16px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+
+  .next-step{
+    width: 90% !important;
+    font-size: 14px;
+  }
+
+  /* Path Page*/
+  .legacy-path{
+    .img-text{
+      font-size: 16px !important;
+      top: 5% !important;
+      padding-left: 10% !important;
+      width: 72%;
+
+      h2{
+        font-size: 22px !important;
+        margin-bottom: 60px;
+      }
+
+      h4{
+        font-size: 16px !important;
+      }
+    }
+  }
+
+  /* Path Page*/
+  .legacy-path{
+    .phase-wrapper{
+      background: none !important;
+      .first-phase,
+      .second-phase,
+      .third-phase{
+        margin-top: 0;
+      }
+      .phase-frame{
+        width: 100% !important;
+        img{
+          margin-top: -45px !important;
+        }
+      }
+    }
+
+    .detail-wapper{
+      .phase-director{
+        background-size: 65px 65px !important;
+      }
+      .phase-details{
+        margin-left: 70px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  /* Clock */
+  .flip-clock-wrapper{
+    margin: 40px auto 0 auto;
+    display: block;
+    width: 240px;
+  }
+
+  .flip-clock-wrapper ul { height: 30px; line-height: 30px; }
+  .flip-clock-wrapper ul li a div.up:after { top: 24px; }
+  .flip-clock-divider { height: 30px; width: 15px;}
+  .flip-clock-dot { height: 4px; width: 4px; left: 6px;}
+  .flip-clock-dot.top { top: 22px; }
+  .flip-clock-dot.bottom { bottom: 14px; }
+  .flip-clock-divider .flip-clock-label { font-size: 14px;  right: -50px;}
+  .flip-clock-divider.hours .flip-clock-label { right: -45px; }
+  .flip-clock-divider.minutes .flip-clock-label { right: -50px; }
+  .flip-clock-divider.seconds .flip-clock-label { right: -55px; }
+
+  .flip-clock-wrapper ul { width: 20px; padding-left: 20px; margin: 2px;}
+  .flip-clock-wrapper ul li a div div.inn { font-size: 24px; line-height: 30px;}
+
+  .next-green-step{
+    width: 100%;
+  }
+}

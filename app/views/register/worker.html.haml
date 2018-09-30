@@ -1,0 +1,81 @@
+.reg-worker-container.page-boxed
+  .page-header
+  .container
+    .form-content        
+      #rootwizard
+        %ul{:style=> "visibility: hidden; height: 0; position:absolute;"}
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab1"} First
+        .tab-content
+          #tab1.tab-pane
+            .row.text-center.step-banner
+              = image_tag 'worker-md.png'
+              %h4=t('account.daycare.worker')
+            .row.pane-container.text-center
+              .row
+                = devise_error_messages!
+              .row.step-banner
+                .col-sm-3.col-xs-3.step-item.first-step.item-worker
+                  .step-label
+                    = image_tag 'step-arrow.png', :class => "step-arrow right"
+                    = image_tag 'step-check-mng.png'
+                .col-sm-3.col-xs-3.step-item.second-step.item-worker
+                  .step-label
+                    = image_tag 'step-arrow.png', :class => "step-arrow right"
+                    = image_tag 'step-arrow.png', :class => "step-arrow left"
+                    = image_tag 'step-check-mng.png'
+                .col-sm-3.col-xs-3.step-item.third-step.item-worker.active
+                  .step-label
+                    = image_tag 'step-arrow.png', :class => "step-arrow right"
+                    = image_tag 'step-arrow.png', :class => "step-arrow left"
+                    = image_tag 'worker-sm.png'
+                    %span Register
+                .col-sm-3.col-xs-3.step-item.fourth-step.item-worker    
+                  .step-label
+                    = image_tag 'step-arrow.png', :class => "step-arrow left"
+                    = image_tag 'step-pending.png'
+              = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'row'}) do |f|
+                .row.parent-info.text-left
+                  .col-sm-8
+                    .row
+                      %h4=t('register.labels.user_info')
+                    .row      
+                      = f.text_field :name, autofocus: true, :class => 'form-control input-round', :placeholder => t('register.labels.name'), :required =>"true"
+                    .row
+                      = f.password_field :password, :class => 'form-control input-round', :placeholder => t('register.labels.password'), :required =>"true"
+                    .row
+                      = f.password_field :password_confirmation, :class => 'form-control input-round', :placeholder => t('register.labels.pwd_confirm'), :required =>"true"
+                    - if @minimum_password_length
+                      .row
+                        %em
+                          (#{@minimum_password_length} characters minimum
+                    - unless params[:daycare_id].blank?
+                      = f.fields_for :user_daycare, UserDaycare.new do |user_daycare|
+                        = user_daycare.hidden_field :daycare_id, value: params[:daycare_id]
+                    - unless params[:affiliate_id].blank?
+                      = f.fields_for :user_affiliate do |user_affiliate|
+                        = user_affiliate.hidden_field :affiliate_id, value: params[:affiliate_id]
+                    = f.hidden_field :department_id, value: params[:department_id]
+          .col-sm-12
+            %ul.pager.wizard.text-left
+              %li.previous
+                %button.btn.btn-round.item-worker{:type => "button"} 
+                  =t('register.labels.previous')
+              %li.next{:style => "float:right;"}
+                %button.btn.btn-round.item-worker{:type => "button"} 
+                  =t('register.labels.next')
+              %li.previous.first{:style => "display:none;"}
+                %a{:href => "#"} First
+              %li.next.last{:style => "display:none;"}
+                %a{:href => "#"} Last
+:javascript
+  jQuery(document).ready(function() {   
+    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'}); 
+    $('.next button').click(function(){
+      $('form').submit();
+    });
+    $('.previous button').click(function(){
+      var daycare_id = $('#user_user_daycare_attributes_daycare_id').val();
+      window.location.href = '/worker/select_department?daycare_id=' + daycare_id;
+    });
+  });

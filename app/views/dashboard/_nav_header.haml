@@ -1,0 +1,53 @@
+.page-header
+  .container
+    .col-md-9.col-sm-8.col-xs-10.no-h-padding
+      .col-md-offset-6.col-sm-offset-5.col-xs-offset-1.col-md-2.col-sm-3.col-xs-10.header-logo
+        = image_tag LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? 'logo-new.png' : LocaleLogo.by_type_language(1, I18n.locale).first.logo.url, id: 'header-logo'
+      .col-md-10.col-sm-9.col-xs-12.hide
+        %h4.stuff-parent=t('dashboard.nav_var.staff_parent')
+        .row
+          .col-sm-6.col-xs-6.header-item
+            = image_tag 'manager-nm.png'
+            %span 387
+          .col-sm-6.col-xs-6.header-item
+            = image_tag 'parent-nm.png'
+            %span 387
+    - if user_signed_in?
+      .col-md-3.col-sm-4.col-xs-2.account-thumb.no-h-padding
+        .row.dropdown{style: 'overflow: visible;'}
+          %span.avatar
+            = image_tag 'account-avatar.png'
+            %span.account-info
+              %span=current_user.name
+              %span.account-type=t("account.daycare.#{current_user.role}")
+          %ul.dropdown-menu{role: 'menu', 'aria-labelledby': 'dLabel'}
+            %li= link_to t('dashboard.nav_var.link.edit_info'), edit_user_registration_path(id: current_user.id, role: current_user.role)
+            - if current_user.role == "manager"
+              %li.dropdown-submenu
+                = link_to t('pages.nav_bar.invite'), '#'
+                %ul.dropdown-menu.pull-right
+                  %li= link_to t('pages.nav_bar.worker'), invite_survey_manager_daycares_path('worker')
+                  %li= link_to t('pages.nav_bar.parentee'), invite_survey_manager_daycares_path('parentee')
+                  %li= link_to t('pages.nav_bar.manager'), invite_survey_manager_daycares_path('manager')
+            - if current_user.role == "partner" && current_user.affiliate.certific?
+              %li.dropdown-submenu
+                = link_to t('pages.nav_bar.invite'), '#'
+                %ul.dropdown-menu.pull-right
+                  %li= link_to t('pages.nav_bar.member'), invite_member_partner_affiliates_path('internal')
+            - if current_user.role == "partner" && current_user.affiliate.strategic?
+              %li.dropdown-submenu
+                = link_to t('pages.nav_bar.invite'), '#'
+                %ul.dropdown-menu.pull-right
+                  %li= link_to t('pages.nav_bar.internal_member'), invite_member_partner_affiliates_path('internal')
+                  %li= link_to t('pages.nav_bar.external_member'), invite_member_partner_affiliates_path('external')
+
+            /- if current_user.role == "manager"
+            /  %li= link_to t('dashboard.nav_var.link.invite'), invite_manager_daycares_path
+            %li= link_to t('dashboard.nav_var.link.logout'), destroy_user_session_path, method: :delete
+        / .row
+        /   - if current_user.manager? && ([0, 2, 3].include? current_user.paid_plan_type)
+        /     %a.btn.btn-round.btn-green{:href => user_plan_path, style: 'font-size: 14px; margin: 10px 0;'}
+        /       =t('dashboard.upgrade.button')
+        /   - if current_user.partner? && (current_user.affiliate.certific?) && (current_user.paid_plan_type == 0)
+        /     %a.btn.btn-round.btn-green{:href => upgrade_path, style: 'font-size: 14px; margin: 10px 0;'}
+        /       =t('dashboard.upgrade.button')

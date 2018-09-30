@@ -1,0 +1,32 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+development:
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  database: health_childcare_dev2
+  pool: 5
+  username: postgres
+  password: password
+
+test:
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  database: health_childcare_test
+  pool: 5
+  username: postgres
+  password: password
+
+production:
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  pool: 5
+  database: health_childcare
+  username: postgres
+  password: password

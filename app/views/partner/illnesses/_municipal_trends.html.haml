@@ -1,0 +1,27 @@
+- unless @trend.nil?
+  .col-md-6
+    %dl.dl-horizontal
+      %dt= t('illnesses.labels.department')
+      %dd= @trend.departments_involved.map(&:name).join(', ')
+
+      %dt= t('illnesses.illness')
+      %dd= @trend.illnesses_involved.map(&:name).join(', ')
+
+      %dt= t('illnesses.labels.graph_type')
+      %dd= params[:graph_type]
+  .row
+    .container-fluid
+      #line-chart-div{'data-trend_data': @trend.illness_data_over_time.to_json}
+      #pie-chart-div{'data-trend_data': @trend.illness_data_over_children_count.to_json}
+      #bar-chart-div{'data-trend_data': @trend.illness_data_over_children_count.to_json}
+
+    .container-fluid.centralize.form-buttons
+      %a.print-trend-btn{href: '#', 'data-target': '#trends', class: 'btn btn-wizard'}
+        = t('form_labels.print')
+:javascript
+  google.charts.load('current', {'packages':['corechart']});
+  
+  healthChildcare.illness.initTrendLine();
+  healthChildcare.illness.initTrendPie();
+  healthChildcare.illness.initTrendBar();
+  healthChildcare.illness.initTrendPrinter();

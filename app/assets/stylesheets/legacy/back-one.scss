@@ -1,0 +1,304 @@
+#legacy-back-one
+{
+  #back_end_header{
+    background: #426cd5;
+    padding: 10px
+}
+.header{}
+.logo-back{margin-top: 20px}
+.logo-back img{position: absolute;}
+.timimg{
+    color: #fff;
+    font-size: 16px;
+    font-family: open-sans;
+}
+.hurry-up{color:#d0a638;}
+
+.log-menu{}
+.hurry-up,.free-trial{margin: 0 0 0 10px;}
+.single-time{float: left;text-align: center;}
+.single-time span {
+    font-size: 35px;
+    border: 2px solid #fff;
+    display: block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.upgred {
+    background: #48c38c;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 31px;
+    margin-left: 42px;
+ 
+}
+.upgred a{
+    color:#fff;
+    font-family: open-sans;
+    text-decoration: none
+}
+.log_in{margin-top: 55px}
+.log_in img{float: left;margin-right: 12px;}
+
+#loging{margin: 0;padding: 0;list-style: none}
+#loging li{position: relative; }
+#loging li a{position: relative;color:#fff;}
+
+#loging li ul {position: absolute;background: image-url('log_bg.png') no-repeat;display: none}
+#loging li:hover ul {display: block}
+#loging li ul {
+    position: absolute;
+    background: image-url('log_bg.png') no-repeat;
+    width: 184px;
+    height: 150px;
+   
+    padding-top: 40px;
+    list-style: none;
+}
+#loging li ul li{    
+    
+    padding: 10px 0;
+    width: 100px
+}
+
+#loging li ul li a{text-decoration: none;color:#81a1f1;} 
+#loging li ul li:first-child{border-bottom:1px solid #000;}
+
+.infect-heading{text-align: center; margin-bottom: 50px}
+.infect-heading h2{font-size: 26px;color:#f06eaa;}
+.infect-heading p{font-size: 22px}
+.infect-heading img{   
+     background: #fff;
+    padding: 20px;
+    margin-top: -47px;
+    border-radius: 50%;
+
+}
+.left-side{padding-right: 60px;padding-left: 50px}
+.right-side{padding-left: 60px;padding-right: 50px}
+.single{text-align: center;font-size: 16px;    margin-bottom: 50px;}
+.single img{}
+.single h2{color:#f06eaa;font-size: 16px;margin-bottom: 20px}
+.single p{}
+.click-here{}
+.click-here a{    
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    width: 215px;
+    display: inline-block;
+    background: #f06eaa;
+    padding: 8px 12px;
+    border-radius: 21px
+}
+
+
+
+
+.back-page-content{/*background: image-url('backend_bg.png');*/}
+.back-page{
+    margin-right: 47px;
+    margin-top: 124px;
+    background: #fff;
+    margin-left: 23px;
+    margin-bottom: 50px
+}
+/*========================================*********===================================*/
+.padd {
+    padding: 0px;
+    margin-top: 32px;
+}
+.contaniter_header{
+  max-width:1170px;
+  margin:auto;
+}
+.aside_left button{
+  background:none;
+  border:0px;
+  box-shadow:none;
+  color:#416cd5;
+  font-weight:bold;
+  text-decoration:underline;
+  padding:0px;
+  
+}
+
+
+
+.aside_left h3{
+  color:#416cd5;
+  padding-left:17%;
+  
+}
+
+
+.aside_left .btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default{
+  background:none;
+  border:0px;
+  box-shadow:none;
+}
+.aside_left .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover
+{
+  background:none;
+  border:0px;
+  box-shadow:none;
+}
+
+.aside_left .btn-default:focus, .btn-default:hover{
+  background:none;
+  border:0px;
+  box-shadow:none;
+}
+
+.aside_left .dropdown-menu{
+  background:none;
+  border:0px;
+  box-shadow:none;
+}
+.aside_left .dropdown-menu li{
+  width:100%;
+  left:18%;
+  position:relative;
+  float:left;
+  font-size:16px;
+  
+}
+.aside_left .dropdown-menu li a{
+  color:#666;
+}
+.aside_left .dropdown-menu li a span{
+  color:#426dd6;
+}
+
+.aside_left2{
+  margin-top:120px;
+}
+
+.aside_left2 button{
+  color:#333;
+  
+}
+
+.aside_left2 h3{
+  color:#333;
+  
+}
+
+
+/*============PROGRESS=================*/
+.wrap {
+  width:100%;
+  float:left;
+  margin-top:100px;
+}
+/* The Skills BarChart */
+.barGraph {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-bottom: 50px;
+}
+.graph {
+  position: relative;
+  list-style-type: none;
+  width: calc(96%);
+  
+}
+.graph-barBack {
+  border-radius: 2px;
+  background: #f1f1f1;
+  margin-bottom: 32px;
+  display: block;
+  border-radius:12px;
+}
+.graph-bar {
+  background-color: #46c38b;
+  -webkit-transition: all 1.5s ease-out;
+  -moz-transition: all 1.5s ease-out;
+  -o-transition: all 1.5s ease-out;
+  transition: all 1.5s ease-out;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 9999;
+  display: block;
+  height: 16px;
+  border-radius:12px;
+  width: 0%;
+}
+.graph-bar2 {
+  background-color: #e5796d;
+}
+.graph-bar:hover {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background: #dd8e14;
+}
+.graph-bar:last-child {
+  margin-bottom: 0;
+}
+.graph-bar:after {
+     position: absolute;
+    content: attr(data-value) "%";
+    font-size: 12px;
+    border-radius: 5px;
+    color: white;
+    line-height: 20px;
+    height: 20px;
+    padding: 0 10px;
+    margin-left: 5px;
+    left: 92%;
+    top: -24px;
+    color: #333;
+    font-size: 14px;
+}
+.graph-bar:hover:after {
+  background: #dd8e14;
+}
+.graph-legend {
+  position: absolute;
+  margin-right: 10px;
+  
+  z-index: 9999;
+}
+
+.logo_title{
+  color:#fff;
+  margin-top:40px;
+  float:left;
+  float:right;
+}
+.timimg {
+    color: #fff;
+    font-size: 16px;
+    font-family: open-sans;
+    margin-top: 31px;
+}
+.upgred_n {
+  background: #426cd5 none repeat scroll 0 0;
+  border: 1px dashed #fed023;
+  box-shadow: 0 1px 2px #000;
+  color: #fff;
+  display: inline-block;
+  left: -33px;
+  padding: 9px 21px;
+  position: relative;
+  text-transform: uppercase;
+  top: -5px;
+}
+.upgred_n:hover{
+  color:#fff;
+
+}
+.log_in {
+    margin-top: 32px;
+}
+
+}

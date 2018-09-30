@@ -1,0 +1,7 @@
+%h3= t('protocols.child_illness_record.symptom_codes')
+.symptoms-list
+  - @symptoms.each_pair do |code, name|
+    .check-box
+      = check_box_tag 'record[symptom_codes][]', code, false, :id => "chk_symp_#{code}", :style => "display: none;"
+      %label{:for => "chk_symp_#{code}"}
+        = name

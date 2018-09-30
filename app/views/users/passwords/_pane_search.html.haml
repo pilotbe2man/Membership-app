@@ -1,0 +1,49 @@
+.row.text-center.step-banner
+  = image_tag LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? 'logo.png' : LocaleLogo.by_type_language(1, I18n.locale).first.logo.url, :class => 'logo', style: 'width: 130px;'
+  .row
+    %span.panel-title=t('pages.password.forgot_label')
+.row.pane-container.text-center
+  .row.step-banner
+    .col-sm-4.col-xs-4.step-item.first-step.active{ :class => "item-#{params[:role]}"}     
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag "#{params[:role] == 'worker' ? 'worker': 'parent'}-sm.png"
+        %span Select Daycare
+    .col-sm-4.col-xs-4.step-item.second-step{ :class => "item-#{params[:role]}"} 
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+    .col-sm-4.col-xs-4.step-item.fourth-step{ :class => "item-#{params[:role]}"} 
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'    
+  = form_tag password_select_daycare_path, method: :get
+  .row
+    .col-sm-12.search-inline-text
+      = text_field_tag(:query, params[:query], autocomplete: 'off', tabindex: "1", :class => 'form-control input-round', :placeholder => "Search for...")
+      %a.search-submit{:href => "#"}
+        %i.fa.fa-search
+.row.pane-search-result
+  .col-sm-12
+    %ul.list-unstyled.msg_list
+      - @daycares.each do |daycare|
+        %li
+          - path = params[:role] == 'worker' ? password_select_department_path(daycare_id: daycare.id, role: params[:role]): new_user_password_path(daycare_id: daycare.id, role: params[:role])
+          - image_name = params[:role] == "worker" ? 'worker': 'parent'
+          %input{:type=>"radio", :name => "daycare_item", :id => "chk_item_#{daycare.id}", :style => "display: none;", "select-link" =>path}
+          %label{:for => "chk_item_#{daycare.id}"}
+            %span.image
+              = image_tag (daycare.profile_image.blank?) ? "#{image_name}-md.png" : daycare.profile_image
+            %span
+              %span 
+                %b=daycare.name
+            %span.message=daycare.address_line1
+            %span.message=daycare.postcode
+            %span.message=daycare.telephone
+
+:javascript
+  jQuery(document).ready(function() {    
+    $('.search-submit').click(function(){
+      $('form').submit();
+    });
+  });

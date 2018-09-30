@@ -1,0 +1,14 @@
+= content_for :title, t('illnesses.illness')
+- content_for :page_title, t('illnesses.illness')
+.illness-dash-container
+  .container
+    .row.content-main
+      .col-md-12
+        %h4.option-title= t('illnesses.labels.basic_filter')
+      - if params[:record_type] == 'child'
+        = render 'illnesses/child/health_record_filters'
+      - else
+        = render 'illnesses/department/health_record_filters'
+      .row
+        .col-md-12.filtered-contents
+          = render 'health_records_list'

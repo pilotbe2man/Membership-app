@@ -1,0 +1,8 @@
+- content_for :title, 'Edit Daycare'
+- content_for :breadcrumb, 'Edit'
+- breadcrumb_add 'Client Manager', admin_clients_path(country: @daycare.country)
+
+.twelvecol
+  .page-header
+    %h2.widget.widget-header= t('admin.daycare.edit.heading')
+  = render 'form'

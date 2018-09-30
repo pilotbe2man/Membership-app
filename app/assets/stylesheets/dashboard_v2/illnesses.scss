@@ -1,0 +1,423 @@
+.illness-dash-container{
+  .multiple-select{
+    width: 100%;
+  }
+
+  a:hover, 
+  a:focus {
+    text-decoration: none;
+  }
+
+  .select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: 2px solid #dee2e5;
+    min-height: 40px;
+    vertical-align: top;
+    padding: 3px 5px;
+    line-height: normal;
+    font-size: 14px;
+    background: #fff;
+    box-shadow: none;
+  }
+
+  .select2-container--default .select2-selection--multiple{
+    border: 2px solid #dee2e5;
+    min-height: 40px;
+    vertical-align: top;
+    padding: 3px 5px;
+    line-height: normal;
+    font-size: 14px;
+    background: #fff;
+    box-shadow: none;
+  }
+
+  .select2-container--default .select2-selection--multiple .select2-selection__choice{
+    background-color: #1f6fc3;
+    border: none;
+    color: #fff;
+    border-radius: 0;
+    margin-top: 2px;
+    padding: 2px 5px 3px 5px;    
+    .select2-selection__choice__remove{
+      color: #fff;
+      margin-right: 5px;
+      margin-left: 3px;      
+    }
+  }
+
+  .form-buttons{
+    .print-trend-btn{
+      padding: 5px 40px;
+      width:auto;
+    }
+  }
+
+  .dl-horizontal{
+    dt{
+      font-weight: 400;
+      color: #6a7884;
+      margin: 5px 0;
+    }
+    dd{
+      line-height: 30px;
+    }
+  }
+
+  .link-content{
+    background: #fff;
+    text-align: center;
+    padding: 40px;
+    border-radius: 5px;
+    border: 3px solid #ff2874; 
+
+    .menu-img{
+      margin: 40px auto;
+      width: 130px;
+      height: 120px;
+      &.add-record{
+        background: url(illness-add-record.png) no-repeat;
+      }          
+      &.view-record{
+        background: url(illness-view-record.png) no-repeat;
+      }          
+      &.add-record-child{
+        background: url(illness-add-child.png) no-repeat;
+      }          
+      &.add-record-department{
+        background: url(illness-add-department.png) no-repeat;
+      }          
+    }
+
+    span{
+      color: #ff2874;
+      display: block;
+      font-size: 20px;
+      padding: 10px;
+      text-transform: uppercase;
+    }
+
+    &.disabled:hover{
+      background: #ddd;
+      border-color:#ddd;
+    }
+
+    &:hover{
+      background: #ff2874;
+      span{
+        color: #fff;
+      }
+      .menu-img{
+        &.add-record{
+          background: url(illness-add-record-h.png) no-repeat;
+        }          
+        &.view-record{
+          background: url(illness-view-record-h.png) no-repeat;
+        }          
+        &.add-record-child{
+          background: url(illness-add-child-h.png) no-repeat;
+        }          
+        &.add-record-department{
+          background: url(illness-add-department-h.png) no-repeat;
+        }          
+      }        
+    }
+  }  
+
+  .wizard {
+    .steps{
+      a{
+        &,
+        &:hover,
+        &:active{
+          font-size: 14px;
+          margin: 0;
+          margin-bottom: 10px;    
+          background: #ff2874;
+          padding: 10px 10px;
+          border-radius: 2px;
+        }
+      }  
+      .number{
+        font-size: 14px;
+      }
+
+      .done{
+        a{
+          &,
+          &:hover,
+          &:active{
+            background: #ff85b0;
+          }
+        }  
+      }
+
+      .disabled{
+        a{
+          &,
+          &:hover,
+          &:active{
+            background: #fff;
+            color: #ff2874;
+            border: 1px solid #ff2874;
+          }
+        }  
+      }
+    } 
+
+    .content{
+      background: #fff;
+      border: 1px solid #b9b9b9;
+      border-radius: 2px;
+      min-height: 353px;
+      overflow: overlay;
+
+      .body{
+        width: 100%;
+        height: 100%;
+        padding: 2%
+      }
+    }
+
+    .choose-department,
+    .choose-child,
+    .illness-details,
+    .contact-parent,
+    .contact-doctor,
+    .additional-actions,
+    .worker-department{
+      h5{
+        margin: 5px 0;
+      }
+
+      h3{
+        font-size: 16px;
+        margin: 10px 0;
+        font-weight: 600;
+        color: #6a7884;
+        text-transform: uppercase;
+      }
+      span.twitter-typeahead{
+        width: 100%;
+      }
+      .radio-box-group{
+        margin-top: 10px;
+      }      
+    }
+
+    .radio-box{
+      margin-bottom: 5px;
+      label{
+        font-size: 14px !important;
+        line-height: 18px !important;
+      }
+    }
+
+    .actions{
+      ul{
+        text-align: right;
+        li:nth-child(1),
+        li:nth-child(2),
+        li:nth-child(3){
+          width: 150px;
+          text-align: center;
+          font-size: 16px;
+        }
+
+        li:nth-child(1) a{
+          color: #333;    
+          background: #eee;    
+        }
+
+        li:nth-child(2) a,
+        li:nth-child(3) a{
+          background: #ff5443;
+          background: -webkit-linear-gradient(left, #ffde00, #ff005a);
+          background: -o-linear-gradient(right, #ffde00, #ff005a);
+          background: -moz-linear-gradient(right, #ffde00, #ff005a);
+          background: linear-gradient(to right, #ffde00, #ff005a);      
+          color: #fff;
+          &:active{
+            background: #ff5443 !important;
+          }
+        }
+      }
+    }
+
+    .child-profile{
+      img{
+        border: 2px solid #ff2874;
+        border-radius: 4px;
+      }
+      .radio-box{
+        margin-bottom: 10px;
+        label{
+          font-size: 14px !important;
+          line-height: 18px !important;
+        }      
+      }
+    }
+
+    .symptoms-list{
+      .check-box{
+        margin-bottom: 10px;
+        label{
+          font-size: 14px !important;
+          line-height: 18px !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }      
+      }
+
+      #symptoms{
+        margin-bottom: 20px;
+      }
+    }
+
+    .illness-details,
+    .contact-parent,
+    .contact-doctor,
+    .additional-actions{
+      textarea{
+        box-shadow: none;
+        border:1px solid #ccc;
+      }
+    }
+
+    .contact-parent{
+      .contact-parent-ans{
+        margin-top: 20px;
+      }
+    }
+
+    .contact-doctor{
+      .contact-doctor-ans{
+        margin-top: 20px; 
+      }
+    }
+
+    .worker-profile,
+    .worker-confirmation{
+      margin: 15px 0;
+    }    
+  } 
+
+  .filtered-item-preview{
+    img{
+      border: 2px solid #ff2874;
+      border-radius: 4px;
+    }    
+  }
+
+  table.information-block{
+    tr{
+      td{
+        padding: 5px;
+        &.options{
+          color: #6a7884;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .SumoSelect{
+    width: 100%;
+
+    border: 2px solid #dee2e5;
+    min-height: 40px;
+    vertical-align: top;
+    line-height: normal;
+    font-size: 14px;
+    background: #fff;
+    box-shadow: none;
+    border-radius: 4px;    
+    .select-all{
+      height: auto;
+    }
+  }
+
+  .SumoSelect>.CaptionCont{
+    border: none;
+    padding: 10px;
+  }
+}
+
+/*********Original Version*************/
+.illnesses {
+  .menu-items {
+    img {
+      @include border-radius(10px);
+    }
+  }
+
+  .tt-dropdown-menu {
+    max-height: 150px;
+    overflow-y: auto;
+  }
+
+  .tt-menu {
+    background: white;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
+    padding: 10px;
+    transition: transform 0.2s ease-out;
+    color: black;
+    min-widt: 200px;
+
+    .tt-suggestion {
+      &:hover {
+        background: $lighter-grey;
+      }
+    }
+  }
+
+  #new-child-record {
+    display: none;
+
+    .child-profile {
+      /*margin-bottom: 100px;*/
+
+      img {
+        height: 125px;
+      }
+    }
+  }
+
+  #new-department-record {
+    display: none;
+  }
+
+  .illness-details {
+    .illness-list {
+      max-height: 300px;
+      overflow: auto;
+    }
+
+    #symptoms {
+      .symptoms-list {
+        /*padding-left: 20px;*/
+
+        .checkbox {
+          border-bottom: 1px solid $grey;
+        }
+
+      }
+    }
+  }
+
+  .contact-parent-ans, .contact-doctor-ans {
+    display: none;
+    margin-top: 50px;
+  }
+
+  .dropdownjs {
+    ul {
+      padding: 10px;
+    }
+  }
+
+}
+
+.filters {
+  .date-filters {
+    display: none;
+  }
+}

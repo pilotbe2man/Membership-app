@@ -1,0 +1,15 @@
+.fields
+  .form-group.key-task{:style => "position: relative;"}
+    = f.label t('manager.todos.new.key_task')
+    = f.text_field :title, :class => 'form-control key-task-title'
+    = f.hidden_field :language, value: I18n.locale.downcase
+    = custom_link_to_remove_fields '<i class="icon-cross icon-close"></i>'.html_safe, f, class: 'remove-key-task'
+  .form-group{:style => "position: relative;"}
+    = f.label t('manager.todos.new.description')
+    = f.text_area :description, :class => 'form-control key-task-description', :rows => 4
+    = link_to '<i class="icon-cross icon-close"></i>'.html_safe, '#', :class => 'btn btn-red btn-normal remove-key-task-description'
+  .text-center.sub-tasks
+    = custom_link_to_add_fields t('manager.todos.new.add_sub_task'), f, :sub_tasks, {class:"subtask-link add"}
+    = f.fields_for :sub_tasks do |sub_task|
+      = render partial: 'sub_task_fields', locals: {f: sub_task}
+  = f.hidden_field :task_type, value: 'local'

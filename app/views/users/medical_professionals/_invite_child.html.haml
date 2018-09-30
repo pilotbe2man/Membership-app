@@ -1,0 +1,27 @@
+.search-result.btn
+  .row
+    .col-md-8
+      %dl.dl-horizontal
+        %dt= t('person_labels.name')
+        %dd= child.name
+
+        %dt= t('person_labels.age')
+        %dd= child.age
+
+        %dt= t('person_labels.birthday')
+        %dd= pretty_short_date(child.birth_date)
+
+        %dt= t('person_labels.department')
+        %dd= child.department.name
+
+        %dt= t('person_labels.daycare')
+        %dd= child.daycare.name
+
+
+    .col-md-4
+      = image_tag child.profile_image.file.url, class: 'img'
+
+  .overlay
+    = link_to initiate_child_collaboration_path(child_id: child.id) do
+      %i.glyphicon.glyphicon-plus
+      add child to conversation

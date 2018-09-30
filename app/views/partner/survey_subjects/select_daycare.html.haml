@@ -1,0 +1,39 @@
+.message-dash-container
+  .container
+    = form_tag results_partner_subjects_path, method: :post do
+      .row
+        .col-md-4
+          .form-group
+            = label_tag :start_date, t('form_labels.start_date')
+            = text_field_tag :start_date, params['start_date'], class: 'datepicker form-control datetime-input', autocomplete: 'off'
+
+        .col-md-4
+          .form-group
+            = label_tag :end_date, t('form_labels.end_date')
+            = text_field_tag :end_date, params['end_date'], class: 'datepicker form-control datetime-input', autocomplete: 'off'
+        .col-md-4.form-buttons.filter-buttons.centralize
+          %input{type: 'submit', value: t('survey.labels.results'), class: 'btn btn-lightred', id: 'apply-survey-filters'}
+          / = link_to t('survey.labels.results'), '#', class: 'btn btn-lightred', id: 'apply-survey-filters'
+      .row.content-main
+        .col-md-12      
+          %h4.option-title= t('survey.labels.choose_daycare')      
+          .table-responsive
+            %table.table.table-striped.table-bordered.table-hover
+              %thead
+                %tr
+                  %th= t('survey.labels.daycare_name')
+                  %th= t('survey.labels.daycare_type')
+                  %th= t('survey.labels.childrens')
+                  %th= t('survey.labels.workers')
+              %tbody
+                - @daycares.each do |item|
+                  %tr
+                    %td
+                      %input{type: "checkbox", value:item.id, name:"target_daycare[]"}
+                        =item.name
+                    %td
+                      =item.care_type_text
+                    %td
+                      =item.children.length
+                    %td
+                      =item.workers.length

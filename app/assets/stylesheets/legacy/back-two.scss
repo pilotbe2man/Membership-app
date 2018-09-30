@@ -1,0 +1,111 @@
+#legacy-back-two
+{
+    #back_end_header{
+    background: #426cd5;
+    padding: 10px
+}
+.header{}
+.logo-back{margin-top: 20px}
+.logo-back img{position: absolute;}
+.timimg{
+    color: #fff;
+    font-size: 16px;
+    font-family: open-sans;
+}
+.hurry-up{color:#d0a638;}
+
+.log-menu{}
+.hurry-up,.free-trial{margin: 0 0 0 10px;}
+.single-time{float: left;text-align: center;}
+.single-time span {
+    font-size: 35px;
+    border: 2px solid #fff;
+    display: block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.upgred {
+    background: #48c38c;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 31px;
+    margin-left: 42px;
+ 
+}
+.upgred a{
+    color:#fff;
+    font-family: open-sans;
+    text-decoration: none
+}
+.log_in{margin-top: 55px}
+.log_in img{float: left;margin-right: 12px;}
+
+#loging{margin: 0;padding: 0;list-style: none}
+#loging li{position: relative; }
+#loging li a{position: relative;color:#fff;}
+
+#loging li ul {position: absolute;background: image-url('log_bg.png') no-repeat;display: none}
+#loging li:hover ul {display: block}
+#loging li ul {
+    position: absolute;
+    background: image-url('log_bg.png') no-repeat;
+    width: 184px;
+    height: 150px;
+   
+    padding-top: 40px;
+    list-style: none;
+}
+#loging li ul li{    
+    
+    padding: 10px 0;
+    width: 100px
+}
+
+#loging li ul li a{text-decoration: none;color:#81a1f1;} 
+#loging li ul li:first-child{border-bottom:1px solid #000;}
+
+.infect-heading{text-align: center; margin-bottom: 50px}
+.infect-heading h2{font-size: 26px;color:#f06eaa;}
+.infect-heading p{font-size: 22px}
+.infect-heading img{   
+     background: #fff;
+    padding: 20px;
+    margin-top: -47px;
+    border-radius: 50%;
+
+}
+.left-side{padding-right: 60px;padding-left: 50px}
+.right-side{padding-left: 60px;padding-right: 50px}
+.single{text-align: center;font-size: 16px;    margin-bottom: 50px;}
+.single img{}
+.single h2{color:#48c38c;font-size: 16px;margin-bottom: 20px}
+.single p{}
+.click-here{}
+.click-here a{    
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    width: 215px;
+    display: inline-block;
+    background: #48c38c;
+    padding: 8px 12px;
+    border-radius: 21px
+}
+
+
+
+
+.back-page-content{background: image-url('backend_bg.png');}
+.back-page{
+    margin-right: 47px;
+    margin-top: 124px;
+    background: #fff;
+    margin-left: 23px;
+    margin-bottom: 50px
+}
+
+}

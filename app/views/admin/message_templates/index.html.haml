@@ -1,0 +1,30 @@
+= content_for :title, t('messages.message')
+
+.page-header
+  %h4= t('messages.breadcrumb.message') + ' :'
+
+#main-menu
+  .menu-items
+    .row
+      .col-md-6.centralize
+        = link_to new_admin_message_path, class: 'btn btn-raised' do
+          = image_tag 'template-message.png'
+          %span= t('messages.labels.create_regular_message')
+      .col-md-6.centralize
+        = link_to subject_admin_message_templates_path, class: 'btn btn-raised' do
+          = image_tag 'template-create.png'
+          %span= t('messages.labels.create_message_template')
+    .row
+      .col-md-6.centralize
+        = link_to list_messages_path(role: 'admin', list_type: 'sent'), class: 'btn btn-raised' do
+          = image_tag 'template-send.png'
+          %span= t('messages.labels.sent_messages')
+      .col-md-6.centralize
+        = link_to edit_filters_admin_message_templates_path, class: 'btn btn-raised' do
+          = image_tag 'template-edit.png'
+          %span= t('messages.labels.edit_message_template')
+    .row
+      .col-md-6.centralize
+        = link_to upload_admin_message_templates_path, class: 'btn btn-raised' do
+          = image_tag 'template-create.png'
+          %span= t('messages.labels.upload_message_template')

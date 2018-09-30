@@ -1,0 +1,76 @@
+%h4=@todo.title
+- if local_todos.blank?
+  %p=t('manager.todos.labels.no_todos') 
+- else
+  %ul
+    - local_todos.each do |todo|
+      - todo_obj = Todo.find(todo.id)
+      - if todo_obj.recurring? || (todo_obj.single? &&  todo_obj.recurring_available_by_department(todo.department_id))
+        - diff_time = get_remain_time(todo.id)
+        - if diff_time[0] <= -1
+          %li
+            .department-todo
+              .todo-command
+                .detail-box
+                  %ul#time-counter.time-counter
+                    %li.days
+                      %label=(diff_time[0] < 0) ? "-" : diff_time[0]
+                      %span Days
+                    %li.hours
+                      %label=(diff_time[0] < 0) ? "-" : diff_time[1]
+                      %span Hours
+                    %li.minutes
+                      %label=(diff_time[0] < 0) ? "-" : diff_time[2]
+                      %span Mins
+                  - percent = get_current_status(todo.id, todo.department_id)
+                  .progress
+                    .value{style: "width: #{percent}%;"}
+              %span.todo-footer
+                = todo.department_name
+        - else
+          %li
+            .department-todo
+              .todo-command
+                .detail-box
+                  %ul#time-counter
+                    %li.days
+                      %label=(diff_time[0] < 0) ? "-" : diff_time[0]
+                      %span Days
+                    %li.hours
+                      %label=(diff_time[0] < 0) ? "-" : diff_time[1]
+                      %span Hours
+                    %li.minutes
+                      %label=(diff_time[0] < 0) ? "-" : diff_time[2]
+                      %span Mins
+                  - percent = get_current_status(todo.id, todo.department_id)
+                  .progress
+                    .value{style: "width: #{percent}%;"}
+              %span.todo-footer
+                = todo.department_name
+:javascript
+  jQuery(document).ready(function() {
+    setInterval(function(){
+      jQuery('.time-counter').each(function(){
+        var days, hours, minutes;
+        days = jQuery(this).children('.days').children('label').text();
+        hours = jQuery(this).children('.hours').children('label').text();
+        minutes = jQuery(this).children('.minutes').children('label').text();
+
+        minutes--;
+        if(minutes < 0){
+          minutes = 59;
+          hours--;
+        }
+
+        if(hours < 0){
+          hours = 23;
+          days--;
+        }
+
+        jQuery(this).children('.days').children('label').text(days);
+        jQuery(this).children('.hours').children('label').text(hours);
+        jQuery(this).children('.minutes').children('label').text(minutes);        
+
+      });
+    }, 1000*60);
+  });        

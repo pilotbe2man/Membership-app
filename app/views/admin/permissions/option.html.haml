@@ -1,0 +1,54 @@
+= content_for :title, 'Permission'
+= content_for :breadcrumb, 'Permission'
+
+.twelvecol
+  .page-header
+    %h2.widget.widget-header Permissions
+
+  .widget.widget-content.row
+    %form{action: '/admin/permissions/daycares', method: :get}
+      .twelvecol
+        %h3 Permission Type
+        .row
+          %input{type: "radio", value:"0", name:"type", checked: true} 
+            Default Permission
+        .row
+          %input{type: "radio", value:"1", name:"type"} 
+            Specific Permission
+
+      .sixcol
+        %h3 Partner
+        .row
+          %input{type: "radio", value:"0", name:"option", checked: true} 
+            Healthier and Safer Childcare Partnership
+        .row
+          %input{type: "radio", value:"1", name:"option"} 
+            Certification Partnership
+      .sixcol
+        %h3 Daycare
+        .row
+          %input{type: "radio", value:"2", name:"option"} 
+            %span.daycare-chain All Daycare
+        .row
+          %input.daycare-other{type: "radio", value:"3", name:"option", style: 'display: none'} 
+            %span.daycare-other{style: 'display: none'} Independant Daycare
+        .row
+          %input.daycare-other{type: "radio", value:"4", name:"option", style: 'display: none'} 
+            %span.daycare-other{style: 'display: none'} Govermantal Daycare
+
+      %div{style: "clear:both;"}
+      %button.btn.btn-blue.btn-large Select
+
+:javascript
+  jQuery(document).ready(function() {
+    $('input[name="type"]').on('click', function(){
+      var selected_val = $(this).val();
+      if( selected_val == 1){
+        $('.daycare-other').show();
+        $('.daycare-chain').text('Chain Daycare');
+      } else {
+        $('.daycare-other').hide();
+        $('.daycare-chain').text('All Daycare');
+      }
+    });
+  });

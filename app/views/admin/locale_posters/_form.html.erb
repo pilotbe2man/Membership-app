@@ -1,0 +1,42 @@
+<%= form_for [:admin, @locale_poster], multipart: true  do |f| %>
+    <div class="threecol"></div>
+    <div class="ninecol last">
+        <%= render partial: 'shared/admin/errors', locals: { object: @locale_poster } %>
+    </div>
+
+    <div class="threecol">
+        <h3>Poster details</h3>
+    </div>
+
+    <div class="ninecol last">
+        <fieldset class="widget widget-content">
+            <div class="form-group">
+                <%= f.label :poster %>
+                <%= f.file_field :poster, :class => 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :type %>
+                <%= f.text_field :poster_type, class: 'form-control', placeholder: 'Food Handling, Hand Hygiene, Diapering...' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :title %>
+                <%= f.cktext_area :title, (@ori_locale_poster.nil?) ? {:class => 'form-control'} : {:class => 'form-control', :value => "#{@ori_locale_poster.title}"} %>
+            </div>
+            <div class="form-group">
+                <%= f.label :description %>
+                <%= f.cktext_area :description, (@ori_locale_poster.nil?) ? {:class => 'form-control'} : {:class => 'form-control', :value => "#{@ori_locale_poster.description}"} %>
+            </div>
+            <div class="form-group">
+                <%= f.label :button %>
+                <%= f.cktext_area :button, (@ori_locale_poster.nil?) ? {:class => 'form-control'} : {:class => 'form-control', :value => "#{@ori_locale_poster.button}"} %>
+            </div>
+            <div class="form-group">
+                <%= f.label :language %>
+                <%= f.select :language, options_for_select(pre_countries, :selected => f.object.language), {},{:class => 'form-control'} %>
+            </div>
+        </fieldset>
+        <div class="form-action">
+            <%= f.submit 'Submit', :class => 'btn btn-blue btn-large' %>
+        </div>
+    </div>
+<% end %>

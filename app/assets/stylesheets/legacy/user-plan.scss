@@ -1,0 +1,148 @@
+.userplan-container{
+	font-family: Arial;
+	margin-top: 80px;
+	margin-bottom: 40px;
+	.plan-header{
+		overflow: hidden;
+		position: relative;
+
+		img{
+			width: 100%;
+			height: 100%;
+		}
+		.plan-bg{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			z-index: 0;
+		}
+		.plan-content{
+			z-index: 100;
+			position: relative;
+			padding: 10px 0;
+
+			h6{
+			    color: #fff;
+			    font-size: 16px;
+			    font-weight: 600;
+			    margin: 0;
+			}
+
+			h5{
+			    color: #fff;
+			    font-size: 22px;
+			    font-weight: 800;
+			    margin: 0;
+
+			    small{
+			    	color: #fff;
+			    	text-decoration: line-through;
+			    }
+			}
+
+			.plan-type{
+			    color: #fff;
+			    font-size: 14px;
+			    font-weight: 600;
+			}
+
+			.plan-description{
+				color: #fff;
+				font-size: 12px;				
+			}
+		}
+	}
+	.plan-body{
+		border-left: 3px solid #ddd;
+		border-right: 3px solid #ddd;
+		border-bottom: 3px solid #ddd;
+	    border-bottom-left-radius: 15px;
+	    border-bottom-right-radius: 15px;
+	    padding: 20px 10px;
+
+		.user-feature-box{
+			padding: 0;
+			margin-bottom: 20px;
+
+			li{
+				display: table;
+				margin: 5px 0;
+				.icon{
+					display: table-cell;
+					padding-right: 10px;
+					img{
+						width: 60px;
+					}
+				}
+
+				.feature-text{
+					display: table-cell;
+					vertical-align: middle;
+					width: 100%;
+					font-size: 12px;
+				}
+			}
+		}
+  	}
+
+  	.plan-features{
+  		padding: 0 30px;
+		.user-feature-box{
+			padding: 0;
+			margin-bottom: 20px;
+
+			li{
+				display: table;
+				margin: 10px 0;
+				border-radius: 30px;
+				border: 1px solid #ddd;
+				padding: 5px 15px 5px 5px;
+				width: 100%;
+
+				.icon{
+					display: table-cell;
+					padding-right: 20px;
+				}
+
+				.feature-text{
+					display: table-cell;
+					vertical-align: middle;
+					width: 100%;
+				}
+			}
+		}  		
+  	}
+
+  	.user-feature-box{
+  		list-style: none;
+  	}
+
+  	.left-top-radius{
+  		border-top-left-radius: 15px;
+  	}
+
+  	.right-top-radius{
+  		border-top-right-radius: 15px;
+  	}
+
+  	.membership-header{
+  		margin-bottom: 40px;
+  	}
+
+  	.membership-header{
+  		h4{
+  			font-size: 28px;
+  		}
+
+  		p{
+  			font-size: 18px;
+  		}
+  	}
+
+	@media screen and (max-width: 1199px) {
+		margin-top: 0;
+	}
+
+  	@media screen and (max-width: 992px) {  		
+  	}
+}

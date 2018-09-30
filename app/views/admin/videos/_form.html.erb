@@ -1,0 +1,42 @@
+<%= form_for [:admin, @video], url: url do |f| %>
+    <div class="threecol"></div>
+    <div class="ninecol last">
+        <%= render partial: 'shared/admin/errors', locals: { object: @video } %>
+    </div>
+
+    <div class="threecol">
+        <h3>Video details</h3>
+    </div>
+
+    <div class="ninecol last">
+        <fieldset class="widget widget-content">
+            <div class="form-group">
+                <%= f.label :url %>
+                <%= f.text_field :url, :class => 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :category %>
+                <%= f.radio_button :category, 'free', (!@ori_video.nil? && @ori_video.category == 'free') ? {:checked => true} : {:checked => false}  %> Preview Video
+                <%= f.radio_button :category, 'paid', (!@ori_video.nil? && @ori_video.category == 'paid') ? {:checked => true} : {:checked => false} %> Online Training
+            </div>
+            <div class="form-group">
+                <%= f.label :type %>
+                <%= f.radio_button :video_type, '1', (!@ori_video.nil? && @ori_video.video_type == '1') ? {:checked => true} : {:checked => false} %> Food Handling
+                <!--
+                <%= f.radio_button :video_type, '2' %> 2
+                -->
+                <%= f.radio_button :video_type, '2', (!@ori_video.nil? && @ori_video.video_type == '2') ? {:checked => true} : {:checked => false} %> Diapering
+                <%= f.radio_button :video_type, '3', (!@ori_video.nil? && @ori_video.video_type == '3') ? {:checked => true} : {:checked => false} %> Outbreak control
+                <%= f.radio_button :video_type, '4', (!@ori_video.nil? && @ori_video.video_type == '4') ? {:checked => true} : {:checked => false} %> Cleaning of bodily fluids
+                <%= f.radio_button :video_type, '5', (!@ori_video.nil? && @ori_video.video_type == '5') ? {:checked => true} : {:checked => false} %> Hand Washing
+            </div>
+            <div class="form-group">
+                <%= f.label :language %>
+                <%= f.select :language, options_for_select(pre_countries, :selected => f.object.language), {},{:class => 'form-control'} %>
+            </div>
+        </fieldset>
+        <div class="form-action">
+            <%= f.submit 'Submit', :class => 'btn btn-blue btn-large' %>
+        </div>
+    </div>
+<% end %>

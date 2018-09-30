@@ -1,0 +1,46 @@
+.row
+  %h5= t('illnesses.labels.illness_details')
+.row
+  .col-md-6.col-sm-6
+    %h3= t('protocols.child_illness_record.illness_code')
+    #search-illness-name{'data-illness_names': illness_list.to_json}
+      = text_field_tag 'search-illness-name', '', placeholder: t('illnesses.labels.search'), class: 'form-control typeahead'
+  .col-md-6.col-sm-6
+    .radio-box-group
+      - Illness.all.where(language: I18n.locale).each do |illness|
+        .radio-box
+          %input{:type=>"radio", :name => "record[illness_code]", :id => "chk_illness_#{illness.code}", :style => "display: none;", value: illness.code,  'data-illness_name': illness.name, :required => "true"}
+          %label{:for => "chk_illness_#{illness.code}"}
+            = illness.name
+.row
+  .col-md-12
+    #symptoms
+.row
+  .col-md-12
+    .illness-detail#illness-known-no
+      .form-group
+        %label.step-instruction= t('protocols.child_illness_record.symptoms_description')
+        = text_area 'record', 'symptoms_description', class: 'form-control', rows: '5'
+
+    .form-group
+      %label.step-instruction= t('protocols.child_illness_record.start_date')
+      = text_field_tag 'record[start_date]', '', class: 'datepicker form-control datetime-input', autocomplete: 'off'
+
+    .form-group
+      %label.step-instruction= t('protocols.child_illness_record.end_date')
+      = text_field_tag 'record[end_date]', '', class: 'datepicker form-control datetime-input', autocomplete: 'off'
+
+    .form-group
+      %label.step-instruction= t('protocols.child_illness_record.possible_trigger')
+      = text_area 'record', 'possible_trigger', class: 'form-control'
+
+    .form-group
+      %label.step-instruction= t('protocols.child_illness_record.extra_details')
+      = text_area 'record', 'extra_details', class: 'form-control'
+:javascript
+  jQuery(document).ready(function() {   
+    $('.datepicker').datetimepicker({
+      format: 'd/m/Y',
+      timepicker: false
+    });
+  });

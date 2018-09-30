@@ -1,0 +1,30 @@
+.row.text-center.step-banner
+  = image_tag 'manager-md.png'
+  %h4=t('account.daycare.manager')
+.row.pane-container.text-center
+  .row.step-banner
+    .col-sm-3.col-xs-3.step-item.first-step
+      .step-label
+        = image_tag 'step-check-mng.png'
+    .col-sm-3.col-xs-3.step-item.second-step
+      .step-label
+        = image_tag 'step-check-mng.png'
+    .col-sm-3.col-xs-3.step-item.third-step
+      .step-label
+        = image_tag 'step-check-mng.png'
+    .col-sm-3.col-xs-3.step-item.fourth-step.active
+      .step-label
+        = image_tag 'manager-sm.png'
+        %span Congratulation
+.row.pane-search-result.text-center
+  %h3.complete-title.item-manager CONGRATULATIONS!
+  %h5.compelet-message You have now created your DayCare Profile.
+.row.pane-invite.text-center
+  %h3 Now, Invite other Daycare?
+  .col-xs-6.text-right
+    %button.btn.btn-round.item-manager{:type => "button"} 
+      Yes
+  .col-xs-6.text-left
+    %button.btn.btn-round.item-manager{:type => "button"} 
+      No
+.parent-congratulation

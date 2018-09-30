@@ -1,0 +1,28 @@
+<h2><%= @todo.title %></h2>
+<%= image_tag @todo.icon.file %>
+Iteration Type: <%= @todo.iteration_type %><br>
+Frequency: <%= @todo.frequency %><br>
+<h3>Tasks</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todo.tasks.each do |tk| %>
+      <tr>
+        <td><%= tk.title %></td>
+        <td><%= tk.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<h3>Departments</h3>
+<ul>
+    <% @todo.departments.each do |dp| %>
+        <li><%= dp.name %></li>
+    <% end %>
+</ul>

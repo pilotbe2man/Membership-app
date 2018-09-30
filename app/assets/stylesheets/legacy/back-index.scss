@@ -1,0 +1,161 @@
+#legacy-back-index
+{
+    #back_end_header{
+    background: #426cd5;
+    padding: 10px
+}
+.header{}
+.logo-back{margin-top: 20px}
+.logo-back img{position: absolute;}
+.timimg{
+    color: #fff;
+    font-size: 16px;
+    font-family: open-sans;
+}
+.hurry-up{color:#d0a638;}
+
+.log-menu{}
+.hurry-up,.free-trial{margin: 0 0 0 10px;}
+.single-time{float: left;text-align: center;}
+.single-time span {
+    font-size: 35px;
+    border: 2px solid #fff;
+    display: block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.upgred {
+    background: #48c38c;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 31px;
+    margin-left: 42px;
+ 
+}
+.upgred a{
+    color:#fff;
+    font-family: open-sans;
+    text-decoration: none
+}
+.log_in{margin-top: 55px}
+.log_in img{float: left;margin-right: 12px;}
+
+#loging{margin: 0;padding: 0;list-style: none}
+#loging li{position: relative; }
+#loging li a{position: relative;color:#fff;}
+
+#loging li ul {position: absolute;background: image-url('log_bg.png') no-repeat;display: none}
+#loging li:hover ul {display: block}
+#loging li ul {
+    position: absolute;
+    background: image-url('log_bg.png') no-repeat;
+    width: 184px;
+    height: 150px;
+   
+    padding-top: 40px;
+    list-style: none;
+}
+#loging li ul li{    
+    
+    padding: 10px 0;
+    width: 100px
+}
+
+#loging li ul li a{text-decoration: none;color:#81a1f1;} 
+#loging li ul li:first-child{border-bottom:1px solid #000;}
+.back-page-content{/*background: image-url('backend_bg.png');*/}
+.infect-heading{text-align: center; margin-bottom: 50px}
+.infect-heading h2{font-size: 26px;color:#f06eaa;}
+.infect-heading p{font-size: 22px}
+.infect-heading img{   
+     background: #fff;
+    padding: 20px;
+    margin-top: -47px;
+    border-radius: 50%;
+
+}
+.back-page{
+    margin-right: 47px;
+    margin-top: 124px;
+    
+    margin-left: 23px;
+    margin-bottom: 50px
+}
+.single{  
+      background: #fff;
+    padding: 19px;
+    border-radius: 20px;
+}
+.single {text-align: center;}
+.single h2{}
+.single h2 span{}
+.single p{}
+.single img{background: #fff;
+    padding: 20px;
+    margin-top: -52px;
+    text-align: center;
+    border-radius: 50%;
+}
+.infection{color:#f06eaa;}
+.infection span{font-size:16px;}
+.instroduction{color:#426cd5;}
+.instroduction span{font-size:16px;}
+.implementation{color:#48c38c;}
+.implementation span{font-size:16px;}
+
+.click-here-infection a{
+    background: #f06eaa;    text-align: center;
+    width: 250px;
+    display: inline-block;
+    font-size: 16px;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-decoration: none;}
+.click-here-introduction a{
+    background: #426cd5;    text-align: center;
+    width: 250px;
+    display: inline-block;
+    font-size: 16px;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-decoration: none;}
+.click-here-implementation a{
+    background: #48c38c;    text-align: center;
+    width: 250px;
+    display: inline-block;
+    font-size: 16px;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-decoration: none;}
+    
+    .start_box{
+    max-width:86%;
+    height:auto;
+    margin:auto;
+    margin-top:100px;
+    margin-bottom:30px;
+    position:relative;
+}
+.start_box img{
+    width:100%;
+}
+
+.back_end_header2{
+    height:143px;
+}
+.check_title_select {
+    top: 32px;
+    position: absolute;
+    width: 189px;
+  
+    left: 36px;
+}
+
+}

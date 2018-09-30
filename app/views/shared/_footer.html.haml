@@ -1,0 +1,33 @@
+%footer#home_footer
+  .container
+    .row
+      .col-md-4.left-footer
+        %h3= t('footer.contact_us')
+        %p= LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? '' : LocaleLogo.by_type_language(1, I18n.locale).first.address1.html_safe
+        %p= LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? '' : LocaleLogo.by_type_language(1, I18n.locale).first.address2.html_safe
+        %p
+          = link_to LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? '' : LocaleLogo.by_type_language(1, I18n.locale).first.email.html_safe, "mailto:#{LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? '' : LocaleLogo.by_type_language(1, I18n.locale).first.email.html_safe}", class: 'hcc-simple'
+        %p= LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? '' : LocaleLogo.by_type_language(1, I18n.locale).first.phone_number.html_safe
+
+      .col-md-4.central-footer
+        = image_tag LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? 'logo.png' : LocaleLogo.by_type_language(1, I18n.locale).first.logo.url
+        %p= LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? '' : LocaleLogo.by_type_language(1, I18n.locale).first.title.html_safe
+        %p= LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? '' : LocaleLogo.by_type_language(1, I18n.locale).first.copyright.html_safe
+
+      .col-md-4.right-footer
+        %ul
+          %li= link_to t("pages.footer.home"), root_path, class: 'hcc-simple'
+          %li= link_to t("pages.footer.program"), 'program', class: 'hcc-simple'
+          %li= link_to t("pages.footer.mission"), 'description#mark_mission', class: 'hcc-simple'
+          %li= link_to t("pages.footer.standard"), 'description#mark_standard', class: 'hcc-simple'
+          %li= link_to t("pages.footer.path"), 'description#mark_path', class: 'hcc-simple'
+          %li= link_to t("pages.footer.about_user"), 'description#mark_about', class: 'hcc-simple'
+          / - unless current_user.nil?
+          /   %li= link_to t("pages.footer.resources"), take_action_path, class: 'hcc-simple'
+          / - else
+          /   %li= link_to t("pages.footer.resources"), email_campaign_path, class: 'hcc-simple'
+          - unless user_signed_in?
+            %li= link_to t("pages.footer.login"), select_user_type_path, class: 'hcc-simple'
+            %li= link_to t("pages.footer.sign_up"), getting_started_path, class: 'hcc-simple'
+          - else
+            %li= link_to t("pages.footer.logout"), destroy_user_session_path, method: :delete, class: 'hcc-simple'

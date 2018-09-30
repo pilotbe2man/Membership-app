@@ -1,0 +1,9 @@
+= content_for :title, t('discussions.discussion')
+
+#discussions
+  .row.page-header
+    %h4 Search Results for : #{params[:invitee_child]}
+
+  #search-results.row
+    - @children.each do |child|
+      = render partial: 'invite_child', locals: {child: child}

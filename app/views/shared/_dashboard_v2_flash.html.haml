@@ -1,0 +1,12 @@
+.container-fluid
+  .row
+    - if flash[:alert]
+      .alert.alert-warning{role: 'alert'}
+        %button{type: 'button', class: 'close', 'data-dismiss': 'alert', 'aria-label': 'Close'}
+          %span{'aria-hidden': true} &times;
+        = flash[:alert]
+    - elsif flash[:notice]
+      .alert.alert-success{role: 'alert'}
+        %button{type: 'button', class: 'close', 'data-dismiss': 'alert', 'aria-label': 'Close'}
+          %span{'aria-hidden': true} &times;
+        = flash[:notice]

@@ -1,0 +1,50 @@
+.row.text-center.step-banner.fileupload-container
+  .fileUpload
+    %span.upload-wrapper
+      = image_tag 'parent-upload.png'
+      %span.caption=t('register.labels.upload_child_photo')
+      = child.fields_for :profile_image do |profile_image|
+        = profile_image.file_field :file, class: 'upload'           
+  %h4=t('account.daycare.parent')
+.row.pane-container.text-center
+  .row.step-banner
+    .col-sm-3.col-xs-3.step-item.first-step.item-parentee
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-check-prt.png'
+    .col-sm-3.col-xs-3.step-item.second-step.item-parentee.active
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'parent-sm.png'
+        %span Children
+    .col-sm-3.col-xs-3.step-item.third-step.item-parentee.active    
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+    .col-sm-3.col-xs-3.step-item.fourth-step.item-parentee
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+  .row
+    = devise_error_messages!
+  .parent-list-container
+    .parent-item
+      .row.parent-info.text-left
+        .col-sm-8
+          .child-item
+            %h3=t('register.parentee.main_heading')
+            .row.parent-info
+              .row  
+                = child.text_field :name, :class => 'form-control input-round', :placeholder => t('register.labels.add_child_name'), :required =>"true"
+              .row
+                = child.text_field :birth_date, :class => 'datepicker form-control input-round', value: (child.object.birth_date.blank? ? '' : child.object.birth_date.strftime('%d/%m/%Y')), :placeholder => t('register.labels.birth_day'), :required =>"true", autocomplete: 'off'
+            .row.parent-department  
+              %h4=t('register.labels.select_department')
+              - @departments.each do |department|
+                .row
+                  = child.radio_button :department_id, "#{department.id}", :style => "display: none;", :required =>"true"
+                  = child.label :"department_id_#{department.id}", department.name              
+.row.parent-button-box
+  = link_to(image_tag('parent-add.png') + t('register.labels.add_child'), '#', {class: "btn btn-normal add-child"})

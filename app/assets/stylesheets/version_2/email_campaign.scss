@@ -1,0 +1,155 @@
+.promo-text{
+	small{
+		color: #333;
+	}
+}
+
+.gradient-border{
+  width: 100%;
+  padding: 20px;
+  margin: 10px 0;
+  opacity: .99;
+  text-align: center;
+  position: relative;
+  box-sizing: border-box;
+  background: linear-gradient(to top right, $hcc-red 0%, $hcc-yellow 100%);
+  @include border-radius(10px);	
+}
+
+.gradient-border::before{
+  content: '';
+  top: 3px;
+  left: 3px;
+  bottom: 3px;
+  right: 3px;
+
+  position: absolute;
+  z-index: -1;
+  background: white;
+  @include border-radius(10px);	
+}
+
+.email_campaign{
+	.promo-img{
+	    background: url('campaign-title.jpg');
+	    background-size: cover;
+	    background-position-x: center;		
+	    min-height: 500px;
+		@media screen and (max-width: 1199px) {
+			min-height: 400px;
+		}
+
+		@media screen and (max-width: 992px) {
+			min-height: 300px;
+		}
+
+		@media screen and (max-width: 767px) {
+			min-height: 200px;
+		}
+
+	}
+	.introduction{
+		font-size: 24px;
+		font-family: Arial;
+
+		p{
+			padding: 10px 0;
+
+			.pink-text{
+				font-weight: 800;
+				font-size: 36px;
+				color: $hcc-red;
+			}
+		}
+
+		@media screen and (max-width: 1199px) {
+			font-size: 20px;
+			p .pink-text{
+				font-size: 32px;
+			}
+		}
+
+		@media screen and (max-width: 992px) {
+			font-size: 16px;
+			p .pink-text{
+				font-size: 28px;
+			}
+		}
+
+		@media screen and (max-width: 767px) {
+			font-size: 16px;
+			p .pink-text{
+				font-size: 20px;
+			}
+		}
+	}
+
+	.module-header{
+		h5{
+			font-size: 24px;
+			font-family: Arial;
+			margin-top: 40px;
+
+			.pink-text{
+				color: $hcc-red;
+			}
+			@media screen and (max-width: 1199px) {
+				font-size: 20px;
+				margin-top: 30px;
+			}
+
+			@media screen and (max-width: 992px) {
+				font-size: 18px;
+				margin-top: 25px;
+			}
+
+			@media screen and (max-width: 767px) {
+				font-size: 18px;
+				margin-top: 10px;
+				text-align: center;
+			}
+		}
+		img{
+			height: 140px;
+
+			@media screen and (max-width: 1199px) {
+				height: 100px;
+			}
+
+			@media screen and (max-width: 992px) {
+				height: 80px;
+			}
+
+			@media screen and (max-width: 767px) {
+				height: 100px;
+			}
+		}
+	}
+
+	.module-content{
+		font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+		font-size: 16px;
+		line-height: 24px;
+		p{
+			padding: 10px 0;
+		}
+	}
+
+	.module-divider{
+		background: linear-gradient(to top right, $hcc-red 0%, $hcc-yellow 100%);
+		height: 3px;
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+
+	.module-footer{
+		h4{
+			font-size: xx-large;
+			font-family: Georgia, Times, "Times New Roman", serif;
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		margin-bottom: 50px;
+	}
+}

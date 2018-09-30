@@ -1,0 +1,62 @@
+/*12px
+ *= require icomoon-bower
+ *= require jquery.datetimepicker
+ *= require slick-carousel/slick/slick.css
+ *= require slick-carousel/slick/slick-theme.css
+ *= require normalize-css
+ *= require bootstrap/dist/css/bootstrap.min.css
+ *= require bootstrap/dist/css/bootstrap-theme.min.css
+ *= require font-awesome
+ *= require froala_editor.min.css
+ *= require froala_style.min.css
+ *= require jquery.steps
+ *= require select2.css
+ *= require version_2
+ *= require responsive
+ *= require hopscotch.css
+ *= require sumoselect.min.css
+*/
+/*
+@import "compass";
+@import "compass/reset";
+*/
+@import "compass/css3";
+@import "compass/css3/box-sizing";
+@import "compass/css3/transition";
+
+$blue: #00aff1;
+$purple: #ab8bff;
+$green: #8DC73F;
+$orange: #F7941D;
+$yellow: #ffd700;
+$cyan: #9bebff;
+$grey: #d5d5de;
+$dark-grey: #2f363d;
+$light-grey: #d0d0d0;
+$red: #CD2626;
+$flamingo: #F05C52;
+$header-blue: #296BD1;
+$twitter-blue: #3bafda;
+
+$info-green: #4caf50;
+$lighter-grey: #eaeaea;
+
+@import "dashboard/base";
+@import "dashboard/1100";
+@import "dashboard/form";
+@import "dashboard/buttons";
+@import "dashboard/alert";
+@import "dashboard/header";
+@import "dashboard/menu-items";
+@import "dashboard/todos";
+@import "dashboard/registration";
+@import "dashboard/surveys";
+@import "dashboard/notifications";
+@import "dashboard/common";
+@import "dashboard_v2/messages";
+@import "dashboard_v2/illnesses";
+@import "dashboard_v2/discussions";
+@import "legacy/survey";
+@import "flipclock";
+@import "responsive";
+@import "common";

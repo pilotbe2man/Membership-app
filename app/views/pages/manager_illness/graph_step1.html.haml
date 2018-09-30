@@ -1,0 +1,135 @@
+= content_for :title, t('illnesses.illness')
+- content_for :page_title, t('illnesses.trends')
+.illness-dash-container
+  .container
+    .row
+      .col-md-12
+        %h4.option-title= t('illnesses.labels.trend_filters')
+    .row.content-main
+      = form_tag '#', method: :post do
+        .row
+          .col-md-4.col-sm-4.col-xs-12
+            .form-group{data:{step: 1, intro: t("guideline.manager.illness_graph.step1.content")}}
+              = label_tag :department, t('illnesses.labels.select_multiple_departments')
+              %br
+              = select_tag 'department_ids[]', options_from_collection_for_select(current_user.daycare.departments, 'id', 'name'), class: 'multiple-select', required: true, multiple: true
+
+          .col-md-4.col-sm-4.col-xs-12
+            .form-group{data:{step: 2, intro: t("guideline.manager.illness_graph.step2.content")}}
+              = label_tag :illness, t('illnesses.labels.select_multiple_illnesses')
+              %br
+              = select_tag 'illness_codes[]', options_from_collection_for_select(Illness.all.where(language: I18n.locale), 'code', 'name'), class: 'multiple-select', required: true, multiple: true
+
+          .col-md-4.col-sm-4.col-xs-12
+            .form-group
+              = label_tag :graph_type, t('illnesses.labels.select_graph_type')
+              %br
+              = select_tag 'graph_type', options_for_select([['Daily', 'day'], ['Weekly', 'week'], ['Monthly', 'month'], ['Yearly', 'year']]), class: 'form-control', required: true
+        .row{data:{step: 3, intro: t("guideline.manager.illness_graph.step3.content")}}
+          .col-md-4.col-sm-4.col-xs-12
+            .form-group
+              = label_tag :start_date
+              = text_field_tag :start_date, params['start_date'], class: 'datepicker form-control datetime-input', autocomplete: 'off'
+
+          .col-md-4.col-sm-4.col-xs-12
+            .form-group
+              = label_tag :end_date
+              = text_field_tag :end_date, params['end_date'], class: 'datepicker form-control datetime-input', autocomplete: 'off'
+          .col-md-4.col-sm-4.col-xs-12.form-buttons.filter-buttons.centralize
+            = submit_tag t('illnesses.labels.apply_filter'), class: 'btn btn-lightred', data:{step: 4, intro: t("guideline.manager.illness_graph.step4.content")}
+
+#dash_step_1
+  .modal-dialog
+    / Modal content
+    .modal-content
+      .modal-header
+        %button.close.plainmodal-close{"data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title= t('guideline.manager.dashboard.illness_trends.instruction.title').html_safe
+      .modal-body          
+        = t('guideline.manager.dashboard.illness_trends.instruction.content').html_safe
+        .radio-box-group
+          .radio-box
+            %input{:type=>"radio", :name => "dash_step", :id => "radio_dash_step_2", :style => "display: none;", value: '2', checked: true}
+            %label{:for => "radio_dash_step_2"}
+              = t('guideline.manager.dashboard.illness_trends.instruction.overview')
+      .modal-footer
+        %button.btn.btn-lightred.link-dash-step{"data-dismiss" => "modal", :type => "button", 'data-step' => '1'}=t('form_labels.next')
+#dash_step_2
+  .modal-dialog
+    / Modal content
+    .modal-content
+      .modal-header
+        %button.close.plainmodal-close{"data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title= t('guideline.manager.dashboard.illness_trends.trends.title').html_safe
+        %a.link_home
+          %i.fa.fa-icon.fa-home
+      .modal-body          
+        %p= t('guideline.manager.dashboard.illness_trends.trends.content').html_safe
+        %a#link_start_trend= t('guideline.manager.dashboard.illness_trends.trends.link_text').html_safe          
+      .modal-footer
+        %button.btn.btn-lightred.link-dash-step{"data-dismiss" => "modal", :type => "button", 'data-step' => '2'}=t('form_labels.next')
+
+:javascript
+  jQuery(document).ready(function() {
+    var effect = {
+        open: function(duration, complete) {
+          this.css({
+            display:          'block',
+            opacity:          0,
+            top:              -50 - this.outerHeight(),
+            marginTop:        0
+          })
+          .animate({opacity: 1, top: 100}, duration, complete);
+        },
+        close: function(duration, complete) {
+          this.animate({
+            opacity:          0,
+            top:              -50 - this.outerHeight()
+          }, duration, function() {
+            $(this).css({display: 'none'});
+            complete();
+          });
+        }
+      };
+
+    modalStep1 = $('#dash_step_1').plainModal({effect: effect, duration: 500});
+    modalStep2 = $('#dash_step_2').plainModal({effect: effect, duration: 500});
+
+    dash_wizard();
+
+    function dash_wizard(){
+      modalStep1 = $('#dash_step_1').plainModal('open', {force: true});
+    }
+
+    $('.link_home').on('click', function(){
+      dash_wizard();
+    });       
+
+    $('.link-dash-step').click(function(e){
+      var step = $('input[name=dash_step]:checked').val();
+      var cur_step = $(this).data('step');
+      var modal;
+      switch(cur_step){
+      case 1:
+        modal = eval('modalStep' + step);
+        modal.plainModal('open', {force: true});
+        break;
+      case 2:
+        modal = eval('modalStep' + cur_step);
+        modal.plainModal('close', {force: true});
+        healthChildcare.guideline.introGoToStep('graph_step2', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+        break;
+      }            
+      e.preventDefault();
+    });
+
+    $('#link_start_trend').click(function(e){
+      modalStep2.plainModal('close');
+      healthChildcare.guideline.introGoToStep('graph_step2', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+      e.preventDefault();
+    });
+    
+    $('#link_dashboard_guide').on('click', function(){
+      dash_wizard();
+    });    
+  });

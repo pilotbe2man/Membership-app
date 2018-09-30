@@ -1,0 +1,135 @@
+- content_for :page_title, t('dashboard.notifications.record_alert')
+- content_for :breadcrumb, t('dashboard.notifications.record_alert')
+.notification-box.border-style-1
+  .row#notify_records.panel-content
+    = render 'dashboard/health_record_list'
+
+/ Modal
+#illnessModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-dialog-1.modal-lg{:role => "document"}
+    .modal-content
+      .modal-body.no-padding-top
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"}
+            %img{:alt => "", :src => "/assets/close-color.png"}/
+        .row.row-flex
+          .col-xs-12.col-sm-6.col-flex
+            #illness-content
+
+:javascript
+  jQuery(document).ready(function() {
+    setInterval(function(){
+      jQuery('.time-counter').each(function(){
+        var days, hours, minutes;
+        days = jQuery(this).children('.days').children('label').text();
+        hours = jQuery(this).children('.hours').children('label').text();
+        minutes = jQuery(this).children('.minutes').children('label').text();
+        if (minutes == '-') return;
+
+        minutes--;
+        if(minutes < 0){
+          minutes = 59;
+          hours--;
+        }
+
+        if(hours < 0){
+          hours = 23;
+          days--;
+        }
+
+        jQuery(this).children('.days').children('label').text(days);
+        jQuery(this).children('.hours').children('label').text(hours);
+        jQuery(this).children('.minutes').children('label').text(minutes);
+
+      });
+    }, 1000*60);
+
+    jQuery(document).on('click', '#notify_records .record-item', function(){
+      jQuery.ajax({
+          url: '/approve_notify_department',
+          type: 'GET',
+          dataType: 'text',
+          data: {
+            id: jQuery(this).data('id')
+          },
+          success: function (data) {
+            jQuery('#notify_records').html(data);
+          },
+          error: function () {
+
+          }
+      });
+    });
+
+    jQuery(document).on('click', '#notificaion_next_department', function(){
+      jQuery.ajax({
+          url: '/approve_notify_section',
+          type: 'GET',
+          dataType: 'text',
+          data: {
+            id: jQuery(this).data('id'),
+            department_text: jQuery('#department_id option:selected').text(),
+            department: jQuery('#department_id').val()
+          },
+          success: function (data) {
+            jQuery('#notify_records').html(data);
+          },
+          error: function () {
+
+          }
+      });
+    });
+
+  });
+
+:javascript
+  jQuery(document).ready(function() {
+    jQuery(document).on('click', '#notificaion_send_approve', function(){
+      jQuery.ajax({
+          url: '/approve_notify',
+          type: 'GET',
+          dataType: 'text',
+          data: {
+            id: jQuery(this).data('id'),
+            department: jQuery(this).data('department'),
+            role: jQuery('#category_id').val()
+          },
+          success: function (data) {
+            jQuery('#notify_records').html(data);
+          },
+          error: function () {
+          }
+      });
+    });
+
+    jQuery(document).on('click', '#notificaion_decline', function(){
+      jQuery.ajax({
+          url: '/decline_notify',
+          type: 'GET',
+          dataType: 'text',
+          data: {
+            id: jQuery(this).data('id')
+          },
+          success: function (data) {
+            jQuery('#notify_records').html(data);
+          },
+          error: function () {
+          }
+      });
+    });
+
+    jQuery(document).on('click', '#notificaion_back', function(){
+      jQuery.ajax({
+          url: '/notify_list_section',
+          type: 'GET',
+          dataType: 'text',
+          data: {
+          },
+          success: function (data) {
+            jQuery('#notify_records').html(data);
+          },
+          error: function () {
+          }
+      });
+    });
+  });

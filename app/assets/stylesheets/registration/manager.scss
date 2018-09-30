@@ -1,0 +1,349 @@
+.reg-manager-container{
+  background: #fff;
+  font-family: 'Open Sans', sans-serif;
+
+  .page-header{
+    width: 100%;
+    box-shadow: none;
+    height: 72px;
+    min-height: 72px;
+    background: #dadada;
+    margin: 0;
+    padding: 0;    
+  }
+
+  .page-footer{
+    padding-bottom: 30px;
+    background: #242c3f;
+  }
+
+  .row{
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  .item-partner{
+    color: #fff;
+  }
+
+  .btn.active, 
+  .btn:active{
+    background-color:#ff5443;
+  }
+
+  .department-list{
+    .btn:active{
+      background-color:transparent;
+      box-shadow: none;
+    }  
+  }
+
+  .form-content{
+    top: -45px;
+    position:relative;
+  }
+
+  .item-manager {
+    color: #fff;
+  }
+
+  .tab-pane{
+    .pane-container{
+      .input-group-box{
+        display: table;
+        span.input-group-btn{   
+          position:relative;       
+          right: 50px;
+          button{
+            border: none;
+            box-shadow: none;
+            background-color: transparent;
+            color: #8ea4f4;
+
+            &:hover{
+              color: #8ea4f4;
+              text-decoration: none;            
+            }
+          }        
+        }
+      }
+    }
+
+    .pane-search-result{
+      ul.msg_list li{
+        padding: 5px;
+        display: block;
+        margin: 6px 6px 0;
+        width: 96% !important;
+        border-bottom: 1px solid #b879ff;
+        min-height: 90px;
+
+        input[type=radio] + label{
+          display: inline-block;
+          margin-right: 15px;          
+          background-image: none;
+          padding-left: 30px;
+        }
+
+        input[type=radio]:checked + label{
+          display: inline-block;
+          margin-right: 15px;
+          padding-left: 30px;
+          background-image: url(/assets/manager-check.png);
+          background-repeat: no-repeat;
+        }
+
+        label{
+          display: block;
+          font-weight: 400;
+        }
+        .image img{
+          float: left;
+          margin-right: 10px;
+          height: 80px;
+        }      
+        .message{
+          display: block !important;
+          font-size: 11px;        
+        }
+      }
+
+      h5{
+        font-size: 16px;
+      }
+    }
+
+    .pane-invite-info{
+      label{
+        font-size: 16px;
+        font-weight: 400;
+        height: 30px;
+      }
+
+      .invite-option{
+        input[type=radio]{
+          display: none;
+        }
+
+        input[type=radio] + label{
+          display: inline-block;
+          margin-right: 15px;          
+          background-image: none;
+          padding-left: 30px;
+        }
+
+        input[type=radio]:checked + label{
+          display: inline-block;
+          margin-right: 15px;
+          padding-left: 30px;
+          background-image: url(/assets/manager-check.png);
+          background-repeat: no-repeat;
+        }        
+      }
+    }
+
+    .parent-department{
+      text-align: left;
+
+      input[type=checkbox] + label{
+        display: block;
+        margin-right: 15px;          
+        background-image: none;
+        padding-left: 30px;
+        height: 26px;
+        vertical-align: bottom;
+        font-weight: 400;
+        margin: 5px 10px;
+        font-size: 18px;
+        text-decoration: underline;
+      }
+
+      input[type=checkbox]:checked + label{
+        display: block;
+        margin-right: 15px;
+        padding-left: 30px;
+        background-image: url(/assets/manager-check.png);
+        background-repeat: no-repeat;
+        height: 26px;
+        vertical-align: bottom;
+        font-weight: 400;
+        margin: 5px 10px;
+        font-size: 18px;
+        text-decoration: underline;
+      }    
+
+      .row{
+        margin: 0;
+      }
+    }
+
+    .fileUpload{
+      height: 105px;
+      margin-top: 0;
+    }
+
+    .fileupload-container{
+      height: 100%;
+    }
+
+    .upload-wrapper{
+      position: relative;
+      left: 110px;      
+    }
+
+    .parent-info{
+      margin-top: 20px;
+    }
+
+    .parent-department{
+      h3{
+        text-align: left;
+        text-decoration: underline;
+      }
+    }
+
+    .parent-button-box{
+      a.add-child{
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+        float: right;
+      }
+    }
+  }
+
+  h3.complete-title{
+    font-size: 42px;
+    font-weight: 800;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    
+  }
+
+  h5.compelet-message{
+    font-size: 24px;
+    color: #333;
+  }
+
+  .pager{
+    text-align: left;
+
+    .next>a, 
+    .next>span{
+      float: none;
+    }  
+  }
+
+  .parent-congratulation{
+    background-image: url(/assets/manager-complete.png);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 200px;
+    background-repeat: repeat-x;
+    background-position-x: center;
+    z-index: 0;
+  }
+
+  .sm-width-input{
+    width: 100px;
+  }
+
+  .ln-solid{
+    border-top: 1px solid #18223e;
+    color: #ffffff;
+    background-color: #ffffff;
+    height: 1px;
+    margin: 10px 0;    
+  }
+
+  .inline-items{
+    margin-top: 15px;
+    display: flex;
+
+    a, input{
+      margin-right: 10px;
+    }
+    a{
+      margin-top: 4px;
+    }
+  }
+
+  .inline-input-link{
+    display: inline-flex;
+    width: 60%;
+    margin-bottom: 0;
+    a{
+      margin-top: -2px;
+      margin-left: 5px;
+      padding-top: 0;      
+    }    
+  }
+
+  .department-list{
+    h5{
+      margin-bottom: 0px;
+    }
+  }
+
+  .step-banner{
+    .step-item{
+      height: 40px;
+      color: #fff;
+      text-align: center;
+
+      .step-label{
+        margin-top: 8px;
+        img{
+          margin-bottom: 3px;
+        }
+        span{
+          font-size: 16px;
+          vertical-align: top;
+          display:none;
+        }      
+      }      
+
+      &.active{
+        .step-label span{      
+          display: inline-block;
+        }
+      }
+
+      &.first-step{
+        background: #ff0a55;
+        border-top-left-radius: 20px 20px;
+        border-bottom-left-radius: 20px 20px;        
+      }    
+      &.second-step{
+        background: #ff0a55;
+        background-image: url("/assets/step-arrow-mng-1.png");
+        background-repeat: no-repeat;
+        background-position-x: left;
+        .step-label{
+          margin-left: 20px;
+        }
+      }
+      &.third-step{
+        background: #ff6e3d;
+        background-image: url("/assets/step-arrow-mng-1.png");
+        background-repeat: no-repeat;
+        background-position-x: left;
+        .step-label{
+          margin-left: 20px;
+        }
+      }    
+      &.fourth-step{
+        background: #ffa030;
+        border-top-right-radius: 20px 20px;
+        border-bottom-right-radius: 20px 20px;        
+        background-image: url("/assets/step-arrow-mng-2.png");
+        background-repeat: no-repeat;
+        background-position-x: left;
+        .step-label{
+          margin-left: 20px;
+        }
+      }    
+    }
+  }
+}

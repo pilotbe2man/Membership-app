@@ -1,0 +1,20 @@
+.panel
+  .panel-body
+    %h5
+      = t('survey.labels.groups')
+
+    - if current_user.affiliate.strategic?
+      .survey-group
+        .group-header.daycares
+          = image_tag 'manager-icon.png', class: 'img'
+          = t('survey.labels.daycares')
+        .group-members.daycares{style: 'display: block;'}
+          / %a{href: '#', class: 'get-daycare-result', 'data-subject_group': 'daycare'}= t('survey.labels.all')
+          - @daycares.each do |daycare|
+            %a{href: '#', class: '', 'data-id': daycare.id}= daycare.name
+      = form_tag results_partner_todos_path, method: :post, id: 'todo_result_form' do
+        - params[:target_daycare].each do |daycare_id|            
+          %input{type: 'hidden', name: 'target_daycare[]', value: daycare_id}
+        %input{type: 'hidden', name: 'start_date', value: params[:start_date]}
+        %input{type: 'hidden', name: 'end_date', value: params[:end_date]}
+        %input{type: 'hidden', id: 'todo_id', name: 'todo_id', value: ''}

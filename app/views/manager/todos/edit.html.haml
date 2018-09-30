@@ -1,0 +1,7 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, manager_todo_path(@todo)
+.todo-dash-container
+  .container
+    .row
+      .twelvecol
+        = render 'form_new'

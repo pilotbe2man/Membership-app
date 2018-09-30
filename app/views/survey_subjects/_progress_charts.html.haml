@@ -1,0 +1,14 @@
+.col-md-12
+  - if !trend.nil? && trend.has_available_individual_results?
+    - trend.individual_survey_result_over_time.each do |key, value|  
+      %h4=key
+      .progress
+        .progress-inner-trans
+          .progress-inner
+            .progress-inner-back
+              .progress-bar{:style => "width: #{103.0-((value.to_f)/100.0) * 103.0}%;"}
+                %span
+                  %p="#{value}%"
+  - else
+    .text-center{:style => "margin: 20px 0;"}
+      = t('survey.notifications.not_enough_data')

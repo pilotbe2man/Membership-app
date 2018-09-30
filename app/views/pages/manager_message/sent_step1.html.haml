@@ -1,0 +1,110 @@
+= content_for :title, t('messages.labels.message_list')
+- content_for :page_title, t('dashboard.menu_item.communication')
+.message-dash-container
+  .container
+    .row.content-main
+      .col-md-12
+        %h4.option-title= t('messages.labels.basic_filter') + ' :'    
+      .row{data:{step: 1, intro: t("guideline.manager.message_sent_menu.step1.content")}}
+        .col-md-4
+          .form-group
+            = label_tag :target_role, t('messages.labels.show_only_messages_to_filter')
+            .form-dc-select
+              = select_tag :target_role, options_for_select(options_for_message_recipients_select), class: 'form-control selectpicker', required: true, prompt: t('messages.labels.recipient'), class: 'form-control'
+        .col-md-4
+          .form-group#subject-filter
+            = label_tag :subject, t('messages.labels.subject')
+            .form-dc-select
+              = select_tag :subject_id, options_for_select([['Fifth Subject', 'Fifth Subject'], ['Test Subject', 'Test Subject']]), class: 'form-control selectpicker', prompt: t('messages.labels.choose_subject'), class: 'form-control'
+        .col-md-4
+          .form-group#sub-subject-filter
+            = label_tag :subject, t('messages.labels.subsubject')
+            .form-dc-select
+              = select_tag :subject_id, options_for_select([['Fifth SubSubject', 'Fifth SubSubject'], ['Test SubSubject', 'Test SubSubject']]), class: 'form-control selectpicker', prompt: t('messages.labels.choose_subject'), class: 'form-control'          
+      .row{data:{step: 2, intro: t("guideline.manager.message_sent_menu.step2.content")}}
+        .col-md-4
+          .form-group
+            = label_tag :start_date
+            = text_field_tag :start_date, '', class: 'datepicker form-control datetime-input', autocomplete: 'off'
+        .col-md-4
+          .form-group
+            = label_tag :end_date
+            = text_field_tag :end_date, '', class: 'datepicker form-control datetime-input', autocomplete: 'off'
+
+        .col-md-4.form-buttons.filter-buttons.centralize
+          = link_to t('messages.labels.apply_filters'), '#', class: 'btn btn-lightred', data:{step: 3, intro: t("guideline.manager.message_sent_menu.step3.content")}
+      .row
+        .col-md-12.filtered-contents
+          .filtered-item
+            .row.filtered-item-info
+              .col-md-4.col-sm-4.col-xs-4
+                %span Recipient : 
+                %span Worker
+              .col-md-4.col-sm-5.col-xs-5.filtered-item-date.centralize
+                25/11/2016 @ 08:48:14 PM
+
+              .col-md-4.col-sm-3.col-xs-3.text-right
+                %a.print-msg-btn{href: '#', data:{step: 4, intro: t("guideline.manager.message_sent_menu.step4.content")}} 
+                  %span= t('form_labels.print')
+            %div.filtered-item-content
+              .filtered-item-preview.message-content-stage{class: 'well well-sm'}
+                .fr-view
+                  %p Hello New Worker
+                  %p This is test message template.
+                  %p
+                    %br/
+                  %p Thanks,
+                .fr-extract.text-right
+                  %a.arrow-down{:href=>"#"}
+                    %i.fa.fa-chevron-down
+          .filtered-item
+            .row.filtered-item-info
+              .col-md-4.col-sm-4.col-xs-4
+                %span Recipient : 
+                %span Worker
+              .col-md-4.col-sm-5.col-xs-5.filtered-item-date.centralize
+                25/11/2016 @ 08:48:14 PM
+
+              .col-md-4.col-sm-3.col-xs-3.text-right
+                %a.print-msg-btn{href: '#'}
+                  %span= t('form_labels.print')
+            %div.filtered-item-content
+              .filtered-item-preview.message-content-stage{class: 'well well-sm'}
+                .fr-view
+                  %p Hello New Worker
+                  %p This is test message template.
+                  %p
+                    %br/
+                  %p Thanks,
+                .fr-extract.text-right
+                  %a.arrow-down{:href=>"#"}
+                    %i.fa.fa-chevron-down
+          .filtered-item
+            .row.filtered-item-info
+              .col-md-4.col-sm-4.col-xs-4
+                %span Recipient : 
+                %span Worker
+              .col-md-4.col-sm-5.col-xs-5.filtered-item-date.centralize
+                25/11/2016 @ 08:48:14 PM
+
+              .col-md-4.col-sm-3.col-xs-3.text-right
+                %a.print-msg-btn{href: '#'}
+                  %span= t('form_labels.print')
+            %div.filtered-item-content
+              .filtered-item-preview.message-content-stage{class: 'well well-sm'}
+                .fr-view
+                  %p Hello New Worker
+                  %p This is test message template.
+                  %p
+                    %br/
+                  %p Thanks,
+                .fr-extract.text-right
+                  %a.arrow-down{:href=>"#"}
+                    %i.fa.fa-chevron-down
+:javascript
+  jQuery(document).ready(function() {
+    healthChildcare.guideline.dashboarStep("#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.dashboarStep("#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });    
+  });

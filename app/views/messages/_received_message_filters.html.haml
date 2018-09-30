@@ -1,0 +1,21 @@
+.row
+  .col-md-4
+    .form-group
+      = hidden_field_tag :list_type, params['list_type']
+      = hidden_field_tag :user_role, current_user.role
+      = label_tag :target_role, t('messages.labels.show_only_messages_from_filter')
+      .form-dc-select
+        = select_tag :target_role, options_for_select(Message.allowed_senders_for_role(current_user.role).map{|role| [t('pages.nav_bar.'+role).humanize.pluralize, role]}, selected: params['target_role']), class: 'form-control', prompt: t('messages.labels.sender')
+  .col-md-4
+    .form-group
+      = label_tag :start_date
+      = text_field_tag :start_date, params['start_date'], class: 'datepicker form-control datetime-input', autocomplete: 'off'
+
+  .col-md-4
+    .form-group
+      = label_tag :end_date
+      = text_field_tag :end_date, params['end_date'], class: 'datepicker form-control datetime-input', autocomplete: 'off'
+
+.row
+  .col-md-4.col-md-offset-8.form-buttons.filter-buttons.received.centralize
+    = link_to t('messages.labels.apply_filters'), '#', class: 'btn bg-style-b', id: 'apply-message-filters'

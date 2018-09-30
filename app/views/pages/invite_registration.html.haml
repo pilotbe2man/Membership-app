@@ -1,0 +1,23 @@
+#legacy-welcome.legacy
+  .row.welcome
+    .col-xs-10.col-xs-offset-1.outer
+      .main-heading
+        Welcome
+      .tag-line
+        Securely access medical record and data with Healthjump
+
+      .wrapper
+        .col-sm-6.col-lg-4
+          = link_to new_user_registration_path(role: 'medical_professional') do
+            .block
+              .circle.medical-professional-border
+                = image_tag 'doctor.png'
+            %h5 Medical Professionals
+
+        .col-sm-6.col-lg-4
+          = link_to new_user_registration_path(role: 'partner') do
+            .block
+              .circle.partner-border
+                = image_tag 'partner.png'
+            %h5
+              Daycare Partner

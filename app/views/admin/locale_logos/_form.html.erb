@@ -1,0 +1,68 @@
+<%= form_for [:admin, @locale_logo], multipart: true  do |f| %>
+    <div class="threecol"></div>
+    <div class="ninecol last">
+        <%= render partial: 'shared/admin/errors', locals: { object: @locale_logo } %>
+    </div>
+
+    <div class="threecol">
+        <h3>Poster details</h3>
+    </div>
+
+    <div class="ninecol last">
+        <fieldset class="widget widget-content">
+            <div class="form-group">
+                <%= f.label :language %>
+                <%= f.select :language, options_for_select(pre_countries, :selected => f.object.language), {},{:class => 'form-control'} %>
+            </div>
+            <div class="form-group">
+                <%= f.label 'App Title' %>
+                <%= f.text_field :app_title, :class => 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :logo %>
+                <%= image_tag @locale_logo.logo unless @locale_logo.logo.nil? %>
+                <%= f.file_field :logo, :class => 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :type %>
+                <%= f.radio_button :logo_type, '1', (!@locale_logo.nil? && @locale_logo.logo_type == 1) ? {:checked => true} : {:checked => false}  %> Default
+            </div>
+            <div class="form-group">
+                <%= f.label :description %>
+                <%= f.text_area :description, (@locale_logo.nil?) ? {:class => 'form-control'} : {:class => 'form-control', :value => "#{@locale_logo.description}"} %>
+            </div>
+            <div class="form-group">
+                <%= f.label :address1 %>
+                <%= f.text_field :address1, :class => 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :address2 %>
+                <%= f.text_field :address2, :class => 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :email %>
+                <%= f.text_field :email, :class => 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :phone_number %>
+                <%= f.text_field :phone_number, :class => 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :title %>
+                <%= f.text_field :title, :class => 'form-control' %>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :copyright %>
+                <%= f.text_field :copyright, :class => 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label 'Upgrade notification message' %>
+                <%= f.text_area :upgrade_notifier, (@locale_logo.nil?) ? {:class => 'form-control'} : {:class => 'form-control', :value => "#{@locale_logo.upgrade_notifier}"} %>
+            </div>
+        </fieldset>
+        <div class="form-action">
+            <%= f.submit 'Submit', :class => 'btn btn-blue btn-large' %>
+        </div>
+    </div>
+<% end %>

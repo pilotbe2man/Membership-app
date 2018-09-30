@@ -1,0 +1,31 @@
+= content_for :title, t('messages.labels.new_notification')
+- content_for :page_title, t('dashboard.menu_item.communication')
+- content_for :breadcrumb, t('messages.breadcrumb.send')
+- step_size = 5
+- page_step = 5
+.message-dash-container
+  .container
+    .row
+      = render partial: '/shared/progress_bar', locals: {step_size: step_size, page_step: page_step}
+    .row.content-main
+      = form_for [:manager, @message] do |f|
+        = f.hidden_field :message_template_id, value: @message_template.id rescue nil
+        = f.hidden_field :title, value: @sub_subject.title
+        = hidden_field_tag 'message[target_roles][]', @message_template.target_role rescue nil
+        = hidden_field_tag 'target_department', params[:target_department]
+        .col-md-12
+          %h4.option-title= t('messages.labels.edit_and_send')
+        .col-md-12
+          = f.cktext_area :content, id: 'message_content', value: @message_template.content  rescue nil
+        .col-md-12.form-buttons.text-right.no-h-padding
+          .col-md-3.col-md-offset-6.col-sm-3.col-sm-offset-6.col-xs-6
+            %a{href: sub_subject_manager_messages_path(target_department: params[:target_department], target_role: params[:target_role], subject_id: params[:subject_id], sub_subject_id: params[:sub_subject_id]), class: 'btn btn-gray btn-wizard'}
+              =t('form_labels.back')
+          .col-md-3.col-sm-3.col-xs-6
+            = submit_tag t('form_labels.next'), class: 'btn bg-style-b btn-wizard'
+:javascript
+  jQuery(document).ready(function() {
+    //$('#message_content').froalaEditor({
+    //  heightMin: 250
+    //});
+  });

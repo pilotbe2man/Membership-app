@@ -1,0 +1,61 @@
+- content_for :page_title, t('dashboard.notifications.status_of_task')
+- content_for :breadcrumb, t('dashboard.notifications.status_of_task')
+
+.notification-box.border-style-1
+  .row#notify_todos.panel-content
+    %ul.row
+      - User.all_self_todos.where(id: current_user.id).each do |todo|
+        - todo_obj = Todo.find(todo.id)
+        - if !todo_obj.nil? && todo_obj.recurring_available_by_department(current_user.department_id)
+          - diff_time = get_remain_time(todo.id)
+          - if (todo_obj.single? && diff_time[2] != -1)
+            %li.col-md-3.col-sm-4.col-xs-6
+              - todo_path = (todo_obj.in_progress? current_user.department_id) ? '#' : todo_todo_completes_path(todo)
+              - todo_method = (todo_obj.in_progress? current_user.department_id) ? 'get' : 'post'
+              = link_to todo_path, method: todo_method, style: "color: #2f363d;text-decoration: none;" do
+                %h5=todo.title
+                .department-todo.border-style-b
+                  %span.todo-top.bg-style-b-g
+                    = (todo_obj.in_progress? current_user.department_id) ? t('todos.labels.in_progress') : t('todos.labels.start_todo')
+                  .todo-command
+                    .detail-box
+                      %ul#time-counter.time-counter
+                        %li.days
+                          %label=(diff_time[0] < 0) ? "-" : diff_time[0]
+                          %span Days
+                        %li.hours
+                          %label=(diff_time[0] < 0) ? "-" : diff_time[1]
+                          %span Hours
+                        %li.minutes
+                          %label=(diff_time[0] < 0) ? "-" : diff_time[2]
+                          %span Mins
+                      - percent = get_current_status(todo.id, current_user.department_id)
+                      .progress
+                        .value{style: "width: #{percent}%;"}
+          - if (todo_obj.recurring? && todo_obj.is_active == 1 && (todo_obj.is_startable?(current_user.department_id) || todo_obj.in_progress?(current_user.id)) )
+            %li.col-md-3.col-sm-4.col-xs-6
+              - todo_path = (todo_obj.in_progress? current_user.department_id) ? '#' : todo_todo_completes_path(todo)
+              - todo_method = (todo_obj.in_progress? current_user.department_id) ? 'get' : 'post'
+              = link_to todo_path, method: todo_method, style: "color: #2f363d;text-decoration: none;" do
+                %h5=todo.title
+                .department-todo.border-style-b
+                  %span.todo-top.bg-style-b-g
+                    - if todo_obj.in_progress? current_user.department_id
+                      = t('todos.labels.in_progress')
+                    - elsif todo_obj.is_startable? current_user.department_id
+                      = t('todos.labels.start_todo')
+                  .todo-command
+                    .detail-box
+                      %ul#time-counter.time-counter
+                        %li.days
+                          %label=diff_time[0]
+                          %span Days
+                        %li.hours
+                          %label=diff_time[1]
+                          %span Hours
+                        %li.minutes
+                          %label=diff_time[2]
+                          %span Mins
+                      - percent = get_current_status(todo.id, current_user.department_id)
+                      .progress
+                        .value{style: "width: #{percent}%;"}

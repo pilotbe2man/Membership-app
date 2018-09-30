@@ -1,0 +1,83 @@
+<% content_for :title, 'Manager Videos' %>
+<% content_for :breadcrumb, 'Manager Videos' %>
+
+<div class="twelvecol">
+  <div class="page-header">
+    <%= link_to new_admin_manager_video_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Add Video" do %>
+      <i class="icon-plus"></i>
+    <% end %>
+    <h2 class="widget widget-header">Videos</h2>
+  </div>
+    <div class="table-responsive" style="overflow: auto;">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Type</th>
+            <th>URL</th>
+            <th>Language</th>
+            <th></th>
+          </tr>
+          <form action="/admin/videos" method="get">
+          <tr>
+            <th>
+              <%= select_tag :category, options_for_select(['free', 'paid'], :selected=> (params[:category].nil?) ? '' : params[:category].downcase), {:include_blank => 'Select Category', class: 'form-control'}%>
+            </th>
+            <th></th>
+            <th></th>
+            <th>
+              <%= select_tag :language, options_for_select(pre_countries, :selected=> (params[:language].nil?) ? '' : params[:language].upcase), {:include_blank => 'Select Language', class: 'form-control'}%>
+            </th>
+            <th>
+              <button class="btn btn-blue btn-large">
+                Search
+              </button>
+            </th>
+          </tr>
+          </form>
+        </thead>
+        <tbody>
+          <% @videos.each do |video| %>
+            <tr>
+                <td>
+                    <%= video.category %>
+                </td>
+                <td>
+                    <%= video.video_type %>
+                </td>
+                <td>
+                    <%= video.url %>
+                </td>
+                <td>
+                    <%= video.language %>
+                </td>
+              <td>
+                <%= link_to new_admin_manager_video_path(video_id: video.id) do %>
+                    <i class="icon-plus"></i>
+                <% end %>
+                <%= link_to admin_manager_video_path(video) do %>
+                    <i class="icon-search"></i>
+                <% end %>
+                <%= link_to edit_admin_manager_video_path(video) do %>
+                  <i class="icon-pencil"></i>
+                <% end %>
+                <%= link_to [:admin, video], method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon-remove"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  <% if @videos.empty? %>
+    <div class="widget widget-content">
+      <div class="helper-notification">
+        <p>You don't have any videos yet.</p>
+        <i class="icon-copy"></i>
+      </div>
+    </div>
+  <% else %>
+
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,24 @@
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title= LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? " - Healthier Childcare Administration" : LocaleLogo.by_type_language(1, I18n.locale).first.app_title.html_safe
+    = stylesheet_link_tag  'dashboard', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'common', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag  'introjs', media: 'all', 'data-turbolinks-track' => true
+    %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic", :rel => "stylesheet", :type => "text/css"}
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'https://cdn.ckeditor.com/4.6.1/basic/ckeditor.js'
+
+    %script{src: "https://www.gstatic.com/charts/loader.js"}
+    = tag :meta, name: "stripe-key", content: Rails.application.secrets.stripe_public_key
+    = csrf_meta_tags
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+    %link{href: "/assets/lang/style_#{I18n.locale.downcase}.css", rel: 'stylesheet', type: 'text/css'}
+    :javascript
+      window._trans = #{yield_js_translations.to_json.html_safe}
+  %body
+    = render partial: 'shared/headers/dashboard_v2'
+    #dashboard.main
+      = render partial: 'shared/sections/breadcrumbs', locals: { breadcrumbs: create_manager_breadcrumbs(request.env['PATH_INFO']) }
+      = yield
+    = render partial: 'shared/footer_dashboard'

@@ -1,0 +1,66 @@
+.row
+  %h5= t('illnesses.labels.illness_details')
+.row
+  .col-md-6.col-sm-6
+    %h3= t('protocols.child_illness_record.illness_code')
+    #search-illness-name{'data-illness_names': illness_list.to_json}
+      = text_field_tag 'search-illness-name', '', placeholder: t('illnesses.labels.search'), class: 'form-control typeahead'
+  .col-md-6.col-sm-6
+    .radio-box-group
+      - Illness.all.where(language: I18n.locale).each do |illness|
+        .radio-box
+          %input{:type=>"radio", :name => "record[illness_code]", :id => "chk_illness_#{illness.code}", :style => "display: none;", value: illness.code,  'data-illness_guide': illness.worker_guide.url, :required => "true"}
+          %label{:for => "chk_illness_#{illness.code}"}
+            = illness.name
+/ .row
+/   .col-md-12.text-center{style: 'margin-bottom: 10px;'}
+/     %button#prev.btn.btn-gray{style: 'color: black; margin: 0 10px;'}= t('illness_guides.labels.prev')
+/     %span#page_num 
+/     %span /
+/     %span#page_count      
+/     %button#next.btn.btn-gray{style: 'color: black; margin: 0 10px;'}= t('illness_guides.labels.next')
+/   .col-md-12        
+/     #pdf-wrapper
+/       %canvas#pdf_canvas
+
+/ .row
+/   .col-md-12
+/     #symptoms
+
+.row
+  .col-md-6.col-sm-6
+    .form-group.patient-count
+      %label.step-instruction{for: 'workers-count'}= t('protocols.department_illness_record.sick_workers_count')
+      %input{type: 'number', class: 'form-control', name: 'record[sick_workers_count]', min: '0'}
+  .col-md-6.col-sm-6
+    .form-group.patient-count
+      %label.step-instruction{for: 'children-count'}= t('protocols.department_illness_record.sick_children_count')
+      %input{type:'number', class: 'form-control', name: 'record[sick_children_count]', min: '0'}
+.row
+  .col-md-12
+    .form-group
+      %label.step-instruction= t('protocols.department_illness_record.start_date')
+      = text_field_tag 'record[start_date]', '', class: 'datepicker form-control datetime-input', autocomplete: 'off'
+
+    / .form-group
+    /   %label.step-instruction= t('protocols.department_illness_record.end_date')
+    /   = text_field_tag 'record[end_date]', '', class: 'datepicker form-control datetime-input', autocomplete: 'off'
+
+    .form-group
+      %label.step-instruction= t('protocols.department_illness_record.possible_trigger')
+      = text_area 'record', 'possible_trigger', class: 'form-control'
+
+    .form-group
+      %label.step-instruction= t('protocols.department_illness_record.extra_details')
+      = text_area 'record', 'extra_details', class: 'form-control'
+:javascript
+
+  jQuery(document).ready(function() {   
+
+    document.addEventListener('contextmenu', event => event.preventDefault());  
+
+    $('.datepicker').datetimepicker({
+      format: 'd/m/Y',
+      timepicker: false
+    });
+  });

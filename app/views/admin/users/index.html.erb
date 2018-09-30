@@ -1,0 +1,114 @@
+<% content_for :title, 'Users' %>
+<% content_for :breadcrumb, 'Users' %>
+
+<div class="twelvecol">
+  <div class="page-header">
+    <h2 class="widget widget-header">Users</h2>
+  </div>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Daycare</th>
+            <th>Department</th>
+            <th>Role</th>
+            <th>Created At</th>
+            <th></th>
+          </tr>
+          <form action="/admin/users" method="get">
+          <tr>
+            <th>
+              <input type="text" name="name" class="form-control" value="<%= (params[:name].nil?) ? '' : params[:name]%>">
+            </th>
+            <th>
+              <input type="text" name="email" class="form-control" value="<%= (params[:email].nil?) ? '' : params[:email]%>">
+            </th>
+            <th>
+              <input type="text" name="daycare_name" class="form-control" value="<%= (params[:daycare_name].nil?) ? '' : params[:daycare_name]%>">
+            </th>
+            <th>
+              <input type="text" name="department_name" class="form-control" value="<%= (params[:department_name].nil?) ? '' : params[:department_name]%>">
+            </th>
+            <th>
+              <%= select_tag :role, options_for_select([['Parentee', 0], ['Worker', 1], ['Manager', 2], ['Partner', 4]], :selected=>params[:role]), {:include_blank => 'Select Role', class: 'form-control'}%>
+            </th>
+            <th>
+              <button class="btn btn-blue btn-large">
+                Search
+              </button>
+            </th>
+            <th></th>
+          </tr>
+          </form>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td>
+                <%= user.name %>
+              </td>
+              <td>
+                <%= user.email %>
+              </td>
+              <td>
+                <a href="/admin/daycares?id=<%= user.daycare.id unless user.daycare.nil? %>">
+                  <%= user.daycare.name unless user.daycare.nil? %>
+                </a>
+              </td>
+              <td>
+                <a href="/admin/departments?id=<%= user.department.id unless user.department.nil? %>">
+                  <%= user.department.name unless user.department.nil? %>
+                </a>
+              </td>
+              <td>
+                <%= user.role %>
+              </td>
+              <td class="align-left">
+                <%= user.created_at.strftime('%d/%m/%Y at %I:%M%p') %>
+              </td>
+              <td class="align-left">
+                <%= link_to [:admin, user], method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon-remove"></i>
+                <% end %>
+                <a href='#' class="verify-link" data-userid="<%=user.id%>">Send Verify</a>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% if @users.empty? %>
+      <div class="widget widget-content">
+        <div class="helper-notification">
+          <p>You don't have any users yet.</p>
+          <i class="icon-users"></i>
+        </div>
+      </div>
+    <% else %>      
+    </div>
+  <% end %>
+</div>  
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+    jQuery('.verify-link').click(function(){
+      jQuery.ajax({
+          url: '/admin/send_verify',
+          type: 'POST',
+          dataType: 'json',
+          data: {
+            id: jQuery(this).data('userid')
+          },
+          success: function (data) {
+            if(data.Result == "OK")
+              alert('Verification Email sent successfully.');
+            else
+              alert('This user is already verified.');
+          },
+          error: function () {
+            alert('Sending Verification Email is failed.');
+          }
+      });      
+    });
+  });  
+</script>

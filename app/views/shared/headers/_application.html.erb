@@ -1,0 +1,38 @@
+<header class="<%= 'loggedin' if user_signed_in? %>">
+    <%= link_to (user_signed_in? ? welcome_path : root_path) do %>
+        <%= image_tag LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? 'logo.png' : LocaleLogo.by_type_language(1, I18n.locale).first.logo.url, id: 'header-logo' %>
+    <% end %>
+    <% if user_signed_in? %>
+        <% unless current_user.active_subscribed? || !current_user.manager? %>
+            <%= render partial: 'shared/countdown' %>
+        <% end %>
+    <% end %>
+    </div>
+    <div id="menu">
+        <% if user_signed_in? %>
+            <% unless current_user.active_subscribed? || !current_user.manager? %>
+                <%= link_to "Upgrade", user_plan_path ,id: 'upgrade_btn' %>
+            <%else%>    
+                <%= link_to 'Dashboard', dashboard_path %>
+            <% end %>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+                
+        <% else %>
+            <%= link_to 'Login', new_user_session_path %>
+            <%= link_to "Register", getting_started_path %>
+        <% end %>
+    </div>
+    <% if user_signed_in? %>
+        <div id="user">
+            <%= image_tag 'logo_menu.png' %>
+            <%= current_user.name %>
+        </div>
+    <% end %>
+    <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Our Mission", mission_path %></li>
+        <li><%= link_to "Our Standard", standard_path %></li>
+        <li><%= link_to "Path to Accreditation", path_path %></li>
+        <li><%= link_to "About Us", about_path %></li>
+    </ul>
+</header>

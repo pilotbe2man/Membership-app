@@ -1,0 +1,6 @@
+- if params[:record_type] == 'child'
+  = render partial: 'illnesses/child/health_record_preview', collection: @records, as: :health_record
+- elsif params[:record_type] == 'department'
+  = render partial: 'illnesses/department/health_record_preview', collection: @records, as: :health_record
+
+= paginate @records

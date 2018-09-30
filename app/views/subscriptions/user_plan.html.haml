@@ -1,0 +1,126 @@
+.container.userplan-container
+    .row
+        .col-md-offset-2.col-md-8.col-sm-12
+            .row.membership-header
+                .col-md-12.text-center
+                    %h4 
+                        = t('user_plan.header.title').html_safe                    
+                    %p 
+                        = t('user_plan.header.content').html_safe
+            .row
+                #plan_phase1.col-md-4.col-sm-4
+                    .row.plan-header.left-top-radius
+                        .plan-bg
+                            = image_tag 'plan-header-green-1.png'
+                        .plan-content.text-center
+                            %h6= t('user_plan.phase1.label').html_safe
+                            %p.plan-type= t('user_plan.phase1.type').html_safe
+                            %h5
+                                %small.original-price-1
+                                %span.discount-price-1 &nbsp;
+                    .row.plan-body.text-center
+                        %ul.user-feature-box
+                            - @phase_one_items.each do |item|
+                                %li
+                                    .icon
+                                        = image_tag item.image
+                                    .feature-text.text-left
+                                        %span= t(item.label_key).html_safe
+                                        %p{style: 'display: none; word-break: break-word;'}= t('user_plan.benefit.' + item.feature)
+                        %input.phase-price-1{type: 'hidden', value: @plan_one.price}
+                        - if !current_user.deposit_required && current_user.paid_plan_type < 2
+                            / %input.form-control.input-round.discount-code{style: 'margin-bottom: 20px;', :placeholder => t('pages.journey.label.discount_code'), 'data-plan' => 1}
+                            / %button.btn.btn-round.btn-green
+                            /     %a.apply-link-1{'href': '/set_userplan?plan=2'}
+                            /         = t('user_plan.button.apply').html_safe
+                #plan_phase2.col-md-4.col-sm-4
+                    .row.plan-header
+                        .plan-bg
+                            = image_tag 'plan-header-green-2.png'
+                        .plan-content.text-center
+                            %h6= t('user_plan.phase2.label').html_safe
+                            %p.plan-type= t('user_plan.phase2.type').html_safe
+                            %h5
+                                %small.original-price-2
+                                %span.discount-price-2
+                                    = t('user_plan.phase2.rate', rate: @plan_two.price).html_safe unless @plan_two.nil?
+                    .row.plan-body.text-center
+                        %ul.user-feature-box
+                            - @phase_two_items.each do |item|
+                                %li
+                                    .icon
+                                        = image_tag item.image
+                                    .feature-text.text-left
+                                        %span= t(item.label_key).html_safe
+                                        %p{style: 'display: none; word-break: break-word;'}= t('user_plan.benefit.' + item.feature)
+                        %input.phase-price-2{type: 'hidden', value: @plan_two.price}
+                        - if !current_user.deposit_required && current_user.paid_plan_type < 3
+                            - if current_user.is_trial_member?
+                                %input.form-control.input-round.discount-code{style: 'margin-bottom: 20px;', :placeholder => t('pages.journey.label.discount_code'), 'data-plan' => 2}
+                            %button.btn.btn-round.btn-green
+                                %a.apply-link-2{'href': '/set_userplan?plan=3'}
+                                    = t('user_plan.button.apply').html_safe
+                #plan_phase3.col-md-4.col-sm-4
+                    .row.plan-header.right-top-radius
+                        .plan-bg
+                            = image_tag 'plan-header-green-2.png'
+                        .plan-content.text-center
+                            %h6= t('user_plan.phase3.label').html_safe
+                            %p.plan-type= t('user_plan.phase3.type').html_safe
+                            %h5
+                                %small.original-price-3
+                                %span.discount-price-3
+                                    = t('user_plan.phase3.rate', rate: @plan_three.price).html_safe  unless @plan_three.nil?
+                    .row.plan-body.text-center
+                        %ul.user-feature-box
+                            - @phase_three_items.each do |item|
+                                %li
+                                    .icon
+                                        = image_tag item.image
+                                    .feature-text.text-left
+                                        %span= t(item.label_key).html_safe
+                                        %p{style: 'display: none; word-break: break-word;'}= t('user_plan.benefit.' + item.feature)
+                        %input.phase-price-3{type: 'hidden', value: @plan_three.price}
+                        - if !current_user.deposit_required && current_user.paid_plan_type < 4
+                            - if current_user.is_trial_member?
+                                %input.form-control.input-round.discount-code{style: 'margin-bottom: 20px;', :placeholder => t('pages.journey.label.discount_code'), 'data-plan' => 3}
+                            %button.btn.btn-round.btn-green
+                                %a.apply-link-3{'href': '/set_userplan?plan=4'}
+                                    = t('user_plan.button.apply').html_safe
+:javascript
+    jQuery(document).ready(function() {
+        $('.user-feature-box li').hover(function(){ 
+            $('.user-feature-box li p').hide(); 
+            $(this).find('p').show(); 
+        }, function(){ 
+            $('.user-feature-box li p').hide(); 
+        }); 
+
+        $('.discount-code').change(function(){
+          var plan_type = $(this).data('plan');
+          var real_type = plan_type + 1;
+
+          $.ajax({
+              url: '/get_discount_code',
+              type:'POST',
+              data: {code: $(this).val()},
+              dataType: 'json',
+              success: function(response){
+                if(response[0] != undefined){
+                    var rate = response[0].value;
+                    var discout_code = response[0].id;
+                    var price = $('.phase-price-' + plan_type).val();
+                    var discount_price = price * (100 - rate) / 100;
+                    $('.original-price-' + plan_type).html(price);
+                    $('.discount-price-' + plan_type + ' span').html(discount_price);                    
+                    $('a.apply-link-' + plan_type).attr('href', '/set_userplan?plan=' + real_type + '&discount=' + discout_code);
+                } else {
+                    var price = $('.phase-price-' + plan_type).val();
+                    $('.original-price-' + plan_type).html('');
+                    $('.discount-price-' + plan_type + ' span').html(price);
+                    $('a.apply-link-' + plan_type).attr('href', '/set_userplan?plan=' + real_type + '&discount=0');
+                }
+              }
+            });                  
+        });
+    });

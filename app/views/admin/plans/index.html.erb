@@ -1,0 +1,86 @@
+<% content_for :title, 'Plans' %>
+<% content_for :breadcrumb, 'Plans' %>
+
+<div class="twelvecol">
+  <div class="page-header">
+    <%= link_to new_admin_plan_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Add Plan" do %>
+      <i class="icon-plus"></i>
+    <% end %>
+    <h2 class="widget widget-header">Plans</h2>
+  </div>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Language</th>
+            <th>Currency</th>
+            <th></th>
+          </tr>
+          <form action="/admin/plans" method="get">
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+              <%= select_tag :language, options_for_select(pre_countries, :selected=> (params[:language].nil?) ? '' : params[:language].upcase), {:include_blank => 'Select Language', class: 'form-control'}%>
+            </th>
+            <th>
+              <%= currency_select :plan, :currency, {}, {:include_blank => 'Select Language', class: 'form-control'} %>
+            </th>
+            <th>
+              <button class="btn btn-blue btn-large">
+                Search
+              </button>
+            </th>
+          </tr>
+          </form>
+        </thead>
+        <tbody>
+          <% @plans.each do |plan| %>
+            <tr>
+              <td>
+                <%= ['Deposit', 'Daily Rate', 'Free', 'Phase 1', 'Phase 2'][plan.plan_type]  %>
+              </td>
+              <td>
+                <%= plan.name %>
+              </td>
+              <td>
+                <%= plan.price %>
+              </td>
+              <td>
+                <%= plan.language %>
+              </td>
+              <td>
+                <%= plan.currency %>
+              </td>
+              <td>
+                <%= link_to edit_admin_plan_path(plan) do %>
+                  <i class="icon-pencil"></i>
+                <% end %>
+                <%= link_to [:admin, plan], method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="icon-remove"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  <% if @plans.empty? %>
+    <div class="widget widget-content">
+      <div class="helper-notification">
+        <p>You don't have any plans yet.</p>
+        <i class="fa fa-th-large"></i>
+      </div>
+    </div>
+  <% else %>
+    </div>
+  <% end %>
+</div>
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+    $('#plan_currency').addClass('form-control');
+  }); 
+</script>

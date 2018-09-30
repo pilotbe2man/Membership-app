@@ -1,0 +1,51 @@
+.row.text-center.step-banner
+  = image_tag LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? 'logo.png' : LocaleLogo.by_type_language(1, I18n.locale).first.logo.url, :class => 'logo', style: 'width: 130px;'
+  .row
+    %span.panel-title=t('pages.password.forgot_label')
+.row.pane-container.text-center
+  .row.step-banner
+    .col-sm-4.col-xs-4.step-item.first-step{ :class => "item-#{params[:role]}"}    
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-check-prt.png'
+    .col-sm-4.col-xs-4.step-item.second-step{ :class => "item-#{params[:role]}"}    
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-check-prt.png'    
+    .col-sm-4.col-xs-4.step-item.fourth-step.active{ :class => "item-#{params[:role]}"}  
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        %span=t('register.labels.user_info')
+    
+  .row
+    = devise_error_messages!
+  .parent-list-container
+    .parent-item
+      .row.parent-info.text-left
+        = form_for(resource, as: resource_name, url: password_url) do |f|
+          - if params[:role] == 'parentee'
+            -login_label = t('device.sessions.login_parent')
+          -elsif params[:role] == 'worker'  
+            -login_label = t('device.sessions.login_worker')
+          -else
+            -login_label = t('device.sessions.login')    
+          .col-sm-8
+            .row.parent-info
+              =hidden_field_tag 'new_email', 'no'
+              .row  
+                = f.text_field :name, :class => 'form-control input-round', :placeholder => login_label, :required =>"true"
+              .row
+                = f.email_field :email, autofocus: true, :class => 'form-control input-round', placeholder: t('pages.password.forget_email'), style: "#{'display:none'}" 
+            - unless params[:role] == 'worker'
+              .row.parent-department  
+                %h4=t('register.labels.select_department')
+                - @departments.each do |department|
+                  .row
+                    = f.radio_button :department_id, "#{department.id}", :style => "display: none;", :required =>"true"
+                    = f.label :"department_id_#{department.id}", department.name
+
+            - unless params[:daycare_id].blank?
+              = f.fields_for :user_daycare, UserDaycare.new do |user_daycare|
+                = user_daycare.hidden_field :daycare_id, value: params[:daycare_id]
+            = f.hidden_field :department_id, value: params[:department_id]  if params[:department_id].present?
+            = f.hidden_field :role, value: params[:role]  if params[:role].present?        

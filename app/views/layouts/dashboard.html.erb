@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    <%= LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? " - Healthier Childcare Administration" : LocaleLogo.by_type_language(1, I18n.locale).first.app_title.html_safe %>
+  </title>
+  <%= stylesheet_link_tag  'dashboard', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag  'introjs', media: 'all', 'data-turbolinks-track' => true %>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic" rel="stylesheet" type="text/css">
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'https://cdn.ckeditor.com/4.6.1/basic/ckeditor.js' %>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <%= tag :meta, name: "stripe-key", content: Rails.application.secrets.stripe_public_key %>
+  <%= csrf_meta_tags %>
+  <link href="/assets/lang/style_<%= I18n.locale.downcase %>.css" rel="stylesheet" type="text/css">
+  <%= stylesheet_link_tag "common" %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="<%= user_signed_in? ? current_user.role : (yield :color_code) %>">
+    <%= render partial: 'shared/headers/dashboard' if %(todos todo_completes).include?(controller.controller_name) %>
+    <div class="main" id="dashboard">
+      <%= render partial: 'shared/sections/breadcrumbs', locals: { breadcrumbs: create_manager_breadcrumbs(request.env['PATH_INFO']) } %>
+      <%= yield %>
+    </div>
+    <%if %(todos todo_completes).include?(controller.controller_name)%>
+      <%= render partial: 'shared/footer_no_logo' %>
+    <%else%>
+      <%= render partial: 'shared/footer_dashboard' %>
+    <%end%>
+</body>
+</html>

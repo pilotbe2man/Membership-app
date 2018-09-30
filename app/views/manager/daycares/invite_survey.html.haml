@@ -1,0 +1,126 @@
+.reg-manager-container.page-boxed
+  .page-header
+  .container
+    .form-content           
+      #rootwizard
+        %ul{:style=> "visibility: hidden; height: 0; position:absolute;"}
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab1"} First
+        = form_tag send_invite_survey_manager_daycares_path, method: :post, multipart: true do
+          .tab-content
+            #tab1.tab-pane
+              .row.text-center.step-banner
+                = image_tag 'manager-md.png'
+                %h4=t('manager.invite.title')
+              .row.pane-container.text-center
+                .row.step-banner
+                  .col-sm-3.col-xs-3.step-item.first-step
+                    .step-label
+                      = image_tag 'step-check-mng.png'
+                  .col-sm-3.col-xs-3.step-item.second-step
+                    .step-label
+                      = image_tag 'step-check-mng.png'
+                  .col-sm-3.col-xs-3.step-item.third-step
+                    .step-label
+                      = image_tag 'step-check-mng.png'
+                  .col-sm-3.col-xs-3.step-item.fourth-step.active    
+                    .step-label
+                      = image_tag 'manager-sm.png'
+                      %span=t('manager.invite.invitation')
+                .row.pane-invite-info
+                  .col-sm-12.text-left.email-list
+                    .form-group
+                      %label{:for => :title }=t('manager.invite.recipient')
+                      &nbsp;&nbsp;&nbsp;
+                      =link_to t('manager.invite.template'), @email_list_template.email_list_template.url.split('?')[0] unless @email_list_template.nil?
+                      = file_field_tag :recipient, :class => 'form-control'
+                      %br
+                      %span#recipient_list
+                    .form-group
+                      .text-left.department-list
+                        = render partial: 'address_fields'
+                      .text-left
+                        %a.btn.btn-green.btn-normal.btn-round.item-manager{href: '#', 'onclick' => 'add_fields()'}
+                          =t('register.labels.add_email')                      
+                    .form-group
+                      %label{:for => :title }=t('manager.invite.subject.label')
+                      = text_field_tag :title, '', placeholder: t('manager.invite.subject.placeholder'), class: 'form-control input-round', required: true
+                    .form-group
+                      %label{:for => 'message_content' }=t('manager.invite.message.label') 
+                      = cktext_area :content, '', name: 'content', value: (@message_template.nil?) ? '' : @message_template.content, cols: 40, id: 'message_content', placeholder: t('manager.invite.message.placeholder')
+            .col-sm-12
+              %ul.pager.wizard{:style => "text-align: center;"}
+                %li.next
+                  %button.btn.btn-round.item-manager{:type => "submit"} 
+                    =t('manager.invite.send')
+:javascript
+  jQuery(document).ready(function() {    
+    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'}); 
+    $('.next button').click(function(){
+        $('form').submit();
+    });
+
+    $('#recipient').change(function(evt) {
+      var file = $(this).prop('files')[0];
+      if (file) {
+          // create reader
+          var reader = new FileReader();
+          reader.readAsBinaryString(file);
+          reader.onload = function(e) {
+              // browser completed reading file - display it
+              var workbook = XLSX.read(e.target.result, {type: 'binary'});
+
+              workbook.SheetNames.forEach(function (sheetName) {
+                // Get headers.
+                var headers = [];
+                var sheet = workbook.Sheets[sheetName];
+                var range = XLSX.utils.decode_range(sheet['!ref']);
+                var C, R = range.s.r;
+                /* start in the first row */
+                /* walk every column in the range */
+                for (C = range.s.c; C <= range.e.c; ++C) {
+                    var cell = sheet[XLSX.utils.encode_cell({c: C, r: R})];
+                    /* find the cell in the first row */
+
+                    var hdr = "UNKNOWN " + C; // <-- replace with your desired default
+                    if (cell && cell.t) {
+                        hdr = XLSX.utils.format_cell(cell);
+                    }
+                    headers.push(hdr);
+                }
+                // For each sheets, convert to json.
+                var roa = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
+                if (roa.length > 0) {
+                    roa.forEach(function (row) {
+                        // Set empty cell to ''.
+                        headers.forEach(function (hd) {
+                            if (row[hd] == undefined) {
+                                row[hd] = '';
+                            }
+                        });
+                    });
+                }
+                for (var i = 0, line; line = roa[i]; i++)
+                  add_fields(line[headers[0]]);
+              });
+          };
+      }
+    });
+  });
+
+  function add_fields(value) {
+    var item_html = $('.address_elem').html();
+    if (value)
+      item_html = item_html.replace('value=""', 'value="' + value + '"');
+    $('.department-list').append(item_html);  
+  }
+
+  function remove_fields(link) {
+    if ($(link).hasClass('subtask-link')) {
+      $(link).parent('.subtask').remove();
+    } else {
+      if($('.inline-input-link').length > 1){
+        $(link).parent().remove();      
+      }
+    }
+  }

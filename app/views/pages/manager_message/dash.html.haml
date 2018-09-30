@@ -1,0 +1,246 @@
+= content_for :title, t('messages.message')
+- content_for :page_title, t('dashboard.menu_item.communication')
+.message-dash-container
+  .container
+    .row
+      .col-md-12
+        %h3.option-title= t('messages.labels.option_title')
+    .row.content-main
+      #link_send_notify.col-md-6.col-sm-6.col-xs-6.menu-item
+        = link_to '#', title: t('messages.tooltip.send_notifications') do
+          .link-content{id: 'item_send_notify'}
+            .menu-img.send-notify
+            %span= t('messages.labels.send_notifications')
+      #link_sent_notify.col-md-6.col-sm-6.col-xs-6.menu-item
+        = link_to '#', title: t('messages.tooltip.sent_notifications')do
+          .link-content{id: 'item_sent_notify'}
+            .menu-img.sent-notify
+            %span= t('messages.labels.sent_notifications')
+      #link_view_notify.col-md-6.col-sm-6.col-xs-6.menu-item
+        = link_to '#', title: t('messages.tooltip.received_notifications')do
+          .link-content{id: 'item_received_notify'}
+            .menu-img.received-notify
+            %span= t('messages.labels.received_notifications')
+/ Modal
+#dash_step_1
+  .modal-dialog
+    / Modal content
+    .modal-content
+      .modal-header
+        %button.close.plainmodal-close{"data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title= t('guideline.manager.dashboard.messaging.instruction.title').html_safe
+      .modal-body          
+        = t('guideline.manager.dashboard.messaging.instruction.content').html_safe
+        .radio-box-group
+          .radio-box
+            %input{:type=>"radio", :name => "dash_step", :id => "radio_dash_step_2", :style => "display: none;", value: '2', checked: true}
+            %label{:for => "radio_dash_step_2"}
+              = t('messages.labels.send_notifications')
+          .radio-box
+            %input{:type=>"radio", :name => "dash_step", :id => "radio_dash_step_3", :style => "display: none;", value: '3'}
+            %label{:for => "radio_dash_step_3"}
+              = t('messages.labels.sent_notifications')
+          .radio-box
+            %input{:type=>"radio", :name => "dash_step", :id => "radio_dash_step_4", :style => "display: none;", value: '4'}
+            %label{:for => "radio_dash_step_4"}
+              = t('messages.labels.received_notifications')
+      .modal-footer
+        %button.btn.btn-lightred.link-dash-step{"data-dismiss" => "modal", :type => "button", 'data-step' => '1'}=t('form_labels.next')
+#dash_step_2
+  .modal-dialog
+    / Modal content
+    .modal-content
+      .modal-header
+        %button.close.plainmodal-close{"data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title= t('guideline.manager.dashboard.messaging.send_message.title').html_safe
+        %a.link_home
+          %i.fa.fa-icon.fa-home
+      .modal-body          
+        %p= t('guideline.manager.dashboard.messaging.send_message.content').html_safe
+        %a#link_send_message= t('guideline.manager.dashboard.messaging.send_message.link_text').html_safe          
+      .modal-footer
+        %button.btn.btn-lightred.link-dash-step{"data-dismiss" => "modal", :type => "button", 'data-step' => '2'}=t('form_labels.next')
+#dash_step_3
+  .modal-dialog
+    / Modal content
+    .modal-content
+      .modal-header
+        %button.close.plainmodal-close{"data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title= t('guideline.manager.dashboard.messaging.sent_message.title').html_safe
+        %a.link_home
+          %i.fa.fa-icon.fa-home
+      .modal-body          
+        %p= t('guideline.manager.dashboard.messaging.sent_message.content').html_safe
+        %a#link_sent_message= t('guideline.manager.dashboard.messaging.sent_message.link_text').html_safe          
+      .modal-footer
+        %button.btn.btn-lightred.link-dash-step{"data-dismiss" => "modal", :type => "button", 'data-step' => '3'}=t('form_labels.next')
+#dash_step_4
+  .modal-dialog
+    / Modal content
+    .modal-content
+      .modal-header
+        %button.close.plainmodal-close{"data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title= t('guideline.manager.dashboard.messaging.view_message.title').html_safe
+        %a.link_home
+          %i.fa.fa-icon.fa-home
+      .modal-body          
+        %p= t('guideline.manager.dashboard.messaging.view_message.content').html_safe
+        %a#link_view_message= t('guideline.manager.dashboard.messaging.view_message.link_text').html_safe          
+      .modal-footer
+        %button.btn.btn-lightred.link-dash-step{"data-dismiss" => "modal", :type => "button", 'data-step' => '4'}=t('form_labels.next')
+:javascript
+  jQuery(document).ready(function() {
+    var effect = {
+        open: function(duration, complete) {
+          this.css({
+            display:          'block',
+            opacity:          0,
+            top:              -50 - this.outerHeight(),
+            marginTop:        0
+          })
+          .animate({opacity: 1, top: 100}, duration, complete);
+        },
+        close: function(duration, complete) {
+          this.animate({
+            opacity:          0,
+            top:              -50 - this.outerHeight()
+          }, duration, function() {
+            $(this).css({display: 'none'});
+            complete();
+          });
+        }
+      };
+
+    modalStep1 = $('#dash_step_1').plainModal({effect: effect, duration: 500});
+    modalStep2 = $('#dash_step_2').plainModal({effect: effect, duration: 500});
+    modalStep3 = $('#dash_step_3').plainModal({effect: effect, duration: 500});
+    modalStep4 = $('#dash_step_4').plainModal({effect: effect, duration: 500});
+
+    dash_wizard();
+
+    function dash_wizard(){
+      modalStep1 = $('#dash_step_1').plainModal('open', {force: true});
+    }
+
+    $('#link_dashboard_guide').on('click', function(){
+      dash_wizard();
+    });       
+
+    $('.link_home').on('click', function(){
+      dash_wizard();
+    });       
+
+    $('.link-dash-step').click(function(e){
+      var step = $('input[name=dash_step]:checked').val();
+      var cur_step = $(this).data('step');
+      var modal;
+      switch(cur_step){
+      case 1:
+        modal = eval('modalStep' + step);
+        modal.plainModal('open', {force: true});
+        break;
+      case 2:
+        modal = eval('modalStep' + cur_step);
+        modal.plainModal('close', {force: true});
+        gotoSendMessage();
+        break;
+      case 3:
+        modal = eval('modalStep' + cur_step);
+        modal.plainModal('close', {force: true});
+        gotoSentMessage();
+        break;
+      case 4:
+        modal = eval('modalStep' + cur_step);
+        modal.plainModal('close', {force: true});
+        gotoViewMessage();
+        break;
+      }      
+      e.preventDefault();
+    });
+
+    $('#link_send_message').click(function(e){
+      gotoSendMessage();      
+      e.preventDefault();
+    });
+
+    $('#link_send_notify').click(function(e){
+      gotoSendMessage();      
+      e.preventDefault();
+    });
+
+    $('#link_sent_message').click(function(e){
+      gotoSentMessage();      
+      e.preventDefault();
+    });
+
+    $('#link_sent_notify').click(function(e){
+      gotoSentMessage();      
+      e.preventDefault();
+    });
+
+    $('#link_view_message').click(function(e){
+      gotoViewMessage();      
+      e.preventDefault();
+    });
+
+    $('#link_view_notify').click(function(e){
+      gotoViewMessage();      
+      e.preventDefault();
+    });
+
+
+    function gotoSendMessage(){
+      var intro = introJs();
+      intro.setOptions({
+        steps: [
+          {
+            element: '#link_send_notify',
+            intro: "#{t('guideline.manager.dashboard.messaging.send_message.step_content')}"
+          }
+        ],
+        'doneLabel': "#{t('form_labels.next')}",
+        'tooltipPosition': 'auto',
+        'positionPrecedence': ['left', 'right', 'bottom', 'top']
+      });
+      intro.start().oncomplete(function() {
+          window.location.href = '/guide_page/manager_message/send_step1?multipage=true';
+        });                  
+    }
+
+    function gotoSentMessage(){
+      var intro = introJs();
+      intro.setOptions({
+        steps: [
+          {
+            element: '#link_sent_notify',
+            intro: "#{t('guideline.manager.dashboard.messaging.sent_message.step_content')}"
+          }
+        ],
+        'doneLabel': "#{t('form_labels.next')}",
+        'tooltipPosition': 'auto',
+        'positionPrecedence': ['left', 'right', 'bottom', 'top']
+      });
+      intro.start().oncomplete(function() {
+          window.location.href = '/guide_page/manager_message/sent_step1?multipage=true';
+        });                  
+    }
+
+    function gotoViewMessage(){
+      var intro = introJs();
+      intro.setOptions({
+        steps: [
+          {
+            element: '#link_view_notify',
+            intro: "#{t('guideline.manager.dashboard.messaging.view_message.step_content')}"
+          }
+        ],
+        'doneLabel': "#{t('form_labels.next')}",
+        'tooltipPosition': 'auto',
+        'positionPrecedence': ['left', 'right', 'bottom', 'top']
+      });
+      intro.start().oncomplete(function() {
+          window.location.href = '/guide_page/manager_message/receive_step1?multipage=true';
+        });                  
+    }
+
+  });

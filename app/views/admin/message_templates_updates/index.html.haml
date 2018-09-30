@@ -1,0 +1,39 @@
+= content_for :title, 'Message Templates'
+= content_for :breadcrumb, 'Message Templates'
+
+.twelvecol
+  .page-header
+    = link_to new_admin_message_templates_update_path, class: 'btn btn-blue btn-large', 'data-placement': 'bottom', 'data-toggle': 'tooltip', title: 'Add Message Template' do
+      %i.icon-plus
+
+    %h2.widget.widget-header Message Templates
+  .threecol
+  - if @templates.empty?
+    .widget.widget-content
+      .helper-notification
+        %p You dont have any Message Templates yet.
+        %i.fa.fa-large
+  - else
+    .table-responsive
+      %table.table.table-striped.table-bordered.table-hover{style:"table-layout: fixed; word-wrap: break-word;"}
+        %thead
+          %tr
+            %th Topic
+            %th Related Topic
+            %th Lang
+            %th Role
+            %th{style: "width: 50%"} Content
+            %th
+        %tbody
+          - @templates.each do |template|
+            %tr
+              %td= template.sub_subject.parent_subject.title rescue nil
+              %td= template.sub_subject.title rescue nil
+              %td= template.language rescue nil
+              %td= template.target_role rescue nil
+              %td= template.content.html_safe rescue nil
+              %td
+                = link_to edit_admin_message_templates_update_path(template) do
+                  %i.icon-pencil
+                = link_to admin_message_templates_update_path(template), method: :delete, data: {confirm: 'Are you sure?'} do
+                  %i.icon-remove

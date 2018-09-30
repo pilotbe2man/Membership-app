@@ -1,0 +1,207 @@
+= content_for :title, t('survey.labels.worker_progress_chard_title')
+- content_for :page_title, t('survey.labels.worker_progress_chard_title')
+.survey-result-dash-container
+  .container
+    .row
+      .col-md-3.survey-groups
+        .panel
+          .panel-body
+            %h5
+              = t('survey.labels.groups')
+
+            .survey-group
+              .group-header.parents
+                = image_tag 'parent-icon.png', class: 'img'
+                = t('survey.labels.parents')
+
+              .group-members.parents
+                %a{href: '#', class: '', 'data-subject_group': 'parentee'}= t('survey.labels.all')
+                %a{href: '#', class: '', 'data-subject_id': 1, 'data-id': 1} First Parent User
+                %a{href: '#', class: '', 'data-subject_id': 2, 'data-id': 2} Seconde Parent User
+
+            .survey-group
+              .group-header.workers
+                = image_tag 'worker-icon.png', class: 'img'
+                = t('survey.labels.workers')
+              .group-members.workers
+                %a{href: '#', class: '', 'data-subject_group': 'worker'}= t('survey.labels.all')
+                %a{href: '#', class: '', 'data-subject_id': 1, 'data-id': 1} First Worker User
+                %a{href: '#', class: '', 'data-subject_id': 2, 'data-id': 2} Seconde Worker User
+      .col-md-9
+        .row.survey-subjects
+          .survey-subject
+            .radio-box
+              %input{:type=>"radio", :name => "subject_id", :id => "radio1", :style => "display: none;", value: 10, 'data-current_role': 'manager'}
+              %label{:for => "radio1"}
+                = image_tag 'survey-bodily.png', class: 'img'
+              .row.survey-title
+                %span Infection preventive cleaning of Bodily Fluid
+          .survey-subject
+            .radio-box
+              %input{:type=>"radio", :name => "subject_id", :id => "radio2", :style => "display: none;", value: 10, 'data-current_role': 'manager'}
+              %label{:for => "radio2"}
+                = image_tag 'survey-preventive.png', class: 'img'
+              .row.survey-title
+                %span Infection preventive Diapering
+          .survey-subject
+            .radio-box
+              %input{:type=>"radio", :name => "subject_id", :id => "radio3", :style => "display: none;", value: 10, 'data-current_role': 'manager'}
+              %label{:for => "radio3"}
+                = image_tag 'survey-washing.png', class: 'img'
+              .row.survey-title
+                %span Infection Preventive food handling
+          .survey-subject
+            .radio-box
+              %input{:type=>"radio", :name => "subject_id", :id => "radio4", :style => "display: none;", value: 10, 'data-current_role': 'manager'}
+              %label{:for => "radio4"}
+                = image_tag 'survey-washing.png', class: 'img'
+              .row.survey-title
+                %span Infection preventive Hand Hygene
+          .survey-subject
+            .radio-box
+              %input{:type=>"radio", :name => "subject_id", :id => "radio5", :style => "display: none;", value: 10, 'data-current_role': 'manager'}
+              %label{:for => "radio5"}
+                = image_tag 'survey-control.png', class: 'img'
+              .row.survey-title
+                %span Inpfection preventive Outbreak Control
+        .row.survey-charts
+          #progress_charts_partial
+            .col-md-12
+              %h4 Food Storage Qa
+              .progress
+                .progress-inner-trans
+                  .progress-inner
+                    .progress-inner-back
+                      .progress-bar{:style => "width: #{103.0-((30.to_f)/100.0) * 103.0}%;"}
+                        %span
+                          %p 30%
+            .col-md-12
+              %h4 Proper Hygiene Practices Qa
+              .progress
+                .progress-inner-trans
+                  .progress-inner
+                    .progress-inner-back
+                      .progress-bar{:style => "width: #{103.0-((60.to_f)/100.0) * 103.0}%;"}
+                        %span
+                          %p 60%
+            .col-md-12
+              %h4 Special Precautions Food Qa
+              .progress
+                .progress-inner-trans
+                  .progress-inner
+                    .progress-inner-back
+                      .progress-bar{:style => "width: #{103.0-((90.to_f)/100.0) * 103.0}%;"}
+                        %span
+                          %p 90%
+/ Modal
+#dash_step_1
+  .modal-dialog
+    / Modal content
+    .modal-content
+      .modal-header
+        %button.close.plainmodal-close{"data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title= t('guideline.manager.dashboard.survey.instruction.title').html_safe
+      .modal-body          
+        = t('guideline.manager.dashboard.survey.instruction.content').html_safe
+        .radio-box-group
+          .radio-box
+            %input{:type=>"radio", :name => "dash_step", :id => "radio_dash_step_2", :style => "display: none;", value: '2', checked: true}
+            %label{:for => "radio_dash_step_2"}
+              = t('guideline.manager.dashboard.survey.survey_report.title')
+      .modal-footer
+        %button.btn.btn-lightred.link-dash-step{"data-dismiss" => "modal", :type => "button", 'data-step' => '1'}=t('form_labels.next')
+#dash_step_2
+  .modal-dialog
+    / Modal content
+    .modal-content
+      .modal-header
+        %button.close.plainmodal-close{"data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title= t('guideline.manager.dashboard.survey.survey_report.title').html_safe
+        %a.link_home
+          %i.fa.fa-icon.fa-home
+      .modal-body          
+        %p= t('guideline.manager.dashboard.survey.survey_report.content').html_safe
+        %a#link_survey_report= t('guideline.manager.dashboard.survey.survey_report.link_text').html_safe          
+      .modal-footer
+        %button.btn.btn-lightred.link-dash-step{"data-dismiss" => "modal", :type => "button", 'data-step' => '2'}=t('form_labels.next')
+            
+:javascript
+  jQuery(document).ready(function() {
+    var effect = {
+        open: function(duration, complete) {
+          this.css({
+            display:          'block',
+            opacity:          0,
+            top:              -50 - this.outerHeight(),
+            marginTop:        0
+          })
+          .animate({opacity: 1, top: 100}, duration, complete);
+        },
+        close: function(duration, complete) {
+          this.animate({
+            opacity:          0,
+            top:              -50 - this.outerHeight()
+          }, duration, function() {
+            $(this).css({display: 'none'});
+            complete();
+          });
+        }
+      };
+
+    modalStep1 = $('#dash_step_1').plainModal({effect: effect, duration: 500});
+    modalStep2 = $('#dash_step_2').plainModal({effect: effect, duration: 500});
+
+    dash_wizard();
+
+    function dash_wizard(){
+      modalStep1 = $('#dash_step_1').plainModal('open', {force: true});
+    }
+
+    $('#link_dashboard_guide').on('click', function(){
+      dash_wizard();
+    });       
+
+    $('.link_home').on('click', function(){
+      dash_wizard();
+    });       
+
+    $('.link-dash-step').click(function(e){
+      var step = $('input[name=dash_step]:checked').val();
+      var cur_step = $(this).data('step');
+      var modal;
+      switch(cur_step){
+      case 1:
+        modal = eval('modalStep' + step);
+        modal.plainModal('open', {force: true});
+        break;
+      case 2:
+        modal = eval('modalStep' + cur_step);
+        modal.plainModal('close', {force: true});
+        gotoSurveyReport();
+        break;
+      }            
+      e.preventDefault();
+    });
+
+    function gotoSurveyReport(){
+      var intro = introJs();
+      intro.setOptions({
+        steps: [
+          {
+            element: '.dropdown',
+            intro: "#{t('guideline.manager.survey.step1.content')}"
+          }
+        ],
+        'doneLabel': "#{t('form_labels.next')}",
+        'tooltipPosition': 'auto',
+        'positionPrecedence': ['left', 'right', 'bottom', 'top']
+      });
+      intro.start().oncomplete(function() {
+          window.location.href = 'result_step2?multipage=true';
+      });                  
+    }
+
+    $('#link_survey_report').on('click', function(){
+      gotoSurveyReport();
+    });    
+  });                  

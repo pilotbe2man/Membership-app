@@ -1,0 +1,607 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: SurveyTrendsGenerator
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!SurveyTrendsGenerator.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (S)</a> &raquo;
+    
+    
+    <span class="title">SurveyTrendsGenerator</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: SurveyTrendsGenerator
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">SurveyTrendsGenerator</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2">ActionView::Helpers::NumberHelper</dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">app/services/survey_trends_generator.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#group_survey_result_over_time-instance_method" title="#group_survey_result_over_time (instance method)">- (Object) <strong>group_survey_result_over_time</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>output :   =&gt; [[0] [[0] “Date”, [1] “Infection Preventive Outbreak
+Control”],       [1] [[0] “Jul 2016”, [1] 96],       [2] [[0] “Aug <a
+href="1">2016”,</a> 86].</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#group_survey_result_right_over_wrong-instance_method" title="#group_survey_result_right_over_wrong (instance method)">- (Object) <strong>group_survey_result_right_over_wrong</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#has_available_group_results%3F-instance_method" title="#has_available_group_results? (instance method)">- (Boolean) <strong>has_available_group_results?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#has_available_individual_results%3F-instance_method" title="#has_available_individual_results? (instance method)">- (Boolean) <strong>has_available_individual_results?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#individual_survey_result_over_time-instance_method" title="#individual_survey_result_over_time (instance method)">- (Object) <strong>individual_survey_result_over_time</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>check for results availability.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (SurveyTrendsGenerator) <strong>initialize</strong>(subject, user_population, start_date = &#39;&#39;, end_date = &#39;&#39;) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>params :     subject : SurveySubject     population: user ids of the
+participants to generate data out of.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="SurveyTrendsGenerator (class)">SurveyTrendsGenerator</a></span></tt>) <strong>initialize</strong>(subject, user_population, start_date = &#39;&#39;, end_date = &#39;&#39;) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>params :</p>
+
+<pre class="code ruby"><code class="ruby">subject : SurveySubject
+population: user ids of the participants to generate data out of</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+9
+10
+11
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/services/survey_trends_generator.rb', line 9</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_subject'>subject</span><span class='comma'>,</span> <span class='id identifier rubyid_user_population'>user_population</span><span class='comma'>,</span> <span class='id identifier rubyid_start_date'>start_date</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_end_date'>end_date</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@subject</span> <span class='op'>=</span> <span class='id identifier rubyid_subject'>subject</span>
+  <span class='ivar'>@user_population</span> <span class='op'>=</span> <span class='id identifier rubyid_user_population'>user_population</span>
+  <span class='ivar'>@start_date</span> <span class='op'>=</span> <span class='id identifier rubyid_start_date'>start_date</span>
+  <span class='ivar'>@end_date</span> <span class='op'>=</span> <span class='id identifier rubyid_end_date'>end_date</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="group_survey_result_over_time-instance_method">
+  
+    - (<tt>Object</tt>) <strong>group_survey_result_over_time</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>output :</p>
+
+<pre class="code ruby"><code class="ruby">=&gt; [[0] [[0] &quot;Date&quot;, [1] &quot;Infection Preventive Outbreak Control&quot;],
+    [1] [[0] &quot;Jul 2016&quot;, [1] 96],
+    [2] [[0] &quot;Aug 2016&quot;,[1] 86]</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/services/survey_trends_generator.rb', line 30</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_group_survey_result_over_time'>group_survey_result_over_time</span>
+  <span class='id identifier rubyid_trend_data'>trend_data</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Date</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='ivar'>@subject</span><span class='period'>.</span><span class='id identifier rubyid_title'>title</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_date_labels'>date_labels</span><span class='lparen'>(</span><span class='id identifier rubyid_subject_attempt_dates'>subject_attempt_dates</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_date'>date</span><span class='op'>|</span>
+    <span class='id identifier rubyid_trend_data'>trend_data</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_generate_trend_row'>generate_trend_row</span><span class='lparen'>(</span><span class='id identifier rubyid_date'>date</span><span class='comma'>,</span> <span class='id identifier rubyid_trend_data'>trend_data</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_subject_attempt_dates'>subject_attempt_dates</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_trend_data'>trend_data</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="group_survey_result_right_over_wrong-instance_method">
+  
+    - (<tt>Object</tt>) <strong>group_survey_result_right_over_wrong</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/services/survey_trends_generator.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_group_survey_result_right_over_wrong'>group_survey_result_right_over_wrong</span>
+  <span class='id identifier rubyid_trend_data'>trend_data</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_correct_percentages'>correct_percentages</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_group_survey_result_over_time'>group_survey_result_over_time</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid_index'>index</span><span class='op'>|</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_index'>index</span> <span class='op'>==</span> <span class='int'>0</span> <span class='comment'># header
+</span>    <span class='id identifier rubyid_correct_percentages'>correct_percentages</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_correct_percentages'>correct_percentages</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
+     <span class='id identifier rubyid_average_correct'>average_correct</span> <span class='op'>=</span> <span class='id identifier rubyid_correct_percentages'>correct_percentages</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span> <span class='op'>/</span> <span class='id identifier rubyid_correct_percentages'>correct_percentages</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+    <span class='id identifier rubyid_trend_data'>trend_data</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Correct Answers</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_average_correct'>average_correct</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_trend_data'>trend_data</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Wrong Answers</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>100</span> <span class='op'>-</span> <span class='id identifier rubyid_average_correct'>average_correct</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_trend_data'>trend_data</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="has_available_group_results?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>has_available_group_results?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/services/survey_trends_generator.rb', line 62</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_has_available_group_results?'>has_available_group_results?</span>
+  <span class='id identifier rubyid_subject_attempt_dates'>subject_attempt_dates</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="has_available_individual_results?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>has_available_individual_results?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/services/survey_trends_generator.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_has_available_individual_results?'>has_available_individual_results?</span>
+  <span class='id identifier rubyid_survey_attempt_dates'>survey_attempt_dates</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="individual_survey_result_over_time-instance_method">
+  
+    - (<tt>Object</tt>) <strong>individual_survey_result_over_time</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>check for results availability</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19
+20
+21
+22
+23</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/services/survey_trends_generator.rb', line 17</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_individual_survey_result_over_time'>individual_survey_result_over_time</span>
+  <span class='id identifier rubyid_survey_attempt_dates'>survey_attempt_dates</span>
+
+<span class='comment'>#    date_labels(survey_attempt_dates).each do |date|
+</span><span class='comment'>#      trend_data &lt;&lt; generate_trend_row(date, trend_data[0], survey_attempt_dates)
+</span><span class='comment'>#    end    
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Sep  2 14:53:26 2018 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.3).
+</div>
+
+  </body>
+</html>

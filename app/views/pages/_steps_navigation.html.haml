@@ -1,0 +1,30 @@
+.row.step-navs-horizontal.hidden-sm.hidden-xs
+  .col-md-3.full-height
+    = link_to '/description#mark_mission' do
+      %span.fa-stack
+        %i.fa.fa-circle.fa-stack-2x
+        %i.fa.fa-stack-1x.fa-inverse{class: page_name == 'mission' ? 'fa-angle-down' : 'fa-angle-right'}
+      = t('pages.nav_bar.mission').html_safe
+  .col-md-2.full-height
+    = link_to '/description#mark_standard' do
+      %span.fa-stack
+        %i.fa.fa-circle.fa-stack-2x
+        %i.fa.fa-stack-1x.fa-inverse{class: page_name == 'standard' ? 'fa-angle-down' : 'fa-angle-right'}
+      = t('pages.nav_bar.standard').html_safe
+  .col-md-4.full-height
+    = link_to '/description#mark_path' do
+      %span.fa-stack
+        %i.fa.fa-circle.fa-stack-2x
+        %i.fa.fa-stack-1x.fa-inverse{class: page_name == 'path' ? 'fa-angle-down' : 'fa-angle-right'}
+      = t('pages.nav_bar.path').html_safe
+  .col-md-3.full-height
+    %a{href: '#', "data-target" => "#exampleModal", "data-toggle" => "modal"}
+      = t('pages.nav_bar.your_journey').html_safe
+
+.row.step-navs-horizontal.visible-sm.visible-xs
+  .col-md-12.full-height
+    = link_to "/description#mark_#{page_name}" do
+      %span.fa-stack
+        %i.fa.fa-circle.fa-stack-2x
+        %i.fa.fa-stack-1x.fa-inverse.fa-angle-down
+      = t("pages.nav_bar.#{page_name}").html_safe

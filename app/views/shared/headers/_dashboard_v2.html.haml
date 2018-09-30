@@ -1,0 +1,37 @@
+%header{style: 'border-bottom : none; height: 0;'}
+  .header-guide.no-print
+    = link_to '#', id: 'link_dashboard_guide' do
+      %label.title=t('guideline.title')
+      %label.description=t('guideline.tooltip')
+%header
+  -if %(messages).include?(controller.controller_name)
+    = image_tag 'message-md.png', class: 'header-mark'
+  -if %(illness).include?(controller.controller_name)
+    = image_tag 'illness-md.png', class: 'header-mark'
+  -if %(subject).include?(controller.controller_name)
+    = image_tag 'subject-md.png', class: 'header-mark'
+  %h2= yield :page_title
+
+  - if user_signed_in?
+    .dropdown
+      %ul.dropdown-menu{role: 'menu', 'aria-labelledby': 'dLabel'}
+        %li= link_to t('pages.nav_bar.dashboard'), dashboard_path
+        - if current_user.role == "manager" && controller.controller_name == 'survey_subjects'
+          %li.dropdown-submenu
+            = link_to t('pages.nav_bar.invite'), '#'
+            %ul.dropdown-menu.pull-left
+              %li= link_to t('pages.nav_bar.worker'), invite_survey_manager_daycares_path('worker')
+              %li= link_to t('pages.nav_bar.parentee'), invite_survey_manager_daycares_path('parentee')
+              %li= link_to t('pages.nav_bar.manager'), invite_survey_manager_daycares_path('manager')
+        %li= link_to t('pages.nav_bar.logout'), destroy_user_session_path, method: :delete
+    / .header-guide.no-print
+    /   = link_to '#', id: 'link_dashboard_guide' do
+    /     %label.title=t('guideline.title')
+    /     %label.description=t('guideline.tooltip')
+    .partner-profile-left
+      = image_tag current_user_role_avatar, class: 'img img-thumbnail img-circle'
+      %span.short-user-info
+        %span
+          = current_user.name
+        %span.user-role
+          = t("roles.daycare_#{current_user.role.downcase}")

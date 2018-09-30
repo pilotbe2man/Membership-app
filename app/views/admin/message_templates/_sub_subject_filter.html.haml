@@ -1,0 +1,2 @@
+%label.step-instruction{for: 'sub_subject_id'}= t('messages.labels.filter_by_sub_subject')
+= select_tag :sub_subject_id, options_for_select(options_for_sub_subject_select), class: 'form-control', prompt: t('messages.labels.choose_sub_subject'), required: true

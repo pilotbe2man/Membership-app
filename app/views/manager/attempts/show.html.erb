@@ -1,0 +1,24 @@
+<div>
+  <h1> <%=t('attempt_labels.title', survey_name: @survey.name, participant_name: @attempt.participant.name)%></h1>
+  <hr>
+
+  <h2><%=t('attempt_labels.correct_answer')%></h2>
+  <ul>
+    <% @attempt.correct_answers.each do |answer| %>
+      <li>
+        <%=t('attempt_labels.question')%>: <%= answer.question.text %><br />
+        <%=t('attempt_labels.anwers')%>: <%= answer.option.text %>
+      </li>
+    <% end %>
+  </ul>
+
+  <h2>t('attempt_labels.incorrect_answer')</h2>
+  <ul>
+    <% @attempt.incorrect_answers.each do |answer| %>
+      <li>
+        <%=t('attempt_labels.question')%>: <%= answer.question.text %><br />
+        <%=t('attempt_labels.anwers')%>: <%= answer.option.text %>
+      </li>
+    <% end %>
+  </ul>
+</div>

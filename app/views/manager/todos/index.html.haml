@@ -1,0 +1,60 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, dashboard_manager_todos_path
+.todo-dash-container
+  .container
+    #todos.row
+      .twelvecol
+        / = form_tag search_manager_todos_path, method: :get do
+        /   .input-group.todo-search
+        /     = text_field_tag(:query, params[:query], autocomplete: 'off', tabindex: "1", :class => 'form-control')
+        /     .input-group-btn
+        /       %button.btn.btn-default{:type => "submit"}
+        /         %i.glyphicon.glyphicon-search
+        .todo-list
+          %h3=t('manager.todos.labels.todos')
+          - all_user_todos = User.all_user_todos.where(id: current_user.id)
+          - if all_user_todos.blank?
+            %p=t('manager.todos.labels.no_todos') 
+          - else
+            %ul
+              - all_user_todos.each do |todo|
+                - todo_obj = Todo.find(todo.id)
+                - if todo_obj.recurring? || (todo_obj.single? && todo_obj.recurring_available_by_total)
+                  - diff_time = get_remain_time(todo.id)
+                  %li
+                    .menu-item{'data-id': todo.id}
+                      .todo-command
+                        .detail-box
+                          %span.todo-name= todo.title
+                          - if todo.daycare_id.nil?
+                            %span.todo-createby
+                              = t('manager.todos.labels.created_by')
+                              %br
+                              - creator = User.where(id: todo.user_id)
+                              = "#{creator.first.name}" unless creator.length == 0
+                          - else
+                            = link_to manager_todo_path(todo), :class => '' do
+                              %i.fa.fa-icon.fa-pencil{style: 'color: #f72975;font-size: 20px;padding: 5px;'}
+                      %span.todo-footer
+
+          %h3=t('manager.todos.labels.todos')
+          #todo_department_list
+            %p=t('manager.todos.labels.no_todos') 
+:javascript
+  jQuery(document).ready(function() {
+    jQuery('.menu-item').click(function(){
+      var todo_id = jQuery(this).data('id');
+      jQuery.ajax({
+          url: '/manager/todos/sub_todos',
+          type: 'POST',
+          data: {
+            id: todo_id
+          },
+          success: function (data) {
+            jQuery('#todo_department_list').html(data);
+          },
+          error: function () {
+          }
+      });      
+    });
+  });

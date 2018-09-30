@@ -1,0 +1,38 @@
+= form_for [:admin, @subject], url: url do |f|
+  .threecol
+  .ninecol.last
+    = render partial: 'shared/admin/errors', locals: { object: @subject }
+  .threecol
+    %h3= t('admin.survey_subjects._form.heading')
+    %p= t('admin.survey_subjects._form.para')
+  .ninecol.last
+    %fieldset.widget.widget-content
+      .form-group
+        = puts @ori_survey.to_yaml
+        = f.label :title
+        = f.text_field :title, (@ori_survey.nil?) ? {:class => 'form-control'} : {:class => 'form-control', :value => "#{@ori_survey.title}"}
+      .form-group
+        = f.label :description
+        = f.text_area :description, (@ori_survey.nil?) ? {:class => 'form-control'} : {:class => 'form-control', :value => "#{@ori_survey.description}"}
+      .form-group.form-last
+        = f.label :language
+        = f.select :language, options_for_select(pre_countries, :selected => f.object.language), {},{:class => 'form-control'}
+  .threecol
+    %h3= t('admin.survey_subjects._form.heading1')
+    %p= t('admin.survey_subjects._form.para2')
+  .ninecol.last
+    %fieldset.widget.widget-content
+      = image_tag @subject.icon.file unless @subject.icon.nil?
+      .form-group.form-last
+        = f.fields_for :icon do |ff|
+          = ff.file_field :file
+  .threecol
+    %h3= t('admin.survey_subjects._form.heading3')
+    %p= t('admin.survey_subjects._form.para3').html_safe
+  .ninecol.last
+    %fieldset.widget.widget-content.widget-last
+      .form-group
+        = f.label 'Spreadsheet File'
+        = file_field_tag "spreadsheet_file[]", accept: 'xlsx', :class => 'form-control', multiple: true 
+    .form-action
+      = f.submit 'Submit', :class => 'btn btn-blue btn-large'

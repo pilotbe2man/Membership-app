@@ -1,0 +1,30 @@
+= content_for :title, 'New Message'
+- step_size = 5
+- page_step = 3
+.message-dash-container
+  .container
+    .row
+      .col-md-12.breadcrumb-header      
+        %h3= choose_subject_header
+    .row
+      = render partial: '/shared/progress_bar', locals: {step_size: step_size, page_step: page_step}
+    .row.content-main
+      = form_tag '#', method: :get do
+        .row{data:{step: "5", intro: t("guideline.manager.message_send_menu.step5.content")}}
+          .col-md-12      
+            %h4.option-title= t('messages.labels.choose_subject')
+          .col-md-12
+            = select_tag :subject_id, options_for_select([['Test Subject', 'Test Subject'], ['Test Subject', 'Test Subject']]), class: 'form-control'
+        .col-md-12.form-buttons.text-right.no-h-padding
+          .col-md-3.col-md-offset-6.col-sm-3.col-sm-offset-6.col-xs-6
+            %a{href: '#', class: 'btn btn-gray btn-wizard'} 
+              =t('form_labels.back')
+          .col-md-3.col-sm-3.col-xs-6
+            = submit_tag t('form_labels.next'), class: 'btn btn-yellow-red btn-wizard', data:{step: "6", intro: t("guideline.manager.message_send_menu.step6.content")}
+:javascript
+  jQuery(document).ready(function() {
+    healthChildcare.guideline.managerMessageSendStep(3, "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.managerMessageSendStep(3, "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });    
+  });            

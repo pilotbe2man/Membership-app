@@ -1,0 +1,6 @@
+.row      
+  %h5=t('register.labels.invite_'+@member_type)
+  .row.inline-input-link{style: 'width: 100%;'}
+    = text_field_tag 'email[]', '', :class => "form-control input-round daycare-email", required: "true"
+    %a.btn.btn-red.btn-normal{href: '#', "onclick" => "remove_fields(this)" } 
+      =image_tag('manager-sub.png')

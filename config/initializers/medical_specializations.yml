@@ -1,0 +1,19 @@
+dentists:
+  code: dentist
+  name: Dentist
+
+eye_doctor:
+  code: eye_doctor
+  name: Eye Doctor
+
+family_doctor:
+  code: family_doctor
+  name: Family Doctor
+
+pediatrician:
+  code: pediatrician
+  name: Pediatrician
+
+internal_medicine:
+  code: internal_medicine
+  name: Internal Medicine

@@ -1,0 +1,7 @@
+.discussions.container-fluid
+  - @discussions.each do |discussion|
+    = render partial: '/discussions/discussion', locals: {discussion: discussion}
+
+.row.discussion-form
+  %hr
+  = render partial: 'form'

@@ -1,0 +1,19 @@
+/*
+ *= require icomoon-bower
+ *= require jquery.datetimepicker
+ *= require slick-carousel/slick/slick.css
+ *= require slick-carousel/slick/slick-theme.css
+ *= require normalize-css
+ *= require bootstrap/dist/css/bootstrap.min.css
+ *= require bootstrap/dist/css/bootstrap-theme.min.css
+ *= require font-awesome
+*/
+
+@import "header";
+@import "introjs";
+@import "legacy/upgrade";
+@import "legacy/common";
+@import "legacy/header";
+@import "legacy/user-plan";
+@import "version_2";
+@import "responsive";

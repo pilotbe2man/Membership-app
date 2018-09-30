@@ -1,0 +1,37 @@
+<%= form_for [:admin, @email_campaign], multipart: true  do |f| %>
+    <div class="threecol"></div>
+    <div class="ninecol last">
+        <%= render partial: 'shared/admin/errors', locals: { object: @email_campaign } %>
+    </div>
+
+    <div class="threecol">
+        <h3>Email Campaign Template details</h3>
+    </div>
+
+    <div class="ninecol last">
+        <fieldset class="widget widget-content">
+            <div class="form-group">
+                <%= f.label :subject %>
+                <%= f.text_field :subject, {:class => 'form-control'} %>
+            </div>
+            <div class="form-group">
+                <%= f.label :content %>
+                <%= f.cktext_area :content, {:class => 'form-control'} %>
+            </div>
+            <div class="form-group">
+                <%= f.label :language %>
+                <%= f.select :language, options_for_select(pre_countries_down, :selected => f.object.language), {},{:class => 'form-control'} %>
+            </div>
+        </fieldset>
+        <div class="form-action">
+            <%= f.submit 'Submit', :class => 'btn btn-blue btn-large' %>
+        </div>
+    </div>
+<% end %>
+<script>
+  jQuery(document).ready(function() {    
+    // $('#email_campaign_content').froalaEditor({
+    //   heightMin: 450
+    // });
+  });
+</script>

@@ -1,0 +1,45 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, dashboard_manager_todos_path
+.todo-dash-container
+  .container
+    #todos.row
+      .twelvecol
+        = form_tag manager_reports_todos_search_path, method: :get do
+          .input-group.todo-search
+            = text_field_tag(:query, params[:query], autocomplete: 'off', tabindex: "1", :class => 'form-control')
+            .input-group-btn
+              %button.btn.btn-default{:type => "submit"}
+                %i.glyphicon.glyphicon-search
+        /.todo-list
+        /  %h3=t('manager.todos.report.title')
+        /  - if current_user.local_todos.empty?
+        /    %p
+        /      /You have no Daycare todos currently, you can #{link_to 'create', new_manager_todo_path} one now.
+        /      =t('manager.todos.report.create_todo', create_link: "create").html_safe
+        /  - else
+        /    %ul
+        /      - current_user.local_todos.each do |todo|
+        /        %li
+        /          .menu-item
+        /            %span.todo-id= todo.id
+        /            .profile-thumb
+        /              = image_tag todo.icon.file, class: 'img-responsive center-block' unless todo.icon.nil?
+        /            %span.todo-title= truncate(todo.title, length: 20)
+        /          = link_to t('manager.todos.labels.view_report'), manager_reports_todo_set_date_range_path(todo), :class => 'btn btn-normal btn-yellow btn-block'
+        .todo-list
+          - User.all_user_todos.where(id: current_user.id).each do |todo|
+            %h3=todo.title
+            - depart_todos = User.all_self_department_todos.where(id: current_user.id).where("todos.id = #{todo.id}")
+            - if depart_todos.length == 0
+              %p=t('manager.todos.labels.no_todos') 
+            - else
+              %ul
+                - depart_todos.each do |depart_todo|
+                  %li
+                    .department-todo
+                      = link_to manager_reports_todo_set_date_range_path(todo, department: depart_todo.department_id) do
+                        .todo-command
+                          .detail-box
+                            %span.view-report=t('manager.todos.labels.view_report')
+                        %span.todo-footer
+                          = depart_todo.department_name

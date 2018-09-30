@@ -1,0 +1,87 @@
+= content_for :title, t('illness_guides.illness')
+- content_for :page_title, t('dashboard.menu_item.illness_guide')
+- step_size = 2
+- page_step = 2
+.message-dash-container
+  .container
+    .row
+      = render partial: '/shared/progress_bar', locals: {step_size: step_size, page_step: page_step}
+    .row.content-main
+      .col-md-12
+        %h4.option-title= t('illness_guides.labels.guide_content')
+      .col-md-12
+        .row.guide-title
+          %h1
+            %strong #{@title}
+          .row
+            %h4= @title_desc.html_safe rescue nil
+      .col-md-12.form-buttons.text-right.no-h-padding
+        .col-md-3.col-md-offset-6.col-sm-3.col-sm-offset-6.col-xs-6
+        .col-md-3.col-sm-3.col-xs-6
+          %a{href: illness_worker_illness_guides_path(target_role: params[:target_role], illness_id: params[:illness_id]), class: 'btn btn-gray btn-wizard'}
+            =t('form_labels.back')
+:javascript
+/   PDFJS.workerSrc = '//npmcdn.com/pdfjs-dist@1.7.225/build/pdf.worker.js';
+/   // Using DocumentInitParameters object to load binary data.
+/   var guide_url = '#{@illness_guide}';
+
+/   var pdfDoc = null,
+/       pageNum = 1,
+/       pageRendering = false,
+/       pageNumPending = null,
+/       scale = 1;
+
+/   function renderPage(num) {
+/     var canvas_id = 'pdf_canvas_' + num;
+/     var canvas = document.getElementById('pdf_canvas_'+num),
+/         ctx = canvas.getContext('2d');
+/     pageRendering = true;
+/     // Using promise to fetch the page
+/     pdfDoc.getPage(num).then(function(page) {
+/       var container_width = document.getElementById('pdf-wrapper').offsetWidth;
+
+/       var viewport = page.getViewport(scale);
+/       if(container_width > viewport.width){
+/         canvas.height = viewport.height * (container_width / viewport.width);
+/         canvas.width = container_width;
+/         viewport = page.getViewport((container_width / viewport.width));
+/       } else {
+/         canvas.height = viewport.height;
+/         canvas.width = viewport.width;
+/       }
+
+/       // Render PDF page into canvas context
+/       var renderContext = {
+/         canvasContext: ctx,
+/         viewport: viewport
+/       };
+/       var renderTask = page.render(renderContext);
+
+/       // Wait for rendering to finish
+/       renderTask.promise.then(function() {
+/       });
+/     });
+/   }
+
+/   jQuery(document).ready(function() {
+/     document.addEventListener('contextmenu', event => event.preventDefault());
+
+/     if (guide_url){
+/       PDFJS.getDocument(guide_url).then(function(pdfDoc_) {
+/         pdfDoc = pdfDoc_;
+/         for(var i = 1; i <= pdfDoc.numPages; i++){
+/           var canvas_id = 'pdf_canvas_' + i;
+/           $('#pdf-wrapper').append('<canvas id="'+canvas_id+'"></canvas>');
+/           renderPage(i);
+/         }
+/       });
+/     }
+/   });
+
+
+/ :javascript
+/   jQuery(document).ready(function() {
+/     $('#link_dashboard_guide').on('click', function(){
+/       window.location.href = '/guide_page/illness_guide/guide1';
+/     });
+/   });

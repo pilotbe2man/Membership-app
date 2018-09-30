@@ -1,0 +1,30 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, manager_reports_todos_root_path
+.todo-dash-container
+  .container
+    .row{style: "margin-top: 20px;"}
+      .col-md-6
+        %h4 En-DEP1
+      .col-md-6.text-right{style: "margin-top: 20px;"}
+        %span=t('manager.todos.report.start_date')
+        %span 2016/02/09 04:59
+        %span
+          &nbsp;&nbsp;&nbsp;
+        %span=t('manager.todos.report.end_date')
+        %span 2018/02/12 04:59
+    .row.report-complete-box
+      %ul.report-complete-list
+        %li
+          .report-header
+            %span.todo-name Cleaning
+            %span.todo-date 2017/12/09
+          .report-body
+            %a.complete-link{href: '#', data:{step: 4, intro: t("guideline.manager.todo_report.step4.content")}}
+              %i.fa.fa-icon.fa-search
+:javascript
+  jQuery(document).ready(function() {
+    healthChildcare.guideline.introGoToStep('report_step5', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.introGoToStep('report_step5', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });    
+  });

@@ -1,0 +1,22 @@
+.row
+  .col-sm-6.col-xs-12
+    %ul.row
+      %li.col-md-6.col-sm-12.col-xs-12
+        %a.record-item{href: 'javascript:;', style: "color: #2f363d;text-decoration: none;"}
+          .department-todo.border-style-b
+            %span.todo-top.bg-style-b-g
+              = record.department.name
+            .todo-command
+              .detail-box
+                %h4=record.illness_name
+  .col-md-6.col-sm-6.col-xs-12{style: 'margin: 20px 0;'}
+    %label=t('dashboard.label.department')
+    %p="#{department_name}"
+    %input{type: 'hidden', id: 'department_id', val: "#{department_id}"}
+    %label{style: 'margin-top: 10px;'}=t('dashboard.label.alert_to')
+    = select_tag :category_id, options_for_select([[t('account.daycare.parentee'), 0], [t('account.daycare.worker'), 1], [t('form_labels.all_daycares'), -1]]), class: 'form-control department-select'
+    .row.main{style: 'margin-top: 10px;min-height: 0;padding-bottom: 0;'}
+      .col-md-6.form-buttons{style: 'margin: 0 0 10px 0;padding-left: 0;'}
+        %a#notificaion_back{href: 'javascript:;', class: 'btn btn-gray btn-wizard', "data-id": record.id}= t('form_labels.back')
+      .col-md-6.form-buttons.text-right{style: 'margin: 0 0 10px 0;padding: 0;'}
+        %a#notificaion_send_approve{href: 'javascript:;', class: 'btn bg-style-b btn-wizard', "data-id": record.id, "data-department": department_id}= t('form_labels.send')

@@ -1,0 +1,80 @@
+= content_for :title, t('survey.labels.worker_progress_chard_title')
+- content_for :page_title, t('survey.labels.worker_progress_chard_title')
+.survey-result-dash-container
+  .container
+    .row
+      .col-md-12
+        .row.survey-subjects
+          .survey-subject
+            .radio-box
+              %input{:type=>"radio", :name => "subject_id", :id => "radio1", :style => "display: none;", value: 10, 'data-current_role': 'manager'}
+              %label{:for => "radio1"}
+                = image_tag 'survey-bodily.png', class: 'img'
+              .row.survey-title
+                %span Infection preventive cleaning of Bodily Fluid
+          .survey-subject
+            .radio-box
+              %input{:type=>"radio", :name => "subject_id", :id => "radio2", :style => "display: none;", value: 10, 'data-current_role': 'manager'}
+              %label{:for => "radio2"}
+                = image_tag 'survey-preventive.png', class: 'img'
+              .row.survey-title
+                %span Infection preventive Diapering
+          .survey-subject
+            .radio-box
+              %input{:type=>"radio", :name => "subject_id", :id => "radio3", :style => "display: none;", value: 10, 'data-current_role': 'manager'}
+              %label{:for => "radio3"}
+                = image_tag 'survey-handling.png', class: 'img'
+              .row.survey-title
+                %span Infection Preventive food handling
+          .survey-subject
+            .radio-box
+              %input{:type=>"radio", :name => "subject_id", :id => "radio4", :style => "display: none;", value: 10, 'data-current_role': 'manager'}
+              %label{:for => "radio4"}
+                = image_tag 'survey-washing.png', class: 'img'
+              .row.survey-title
+                %span Infection preventive Hand Hygene
+          .survey-subject
+            .radio-box
+              %input{:type=>"radio", :name => "subject_id", :id => "radio5", :style => "display: none;", value: 10, 'data-current_role': 'manager'}
+              %label{:for => "radio5"}
+                = image_tag 'survey-control.png', class: 'img'
+              .row.survey-title
+                %span Inpfection preventive Outbreak Control
+        .row.survey-charts{data:{step: 4, intro: t("guideline.worker.survey_take.step4.content")}}
+          #progress_charts_partial
+            .col-md-12
+              %h4 Food Storage Qa
+              .progress
+                .progress-inner-trans
+                  .progress-inner
+                    .progress-inner-back
+                      .progress-bar{:style => "width: #{103.0-((30.to_f)/100.0) * 103.0}%;"}
+                        %span
+                          %p 30%
+            .col-md-12
+              %h4 Proper Hygiene Practices Qa
+              .progress
+                .progress-inner-trans
+                  .progress-inner
+                    .progress-inner-back
+                      .progress-bar{:style => "width: #{103.0-((60.to_f)/100.0) * 103.0}%;"}
+                        %span
+                          %p 60%
+            .col-md-12
+              %h4 Special Precautions Food Qa
+              .progress
+                .progress-inner-trans
+                  .progress-inner
+                    .progress-inner-back
+                      .progress-bar{:style => "width: #{103.0-((90.to_f)/100.0) * 103.0}%;"}
+                        %span
+                          %p 90%
+        .row.text-center.form-buttons{data:{step: 5, intro: t("guideline.worker.survey_take.step5.content")}}
+          =submit_tag 'Retake Test', :class => 'btn btn-lightred'
+:javascript
+  jQuery(document).ready(function() {
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.introGoToStep('take_step1', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });       
+    healthChildcare.guideline.introGoToStep('take_step1', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+  });

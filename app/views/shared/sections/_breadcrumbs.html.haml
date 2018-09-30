@@ -1,0 +1,14 @@
+- unless breadcrumbs.nil?
+  %ol#breadcrumbs
+    - breadcrumbs.each_with_index do |n, i|
+      %li
+        - if n[:url]
+          = link_to n[:title].downcase , n[:url]
+        - else
+          = n[:title]
+      - if breadcrumbs[i+1].present?
+        >>
+    %li
+      >>
+    %li.current
+      = yield(:breadcrumb).downcase

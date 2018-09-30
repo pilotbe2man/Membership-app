@@ -1,0 +1,13 @@
+<li class="field">
+    <div class="form-group">
+        <%= f.label :text %>
+        <%= f.text_field :text, :class => 'form-control' %>
+    </div>
+    <div class="checkbox">
+        <label>
+            <%= f.check_box :correct %>
+            Correct
+        </label>
+    </div>
+    <%= link_to_remove_field "Remove", f %>
+</li>

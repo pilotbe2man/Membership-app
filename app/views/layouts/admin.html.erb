@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		<%= yield :title %>
+		<%= LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? " - Healthier Childcare Administration" : LocaleLogo.by_type_language(1, I18n.locale).first.app_title.html_safe %>
+	</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="text/html; charset=US-ASCII" http-equiv="Content-Type"/>
+	<%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'https://cdn.ckeditor.com/4.6.1/basic/ckeditor.js' %>
+
+	<%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "modernizr/modernizr" %>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,300" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/font.css" media="screen" rel="stylesheet">
+	  <%= csrf_meta_tags %>
+    <script type='text/javascript'>
+      window._trans = <%= yield_js_translations.to_json.html_safe %>
+    </script>
+</head>
+<body>
+	<div class="all-wrapper">
+		<div class="mp-pusher" id="mp-pusher">
+			<%= render partial: 'shared/admin/mobile_menu', format: [:html] %>
+			<div class="scroller">
+				<div class="scroller-inner">
+					<%= render partial: 'shared/headers/admin', format: [:html] %>
+					<div class="desktop" id="sidebar">
+						<%= render partial: 'shared/admin/desktop_menu', format: [:html] %>
+					</div>
+					<div class="main">
+						<%= render partial: 'shared/flash' %>
+						<div class="container">
+							<div class="row">
+								<%= render_breadcrumbs 0 unless active_controller?(controller: 'admin/message_templates') %>
+								<%= yield %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

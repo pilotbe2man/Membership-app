@@ -1,0 +1,47 @@
+.legacy-header
+{
+  .page-title 
+  {
+    font-size: 26px;
+    color: #fff;
+    font-family: 'HelveticaNeue-LightCond';
+    width: 90%;
+    text-align: center;
+    float: left;
+  }
+
+  .btn-back
+  {
+    width: 3%;
+    float: left;
+  }
+
+  .menu_icons
+  {
+    width: 3%;
+  }
+
+  #header-logo
+  {
+    /*height:216px;*/
+  }
+
+  ul.main-nav{
+    padding-top: 20px;
+
+    a.active {
+      font-weight: 400;
+    }
+
+    .hcc-btn{
+      /*height: 55px;*/
+      border-radius: 30px;
+      /*padding: 0 30px;*/
+      a{
+        font-weight: 600;
+        vertical-align: top;        
+        font-size: 14px;
+      }
+    }
+  }
+}

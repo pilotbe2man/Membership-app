@@ -1,0 +1,51 @@
+.illness-dash-container
+  .container
+    .row
+      .col-md-12
+        %h4.option-title= t('illnesses.labels.trend_filters')
+    .row.content-main
+      = form_tag set_filters_partner_illnesses_path, method: :get do
+        .row{style: 'overflow: initial;'}
+          .col-md-4.col-sm-4.col-xs-12
+            .form-group
+              = label_tag :illness, t('illnesses.labels.select_multiple_illnesses')
+              %br
+              = select_tag 'illness_codes[]', options_from_collection_for_select(Illness.all.where(language: I18n.locale), 'code', 'name'), class: 'illness-select', required: true, multiple: "multiple"
+
+          .col-md-4.col-sm-4.col-xs-12
+            .form-group
+              = label_tag :graph_type, t('illnesses.labels.select_graph_type')
+              %br
+              = select_tag 'graph_type', options_for_select([['Daily', 'day'], ['Weekly', 'week'], ['Monthly', 'month'], ['Yearly', 'year']]), class: 'form-control', required: true
+        .row
+          .col-md-4.col-sm-4.col-xs-12
+            .form-group
+              = label_tag :start_date, t('form_labels.start_date')
+              = text_field_tag :start_date, params['start_date'], class: 'datepicker form-control datetime-input', autocomplete: 'off'
+
+          .col-md-4.col-sm-4.col-xs-12
+            .form-group
+              = label_tag :end_date, t('form_labels.end_date')
+              = text_field_tag :end_date, params['end_date'], class: 'datepicker form-control datetime-input', autocomplete: 'off'
+          .col-md-4.col-sm-4.col-xs-12.form-buttons.filter-buttons.centralize
+            = submit_tag t('illnesses.labels.apply_filter'), class: 'btn btn-lightred'
+        .row.content-main
+          .col-md-3
+            %h4.option-title= t('survey.labels.choose_daycare')      
+            .table-responsive
+              %table.table.table-striped.table-bordered.table-hover
+                %thead
+                  %tr
+                    %th= t('survey.labels.municipal_name')
+                %tbody
+                  - municipal_list.each do |item|
+                    %tr
+                      %td
+                        %input.illness-municipal-radio{type: "radio", value:item[1], name:"target_municipal"}
+                          =item[0]
+          .col-md-9
+            #trends
+:javascript
+  jQuery(document).ready(function() {
+    $('.illness-select').SumoSelect({ okCancelInMulti: true, selectAll: true });
+  });

@@ -1,0 +1,84 @@
+.reg-partner-container.page-boxed
+  .page-header
+  .container
+    .form-content           
+      #rootwizard
+        %ul{:style=> "visibility: hidden; height: 0; position:absolute;"}
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab1"} First
+        = form_for @affiliate, url: update_daycare_path(role: current_user.role), html: { method: :PATCH} do |affiliate|        
+          .tab-content
+            #tab1.tab-pane
+              .row.text-center.fileupload-container
+                .fileUpload
+                  / %span.upload-wrapper
+                  /   = image_tag 'partner-upload.png'
+                  /   %span.caption=t('register.labels.upload_partner_photo')
+                  /   = affiliate.fields_for :profile_image do |profile_image|
+                  /     = profile_image.file_field :file, class: 'upload'              
+              .row.pane-container.text-center
+                .row.step-banner
+                  .col-sm-3.col-xs-3.step-item.first-step.item-partner
+                    .step-label
+                      = image_tag 'step-arrow.png', :class => "step-arrow right"
+                      = image_tag 'step-check-prt.png'
+                  .col-sm-3.col-xs-3.step-item.second-step.item-partner.active    
+                    .step-label
+                      = image_tag 'step-arrow.png', :class => "step-arrow right"
+                      = image_tag 'step-arrow.png', :class => "step-arrow left"
+                      = image_tag 'partner-sm.png'
+                      %span Partner Information
+                  .col-sm-3.col-xs-3.step-item.third-step.item-partner
+                    .step-label
+                      = image_tag 'step-arrow.png', :class => "step-arrow right"
+                      = image_tag 'step-arrow.png', :class => "step-arrow left"
+                      = image_tag 'step-pending.png'
+                  .col-sm-3.col-xs-3.step-item.fourth-step.item-partner
+                    .step-label
+                      = image_tag 'step-arrow.png', :class => "step-arrow left"
+                      = image_tag 'step-pending.png'
+                .row.parent-info
+                  - if @affiliate.errors.any?
+                    #error_explanation
+                      %h2= pluralize(@affiliate.errors.count, "error") + " prohibited this affiliate from being saved:"
+
+                      %ul
+                        - @affiliate.errors.full_messages.each do |message|
+                          %li= message         
+                  .col-sm-8.text-left
+                    .row
+                      = affiliate.text_field :name, class: 'form-control input-round', :placeholder => t('register.labels.name'), :required =>"true"
+                    / .row
+                    /   = affiliate.text_field :url, class: 'form-control input-round', :placeholder => t('register.labels.url')
+                    .row
+                      = affiliate.text_field :address, class: 'form-control input-round', :placeholder => t('register.labels.address'), :required =>"true"
+                    .row
+                      = affiliate.text_field :postcode, class: 'form-control input-round', :placeholder => t('register.labels.postcode'), :required =>"true"
+                    .row
+                      = affiliate.select :municipal_id, options_for_select(municipal_list), {}, class: 'form-control input-round', :placeholder => t('register.labels.municipal'), :required =>"true"
+                    / .row
+                    /   = affiliate.text_field :country, class: 'form-control input-round', :placeholder => t('register.labels.country'), :required =>"true"
+                    .row
+                      = affiliate.text_field :telephone, class: 'form-control input-round', :placeholder => t('register.labels.telephone'), :required =>"true"
+            .col-sm-12
+              %ul.pager.wizard.text-left
+                %li.previous
+                  %button.btn.btn-round.item-partner{:type => "button"} 
+                    =t('register.labels.previous')
+                %li.next{:style => "float:right;"}
+                  %button.btn.btn-round.item-partner{:type => "button"} 
+                    =t('register.labels.next')
+                %li.previous.first{:style => "display:none;"}
+                  %a{:href => "#"} First
+                %li.next.last{:style => "display:none;"}
+                  %a{:href => "#"} Last
+:javascript
+  jQuery(document).ready(function() {    
+    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'}); 
+    $('.next button').click(function(){
+      var tab_id = $('.tab-pane.active').attr('id');
+      if(tab_id == "tab1") {
+        $('form').submit();
+      }
+    });
+  });

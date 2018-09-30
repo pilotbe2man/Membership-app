@@ -1,0 +1,25 @@
+.login-container.page-boxed
+  .container
+    .col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-12.text-center
+      .notification-box.border-style-1
+        .row
+          %span.panel-title Change your password
+        .row.panel-content
+          = image_tag LocaleLogo.by_type_language(1, I18n.locale).first.nil? ? 'logo.png' : LocaleLogo.by_type_language(1, I18n.locale).first.logo.url, :class => 'logo', style: 'width: 130px;'
+        .row
+          = form_for(resource, as: resource_name, url: user_password_path(), html: { method: :patch }) do |f|
+            .col-md-12.form-group
+              = devise_error_messages!
+              = f.hidden_field :reset_password_token
+            .col-md-12.form-group
+              = f.password_field :password, autofocus: true, autocomplete: "off", :class => 'form-control input-round', placeholder: 'New Password', required: true
+            .col-md-12.form-group
+              = f.password_field :password_confirmation,  autocomplete: "off",  :class => 'form-control input-round', placeholder: 'Confirm Password', required: true
+            .col-md-12.form-group.text-center
+              = f.submit "Change my password", :class => "btn btn-round col-xs-12 item-manager"
+:javascript
+  jQuery(document).ready(function() {
+    $('body').css("src","background-color: #242c3f !important;");
+    $('footer.normal .container').css("top", "0");
+    $('footer.normal .container .central-footer').css("display", "none");
+  });

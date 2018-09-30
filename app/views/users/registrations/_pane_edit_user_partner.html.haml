@@ -1,0 +1,27 @@
+.row.text-center.step-banner
+  = image_tag 'partner-md.png'
+  %h4=t('account.daycare.parent')
+.row.pane-container.text-center
+  .row.step-banner
+    .col-sm-3.col-xs-3.step-item.first-step.item-partner.active    
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'partner-sm.png'
+        %span=t('register.labels.user_info')
+    .col-sm-3.col-xs-3.step-item.second-step.item-partner
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+    .col-sm-3.col-xs-3.step-item.third-step.item-partner
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+    .col-sm-3.col-xs-3.step-item.fourth-step.item-partner
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+  .parent-list-container
+    .parent-item
+      = render 'user_info_fields', user: user

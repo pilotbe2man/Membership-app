@@ -1,0 +1,14 @@
+<div class="field">
+  <div class="form-group">
+    <%= f.label :text %>
+    <%= f.text_field :text, :class => 'form-control' %>
+  </div>
+  <h4>Options</h4>
+  <ol class="options">
+    <%= f.fields_for :options do |builder| %>
+        <%= render "option_fields", :f => builder %>
+    <% end -%>
+  </ol>
+  <%= link_to_remove_field "Remove Question", f %>
+  <%= link_to_add_field "Add Option", f, :options, 'addOptionField' %>
+</div>

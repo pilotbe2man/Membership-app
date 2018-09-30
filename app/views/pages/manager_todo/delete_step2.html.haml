@@ -1,0 +1,39 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, manager_todos_path
+.todo-dash-container
+  .container
+    #todo.row.todo-info
+      .twelvecol
+        %a#delete-todo.btn.btn-normal.btn-red{data:{step: 3, intro: t("guideline.manager.dashboard.todo.delete.step3.content")}} Delete
+        .row
+          .form-group
+            %label=t('manager.todos.show.label1')
+            %input.form-control{:readonly => "true", :type => "text", :value => "Daycare Todo"}
+          .form-group
+            %label=t('manager.todos.show.department')
+            %input.form-control{:readonly => "true", :type => "text", :value => ""}
+          .form-group
+            %label=t('manager.todos.show.label2')
+            %input.form-control{:readonly => "true", :type => "text", :value => "Single"}
+          .form-group
+            %label=t('manager.todos.show.label3')
+            %input.form-control{:readonly => "true", :type => "text", :value => "1 Day"}
+        .ln_solid
+        .row
+          .info
+            %h2=t('manager.todos.labels.tasks')
+            %ol
+              %li
+                %b=t('manager.todos.show.label1')
+                %p Depart Task
+                %b=t('manager.todos.show.label5')
+                %p Test Description
+                %b=t('manager.todos.show.label6')
+                %p New Sub Task
+:javascript
+  jQuery(document).ready(function() {
+    healthChildcare.guideline.dashboarStep("#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.dashboarStep("#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });
+  });

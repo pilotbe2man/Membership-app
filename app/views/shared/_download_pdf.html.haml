@@ -1,0 +1,65 @@
+- if params[:download_pdf].present?
+- poster = LocalePoster.where(id: params[:download_pdf]).first
+- button = t('poster.button').html_safe
+  - unless poster.nil?
+    / Modal
+    #dash_step_1.download_pdf
+      .modal-dialog
+        / Modal content
+        .modal-content
+          .modal-header.btn-style-1
+            %button.my-button.close.plainmodal-close{"data-dismiss" => "modal", :type => "button"} ×
+            %h4.modal-title= raw poster.title.html_safe
+          .modal-body
+            = form_for [LocalePoster.new] do |f|
+              = raw poster.description.html_safe
+              = f.hidden_field :download_pdf, value: params[:download_pdf]
+
+              .email-box-group
+                .email-box
+                  %label{:for => "email_box"}
+                    = t('Email')
+                  %input{:type=>"text", :name => "user_email", :id => "user_email", class: "form-control"}
+
+              .download-modal-footer
+                .row
+                  .col-sm-2.hidden-xs
+                  .col-sm-8.col-xs-12
+                    = button_tag(type: 'submit', class: "download-pdf-submit btn btn-style-1 btn-sm", id: 'download-submit') do
+                      = button.html_safe
+                  .col-sm-2.hidden-xs
+
+:javascript
+  jQuery(document).ready(function() {
+    var effect = {
+        open: function(duration, complete) {
+          this.css({
+            display:          'block',
+            opacity:          0,
+            top:              -50 - this.outerHeight(),
+            marginTop:        0
+          })
+          .animate({opacity: 1, top: 100}, duration, complete);
+        },
+        close: function(duration, complete) {
+          this.animate({
+            opacity:          0,
+            top:              -50 - this.outerHeight()
+          }, duration, function() {
+            $(this).css({display: 'none'});
+            complete();
+          });
+        }
+      };
+
+    modalStep1 = $('#dash_step_1').plainModal({effect: effect, duration: 500});
+    dash_wizard();
+
+    function dash_wizard(){
+      modalStep1 = $('#dash_step_1').plainModal('open', {force: true});
+    }
+
+    $('#download-submit').click(function(e){
+      $(".my-button").click();
+    });
+  });

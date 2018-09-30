@@ -1,0 +1,23 @@
+.row
+  .col-md-6
+    .form-group
+      = hidden_field_tag :record_type, params[:record_type]
+      = label_tag :department, t('illnesses.labels.select_department')
+      .form-dc-select
+        = select_tag :department_id, options_from_collection_for_select(current_user.daycare.departments, 'id', 'name'), class: 'form-control', required: true, prompt: t('illnesses.labels.department')
+  .col-md-6
+    .form-group.choose-child
+
+.row
+  .col-md-4
+    .form-group
+      = label_tag :start_date, t('form_labels.start_date')
+      = text_field_tag :start_date, params['start_date'], class: 'datepicker form-control datetime-input'
+
+  .col-md-4
+    .form-group
+      = label_tag :end_date, t('form_labels.end_date')
+      = text_field_tag :end_date, params['end_date'], class: 'datepicker form-control datetime-input'
+
+  .col-md-4.form-buttons.filter-buttons.centralize
+    = link_to t('form_labels.apply_filter'), '#', class: 'btn bg-style-b', id: 'apply-health-record-filters'

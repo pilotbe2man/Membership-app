@@ -1,0 +1,48 @@
+<%= form_for [:admin, @global_setting] do |f| %>
+	<div class="threecol"></div>
+	<div class="ninecol last">
+		<%= render partial: 'shared/admin/errors', locals: { object: @global_setting } %>
+	</div>
+
+	<div class="threecol">
+  		<h3>Global Setting</h3>
+  		<p>This is global setting page</p>
+	</div>
+	<div class="ninecol last">
+        <% if @global_setting.key == "Journey Page Mode" %>
+      		<fieldset class="widget widget-content widget-last">
+                <div class="form-group">
+                    <%= f.label :key %>
+                    <%= f.text_field :key, :class => 'form-control' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :value %>
+                    <%= f.radio_button :value, 'deposit_mode', (!@global_setting.nil? && @global_setting.value == 'deposit_mode') ? {:checked => true} : {:checked => false} %> Deposit Mode
+                    <%= f.radio_button :value, 'userplan_mode', (!@global_setting.nil? && @global_setting.value == 'userplan_mode') ? {:checked => true} : {:checked => false}  %> User Plan Mode
+                </div>
+                <div class="form-group">
+                    <%= f.label :Description %>
+                    <%= f.text_field :description, :class => 'form-control' %>
+                </div>
+    		</fieldset>
+        <% else %>
+            <fieldset class="widget widget-content widget-last">
+                <div class="form-group">
+                    <%= f.label :key %>
+                    <%= f.text_field :key, :class => 'form-control' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :value %>
+                    <%= f.text_field :value, :class => 'form-control' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :Description %>
+                    <%= f.text_field :description, :class => 'form-control' %>
+                </div>
+            </fieldset>
+        <% end %>
+		<div class="form-action">
+    		<%= f.submit 'Submit', :class => 'btn btn-blue btn-large' %>
+		</div>
+	</div>
+<% end %>

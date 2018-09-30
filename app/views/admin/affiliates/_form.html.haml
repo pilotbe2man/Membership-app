@@ -1,0 +1,31 @@
+= form_for [:admin, @affiliate] do |f|
+  .threecol
+  .ninecol.last
+    = render partial: 'shared/admin/errors', locals: { object: @affiliate }
+  .threecol
+    %h3= "Partner Details"
+  .ninecol.last
+    %fieldset.widget.widget-content.widget-last
+      .form-group
+        = f.label :name
+        = f.text_field :name, :class => 'form-control'
+      .form-group
+        = f.label 'Address'
+        = f.text_field :address, :class => 'form-control'
+      .form-group
+        = f.label :postcode
+        = f.text_field :postcode, :class => 'form-control'
+      .form-group
+        = f.label :telephone
+        = f.text_field :telephone, :class => 'form-control'
+      .form-group
+        = f.label 'Country'
+        = f.text_field :country, :class => 'form-control'
+      .form-group
+        = f.label 'URL'
+        = f.text_field :url, :class => 'form-control'
+      .form-group
+        = f.label 'Type'
+        = f.select :affiliate_type, options_for_select([['Strategic Partner', 0], ['Certificated Partner', 1]], selected_key = f.object.affiliate_type), {}, :class => 'form-control', include_blank: true
+    .form-action
+      = f.submit 'Submit', :class => 'btn btn-blue btn-large'

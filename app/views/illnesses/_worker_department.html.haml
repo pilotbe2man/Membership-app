@@ -1,0 +1,14 @@
+.row
+  %h5= t('illnesses.labels.worker_details_fill_up')
+.row
+  .col-md-6
+    %h3= t('illnesses.labels.select_department')
+    #search-worker-department-name{'data-worker_department_names': user_departments.to_json}
+      = text_field_tag 'search-worker-department-name', '', placeholder: t('illnesses.labels.search'), class: 'form-control typeahead'
+  .col-md-6
+    .radio-box-group
+      - user_departments.each do |dept|
+        .radio-box
+          %input{:type=>"radio", :name => "worker[department_id]", :id => "chk_work_depart_#{dept[:id]}", :style => "display: none;", value: dept[:id], 'data-worker_department_name': dept[:name], :required => "true"}
+          %label{:for => "chk_work_depart_#{dept[:id]}"}
+            = dept[:name]

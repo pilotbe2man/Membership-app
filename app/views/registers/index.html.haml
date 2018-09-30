@@ -1,0 +1,155 @@
+.container.mgbtm-100
+  %h3.heading-letter.text-dark-pink.subtitle-1.red-title.text-center
+    = t('register.parentee.title').html_safe
+  %h4.text-dark-pink.subtitle-1.text-center
+    = t('register.parentee.subtitle').html_safe
+  .gap-30
+  .row
+    .col-md-2
+    .col-md-8
+      %script{:async => "", :src => "https://fast.wistia.com/embed/medias/za7rgh6m1q.jsonp"}
+      %script{:async => "", :src => "https://fast.wistia.com/assets/external/E-v1.js"}
+      .wistia_responsive_padding{:style => "padding:56.25% 0 0 0;position:relative;"}
+        .wistia_responsive_wrapper{:style => "height:100%;left:0;position:absolute;top:0;width:100%;"}
+          .wistia_embed.wistia_async_za7rgh6m1q{:class => "videoFoam=true", :style => "height:100%;position:relative;width:100%"}  
+    .col-md-2
+  .gap-30
+  .row
+    .col-xs-12.text-center
+      / Button trigger modal
+      .row
+        .col-sm-4.hidden-xs
+        .col-sm-4.col-xs-12
+          %a.btn.btn-primary.btn-style-1{href: getting_started_path, style: "padding-top: 20px; width: 100%;"}
+            = t('register.parentee.button_text').html_safe
+        .col-sm-4.hidden-xs
+      %br/
+      %br/
+      %br/
+      / Modal
+      #exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+        .modal-dialog.modal-dialog-1.modal-lg{:role => "document"}
+          .modal-content
+            .modal-body.no-padding-top
+              %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                %span{"aria-hidden" => "true"}
+                  %img{:alt => "", :src => "/assets/close-color.png"}/
+              .row.row-flex
+                .col-xs-12.col-sm-6.col-flex
+                  .boxer
+                    %p.paragraph.text-left
+                      %b= t('register_popup.title').html_safe
+                      %br/
+                      = t('register_popup.description').html_safe
+                    %h4
+                    %div{:style => "margin-top: 40px;margin-bottom: 80px"}
+                      = simple_form_for(@user, url: "registration/create",  :html => {:class => 'form-horizontal' }) do |f|
+                        = f.input :daycare_name, label: false, wrapper_html: { class: "form-group" }, input_html: { class: "form-control input-lg", placeholder: "Enter daycare name " }, required: true
+                        = f.input :name, label: false, wrapper_html: { class: "form-group" }, input_html: { class: "form-control input-lg", placeholder: "Name" }, required: true
+                        = f.input :email, label: false, as: :string, wrapper_html: { class: "form-group" }, input_html: { class: "form-control input-lg", placeholder: "Email", required: true }
+                        = f.input :mobile, label: false, as: :string, wrapper_html: { class: "form-group" }, input_html: { class: "form-control input-lg", placeholder: "Mobile", required: true }
+                        .gap-30
+                        = f.button :submit, t('register_popup.join_button'), class: "btn-style-1"
+                .col-sm-6.col-flex.hidden-xs{:style => "background: #fefbfa"}
+                  .boxer.text-left
+                    %p.paragraph.pink-color.text-left
+                      %b= t('register_popup.paragraph').html_safe
+                    .row
+                      .col-xs-2{:style => "margin-top: 10px"}
+                        = image_tag "icons/9"
+                      .col-xs-10{:style => "padding-left: 22px"}
+                        %p.paragraph.text-left
+                          %b= t('registration.title1')
+                          %br/
+                          = t('registration.desc1')
+                    .row
+                      .col-xs-2{:style => "margin-top: 10px"}
+                        = image_tag "icons/2"
+                      .col-xs-10{:style => "padding-left: 22px"}
+                        %p.paragraph.text-left
+                          %b= t('registration.title2')
+                          %br/
+                          = t('registration.desc2')
+                    .row
+                      .col-xs-2{:style => "margin-top: 10px"}
+                        = image_tag "icons/3"
+                      .col-xs-10{:style => "padding-left: 22px"}
+                        %p.paragraph.text-left
+                          %b= t('registration.title3')
+                          %br/
+                          = t('registration.desc3')
+                    .row
+                      .col-xs-2{:style => "margin-top: 10px"}
+                        = image_tag "icons/14"
+                      .col-xs-10{:style => "padding-left: 22px"}
+                        %p.paragraph.text-left
+                          %b= t('registration.title4')
+                          %br/
+                          = t('registration.desc4')
+                    .row
+                      .col-xs-2{:style => "margin-top: 10px"}
+                        = image_tag "icons/6"
+                      .col-xs-10{:style => "padding-left: 22px"}
+                        %p.paragraph.text-left
+                          %b= t('registration.title5')
+                          %br/
+                          = t('registration.desc5')
+                    .row
+                      .col-xs-2{:style => "margin-top: 10px"}
+                        = image_tag "icons/4"
+                      .col-xs-10{:style => "padding-left: 22px"}
+                        %p.paragraph.text-left
+                          %b= t('registration.title6')
+                          %br/
+                          = t('registration.desc6')
+                    .row
+                      .col-xs-2{:style => "margin-top: 10px"}
+                        = image_tag "icons/5"
+                      .col-xs-10{:style => "padding-left: 22px"}
+                        %p.paragraph.text-left
+                          %b= t('registration.title7')
+                          %br/
+                          = t('registration.desc7')
+                    .row
+                      .col-xs-2{:style => "margin-top: 10px"}
+                        = image_tag "icons/11"
+                      .col-xs-10{:style => "padding-left: 22px"}
+                        %p.paragraph.text-left
+                          %b= t('registration.title8')
+                          %br/
+                          = t('registration.desc8')
+  .gap-50
+:javascript
+  $(document).ready(function(){
+    $('.modal').on('shown.bs.modal', function () {
+        $('#new_user').validate({
+          rules: {
+              username: {
+                  minlength: 3,
+                  maxlength: 15,
+                  required: true
+              },
+              password: {
+                  minlength: 3,
+                  maxlength: 15,
+                  required: true
+              }
+          },
+          highlight: function(element) {
+              $(element).closest('.form-group').addClass('has-error');
+          },
+          unhighlight: function(element) {
+              $(element).closest('.form-group').removeClass('has-error');
+          },
+          errorElement: 'span',
+          errorClass: 'help-block',
+          errorPlacement: function(error, element) {
+              if (element.parent('.input-group').length) {
+                  error.insertAfter(element.parent());
+              } else {
+                  error.insertAfter(element);
+              }
+          }
+      });
+    });
+  })

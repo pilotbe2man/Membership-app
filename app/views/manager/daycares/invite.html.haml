@@ -1,0 +1,74 @@
+.reg-manager-container.page-boxed
+  .page-header
+  .container
+    .form-content           
+      #rootwizard
+        %ul{:style=> "visibility: hidden; height: 0; position:absolute;"}
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab1"} First
+        .tab-content
+          #tab1.tab-pane
+            .row.text-center.step-banner
+              = image_tag 'manager-md.png'
+              %h4=t('manager.invite.title')
+            .row.pane-container.text-center
+              .row.step-banner
+                .col-sm-3.col-xs-3.step-item.first-step
+                  .step-label
+                    = image_tag 'step-check-mng.png'
+                .col-sm-3.col-xs-3.step-item.second-step
+                  .step-label
+                    = image_tag 'step-check-mng.png'
+                .col-sm-3.col-xs-3.step-item.third-step
+                  .step-label
+                    = image_tag 'step-check-mng.png'
+                .col-sm-3.col-xs-3.step-item.fourth-step.active    
+                  .step-label
+                    = image_tag 'manager-sm.png'
+                    %span=t('manager.invite.invitation')
+            = form_for @message, url: send_invites_manager_daycares_path, html: { method: :POST} do |f|
+              .row.text-center.pane-search-result
+                %h5 
+                  =t('manager.invite.description').html_safe
+              .row.pane-invite-info
+                .row.invite-option
+                  - Message.allowed_recipients_for_role('admin').each do |target_role|
+                    .col-md-4.col-sm-4.col-xs-12.text-center
+                      = radio_button_tag 'message[target_roles][]', target_role, checked: true
+                      %label{:for => "message_target_roles__#{target_role}" }
+                        = t('pages.nav_bar.'+target_role).humanize.pluralize
+                .col-sm-12.text-left.email-list
+                  .row
+                    .form-group
+                      %label{:for => :title }=t('manager.invite.subject.label')
+                      = f.text_field :title, placeholder: t('manager.invite.subject.placeholder'), class: 'form-control input-round', required: true
+                    .form-group
+                      %label{:for => 'message_content' }=t('manager.invite.message.label') 
+                      = f.cktext_area :content, id: 'message_content', placeholder: t('manager.invite.message.placeholder')
+              .row.pane-invite.text-left
+                .col-md-12
+                  = submit_tag t('manager.invite.send'), class: 'btn btn-round item-manager btn-invite'            
+:javascript
+  function remove_fields(link) {
+    $(link).prev("input[type=hidden]").val("1");
+
+    if ($(link).hasClass('subtask-link')) {
+      $(link).parent('.subtask').remove();
+    } else {
+      $(link).parent().parent().remove();
+    }
+  }
+  jQuery(document).ready(function() {    
+
+    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'}); 
+    $('.remove_button').removeClass("btn");
+    $('.remove_button').removeClass("btn-red");
+
+    //$('#message_content').froalaEditor({
+    //  heightMin: 250
+    //});
+
+    $('.btn-invite').click(function(){
+      $('form').submit();
+    });
+  });

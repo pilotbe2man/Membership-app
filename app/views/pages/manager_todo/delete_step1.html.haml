@@ -1,0 +1,78 @@
+- content_for :page_title, t('manager.todos.labels.task_manager')
+- content_for :previous_path, dashboard_manager_todos_path
+.todo-dash-container
+  .container
+    #todos.row
+      .twelvecol
+        .todo-list
+          %h3=t('manager.todos.labels.todos')
+          %ul
+            %li
+              .menu-item
+                .todo-command
+                  .detail-box
+                    %span.todo-name Cleaning
+                    %span.todo-createby Created By Admin User
+                %span.todo-footer
+            %li
+              .menu-item
+                .todo-command
+                  .detail-box
+                    %span.todo-name Making Food
+                    %span.todo-createby Created By Admin User
+                %span.todo-footer
+            %li
+              .menu-item
+                .todo-command
+                  .detail-box
+                    %span.todo-name Daycare Todo
+                    %a{href: '#', data:{step: 2, intro: t("guideline.manager.dashboard.todo.delete.step2.content")}}
+                      %i.fa.fa-icon.fa-pencil{style: 'color: #f72975;font-size: 20px;padding: 5px;'}
+                %span.todo-footer
+          %h3=t('manager.todos.labels.todos')
+          #todo_department_list
+            %h4 Cleaning
+            %ul
+              %li
+                .department-todo
+                  .todo-command
+                    .detail-box
+                      %ul#time-counter
+                        %li.days
+                          %label 0
+                          %span Days
+                        %li.hours
+                          %label 22
+                          %span Hours
+                        %li.minutes
+                          %label 55
+                          %span Mins
+                      .progress
+                        .value{:style => "width: 0%;"}
+                  %span.todo-footer
+                    En-DEP1
+              %li
+                .department-todo
+                  .todo-command
+                    .detail-box
+                      %ul#time-counter
+                        %li.days
+                          %label 0
+                          %span Days
+                        %li.hours
+                          %label 22
+                          %span Hours
+                        %li.minutes
+                          %label 55
+                          %span Mins
+                      .progress
+                        .value{:style => "width: 0%;"}
+                  %span.todo-footer
+                    En-DEP2
+:javascript
+  jQuery(document).ready(function() {
+    healthChildcare.guideline.introGoToStep('delete_step2', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.introGoToStep('delete_step2', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });    
+  });

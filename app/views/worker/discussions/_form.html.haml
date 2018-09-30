@@ -1,0 +1,14 @@
+.col-md-2
+.col-md-8
+  = form_for Discussion.new, url: worker_discussions_path, remote: true do |discussion|
+    = hidden_field_tag request_forgery_protection_token.to_s, form_authenticity_token
+    = hidden_field_tag 'discussion[subject_id]', @active_child.id
+    = hidden_field_tag 'discussion[subject_type]', 'Child'
+    .form-group
+      = discussion.text_area :content
+      .pull-right
+        = submit_tag t('form_labels.post'), class: 'btn btn-raised btn-success'
+
+.col-md-2.discussion-owner
+  = image_tag daycare_logo(current_user.daycare), class: 'img'
+  %p= current_user.daycare.name

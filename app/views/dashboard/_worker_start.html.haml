@@ -1,0 +1,14 @@
+.row.content-header
+  .col-xs-12
+    %h2
+      =image_tag image_url('new_style_icons/cube.png')
+      =t("permissions.title")
+      = "for #{current_user.daycare.name}" rescue nil
+.row.content-main
+  #main-menu.apply-customer
+    .menu-items
+      .thing
+      .col-md-6.col-sm-6.col-xs-12.main-item
+        = link_to t('permissions.section_a'), section_a_permissions_path, class: 'style-a border-style-a'
+      .col-md-6.col-sm-6.col-xs-12.main-item
+        = link_to t('permissions.section_b'), section_b_permissions_path, class: 'style-b border-style-b'

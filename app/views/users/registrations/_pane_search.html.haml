@@ -1,0 +1,84 @@
+.row.text-center.step-banner
+  = image_tag 'worker-md.png'
+  %h4=t('account.daycare.worker')
+.row.pane-container.text-center
+  .row.step-banner
+    .col-sm-3.col-xs-3.step-item.first-step.item-worker.active
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'worker-sm.png'
+        %span=t('register.labels.select_daycare')
+    .col-sm-3.col-xs-3.step-item.second-step.item-worker
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+    .col-sm-3.col-xs-3.step-item.third-step.item-worker
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow right"
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+    .col-sm-3.col-xs-3.step-item.fourth-step.item-worker    
+      .step-label
+        = image_tag 'step-arrow.png', :class => "step-arrow left"
+        = image_tag 'step-pending.png'
+  .row
+    .col-sm-12.search-inline-text
+      = text_field_tag(:query, params[:query], autocomplete: 'off', tabindex: "1", :class => 'form-control input-round', :placeholder => "Search for...")
+      %a.search-submit{:href => "#"}
+        %i.fa.fa-search
+.row.pane-search-result
+  .col-sm-12
+    %ul.list-unstyled.msg_list
+      - @daycares.each do |daycare|
+        %li
+          - if daycare.id == @daycare.id
+            %input{:type=>"radio", :name => "daycare_item", :id => "chk_item_#{daycare.id}", :style => "display: none;", "select-link" =>worker_update_department_path(daycare_id: daycare.id), checked: '' }
+          - else
+            %input{:type=>"radio", :name => "daycare_item", :id => "chk_item_#{daycare.id}", :style => "display: none;", "select-link" =>worker_update_department_path(daycare_id: daycare.id) }
+          %label{:for => "chk_item_#{daycare.id}"}
+            %span.image
+              = image_tag (daycare.profile_image.blank?) ? 'worker-md.png' : daycare.profile_image
+            %span
+              %span 
+                %b=daycare.name
+            %span.message=daycare.address_line1
+            %span.message=daycare.postcode
+            %span.message=daycare.telephone
+:javascript
+  jQuery(document).ready(function() {    
+    function get_daycares(){
+      $.ajax({
+          url: '/worker/get_daycares',
+          type:'GET',
+          data: {
+            query: $('#query').val()
+          },
+          success: function(response){
+            var daycares = response;
+            var template = '';
+            var daycare_id = "#{@daycare.id}";
+            for(var i = 0;  i < daycares.length; i++){
+              if(daycare_id == daycares[i].id){
+                template += '<li><input data-id="'+ daycares[i].id +'" id="chk_item_'+ daycares[i].id +'" name="daycare_item" style="display: none;" type="radio" select-link="/worker/update_department?daycare_id='+ daycares[i].id +'" checked ><label for="chk_item_'+ daycares[i].id +'"><span class="image"><img src="/assets/worker-md.png" alt="Worker md"></span><span><span><b>'+ daycares[i].name +'</b></span></span><span class="message">'+ daycares[i].address_line1 +'</span><span class="message">'+ daycares[i].postcode +'</span><span class="message">'+ daycares[i].telephone +'</span></label></li>';
+              } else {
+                template += '<li><input data-id="'+ daycares[i].id +'" id="chk_item_'+ daycares[i].id +'" name="daycare_item" style="display: none;" type="radio" select-link="/worker/update_department?daycare_id='+ daycares[i].id +'" ><label for="chk_item_'+ daycares[i].id +'"><span class="image"><img src="/assets/worker-md.png" alt="Worker md"></span><span><span><b>'+ daycares[i].name +'</b></span></span><span class="message">'+ daycares[i].address_line1 +'</span><span class="message">'+ daycares[i].postcode +'</span><span class="message">'+ daycares[i].telephone +'</span></label></li>';
+              }              
+            }
+
+            $('ul.msg_list').html(template);            
+          }
+      });    
+    }
+
+    $('.search-submit').click(function(){
+      get_daycares();
+    });
+
+    $('#query').keypress(function(e){
+      if(e.which === 13){
+        get_daycares();
+      }
+    });
+
+  });

@@ -1,0 +1,106 @@
+#legacy-survey.survey-result-dash-container
+  .container
+    .row.survey-subjects
+      .survey-subject
+        .radio-box
+          %input{:type=>"radio", :name => "subject_id", :id => "radio1", :style => "display: none;", value: 10, 'data-current_role': 'manager'}
+          %label{:for => "radio1"}
+            = image_tag 'survey-bodily.png', class: 'img'
+          .row.survey-title
+            %span Infection preventive cleaning of Bodily Fluid
+      .survey-subject
+        .radio-box
+          %input{:type=>"radio", :name => "subject_id", :id => "radio2", :style => "display: none;", value: 10, 'data-current_role': 'manager'}
+          %label{:for => "radio2"}
+            = image_tag 'survey-preventive.png', class: 'img'
+          .row.survey-title
+            %span Infection preventive Diapering
+      .survey-subject
+        .radio-box
+          %input{:type=>"radio", :name => "subject_id", :id => "radio3", :style => "display: none;", value: 10, 'data-current_role': 'manager'}
+          %label{:for => "radio3"}
+            = image_tag 'survey-handling.png', class: 'img'
+          .row.survey-title
+            %span Infection Preventive food handling
+      .survey-subject
+        .radio-box
+          %input{:type=>"radio", :name => "subject_id", :id => "radio4", :style => "display: none;", value: 10, 'data-current_role': 'manager'}
+          %label{:for => "radio4"}
+            = image_tag 'survey-washing.png', class: 'img'
+          .row.survey-title
+            %span Infection preventive Hand Hygene
+      .survey-subject
+        .radio-box
+          %input{:type=>"radio", :name => "subject_id", :id => "radio5", :style => "display: none;", value: 10, 'data-current_role': 'manager'}
+          %label{:for => "radio5"}
+            = image_tag 'survey-control.png', class: 'img'
+          .row.survey-title
+            %span Inpfection preventive Outbreak Control    .row
+      #page.hfeed.site
+        #jcmc-wrap.jcmc-tabs-top
+          %ul#jcmc-tabs.jcmc-tabs.jcmc-arrows.jcmc-blocks
+            %li{:class => "jcmc-active-link jcmc-enabled jcmc-odd", :id => "li_0", "data-survey" => "20", "data-index" => "0"}
+              %a{:href => "javascript:void(0)", :id => "jcmc-trigger-0", :onclick => ""}
+                %span.jcmc-tab-span
+                  = 1
+                  \. Cleaning Bodily Fluid Qa
+            %li{:class => "jcmc-even", :id => "li_1", "data-survey" => "20", "data-index" => "1"}
+              %a{:href => "javascript:void(0)", :id => "jcmc-trigger-2", :onclick => ""}
+                %span.jcmc-tab-span
+                  = 2
+                  \. Isolating Sick Individuals Qa 
+            %li#li_complete.jcmc-even
+              %a#jcmc-trigger-3{:href => "javascript:void(0)", :onclick => ""}
+                %span.jcmc-tab-span
+                  3
+                  \. Check Results
+          #jcmc-tab-panels.jcmc-tab-wrapper          
+            %div{:class => "jcmc-tab jcmc-active-tab", :id => "tab_0", data:{step: 3, intro: t("guideline.worker.survey_take.step3.content")}}
+              %h2.server-question-title
+                Survey Questions - Cleaning Bodily Fluid Qa
+              %ol.qustion-list
+                %li.qustion
+                  %b
+                    %span.qustion-title
+                      True or false - faeces from individuals with a gastrointestinal sickness can contain up to 10 billion bacterial cells or viral organisms
+                  .question-options
+                    %p.options
+                      %input.survey-option{:name => "survey_attempt1", :type => "radio", :value => "363"}
+                      TRUE
+                    %p.options
+                      %input.survey-option{:name => "survey_attempt1", :type => "radio", :value => "363"}
+                      FALSE
+                %li.qustion
+                  %b
+                    %span.qustion-title
+                      The potential for transmission of pathogens from an individual who is presenting severe gastrointestinal symptoms can be up to ______ in some cases when in presence of a vomiting individual.
+                  .question-options
+                    %p.options
+                      %input.survey-option{:name => "survey_attempt2", :type => "radio", :value => "363"}
+                      0.65
+                    %p.options
+                      %input.survey-option{:name => "survey_attempt2", :type => "radio", :value => "363"}
+                      0.75
+                    %p.options
+                      %input.survey-option{:name => "survey_attempt2", :type => "radio", :value => "363"}
+                      0.85
+                %li.qustion
+                  %b
+                    %span.qustion-title
+                      Pathogens such as hepatitis A, rotaviruses, E. Coli can spread through particles in the air and can remain on hard surfaces for up to ______ days.
+                  .question-options
+                    %p.options
+                      %input.survey-option{:name => "survey_attempt3", :type => "radio", :value => "363"}
+                      30
+                    %p.options
+                      %input.survey-option{:name => "survey_attempt3", :type => "radio", :value => "363"}
+                      20
+              .jcmc-buttons.form-buttons
+                = button_tag t('form_labels.next'), :class => "btn-round item-manager btn-next", :type => 'submit'              
+:javascript
+  jQuery(document).ready(function() {
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.introGoToStep('take_step3', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });       
+    healthChildcare.guideline.introGoToStep('take_step3', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+  });

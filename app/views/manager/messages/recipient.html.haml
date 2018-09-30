@@ -1,0 +1,140 @@
+= content_for :title, t('messages.message')
+- content_for :page_title, t('dashboard.menu_item.communication')
+- content_for :breadcrumb, t('messages.breadcrumb.choose_recipient')
+
+- step_size = 5
+- page_step = 2
+.message-dash-container
+  .container
+    .row
+      = render partial: '/shared/progress_bar', locals: {step_size: step_size, page_step: page_step}
+    .row.content-main
+      = form_tag subject_manager_messages_path, method: :post, novalidate: '' do
+        = hidden_field_tag :target_department, params[:target_department]
+
+        .col-md-12
+          %h4.option-title= t('messages.labels.choose_recipient')
+        .col-md-12
+          .inline-radio-group
+            - Message.allowed_recipients_for_role(current_user.role).each do |target_role|
+              .radio-box
+                %input{:type=>"radio", :name => "target_role", :id => "chk_role_#{target_role}", :style => "display: none;", value: target_role, checked: params[:target_role] == target_role, required: true}
+                %label{:for => "chk_role_#{target_role}"}
+                  = t('pages.nav_bar.'+target_role).humanize
+        
+        - Message.allowed_recipients_for_role(current_user.role).each do |target_role| 
+          .pane-invite-info{id: "role_#{target_role}", class: params[:target_role] == target_role ? '' : 'hidden'}
+            .col-sm-12.text-left.email-list
+              .form-group
+                %label{:for => :title }=t('manager.invite.recipient')
+                &nbsp;&nbsp;&nbsp;
+                =link_to t('manager.invite.template'), @email_list_template.email_list_template.url.split('?')[0] unless @email_list_template.nil?
+                = file_field_tag "#{target_role}_recipient", :class => 'form-control recipient'
+                %br
+                %span#recipient_list
+              .form-group
+                .text-left.department-list
+                  %br
+                  .address_elem
+                    .inline-input-link
+                      = text_field_tag 'email[]', '', :class => "form-control input-round daycare-email", required: "true", value: ""
+                      %a{href: '#', "onclick" => "remove_fields(this)" } 
+                        =image_tag('manager-sub.png')
+                  - current_user.message_invite_emails.where(department: params[:target_department], role: target_role).each do |email|
+                    - if email.email.present?
+                      .inline-input-link
+                        = text_field_tag 'email[]', '', :class => "form-control input-round daycare-email", required: "true", value: email.email
+                        %a{href: '#', "onclick" => "remove_fields(this)" } 
+                          =image_tag('manager-sub.png')
+
+                .text-left
+                  %a.btn.bg-style-g.btn-round.item-manager{href: '#', 'onclick' => "add_fields('#{target_role}')"}
+                    =t('register.labels.add_email')
+        .col-md-12.form-buttons.text-right.no-h-padding
+          .col-md-3.col-md-offset-6.col-sm-3.col-sm-offset-6.col-xs-6
+            %a{href: select_department_manager_messages_path(target_department: params[:target_department]), class: 'btn btn-gray btn-wizard'}
+              =t('form_labels.back')
+          .col-md-3.col-sm-3.col-xs-6
+            = submit_tag t('form_labels.next'), class: 'btn bg-style-b btn-wizard'
+
+
+:javascript
+  jQuery(document).ready(function() {
+    $('form').submit(function() {
+      $('.pane-invite-info.hidden input').remove();
+      // $('form').attr('action', '/manager/messages/subject' + '?department=' + $('#target_department').val() + '&target_role=' + $('input[type=radio][name=target_role]').val()).submit();
+      return true;
+    });
+
+    $('input[type=radio][name=target_role]').on('change', function() {
+      $('form').attr('action', '/manager/messages/subject' + '?department=' + $('#target_department').val() + '&target_role=' + $(this).val());
+      var panel_id = '#role_' + $(this).val();
+      $('.pane-invite-info').addClass('hidden');
+      $(panel_id).removeClass('hidden');
+    });
+
+    $('.recipient').change(function(evt) {
+      var role = $(this).attr('id').replace('_recipient', '');
+      var file = $(this).prop('files')[0];
+      if (file) {
+          // create reader
+          var reader = new FileReader();
+          reader.readAsBinaryString(file);
+          reader.onload = function(e) {
+              // browser completed reading file - display it
+              var workbook = XLSX.read(e.target.result, {type: 'binary'});
+
+              workbook.SheetNames.forEach(function (sheetName) {
+                // Get headers.
+                var headers = [];
+                var sheet = workbook.Sheets[sheetName];
+                var range = XLSX.utils.decode_range(sheet['!ref']);
+                var C, R = range.s.r;
+                /* start in the first row */
+                /* walk every column in the range */
+                for (C = range.s.c; C <= range.e.c; ++C) {
+                    var cell = sheet[XLSX.utils.encode_cell({c: C, r: R})];
+                    /* find the cell in the first row */
+
+                    var hdr = "UNKNOWN " + C; // <-- replace with your desired default
+                    if (cell && cell.t) {
+                        hdr = XLSX.utils.format_cell(cell);
+                    }
+                    headers.push(hdr);
+                }
+                // For each sheets, convert to json.
+                var roa = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
+                if (roa.length > 0) {
+                    roa.forEach(function (row) {
+                        // Set empty cell to ''.
+                        headers.forEach(function (hd) {
+                            if (row[hd] == undefined) {
+                                row[hd] = '';
+                            }
+                        });
+                    });
+                }
+                for (var i = 0, line; line = roa[i]; i++)
+                  add_fields(role, line[headers[0]]);
+              });
+          };
+      }
+    });
+  });
+
+  function add_fields(role, value) {
+    var item_html = $('.address_elem').html();
+    if (value)
+      item_html = item_html.replace('value=""', 'value="' + value + '"');
+    $('#role_'+ role + ' .department-list').append(item_html);  
+  }
+
+  function remove_fields(link) {
+    if ($(link).hasClass('subtask-link')) {
+      $(link).parent('.subtask').remove();
+    } else {
+      if($('.inline-input-link').length > 1){
+        $(link).parent().remove();      
+      }
+    }
+  }

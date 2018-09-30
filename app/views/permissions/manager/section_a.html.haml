@@ -1,0 +1,67 @@
+- content_for :page_title, t('permissions.section_a')
+- content_for :breadcrumb, t('permissions.section_a')
+.manager-dash-container
+  .container
+    .row.content-main
+      - if !current_user.is_trial_member? && (!current_user.active_subscribed?)
+        #main-menu.apply-customer
+          .menu-items
+            - @permissions.each do |permission|
+              .col-md-4.col-sm-4.col-xs-12.sub-item
+                - if permission.active
+                  - if permission.plan_deposit == 0
+                    = link_to permission.path, id: permission.element, class: 'border-style-a' do
+                      =t("permissions-a.#{permission.feature}-title")
+                      = image_tag permission.image
+                      .function-name=t(permission.label_key)
+                      .bottom-buttons
+                        %btn.btn.bg-style-a
+                          %i.key-icon
+                          = t('permissions.button-access')
+                        - if ManagerVideo.exists?(video_type: permission.feature, category: 'free')
+                          %btn.btn.bg-white{'data-toggle'=>"modal", 'data-target'=>"#videoModal", 'data-type' => permission.feature}
+                            %i.video-icon
+                            = t('permissions.button-video')
+                  - else
+                    %a.border-style-1{href: '#', id: permission.element}
+                      =t("permissions-a.#{permission.feature}-title")
+                      = image_tag permission.image
+                      .function-name=t(permission.label_key)
+
+      - else
+        #main-menu.apply-customer
+          .menu-items
+            - @permissions.each do |permission|
+              .col-md-4.col-sm-4.col-xs-12.sub-item
+                - if permission.active && @features.include?(permission.feature)
+                  .bg-style-a.bg-title
+                    = t("permissions-a.#{permission.feature}")
+                  = link_to permission.path, id: permission.element, class: 'border-style-a' do
+                    =t("permissions-a.#{permission.feature}-title")
+                    = image_tag permission.image
+                    .function-name=t(permission.label_key)
+                    .bottom-buttons
+                      %btn.btn.bg-style-a
+                        %i.key-icon
+                        = t('permissions.button-access')
+                      - if ManagerVideo.exists?(video_type: permission.feature, category: 'paid')
+                        %btn.btn.bg-white{'data-toggle'=>"modal", 'data-target'=>"#videoModal", 'data-type' => permission.feature}
+                          %i.video-icon
+                          = t('permissions.button-video')
+
+
+/ Modal
+#videoModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-dialog-1.modal-lg{:role => "document"}
+    .modal-content
+      .modal-body.no-padding-top
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"}
+            %img{:alt => "", :src => "/assets/close-color.png"}/
+        .row.row-flex
+          .col-xs-12.col-sm-6.col-flex
+            #all-videos
+              - @videos.each do |video|
+                %div.video-content{id: "video-#{video.video_type}"}
+                  %div{:style => "width: 100%; height: 0px; position: relative; padding-bottom: 86.612%;"}
+                    %iframe{:allowfullscreen => "", :frameborder => "0", :height => "100%", :src => video.url.gsub(/https\:\/\/drive.google.com\/open\?id=(.*)/, "https://drive.google.com/file/d/\\1/preview"), :style => "width: 100%; height: 100%; position: absolute;", :width => "100%"}

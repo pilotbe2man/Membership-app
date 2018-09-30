@@ -1,0 +1,202 @@
+.notification-box.border-style-1
+  .row
+    %span.panel-title
+      = image_tag 'dashboard_icons/2'
+      &nbsp;&nbsp;&nbsp;
+      =t('dashboard.notifications.record_alert')
+  .row#notify_records.panel-content
+    = render 'dashboard/health_record_list'
+
+.notification-box.border-style-1
+  .row
+    %span.panel-title
+      = image_tag 'status-of-task.png'
+      &nbsp;&nbsp;&nbsp;
+      =t('dashboard.notifications.status_of_task')
+  .row#notify_todos.panel-content
+    %ul
+      - User.all_self_department_todos.where(id: current_user.id).each do |todo|
+        - todo_obj = Todo.find(todo.id)
+        - if !todo_obj.nil? && todo_obj.recurring_available_by_department(todo.department_id)
+          - diff_time = get_remain_time(todo.id)
+          - if (todo_obj.single? && diff_time[2] != -1)
+            %li
+              %h5=t("todos.todo_#{todo.id}")
+              .department-todo
+                .todo-command
+                  .detail-box
+                    %ul#time-counter.time-counter
+                      %li.days
+                        %label=(diff_time[0] < 0) ? "-" : diff_time[0]
+                        %span Days
+                      %li.hours
+                        %label=(diff_time[0] < 0) ? "-" : diff_time[1]
+                        %span Hours
+                      %li.minutes
+                        %label=(diff_time[0] < 0) ? "-" : diff_time[2]
+                        %span Mins
+                    - percent = get_current_status(todo.id, todo.department_id)
+                    .progress
+                      .value{style: "width: #{percent}%;"}
+                %span.todo-footer
+                  = todo.department_name
+          - if (todo_obj.recurring? && todo_obj.is_active == 1)
+            %li
+              %h5=t("todos.todo_#{todo.id}")
+              .department-todo
+                .todo-command
+                  .detail-box
+                    %ul#time-counter.time-counter
+                      %li.days
+                        %label=diff_time[0]
+                        %span Days
+                      %li.hours
+                        %label=diff_time[1]
+                        %span Hours
+                      %li.minutes
+                        %label=diff_time[2]
+                        %span Mins
+                    - percent = get_current_status(todo.id, todo.department_id)
+                    .progress
+                      .value{style: "width: #{percent}%;"}
+                %span.todo-footer
+                  = todo.department_name
+.notification-box.border-style-1
+  .row
+    %span.panel-title{id: 'item_nofity_message'}
+      = image_tag 'message-md.png'
+      =t('dashboard.notifications.messages')
+  .row.panel-content
+    .row.item-content
+      / - @notifications_by_sender.each do |sender|
+      - index = 0
+      - cou = []
+      - notif_per_source_type(@notifications, 'Message').each do |notif|
+        - if !notif.source_owner.nil? and !cou.include? notif.source.owner.name
+          - cou << notif.source.owner.name
+          .col-md-2.col-sm-3.col-xs-3.text-center
+            %span.item-number
+              / = sender.count_message
+              - index = index + 1
+              = index
+          .col-md-10.col-sm-9.col-xs-9.no-h-padding
+            = link_to list_messages_path(role: current_user.role, list_type: 'received', notification_id: notif.id)  do
+              %span.item-description
+                = notif_sender_name(notif)
+:javascript
+  jQuery(document).ready(function() {
+    setInterval(function(){
+      jQuery('.time-counter').each(function(){
+        var days, hours, minutes;
+        days = jQuery(this).children('.days').children('label').text();
+        hours = jQuery(this).children('.hours').children('label').text();
+        minutes = jQuery(this).children('.minutes').children('label').text();
+        if (minutes == '-') return;
+
+        minutes--;
+        if(minutes < 0){
+          minutes = 59;
+          hours--;
+        }
+
+        if(hours < 0){
+          hours = 23;
+          days--;
+        }
+
+        jQuery(this).children('.days').children('label').text(days);
+        jQuery(this).children('.hours').children('label').text(hours);
+        jQuery(this).children('.minutes').children('label').text(minutes);
+
+      });
+    }, 1000*60);
+
+    jQuery(document).on('click', '#notify_records .record-item', function(){
+      jQuery.ajax({
+          url: '/approve_notify_department',
+          type: 'GET',
+          dataType: 'text',
+          data: {
+            id: jQuery(this).data('id')
+          },
+          success: function (data) {
+            jQuery('#notify_records').html(data);
+          },
+          error: function () {
+
+          }
+      });
+    });
+
+    jQuery(document).on('click', '#notificaion_next_department', function(){
+      jQuery.ajax({
+          url: '/approve_notify_section',
+          type: 'GET',
+          dataType: 'text',
+          data: {
+            id: jQuery(this).data('id'),
+            department_text: jQuery('#department_id option:selected').text(),
+            department: jQuery('#department_id').val()
+          },
+          success: function (data) {
+            jQuery('#notify_records').html(data);
+          },
+          error: function () {
+
+          }
+      });
+    });
+
+  });
+
+:javascript
+  jQuery(document).ready(function() {
+    jQuery(document).on('click', '#notificaion_send_approve', function(){
+      jQuery.ajax({
+          url: '/approve_notify',
+          type: 'GET',
+          dataType: 'text',
+          data: {
+            id: jQuery(this).data('id'),
+            department: jQuery(this).data('department'),
+            role: jQuery('#category_id').val()
+          },
+          success: function (data) {
+            jQuery('#notify_records').html(data);
+          },
+          error: function () {
+          }
+      });
+    });
+
+    jQuery(document).on('click', '#notificaion_decline', function(){
+      jQuery.ajax({
+          url: '/decline_notify',
+          type: 'GET',
+          dataType: 'text',
+          data: {
+            id: jQuery(this).data('id')
+          },
+          success: function (data) {
+            jQuery('#notify_records').html(data);
+          },
+          error: function () {
+          }
+      });
+    });
+
+    jQuery(document).on('click', '#notificaion_back', function(){
+      jQuery.ajax({
+          url: '/notify_list_section',
+          type: 'GET',
+          dataType: 'text',
+          data: {
+          },
+          success: function (data) {
+            jQuery('#notify_records').html(data);
+          },
+          error: function () {
+          }
+      });
+    });
+  });

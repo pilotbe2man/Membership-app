@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2 hidden-xs"></div>
+    <div class="col-xs-12 col-sm-8">
+      <div class="box-2">
+        <div class="btn-style-1 bx-title">
+          <h3 class="white-color text-center-imp"><%=t('pages.webinar.title')%></h3>
+          <div>
+            <p class="paragraph text-center white-color text-center-imp"><%=t('pages.webinar.date')%> <%= @schedule.datetime.strftime("%d-%m-%Y") %> | <%=t('pages.webinar.time')%> <%= @schedule.datetime.strftime("%H: %M") %></p>
+          </div>
+        </div>
+        <div class="bx-container">
+          <div class="boxer text-left">
+            <h3 class="pink-color text-center gray-color" style="text-align: center;">
+              <b><%=t('pages.webinar.description')%></b>
+            </h3>
+            <ul class="right-symbol">
+              <li>
+                <%=t('pages.webinar.para1')%>
+              </li>
+              <li>
+                <%=t('pages.webinar.para2')%>
+              </li>
+              <li>
+                <%=t('pages.webinar.para3', daycare: @meeting_user_daycare)%>
+              </li>
+              <li>
+                <%=t('pages.webinar.para4', daycare: @meeting_user_daycare)%>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="form-fields">              
+              <div class="row">
+                <div class="col-xs-12">
+                  <p class="paragraph text-center-imp gray-color"><%=t('pages.webinar.para5')%></p>
+                </div>
+              </div>
+          </div>
+          <br>
+          <br>
+<!--           <p class="paragraph text-center-imp gray-color"><hr></p>
+          <div class="social-auth">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <a class="btn btn-block btn-social btn-facebook">
+                  <span class="fa fa-facebook"></span> Sign in with Facebook
+                </a>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <a class="btn btn-block btn-social btn-google">
+                  <span class="fa fa-google"></span> Sign in with Google
+                </a>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2 hidden-xs"></div>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+= content_for :title, t('illnesses.illness')
+- content_for :page_title, t('illnesses.illness')
+.illness-dash-container
+  .container
+    .row.content-main
+      .col-md-12
+        %h4.option-title= t('illnesses.labels.basic_filter')
+        .row{data:{step: 2, intro: t("guideline.worker.illness_view_depart.step2.content")}}
+          .col-md-4.col-sm-4
+            .form-group{data:{step: 1, intro: t("guideline.worker.illness_view_depart.step1.content")}}
+              = label_tag :department, t('illnesses.labels.select_department')
+              .form-dc-select
+                = select_tag :department_id, options_from_collection_for_select(current_user.daycare.departments, 'id', 'name'), class: 'form-control', required: true, prompt: t('illnesses.labels.department')
+          .col-md-4.col-sm-4
+            .form-group
+              = label_tag :start_date, t('form_labels.start_date')
+              = text_field_tag :start_date, params['start_date'], class: 'datepicker form-control datetime-input'
+
+          .col-md-4.col-sm-4
+            .form-group
+              = label_tag :end_date, t('form_labels.end_date')
+              = text_field_tag :end_date, params['end_date'], class: 'datepicker form-control datetime-input'
+        .row
+          .col-md-4.col-md-offset-8.col-sm-4.col-sm-offset-8.form-buttons.filter-buttons.received.centralize
+            = link_to t('form_labels.apply_filter'), '#', class: 'btn btn-lightred', data:{step: 3, intro: t("guideline.worker.illness_view_depart.step3.content")}
+      .row
+        .col-md-12.filtered-contents
+          .row.filtered-item
+            .row.filtered-item-info
+              .col-md-6.col-sm-8.col-xs-9
+                29/11/2016 @ 10:17:40 AM
+              .col-md-6.col-sm-4.col-xs-3
+                %a.print-record-btn{href: '#', 'data-target_record': "#health-record-8"} 
+                  %span.pull-right{data:{step: 5, intro: t("guideline.worker.illness_view_depart.step5.content")}}= t('form_labels.print')
+                %a{href: "mailto:#{current_user.email}"}
+                  %span.pull-right{:style => 'margin-right: 15px;'} Email
+            .filtered-item-content
+              .row.filtered-item-preview.expandable{'data-health_record_id': 8, data:{step: 4, intro: t("guideline.worker.illness_view_depart.step4.content")}}
+                %table.information-block 
+                  %tr
+                    %td.options= t('illnesses.labels.department')
+                    %td 1 to 2 years old
+                  %tr
+                    %td.options= t('illnesses.labels.reporting_date')
+                    %td 29/11/2016
+              #health-record-8.row.filtered-item-complete-view
+                .panel.panel-info
+                  .panel-heading
+                    29/11/2016 : Alice
+                  .panel-body
+                    %dl
+                      %dt Reporting Date
+                      %dd 29/11/2016
+                      %hr/
+                      %dt Name
+                      %dd Bale
+                      %hr/
+                      %dt Age
+                      %dd 0
+                      %hr/
+                      %dt Birthday
+                      %dd 08/11/2016
+                      %hr/
+                      %dt Department
+                      %dd 1 to 2 years old
+                      %hr/
+                      %dt Daycare
+                      %dd Daycare-Test
+                      %hr/
+                      %dt Illness
+                      %dd HIV
+                      %hr/
+                      %dt Date when the symptoms started showing
+                      %dd 24/11/2016
+                      %hr/
+                      %dt Date when the symptoms stopped showing
+                      %dd 29/11/2016
+                      %hr/
+                      %dt Symptoms
+                      %dd Symptoms - 1-HIV, Symptoms - Second-HIV
+                      %hr/
+:javascript
+  jQuery(document).ready(function() {
+    $('#link_dashboard_guide').on('click', function(){
+      healthChildcare.guideline.introGoToStep('dash', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+    });       
+    healthChildcare.guideline.introGoToStep('dash', "#{t('form_labels.next')}", "#{t('form_labels.back')}", "#{t('form_labels.intro_done')}", "#{t('form_labels.intro_skip')}");
+  });              

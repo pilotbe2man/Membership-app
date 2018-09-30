@@ -1,0 +1,76 @@
+= content_for :title, 'Permission'
+= content_for :breadcrumb, 'Permission'
+
+.twelvecol
+  .page-header
+    = link_to option_admin_permissions_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Edit Permission" do
+      %i.icon-pencil
+    = link_to reset_admin_permissions_path, :class => "btn btn-blue btn-large", "data-placement" => "bottom", "data-toggle" => "tooltip", title: "Reset Permission", data: { confirm: 'Do you want to reset all permissions?' } do
+      %i.icon-remove
+    %h2.widget.widget-header Default Permissions
+  .widget.widget-content.row
+    .table-responsive
+      %table#permission_list.table.table-bordered.table-hover
+        %thead
+          %tr
+            %th Category
+            %th Group Type
+            %th Group Level
+            %th Available Access
+        %tbody
+          - @permissions.each_with_index do |permission, index|
+            %tr{id: "tr_#{index}"}
+              %td{id: "td_1_#{index}"}
+                - if ['partner_certificate', 'partner_daycare'].include? permission.sub_type
+                  ="Partner"
+                - else
+                  ="Daycare"
+              %td{id: "td_2_#{index}"}
+                =permission.sub_type_label unless  permission.sub_type == 'manager_chain'
+              %td{id: "td_3_#{index}"}
+                =permission.member_type.capitalize
+              %td{style: 'text-align: left;', id: "td_4_#{index}"}
+                =permission.feature_label
+
+:javascript
+  jQuery(document).ready(function() {
+    var total_row = $('#permission_list tr').length - 1;
+    var prev_td = '';
+    for(var i = 0; i < total_row; i++){
+      if(prev_td == $('#td_1_' + i).html().trim()){        
+        prev_td = $('#td_1_' + i).html().trim();
+        $('#td_1_' + i).html('');
+      } else {
+        prev_td = $('#td_1_' + i).html().trim();
+      }      
+    }
+
+    for(var i = 0; i < total_row; i++){
+      if(prev_td == $('#td_2_' + i).html().trim()){        
+        prev_td = $('#td_2_' + i).html().trim();
+        $('#td_2_' + i).html('');
+      } else {
+        prev_td = $('#td_2_' + i).html().trim();
+      }      
+    }
+
+    for(var i = 0; i < total_row; i++){
+      if(prev_td == $('#td_3_' + i).html().trim()){        
+        prev_td = $('#td_3_' + i).html().trim();
+        $('#td_3_' + i).html('');
+      } else {
+        $('#tr_'+i).css('background', '#eee');
+        prev_td = $('#td_3_' + i).html().trim();
+      }      
+    }
+
+    for(var i = 0; i < total_row; i++){
+      if(prev_td == $('#td_4_' + i).html().trim()){        
+        prev_td = $('#td_4_' + i).html().trim();
+        $('#td_4_' + i).html('');
+      } else {
+        prev_td = $('#td_4_' + i).html().trim();
+      }      
+    }
+
+  });
